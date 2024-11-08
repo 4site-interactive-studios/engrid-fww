@@ -1,16 +1,19 @@
 // The most broadly used CSS Custom Properties for quick theming.
 // Uncomment to use and reference engrid-scrips SASS files for more CSS Custom Properties.
 // All CSS Custom Properties should be scoped to the theme using CSS Data Attributes.
-[data-engrid-theme="organizational-name"] {
+[data-engrid-theme="fww"] {
+  --engrid__page_background-color: #0057b8;
+  --error__color: #f24235;
+  
   // TYPOGRAPHY DEFAULT
-  // --default_font-family: var(--native-fonts__sans-serif);
+  --default_font-family: "Graphik", "Arial", "sans-serif";
   // --default_color: initial;
   // --default_font-size: var(--root_font-size);
   // --default_font-weight: initial;
   // --default_line-height: initial;
 
   // TYPOGRAPHY H1
-  // --h1_font-family: var(--default_font-family);
+  --h1_font-family: "GraphikBlack", "Arial Black", "sans-serif";
   // --h1_color: initial;
   // --h1_font-size: calc(var(--root_font-size) * var(--scale-up_160pct));
   // --h1_font-weight: initial;
@@ -56,23 +59,23 @@
 
   // TYPOGRAPHY BUTTON
   // --button_font-family: var(--default_font-family);
-  // --button_color: var(--color_white);
+  --button_color: #000000;
   // --button_font-size: var(--root_font-size);
   // --button_font-weight: initial;
   // --button_line-height: initial;
-  // --button_background-color: #535b61;
-  // --button_border-width: 1px;
-  // --button_border-color: var(--color_black);
+  --button_background-color: #ffffff;
+  --button_border-width: 1px;
+  --button_border-color: #000000;
   // --button_border-radius: 6px;
 
   // TYPOGRAPHY BUTTON:HOVER
-  // --button_color_hover: var(--button_color);
-  // --button_background-color_hover: var(--color_black);
+  --button_color_hover: #000000;
+  --button_background-color_hover: #ffd600;
   // --button_border-color_hover: var(--button_background-color_hover);
 
   // TYPOGRAPHY BUTTON:SELECTED
-  // --button_color_checked: var(--button_color_hover);
-  // --button_background-color_checked: var(--button_background-color_hover);
+  --button_color_checked: #000000;
+  --button_background-color_checked: #ffe643;
   // --button_border-color_checked: var(--button_border-color_hover);
 
   // DONATION PAGE
@@ -84,7 +87,7 @@
 }
 
 /* Add your custom theme styles here */
-[data-engrid-theme="organizational-name"] {
+[data-engrid-theme="fww"] {
   @mixin until-mobile-l {
     // STYLES
   }

@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, August 20, 2024 @ 14:43:59 ET
- *  By: fernando
+ *  Date: Friday, November 8, 2024 @ 16:13:49 ET
+ *  By: bryancasler
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
  *
@@ -7638,6 +7638,43 @@ body[data-engrid-debug]:before{
 
 #en__pagebuilder video[data-src]{
   background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48cGF0aCBmaWxsPSIjY2NjIiBkPSJNMCAwaDQwMHYzMDBIMHoiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIyNiIgZmlsbD0iIzMzMyI+TGF6eSBMb2FkZWQgVmlkZW88L3RleHQ+PC9zdmc+);
+}
+@font-face{
+  font-display:swap;
+  font-family:Graphik;
+  src:url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Regular-Web.woff);
+}
+@font-face{
+  font-display:swap;
+  font-family:GraphikBlack;
+  src:url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Black-Web.woff);
+}
+@font-face{
+  font-display:swap;
+  font-family:GraphikSemiBold;
+  src:url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff);
+}
+@font-face{
+  font-display:swap;
+  font-family:Graphik Web;
+  font-stretch:normal;
+  font-style:normal;
+  font-weight:800;
+  src:url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Black-Web.woff2) format("woff2"), url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Black-Web.woff) format("woff");
+}
+[data-engrid-theme=fww]{
+  --engrid__page_background-color:#0057b8;
+  --error__color:#f24235;
+  --default_font-family:"Graphik", "Arial", "sans-serif";
+  --h1_font-family:"GraphikBlack", "Arial Black", "sans-serif";
+  --button_color:#000;
+  --button_background-color:#fff;
+  --button_border-width:1px;
+  --button_border-color:#000;
+  --button_color_hover:#000;
+  --button_background-color_hover:#ffd600;
+  --button_color_checked:#000;
+  --button_background-color_checked:#ffe643;
 }
 body{
   opacity:1;
