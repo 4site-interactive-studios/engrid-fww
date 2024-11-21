@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, November 8, 2024 @ 16:13:49 ET
- *  By: bryancasler
+ *  Date: Thursday, November 21, 2024 @ 01:05:28 ET
+ *  By: michael
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
  *
@@ -7672,9 +7672,74 @@ body[data-engrid-debug]:before{
   --button_border-width:1px;
   --button_border-color:#000;
   --button_color_hover:#000;
-  --button_background-color_hover:#ffd600;
+  --button_background-color_hover:#fff6bd;
   --button_color_checked:#000;
   --button_background-color_checked:#ffe643;
+  --give-monthly-donation-amount-appended-label:"/mo";
+  --recurring-frequency__button_count:2;
+  --radio_font-family:var(--h1_font-family);
+}
+[data-engrid-theme=fww] .body-headerOutside{
+  background-color:#fff;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio{
+  display:grid !important;
+  grid-template-columns:repeat(3, 160px);
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item{
+  display:grid !important;
+  grid-template-columns:repeat(3, 160px);
+  margin:0 !important;
+  padding:0 !important;
+  width:calc(50% - .5rem);
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item input{
+  display:none;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item label{
+  border:2px solid #000 !important;
+  justify-content:center;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item label:before{
+  display:none;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:first-child label,[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:nth-child(2) label,[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:nth-child(3) label{
+  border-bottom:none !important;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:first-child label,[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:nth-child(2) label,[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:nth-child(4) label,[data-engrid-theme=fww] .en__field--donationAmt .en__field__element--radio .en__field__item:nth-child(5) label{
+  border-right:none !important;
+}
+[data-engrid-theme=fww] .en__field--recurrfreq input.en__field__input--radio:checked+label{
+  background-color:var(--button_background-color_checked);
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item{
+  padding:0 !important;
+  width:calc(50% - .5rem);
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item:first-child label{
+  border-radius:100px 0 0 100px !important;
+  border-right-width:1px;
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item:nth-child(2) label{
+  border-left-width:1px;
+  border-radius:0 100px 100px 0 !important;
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item label{
+  border:2px solid #000;
+  font-size:14px;
+  font-weight:600;
+  justify-content:center;
+  padding:10px;
+  text-transform:uppercase;
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item label:before{
+  display:none;
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item label:hover{
+  background-color:var(--button_background-color_hover);
+}
+[data-engrid-theme=fww] .en__field--recurrfreq .en__field__item input{
+  display:none;
 }
 body{
   opacity:1;

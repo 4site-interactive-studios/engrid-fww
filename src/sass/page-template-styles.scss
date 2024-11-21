@@ -70,7 +70,7 @@
 
   // TYPOGRAPHY BUTTON:HOVER
   --button_color_hover: #000000;
-  --button_background-color_hover: #ffd600;
+  --button_background-color_hover: #FFF6BD;
   // --button_border-color_hover: var(--button_background-color_hover);
 
   // TYPOGRAPHY BUTTON:SELECTED
@@ -79,11 +79,13 @@
   // --button_border-color_checked: var(--button_border-color_hover);
 
   // DONATION PAGE
-  // --give-monthly-donation-amount-appended-label: "/mo";
+  --give-monthly-donation-amount-appended-label: "/mo";
   // --give-annual-donation-amount-appended-label: "/yr";
-  // --recurring-frequency__button_count: 4;
+  --recurring-frequency__button_count: 2;
   // --donation-amount__button_count: 4;
   // --give-by-select__button_count: 4;
+
+  --radio_font-family: var(--h1_font-family);
 }
 
 /* Add your custom theme styles here */
@@ -121,6 +123,87 @@
   &[data-engrid-layout="centerright1col"] {
     @media screen and (max-width: $centerright1col_content-column_min-width) {
       @include simplified-header;
+    }
+  }
+}
+
+[data-engrid-theme="fww"] {
+  .body-headerOutside {
+    background-color: white;
+  }
+  .en__field--donationAmt {
+    .en__field__element--radio {
+      display: grid !important;
+      grid-template-columns: repeat(3, 160px);
+
+      .en__field__item {
+        display: grid !important;
+        grid-template-columns: repeat(3, 160px);
+        padding: 0 !important;
+        width: calc(50% - .5rem);
+        margin: 0 !important;
+
+        input {
+          display: none;
+        }
+        label {
+          justify-content: center;
+          border: 2px solid black !important;
+          &:before {
+            display: none;
+          }
+        }
+
+        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+          label {
+            border-bottom: none !important;
+          }
+        }
+        &:nth-child(1), &:nth-child(2), &:nth-child(4), &:nth-child(5) {
+          label {
+            border-right: none !important;
+          }
+        }
+      }
+    }
+  }
+  .en__field--recurrfreq {
+    input.en__field__input--radio:checked + label {
+      background-color: var(--button_background-color_checked);
+    }
+    .en__field__item {
+      width: calc(50% - .5rem);
+      padding: 0 !important;
+      &:nth-child(1) {
+        label {
+          border-radius: 100px 0px 0px 100px !important;
+          border-right-width: 1px;
+        }
+      }
+      &:nth-child(2) {
+        label {
+          border-radius: 0px 100px 100px 0px !important;
+          border-left-width: 1px;
+        }
+      }
+      
+      label {
+        border: 2px solid #000000;
+        text-transform: uppercase;
+        justify-content: center;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        &::before {
+          display: none;
+        }
+        &:hover {
+          background-color: var(--button_background-color_hover);
+        }
+      }
+      input {
+        display: none;
+      }
     }
   }
 }
