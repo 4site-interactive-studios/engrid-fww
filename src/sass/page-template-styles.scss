@@ -58,7 +58,7 @@
   // --input_box-shadow_hover: --input_box-shadow;
 
   // TYPOGRAPHY BUTTON
-  // --button_font-family: var(--default_font-family);
+  --button_font-family: "GraphikBlack", "Arial Black", "sans-serif";
   --button_color: #000000;
   // --button_font-size: var(--root_font-size);
   // --button_font-weight: initial;
@@ -82,10 +82,25 @@
   --give-monthly-donation-amount-appended-label: "/mo";
   // --give-annual-donation-amount-appended-label: "/yr";
   --recurring-frequency__button_count: 2;
-  // --donation-amount__button_count: 4;
+  --donation-amount__button_count: 3;
   // --give-by-select__button_count: 4;
 
-  --radio_font-family: var(--h1_font-family);
+  --radio_font-family: "Graphik", "Arial", "sans-serif";
+  --recurring-frequency__button_background-color_hover: #FFF6BD;
+  --recurring-frequency__button_background-color_checked: #ffe643;
+  --donation-amount__button_background-color_checked: #ffe643;
+  --donation-amount__button_border-color_hover: #000000;
+  --donation-amount__button_border-color_checked: #000000;
+  --input__background-color: #ffffff;
+  --input_placeholder-font-weight: 600;
+  --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
+  --submit__button_background-color: #ffe643;
+  --submit__button_background-color_hover: #ffd600;
+  --submit__button_border-color_hover: #000000;
+  --submit__button_font-size: 21px;
+  --checkbox_font-size: 14px;
+  --strong_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
+  --p_font-size: 18px;
 }
 
 /* Add your custom theme styles here */
@@ -131,79 +146,107 @@
   .body-headerOutside {
     background-color: white;
   }
-  .en__field--donationAmt {
-    .en__field__element--radio {
-      display: grid !important;
-      grid-template-columns: repeat(3, 160px);
-
+  .en__field--recurrfreq {
+      label[for="en__field_transaction_recurrfreq"] {
+        display: none !important;
+      }
       .en__field__item {
-        display: grid !important;
-        grid-template-columns: repeat(3, 160px);
-        padding: 0 !important;
-        width: calc(50% - .5rem);
-        margin: 0 !important;
-
-        input {
-          display: none;
-        }
+        padding: 0!important;
         label {
-          justify-content: center;
-          border: 2px solid black !important;
-          &:before {
-            display: none;
+          border: 2px solid var(--button_border-color) !important;
+          text-transform: uppercase !important;
+          font-weight: 600 !important;
+        }
+        &:nth-child(1) {
+          label {
+            border-radius: 100px 0px 0px 100px !important;
+            border-right-width: 1px !important;
           }
         }
+        &:nth-child(2) {
+          label {
+            border-radius: 0px 100px 100px 0px !important;
+            border-left-width: 1px !important;
+          }
+        }
+      }
+  }
+  .en__field--donationAmt {
+    .en__field__item {
+      padding: 0 !important;
 
-        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-          label {
-            border-bottom: none !important;
-          }
+      label {
+        border-radius: 0 !important;
+        border-width: 2px !important;        
+      }
+
+      &.en__field__item--other {
+        input {
+          border-width: 1px 2px 2px 1px !important;          
+          border-style: solid !important;
+          border-color: var(--button_border-color);
+          height: 46px !important;
+          border-radius: 0 !important;
         }
-        &:nth-child(1), &:nth-child(2), &:nth-child(4), &:nth-child(5) {
-          label {
-            border-right: none !important;
-          }
+      }
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        label {
+          border-bottom-width: 1px !important;
+        }
+      }
+      &:nth-child(4), &:nth-child(5) {
+        label {
+          border-top-width: 1px !important;
+        }
+      }
+      &:nth-child(1), &:nth-child(2), &:nth-child(4), &:nth-child(5) {
+        label {
+          border-right-width: 1px !important;
+        }
+      }
+      &:nth-child(2), &:nth-child(3), &:nth-child(5) {
+        label {
+          border-left-width: 1px !important;
         }
       }
     }
   }
-  .en__field--recurrfreq {
-    input.en__field__input--radio:checked + label {
-      background-color: var(--button_background-color_checked);
+  .en__field--ccnumber, .en__field--ccexpire, .en__field--ccvv {
+    .en__field__input--vgs {
+      border-width: 0 0 1px 0 !important;
+      border-color: var(--button_border-color) !important;
+      border-radius: 0 !important;
+      background-color: var(--input__background-color) !important;
+      box-shadow: none !important;
     }
-    .en__field__item {
-      width: calc(50% - .5rem);
-      padding: 0 !important;
-      &:nth-child(1) {
-        label {
-          border-radius: 100px 0px 0px 100px !important;
-          border-right-width: 1px;
-        }
-      }
-      &:nth-child(2) {
-        label {
-          border-radius: 0px 100px 100px 0px !important;
-          border-left-width: 1px;
-        }
-      }
-      
-      label {
-        border: 2px solid #000000;
-        text-transform: uppercase;
-        justify-content: center;
-        padding: 10px;
-        font-weight: 600;
-        font-size: 14px;
-        &::before {
-          display: none;
-        }
-        &:hover {
-          background-color: var(--button_background-color_hover);
-        }
-      }
-      input {
-        display: none;
-      }
+  }
+  .en__field--firstName, .en__field--lastName, .en__field--emailAddress, .en__field--city, .en__field--postcode, .en__field--address1, .en__field--address2, .en__field--region, .en__field--country {
+    input, select {
+      border-width: 0 0 1px 0 !important;
+      border-color: var(--button_border-color) !important;
+      border-radius: 0 !important;
+      background-color: var(--input__background-color) !important;
+      box-shadow: none !important;
     }
+    label {
+      display: none !important;
+    }
+  }
+
+  .en__submit button {    
+    border-radius: 100px;
+    border-width: 2px !important
+  }
+
+  input::-webkit-input-placeholder  {
+    text-transform: uppercase;
+  }
+  h3 {
+    padding-left: 8px;
+    border-left: 4px solid #0057b8;
+  }
+  b, strong {
+    font-family: var(--strong_font-family);
   }
 }
