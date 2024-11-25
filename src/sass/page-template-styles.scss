@@ -22,7 +22,7 @@
   // TYPOGRAPHY P
   // --p_font-family: var(--default_font-family);
   // --p_color: initial;
-  // --p_font-size: var(--root_font-size);
+  --p_font-size: 18px;
   // --p_font-weight: initial;
   // --p_line-height: initial;
 
@@ -37,7 +37,7 @@
   // --a_text-decoration_hover: initial;
 
   // TYPOGRAPHY INPUT
-  // --input_font-family: var(--default_font-family);
+  --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
   // --input_color: #000000;
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
@@ -47,7 +47,9 @@
   // --input_border-color: #dfdfe1;
   // --input_border-radius: 6px;
   // --input_placeholder-color: var(--color_light-gray);
+  --input_placeholder-font-weight: 600;
   // --input_box-shadow: inset 0 2px 2px -1px rgba(74, 74, 104, 0.1);
+  --input__background-color: #ffffff;
 
   // TYPOGRAPHY INPUT:FOCUS
   // TYPOGRAPHY INPUT:HOVER
@@ -85,22 +87,34 @@
   --donation-amount__button_count: 3;
   // --give-by-select__button_count: 4;
 
-  --radio_font-family: "Graphik", "Arial", "sans-serif";
-  --recurring-frequency__button_background-color_hover: #FFF6BD;
-  --recurring-frequency__button_background-color_checked: #ffe643;
   --donation-amount__button_background-color_checked: #ffe643;
   --donation-amount__button_border-color_hover: #000000;
   --donation-amount__button_border-color_checked: #000000;
-  --input__background-color: #ffffff;
-  --input_placeholder-font-weight: 600;
-  --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
+
+  --radio_font-family: "Graphik", "Arial", "sans-serif";
+
+  --recurring-frequency__button_background-color_hover: #FFF6BD;
+  --recurring-frequency__button_background-color_checked: #ffe643;
+
   --submit__button_background-color: #ffe643;
   --submit__button_background-color_hover: #ffd600;
   --submit__button_border-color_hover: #000000;
   --submit__button_font-size: 21px;
+
   --checkbox_font-size: 14px;
-  --strong_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
-  --p_font-size: 18px;
+  // this is defined & used only within this stylesheet
+  --strong_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";  
+
+  --give-by-select__button_border-color_checked: #000000;
+  --give-by-select__button_border-color_hover: #000000;
+  --give-by-select__button_background-color_checked: #ffe643;
+
+  --engrid__content-footer_background-color: #ffffff;
+  --engrid__body-headerOutside_background-color: #ffffff;
+
+  --engrid__body_box-shadow: none;
+
+  --fields_spacing-block: 18px;
 }
 
 /* Add your custom theme styles here */
@@ -143,13 +157,43 @@
 }
 
 [data-engrid-theme="fww"] {
-  .body-headerOutside {
-    background-color: white;
+  
+  .en__field__item label {
+    outline: none !important;
   }
-  .en__field--recurrfreq {
-      label[for="en__field_transaction_recurrfreq"] {
-        display: none !important;
+
+  .content-footer {
+    grid-column: bc;
+    z-index: 3 !important;
+  }
+  .give-by-select .en__field__element--radio {
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    display: grid !important;
+    grid-template-columns: repeat(2, 50%);
+
+    .en__field__item {
+      padding: 0!important;
+
+      label {
+        border-radius: 0 !important;        
+        height: 56px!important;
+        border-width: 2px !important;
       }
+
+      &:nth-child(1) label {
+        border-width: 2px 1px 1px 2px !important;
+      }
+      &:nth-child(2) label {
+        border-width: 2px 2px 2px 1px !important;
+      }
+      &:nth-child(3) label {
+        border-width: 1px 2px 2px 2px !important;
+      }
+    }
+  }  
+  .en__field--recurrfreq {
       .en__field__item {
         padding: 0!important;
         label {
@@ -177,7 +221,8 @@
 
       label {
         border-radius: 0 !important;
-        border-width: 2px !important;        
+        border-width: 2px !important;   
+        outline: none !important;     
       }
 
       &.en__field__item--other {
@@ -229,9 +274,6 @@
       background-color: var(--input__background-color) !important;
       box-shadow: none !important;
     }
-    label {
-      display: none !important;
-    }
   }
 
   .en__submit button {    
@@ -249,4 +291,18 @@
   b, strong {
     font-family: var(--strong_font-family);
   }
+
+  .en__field__input--checkbox + .en__field__label::before {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border: 2px solid #878787;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius:0;
+  }  
 }
