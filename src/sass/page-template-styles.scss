@@ -257,8 +257,24 @@
       }
     }
   }
-  .en__field--ccnumber, .en__field--ccexpire, .en__field--ccvv {
-    .en__field__input--vgs {
+  
+  .en__field--ccnumber, 
+  .en__field--ccexpire, 
+  .en__field--ccvv, 
+  .en__field__input--vgs,
+  .en__field--bankRoutingNumber, 
+  .en__field--bankAccountNumber, 
+  .en__field--phoneNumber,
+  .en__field--firstName, 
+  .en__field--lastName, 
+  .en__field--emailAddress, 
+  .en__field--city, 
+  .en__field--postcode, 
+  .en__field--address1, 
+  .en__field--address2, 
+  .en__field--region, 
+  .en__field--country {
+    input, select, .en__field__input--vgs {
       border-width: 0 0 1px 0 !important;
       border-color: var(--button_border-color) !important;
       border-radius: 0 !important;
@@ -266,15 +282,7 @@
       box-shadow: none !important;
     }
   }
-  .en__field--firstName, .en__field--lastName, .en__field--emailAddress, .en__field--city, .en__field--postcode, .en__field--address1, .en__field--address2, .en__field--region, .en__field--country {
-    input, select {
-      border-width: 0 0 1px 0 !important;
-      border-color: var(--button_border-color) !important;
-      border-radius: 0 !important;
-      background-color: var(--input__background-color) !important;
-      box-shadow: none !important;
-    }
-  }
+  
 
   .en__submit button {    
     border-radius: 100px;
