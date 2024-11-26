@@ -2,7 +2,7 @@
 // Uncomment to use and reference engrid-scrips SASS files for more CSS Custom Properties.
 // All CSS Custom Properties should be scoped to the theme using CSS Data Attributes.
 [data-engrid-theme="fww"] {
-  --engrid__page_background-color: #0057b8;
+  --engrid__page_background-color: #ffffff;
   --error__color: #f24235;
   
   // TYPOGRAPHY DEFAULT
@@ -35,6 +35,8 @@
   // TYPOGRAPHY A:HOVER
   // --a_color_hover: var(--a_color);
   // --a_text-decoration_hover: initial;
+
+  --engrid__content_padding: 0px var(--spacing_lg);
 
   // TYPOGRAPHY INPUT
   --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
@@ -124,6 +126,20 @@
 
 [data-engrid-theme="fww"] {
   
+  /* Hide NPCA unused sections */
+  &#en__pagebuilder .page-alert,
+  &#en__pagebuilder .content-header,
+  &#en__pagebuilder .body-header,
+  &#en__pagebuilder .body-bannerOverlay,
+  &#en__pagebuilder .body-bottom,
+  &#en__pagebuilder .body-footer,
+  &#en__pagebuilder .body-footerOutside,
+  &#en__pagebuilder .content-footerSpacer,
+  &#en__pagebuilder .content-preFooter,
+  &#en__pagebuilder .page-backgroundImageOverlay{
+    display: none !important;
+  }
+
   .en__field__input{
     border-bottom: 1px solid #000000;
   }
@@ -139,7 +155,7 @@
     padding-left: calc(var(--fields_spacing-inline) + 2px);
     padding-right: calc(var(--fields_spacing-inline) + 2px);
 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 
       .en__field__item {
         --fields_spacing-block: 0;
@@ -325,33 +341,7 @@
         outline-offset: -1px;
       }     
     }
-  }  
-  
-  // .en__field--ccnumber, 
-  // .en__field--ccexpire, 
-  // .en__field--ccvv, 
-  // .en__field__input--vgs,
-  // .en__field--bankRoutingNumber, 
-  // .en__field--bankAccountNumber, 
-  // .en__field--phoneNumber,
-  // .en__field--firstName, 
-  // .en__field--lastName, 
-  // .en__field--emailAddress, 
-  // .en__field--city, 
-  // .en__field--postcode, 
-  // .en__field--address1, 
-  // .en__field--address2, 
-  // .en__field--region, 
-  // .en__field--country {
-  //   input, select, .en__field__input--vgs {
-  //     border-width: 0 0 1px 0 !important;
-  //     border-color: var(--button_border-color) !important;
-  //     border-radius: 0 !important;
-  //     background-color: var(--input__background-color) !important;
-  //     box-shadow: none !important;
-  //   }
-  // }
-  
+  }
 
   .en__submit button {    
     border-radius: 100px;
@@ -369,23 +359,10 @@
     padding-left: 8px;
     border-left: 4px solid #0057b8;
   }
+
   b, strong {
     font-family: var(--strong_font-family);
   }
-
-  // .en__field__input--checkbox + .en__field__label::before {
-  //   display: inline-flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   width: 20px;
-  //   height: 20px;
-  //   text-align: center;
-  //   border: 2px solid #878787;
-  //   margin-right: 10px;
-  //   vertical-align: middle;
-  //   cursor: pointer;
-  //   border-radius:0;
-  // }  
 
   .live-variable-frequency{
     text-transform: capitalize;
@@ -394,5 +371,31 @@
   .content-footer {
     grid-column: bc;
     z-index: 3 !important;
+  }
+
+  @media screen and (min-width: 1023px) {
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage {
+        grid-column:rpc/pc
+    }
+
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage figure.media-with-attribution,
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage:before {
+        background-position: 50%!important;
+        left: 550px;
+        right: 0;
+        width: calc(100% - 550px)
+    }
+
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage {
+        grid-column: pc/lpc
+    }
+
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage figure.media-with-attribution,
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage:before {
+        background-position: 50%!important;
+        left: 0;
+        right: 550px;
+        width: calc(100% - 550px)
+    }
   }
 }
