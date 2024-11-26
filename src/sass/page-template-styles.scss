@@ -42,13 +42,13 @@
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
   // --input_line-height: initial;
-  // --input_background-color: #fafafa;
-  // --input_border-width: 1px;
+  --input_background-color: transparent;
+  --input_border-width: 0px;
   // --input_border-color: #dfdfe1;
-  // --input_border-radius: 6px;
-  // --input_placeholder-color: var(--color_light-gray);
+  --input_border-radius: 0px;
+  --input_placeholder-color: #7a7c7a;
   --input_placeholder-font-weight: 600;
-  // --input_box-shadow: inset 0 2px 2px -1px rgba(74, 74, 104, 0.1);
+  --input_box-shadow: inset none;
   --input__background-color: #ffffff;
 
   // TYPOGRAPHY INPUT:FOCUS
@@ -114,14 +114,20 @@
 
   --engrid__body_box-shadow: none;
 
-  --fields_spacing-block: 18px;
+  --fields_spacing-block: 6px;
+
+  --checkbox_border-width: 2px;
+  --checkbox_border-color: #878787;
+  --checkbox_border-color_hover: #878787;
+  --checkbox_border-color_checked: #ffdd00;
 }
 
 [data-engrid-theme="fww"] {
   
-  // .en__field__item label {
-  //   outline: none !important;
-  // }
+  .en__field__input{
+    border-bottom: 1px solid #000000;
+  }
+
   .en__field--recurrfreq {
     --recurring-frequency__button_border-width: 0;
     --recurring-frequency__button_border-radius: 0;
@@ -133,14 +139,16 @@
     padding-left: calc(var(--fields_spacing-inline) + 2px);
     padding-right: calc(var(--fields_spacing-inline) + 2px);
 
+    margin-bottom: 20px;
+
       .en__field__item {
         --fields_spacing-block: 0;
         --fields_spacing-inline: 0;
 
-
         label {
           outline: 2px solid #000;
           outline-offset: -1px;
+          min-height: 43px;
         }
 
         &:first-child {
@@ -293,7 +301,7 @@
       min-height: 40.73px;
 
       img{
-        height: 20px !important;
+        height: 19px !important;
         width: auto !important;
         margin: 0;
 
@@ -319,30 +327,30 @@
     }
   }  
   
-  .en__field--ccnumber, 
-  .en__field--ccexpire, 
-  .en__field--ccvv, 
-  .en__field__input--vgs,
-  .en__field--bankRoutingNumber, 
-  .en__field--bankAccountNumber, 
-  .en__field--phoneNumber,
-  .en__field--firstName, 
-  .en__field--lastName, 
-  .en__field--emailAddress, 
-  .en__field--city, 
-  .en__field--postcode, 
-  .en__field--address1, 
-  .en__field--address2, 
-  .en__field--region, 
-  .en__field--country {
-    input, select, .en__field__input--vgs {
-      border-width: 0 0 1px 0 !important;
-      border-color: var(--button_border-color) !important;
-      border-radius: 0 !important;
-      background-color: var(--input__background-color) !important;
-      box-shadow: none !important;
-    }
-  }
+  // .en__field--ccnumber, 
+  // .en__field--ccexpire, 
+  // .en__field--ccvv, 
+  // .en__field__input--vgs,
+  // .en__field--bankRoutingNumber, 
+  // .en__field--bankAccountNumber, 
+  // .en__field--phoneNumber,
+  // .en__field--firstName, 
+  // .en__field--lastName, 
+  // .en__field--emailAddress, 
+  // .en__field--city, 
+  // .en__field--postcode, 
+  // .en__field--address1, 
+  // .en__field--address2, 
+  // .en__field--region, 
+  // .en__field--country {
+  //   input, select, .en__field__input--vgs {
+  //     border-width: 0 0 1px 0 !important;
+  //     border-color: var(--button_border-color) !important;
+  //     border-radius: 0 !important;
+  //     background-color: var(--input__background-color) !important;
+  //     box-shadow: none !important;
+  //   }
+  // }
   
 
   .en__submit button {    
@@ -350,9 +358,13 @@
     border-width: 2px !important
   }
 
-  input::-webkit-input-placeholder  {
+  ::-webkit-input-placeholder,
+  ::placeholder,
+  :-ms-input-placeholder,
+  ::-ms-input-placeholder{
     text-transform: uppercase;
   }
+
   h3 {
     padding-left: 8px;
     border-left: 4px solid #0057b8;
@@ -361,19 +373,19 @@
     font-family: var(--strong_font-family);
   }
 
-  .en__field__input--checkbox + .en__field__label::before {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    border: 2px solid #878787;
-    margin-right: 10px;
-    vertical-align: middle;
-    cursor: pointer;
-    border-radius:0;
-  }  
+  // .en__field__input--checkbox + .en__field__label::before {
+  //   display: inline-flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 20px;
+  //   height: 20px;
+  //   text-align: center;
+  //   border: 2px solid #878787;
+  //   margin-right: 10px;
+  //   vertical-align: middle;
+  //   cursor: pointer;
+  //   border-radius:0;
+  // }  
 
   .live-variable-frequency{
     text-transform: capitalize;
