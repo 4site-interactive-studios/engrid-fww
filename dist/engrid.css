@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, November 26, 2024 @ 00:25:33 ET
+ *  Date: Tuesday, November 26, 2024 @ 01:31:57 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
@@ -7905,15 +7905,28 @@ body[data-engrid-debug]:before{
   outline-offset:-1px;
   white-space:nowrap;
 }
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__item label:after{
+  font-size:var(--donation-amount__button_font-size) !important;
+}
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item input{
   --donation-amount__button_border-width:0;
-  padding-bottom:1.05ch;
-  padding-top:1.05ch;
 }
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other{
   --donation-amount__flex-grow:1;
+  position:relative;
+}
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other:has(input:not(:placeholder-shown)):before{
+  content:attr(data-currency-symbol);
+  font-family:var(--donation-amount__button_font-family);
+  font-size:var(--donation-amount__button_font-size);
+  font-weight:var(--donation-amount__button_font-weight);
+  left:calc(-42px + 50%);
+  position:absolute;
+  top:10px;
 }
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other input{
+  font-family:var(--donation-amount__button_font-family);
+  font-size:var(--donation-amount__button_font-size);
   line-height:normal;
   outline:2px solid #000;
   outline-offset:-1px;

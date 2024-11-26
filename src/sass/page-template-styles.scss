@@ -312,22 +312,39 @@
         outline: 2px solid #000; 
         outline-offset: -1px;
         white-space: nowrap; 
+
+        &:after{
+          font-size: var(--donation-amount__button_font-size) !important;
+        }
       }
 
       input{
         --donation-amount__button_border-width: 0;
-        padding-top: 1.05ch;
-        padding-bottom: 1.05ch;
+        // padding-top: 1.05ch;
+        // padding-bottom: 1.05ch;
       }
 
       &.en__field__item--other {
         --donation-amount__flex-grow: 1;
+        position: relative;
+
+        &:has(input:not(:placeholder-shown)):before {
+          content: attr(data-currency-symbol);
+          left: calc((-84px / 2) + 50%); //calc(-10px + 50% - 26px);
+          position: absolute;
+          top: 10px;
+          font-family: var(--donation-amount__button_font-family);
+          font-size: var(--donation-amount__button_font-size);
+          font-weight: var(--donation-amount__button_font-weight);
+        }
 
         input {
           line-height: normal;
           outline: 2px solid #000000;
           outline-offset: -1px;
           text-align: center;
+          font-family: var(--donation-amount__button_font-family);
+          font-size: var(--donation-amount__button_font-size);
         }
       }
     }
