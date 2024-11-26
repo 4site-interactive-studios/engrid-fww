@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, November 26, 2024 @ 00:08:01 ET
+ *  Date: Tuesday, November 26, 2024 @ 00:25:33 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
@@ -7799,6 +7799,12 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww] .en__field__input{
   border-bottom:1px solid #000;
 }
+[data-engrid-theme=fww] .body-title h1{
+  font-size:35px;
+  font-weight:600;
+  line-height:1.25em;
+  margin-bottom:0;
+}
 [data-engrid-theme=fww] .en__field--recurrfreq{
   --recurring-frequency__button_border-width:0;
   --recurring-frequency__button_border-radius:0;
@@ -7982,6 +7988,23 @@ body[data-engrid-debug]:before{
   border-color:rgba(255,0,0,.102) !important;
   border-radius:0 !important;
   border-width:var(--fields_spacing-inline) !important;
+}
+@media screen and (min-width:620px) and (max-width:1022px){
+  [data-engrid-theme=fww][data-engrid-js-loading=finished]:before{
+    background:#0057b8;
+  }
+  [data-engrid-theme=fww] .body-headerOutside{
+    border-top:10px solid #000;
+    margin-top:2rem;
+    padding-top:1rem;
+  }
+  [data-engrid-theme=fww] #engrid{
+    margin:0 auto;
+    max-width:550px;
+  }
+  [data-engrid-theme=fww] .content-footer{
+    margin-bottom:3rem;
+  }
 }
 @media screen and (min-width:1023px){
   [data-engrid-theme=fww]:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage{

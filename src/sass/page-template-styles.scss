@@ -173,6 +173,13 @@
     border-bottom: 1px solid #000000;
   }
 
+  .body-title h1{
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1.25em;
+    margin-bottom: 0;
+  }
+
   .en__field--recurrfreq {
     --recurring-frequency__button_border-width: 0;
     --recurring-frequency__button_border-radius: 0;
@@ -416,6 +423,29 @@
       border-color: rgba(255, 0, 0, .102) !important;
       border-radius: 0px !important;
   }
+
+  @media screen and (min-width: 620px) and (max-width: 1022px) {
+    &[data-engrid-js-loading=finished]:before{
+      background: #0057b8;
+    }
+
+    .body-headerOutside{
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 10px solid #000000;
+    }
+
+    #engrid{
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .content-footer{
+      margin-bottom: 3rem;
+    }
+  }
+
+
 
   @media screen and (min-width: 1023px) {
     &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage {
