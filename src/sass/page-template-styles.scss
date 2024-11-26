@@ -161,6 +161,14 @@
     color: #000000;
   }
 
+  .en__component .en__field__error{
+    margin-bottom: 0.75rem;
+  }
+
+  [class*=validationFail] label{
+    display: none !important;
+  }
+
   .en__field__input{
     border-bottom: 1px solid #000000;
   }
