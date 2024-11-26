@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, November 25, 2024 @ 23:50:26 ET
+ *  Date: Tuesday, November 26, 2024 @ 00:08:01 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
@@ -18580,6 +18580,12 @@ const customScript = function (App) {
     const observer = new MutationObserver(() => updatePlaceholder(field));
     observer.observe(field, observerConfig);
   });
+
+  // Add placeholder to the Mobile Phone Field
+  let enFieldMobilePhone = document.querySelectorAll("input#en__field_supporter_phoneNumber2")[0];
+  if (enFieldMobilePhone) {
+    enFieldMobilePhone.placeholder = "Mobile / Phone (Optional)";
+  }
 };
 ;// CONCATENATED MODULE: ./src/index.ts
 //import { Options, App } from "@4site/engrid-scripts"; // Uses ENGrid via NPM

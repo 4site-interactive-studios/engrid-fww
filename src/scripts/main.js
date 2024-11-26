@@ -41,4 +41,12 @@ export const customScript = function (App) {
     const observer = new MutationObserver(() => updatePlaceholder(field));
     observer.observe(field, observerConfig);
   });
+
+  // Add placeholder to the Mobile Phone Field
+  let enFieldMobilePhone = document.querySelectorAll(
+    "input#en__field_supporter_phoneNumber2"
+  )[0];
+  if (enFieldMobilePhone) {
+    enFieldMobilePhone.placeholder = "Mobile / Phone (Optional)";
+  }
 };
