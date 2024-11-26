@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, November 25, 2024 @ 23:42:52 ET
+ *  Date: Monday, November 25, 2024 @ 23:50:26 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
@@ -18540,8 +18540,7 @@ const AppVersion = "0.20.1";
 // Version
 
 ;// CONCATENATED MODULE: ./src/scripts/main.js
-const customScript = function () {
-  console.log('ENGrid client scripts are executing');
+const customScript = function (App) {
   const observerConfig = {
     attributes: true,
     attributeFilter: ['placeholder', 'aria-required'],
@@ -18599,18 +18598,9 @@ const options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
-  /*
-  VGS: {
-    "transaction.ccnumber": {
-      css: {
-        border: "none"
-      }
-    }
-  },
-  */
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
-  onResize: () => console.log("Starter Theme Window Resized")
+  onResize: () => App.log("Starter Theme Window Resized")
 };
 new App(options);
 })();

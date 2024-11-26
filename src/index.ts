@@ -15,17 +15,8 @@ const options: Options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
-  /*
-  VGS: {
-    "transaction.ccnumber": {
-      css: {
-        border: "none"
-      }
-    }
-  },
-  */
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
-  onResize: () => console.log("Starter Theme Window Resized"),
+  onResize: () => App.log("Starter Theme Window Resized"),
 };
 new App(options);

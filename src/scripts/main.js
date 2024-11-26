@@ -1,6 +1,4 @@
-export const customScript = function () {
-  console.log('ENGrid client scripts are executing');
-
+export const customScript = function (App) {
   const observerConfig = { attributes: true, attributeFilter: ['placeholder', 'aria-required'], subtree: true };
 
   const updatePlaceholder = (field) => {
