@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, November 25, 2024 @ 22:44:22 ET
+ *  Date: Monday, November 25, 2024 @ 23:34:58 ET
  *  By: 4Site
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
@@ -18562,10 +18562,14 @@ const customScript = function () {
     }
   };
 
-  // Handle "Card Holder Name" specifically
+  // Set specific placeholders
   const creditCardField = document.querySelector('input[name="supporter.creditCardHolderName"]');
   if (creditCardField) {
     creditCardField.setAttribute('placeholder', 'Card Holder Name');
+  }
+  const accountHolderField = document.querySelector('input[name="supporter.NOT_TAGGED_79"]');
+  if (accountHolderField) {
+    accountHolderField.setAttribute('placeholder', "Account Holder's Name");
   }
 
   // Update required fields

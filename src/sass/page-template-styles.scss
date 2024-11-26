@@ -122,6 +122,9 @@
   --checkbox_border-color: #878787;
   --checkbox_border-color_hover: #878787;
   --checkbox_border-color_checked: #ffdd00;
+
+  --engrid__content-footer_background-color: #000000;
+  --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5) var(--spacing_lg);
 }
 
 [data-engrid-theme="fww"] {
@@ -138,6 +141,24 @@
   &#en__pagebuilder .content-preFooter,
   &#en__pagebuilder .page-backgroundImageOverlay{
     display: none !important;
+  }
+
+  &#en__pagebuilder #engrid{
+    width: calc(100% - 51px);
+  }
+
+  // Adds styling behind the page during aggressive overscrolling
+  &[data-engrid-loaded="true"]:before {
+      z-index: -99;
+      content: "";
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      background: linear-gradient(180deg, rgb(255, 255, 255) 50%, rgb(0, 0, 0) 50%);
+  }
+
+  [class*=validationFail] label{
+    color: #000000;
   }
 
   .en__field__input{
@@ -345,7 +366,8 @@
 
   .en__submit button {    
     border-radius: 100px;
-    border-width: 2px !important
+    border-width: 2px !important;
+    margin-bottom: 3rem;
   }
 
   ::-webkit-input-placeholder,
@@ -371,6 +393,20 @@
   .content-footer {
     grid-column: bc;
     z-index: 3 !important;
+    color: #ffffff;
+    line-height: 1rem;
+  }
+
+  /* Hides the Custom Supporter field that is added to the bottom of the page to track referrals */
+  &:not([data-engrid-debug]) #en__field_supporter_NOT_TAGGED_3{
+      display: none;
+  }
+
+  /* Styles the Custom Supporter field that is added to the bottom of the page to track referrals */
+  &[data-engrid-debug] #en__field_supporter_NOT_TAGGED_3{
+      border-width: var(--fields_spacing-inline) !important;
+      border-color: rgba(255, 0, 0, .102) !important;
+      border-radius: 0px !important;
   }
 
   @media screen and (min-width: 1023px) {

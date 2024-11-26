@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, November 25, 2024 @ 22:44:22 ET
+ *  Date: Monday, November 25, 2024 @ 23:34:58 ET
  *  By: 4Site
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
@@ -7714,9 +7714,25 @@ body[data-engrid-debug]:before{
   --checkbox_border-color:#878787;
   --checkbox_border-color_hover:#878787;
   --checkbox_border-color_checked:#fd0;
+  --engrid__content-footer_background-color:#000;
+  --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg);
 }
 [data-engrid-theme=fww]#en__pagebuilder .body-bannerOverlay,[data-engrid-theme=fww]#en__pagebuilder .body-bottom,[data-engrid-theme=fww]#en__pagebuilder .body-footer,[data-engrid-theme=fww]#en__pagebuilder .body-footerOutside,[data-engrid-theme=fww]#en__pagebuilder .body-header,[data-engrid-theme=fww]#en__pagebuilder .content-footerSpacer,[data-engrid-theme=fww]#en__pagebuilder .content-header,[data-engrid-theme=fww]#en__pagebuilder .content-preFooter,[data-engrid-theme=fww]#en__pagebuilder .page-alert,[data-engrid-theme=fww]#en__pagebuilder .page-backgroundImageOverlay{
   display:none !important;
+}
+[data-engrid-theme=fww]#en__pagebuilder #engrid{
+  width:calc(100% - 51px);
+}
+[data-engrid-theme=fww][data-engrid-loaded=true]:before{
+  background:linear-gradient(180deg, #fff 50%, #000 0);
+  content:"";
+  height:100vh;
+  position:fixed;
+  width:100vw;
+  z-index:-99;
+}
+[data-engrid-theme=fww] [class*=validationFail] label{
+  color:#000;
 }
 [data-engrid-theme=fww] .en__field__input{
   border-bottom:1px solid #000;
@@ -7876,6 +7892,7 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww] .en__submit button{
   border-radius:100px;
   border-width:2px !important;
+  margin-bottom:3rem;
 }
 [data-engrid-theme=fww] :-ms-input-placeholder,[data-engrid-theme=fww] ::-ms-input-placeholder,[data-engrid-theme=fww] ::-webkit-input-placeholder,[data-engrid-theme=fww] ::placeholder{
   text-transform:uppercase;
@@ -7891,8 +7908,18 @@ body[data-engrid-debug]:before{
   text-transform:capitalize;
 }
 [data-engrid-theme=fww] .content-footer{
+  color:#fff;
   grid-column:bc;
+  line-height:1rem;
   z-index:3 !important;
+}
+[data-engrid-theme=fww]:not([data-engrid-debug]) #en__field_supporter_NOT_TAGGED_3{
+  display:none;
+}
+[data-engrid-theme=fww][data-engrid-debug] #en__field_supporter_NOT_TAGGED_3{
+  border-color:rgba(255,0,0,.102) !important;
+  border-radius:0 !important;
+  border-width:var(--fields_spacing-inline) !important;
 }
 @media screen and (min-width:1023px){
   [data-engrid-theme=fww]:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage{

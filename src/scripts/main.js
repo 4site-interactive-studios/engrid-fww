@@ -23,10 +23,15 @@ export const customScript = function () {
     }
   };
 
-  // Handle "Card Holder Name" specifically
+  // Set specific placeholders
   const creditCardField = document.querySelector('input[name="supporter.creditCardHolderName"]');
   if (creditCardField) {
     creditCardField.setAttribute('placeholder', 'Card Holder Name');
+  }
+
+  const accountHolderField = document.querySelector('input[name="supporter.NOT_TAGGED_79"]');
+  if (accountHolderField) {
+    accountHolderField.setAttribute('placeholder', "Account Holder's Name");
   }
 
   // Update required fields
