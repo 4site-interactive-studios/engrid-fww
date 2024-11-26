@@ -148,7 +148,7 @@
   }
 
   // Adds styling behind the page during aggressive overscrolling
-  &[data-engrid-loaded="true"]:before {
+  &[data-engrid-js-loading="finished"]:before {
       z-index: -99;
       content: "";
       width: 100vw;
