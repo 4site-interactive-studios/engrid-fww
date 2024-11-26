@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, November 25, 2024 @ 20:12:32 ET
+ *  Date: Monday, November 25, 2024 @ 21:01:30 ET
  *  By: 4Site
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
@@ -7780,7 +7780,7 @@ body[data-engrid-debug]:before{
   --give-monthly-donation-amount-appended-label:"/ mo.";
   --give-quarterly-donation-amount-appended-label:"/ qtr.";
   --give-annual-donation-amount-appended-label:"/ yr.";
-  --donation-amount__button_padding:1ch 0;
+  --donation-amount__button_padding:12px 0;
 }
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item{
   --fields_spacing-block:0;
@@ -7826,7 +7826,7 @@ body[data-engrid-debug]:before{
   --give-by-select__button_border-radius:0;
   --give-by-select__button_text-transform:uppercase;
   --give-by-select__button_font-size:14px;
-  --give-by-select__button_padding:1ch 0;
+  --give-by-select__button_padding:12px 0;
   --give-by-select__button_line-height:20px;
 }
 [data-engrid-theme=fww] .give-by-select .en__field__element--radio .en__field__item{
