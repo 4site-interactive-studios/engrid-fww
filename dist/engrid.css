@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 17:19:47 ET
+ *  Date: Wednesday, November 27, 2024 @ 17:27:24 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.1
@@ -7703,6 +7703,7 @@ body[data-engrid-debug]:before{
 @font-face{
   font-display:swap;
   font-family:GraphikBlack;
+  font-weight:600;
   src:url(https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Black-Web.woff);
 }
 @font-face{
