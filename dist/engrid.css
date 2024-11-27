@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 12:49:50 ET
- *  By: michael
+ *  Date: Wednesday, November 27, 2024 @ 12:36:14 ET
+ *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
  *
@@ -7867,10 +7867,10 @@ body[data-engrid-debug]:before{
   [data-engrid-theme=fww][data-engrid-visible-frequency="4"] .en__field--recurrfreq .en__field__item:nth-child(3) label{
     --recurring-frequency__button_border-radius:0px 0px 0px 25px;
   }
-  [data-engrid-theme=fww][data-engrid-visible-frequency="4"] .en__field--recurrfreq .en__field__item:nth-child(4){
+  [data-engrid-theme=fww][data-engrid-visible-frequency="4"] .en__field--recurrfreq .en__field__item:nth-child(4n){
     padding-right:calc(.5rem - 1px);
   }
-  [data-engrid-theme=fww][data-engrid-visible-frequency="4"] .en__field--recurrfreq .en__field__item:nth-child(4) label{
+  [data-engrid-theme=fww][data-engrid-visible-frequency="4"] .en__field--recurrfreq .en__field__item:nth-child(4n) label{
     --recurring-frequency__button_border-radius:0px 0px 25px 0px;
   }
 }
@@ -7890,10 +7890,10 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item:first-child{
   padding-left:calc(.5rem + 1px) !important;
 }
-[data-engrid-theme=fww] .en__field--donationAmt .en__field__item:nth-child(3){
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__item:nth-child(3n){
   padding-right:calc(.5rem + 1px) !important;
 }
-[data-engrid-theme=fww] .en__field--donationAmt .en__field__item:nth-child(4){
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__item:nth-child(4n){
   padding-left:calc(.5rem + 1px) !important;
 }
 [data-engrid-theme=fww] .en__field--donationAmt .en__field__item:last-child{
@@ -7915,12 +7915,12 @@ body[data-engrid-debug]:before{
   --donation-amount__flex-grow:1;
   position:relative;
 }
-[data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other:has(input:not(:placeholder-shown)):before{
+[data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other:has(input:focus):before,[data-engrid-theme=fww] .en__field--donationAmt .en__field__item.en__field__item--other:has(input:not(:placeholder-shown)):before{
   content:attr(data-currency-symbol);
   font-family:var(--donation-amount__button_font-family);
   font-size:var(--donation-amount__button_font-size);
   font-weight:var(--donation-amount__button_font-weight);
-  left:calc(-42px + 50%);
+  left:calc(-43.5px + 50%);
   position:absolute;
   top:10px;
 }

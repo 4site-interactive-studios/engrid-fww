@@ -50,4 +50,54 @@ export const customScript = function (App) {
     enFieldMobilePhone.placeholder = "Mobile / Phone (Optional)";
   }
 
+  // Function to update placeholders dynamically
+function updatePlaceholders() {
+  const donationFields = document.querySelectorAll(
+    ".en__field--donationAmt .en__field__item"
+  );
+
+  donationFields.forEach((field, index) => {
+    const input = field.querySelector("input[name='transaction.donationAmt.other']");
+
+    if (input) {
+      const placeholder = index === 4 || index === 7 ? "Enter Other Amount" : "Other";
+
+      // Set initial placeholder
+      input.placeholder = placeholder;
+
+      // Use focusin to clear placeholder
+      input.addEventListener("focusin", function () {
+        this.placeholder = ""; // Always clear placeholder on focus
+      });
+
+      // Use focusout to restore placeholder only if value and visual content are empty
+      input.addEventListener("focusout", function () {
+        if (!this.value && isVisuallyEmpty(this)) {
+          this.placeholder = placeholder; // Restore only when value and pseudo-content are empty
+        }
+      });
+    }
+  });
+}
+
+// Helper function to check if input is visually empty
+function isVisuallyEmpty(input) {
+  // Check if the ::before pseudo-element has visible content
+  const beforeContent = window.getComputedStyle(input, "::before").getPropertyValue("content");
+  return beforeContent === 'none' || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
+}
+
+// Set up MutationObserver (same as before)
+const targetNode = document.querySelector(".en__field--donationAmt");
+if (targetNode) {
+  const observer = new MutationObserver(updatePlaceholders);
+
+  observer.observe(targetNode, {
+    childList: true,
+    subtree: true,
+  });
+
+  updatePlaceholders();
+}
+
 };
