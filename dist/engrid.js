@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 24:00:17 ET
+ *  Date: Wednesday, November 27, 2024 @ 10:49:14 ET
  *  By: michael
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
@@ -7872,7 +7872,7 @@ const ExitIntentOptionsDefaults = {
 
 class Loader {
   constructor() {
-    this.logger = new EngridLogger("Loader", "gold", "black", "🔁");
+    this.logger = new logger_EngridLogger("Loader", "gold", "black", "🔁");
     this.cssElement = document.querySelector('link[href*="engrid."][rel="stylesheet"]');
     this.jsElement = document.querySelector('script[src*="engrid."]');
   }
@@ -8044,9 +8044,9 @@ var dist = __webpack_require__(4386);
 ;// CONCATENATED MODULE: ../engrid/packages/scripts/dist/events/en-form.js
 
 
-class EnForm {
+class en_form_EnForm {
   constructor() {
-    this.logger = new EngridLogger("EnForm");
+    this.logger = new logger_EngridLogger("EnForm");
     this._onSubmit = new dist/* SignalDispatcher */.UD();
     this._onValidate = new dist/* SignalDispatcher */.UD();
     this._onError = new dist/* SignalDispatcher */.UD();
@@ -8056,10 +8056,10 @@ class EnForm {
     this.validatePromise = false;
   }
   static getInstance() {
-    if (!EnForm.instance) {
-      EnForm.instance = new EnForm();
+    if (!en_form_EnForm.instance) {
+      en_form_EnForm.instance = new en_form_EnForm();
     }
-    return EnForm.instance;
+    return en_form_EnForm.instance;
   }
   dispatchSubmit() {
     this._onSubmit.dispatch();
@@ -8839,7 +8839,7 @@ class ProcessingFees {
   constructor() {
     this._onFeeChange = new dist/* SimpleEventDispatcher */.IL();
     this._amount = DonationAmount.getInstance();
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._fee = 0;
     this._field = null;
     // console.log('%c Processing Fees Constructor', 'font-size: 30px; background-color: #000; color: #FF0');
@@ -8926,7 +8926,7 @@ class ProcessingFees {
 
 class RememberMeEvents {
   constructor() {
-    this.logger = new EngridLogger("RememberMeEvents");
+    this.logger = new logger_EngridLogger("RememberMeEvents");
     this._onLoad = new dist/* SimpleEventDispatcher */.IL();
     this._onClear = new dist/* SignalDispatcher */.UD();
     this.hasData = false;
@@ -9010,12 +9010,12 @@ class App extends engrid_ENGrid {
   constructor(options) {
     super();
     // Events
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._fees = ProcessingFees.getInstance();
     this._amount = DonationAmount.getInstance("transaction.donationAmt", "transaction.donationAmt.other");
     this._frequency = DonationFrequency.getInstance();
     this._country = Country.getInstance();
-    this.logger = new EngridLogger("App", "black", "white", "🍏");
+    this.logger = new logger_EngridLogger("App", "black", "white", "🍏");
     const loader = new Loader();
     this.options = Object.assign(Object.assign({}, OptionsDefaults), options);
     // Add Options to window
@@ -9314,7 +9314,7 @@ class App extends engrid_ENGrid {
     }
   }
   static log(message) {
-    const logger = new EngridLogger("Client", "brown", "aliceblue", "🍪");
+    const logger = new logger_EngridLogger("Client", "brown", "aliceblue", "🍪");
     logger.log(message);
   }
 }
@@ -9395,7 +9395,7 @@ class ApplePay {
     this.applePay = document.querySelector('.en__field__input.en__field__input--radio[value="applepay"]');
     this._amount = DonationAmount.getInstance();
     this._fees = ProcessingFees.getInstance();
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.checkApplePay();
   }
   checkApplePay() {
@@ -9566,7 +9566,7 @@ class A11y {
 
 class CapitalizeFields {
   constructor() {
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._form.onSubmit.subscribe(() => this.capitalizeFields("en__field_supporter_firstName", "en__field_supporter_lastName", "en__field_supporter_address1", "en__field_supporter_city"));
   }
   capitalizeFields(...fields) {
@@ -9621,7 +9621,7 @@ class AutoYear {
 
 class Autocomplete {
   constructor() {
-    this.logger = new EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
+    this.logger = new logger_EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
     this.autoCompleteField('[name="supporter.firstName"]', "given-name");
     this.autoCompleteField('[name="supporter.lastName"]', "family-name");
     this.autoCompleteField("#en__field_transaction_ccexpire", "cc-exp-month");
@@ -9657,8 +9657,8 @@ class Autocomplete {
 
 class Ecard {
   constructor() {
-    this._form = EnForm.getInstance();
-    this.logger = new EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
+    this._form = en_form_EnForm.getInstance();
+    this.logger = new logger_EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
     if (!this.shouldRun()) return;
     this._form.onValidate.subscribe(() => this.checkRecipientFields());
     const schedule = engrid_ENGrid.getUrlParameter("engrid_ecard.schedule");
@@ -9752,7 +9752,7 @@ class ClickToExpand {
 
 class Advocacy {
   constructor() {
-    this.logger = new EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
+    this.logger = new logger_EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
     if (!this.shoudRun()) return;
     this.setClickableLabels();
   }
@@ -9932,8 +9932,8 @@ class DataAttributes {
 
 class iFrame {
   constructor() {
-    this._form = EnForm.getInstance();
-    this.logger = new EngridLogger("iFrame", "brown", "gray", "📡");
+    this._form = en_form_EnForm.getInstance();
+    this.logger = new logger_EngridLogger("iFrame", "brown", "gray", "📡");
     if (this.inIframe()) {
       // Add the data-engrid-embedded attribute when inside an iFrame if it wasn't already added by a script in the Page Template
       engrid_ENGrid.setBodyData("embedded", "");
@@ -10188,7 +10188,7 @@ class iFrame {
 
 class InputHasValueAndFocus {
   constructor() {
-    this.logger = new EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
+    this.logger = new logger_EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
     this.formInputs = document.querySelectorAll(".en__field--text, .en__field--email:not(.en__field--checkbox), .en__field--telephone, .en__field--number, .en__field--textarea, .en__field--select, .en__field--checkbox");
     if (this.shouldRun()) {
       this.run();
@@ -10385,7 +10385,7 @@ class LiveVariables {
     this._amount = DonationAmount.getInstance();
     this._fees = ProcessingFees.getInstance();
     this._frequency = DonationFrequency.getInstance();
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.multiplier = 1 / 12;
     this.options = Object.assign(Object.assign({}, OptionsDefaults), options);
     this.submitLabel = ((_a = document.querySelector(".en__submit button")) === null || _a === void 0 ? void 0 : _a.innerHTML) || "Donate";
@@ -10518,13 +10518,13 @@ class LiveVariables {
 class UpsellLightbox {
   constructor() {
     this.overlay = document.createElement("div");
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._amount = DonationAmount.getInstance();
     this._fees = ProcessingFees.getInstance();
     this._frequency = DonationFrequency.getInstance();
     this._dataLayer = DataLayer.getInstance();
     this._suggestAmount = 0;
-    this.logger = new EngridLogger("UpsellLightbox", "black", "pink", "🪟");
+    this.logger = new logger_EngridLogger("UpsellLightbox", "black", "pink", "🪟");
     let options = "EngridUpsell" in window ? window.EngridUpsell : {};
     this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
     //Disable for "applepay" via Vantiv payment method. Adding it to the array like this so it persists
@@ -10859,7 +10859,7 @@ class UpsellCheckbox {
     this.oldAmount = 0;
     this.oldFrequency = "one-time";
     this.resetCheckbox = false;
-    this.logger = new EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
+    this.logger = new logger_EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
     let options = "EngridUpsell" in window ? window.EngridUpsell : {};
     this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
     if (this.options.upsellCheckbox === false) {
@@ -11202,7 +11202,7 @@ class ShowHideRadioCheckboxes {
     window.sessionStorage.setItem(`engrid_ShowHideRadioCheckboxesState`, JSON.stringify(state));
   }
   constructor(elements, classes) {
-    this.logger = new EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
+    this.logger = new logger_EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
     this.elements = document.getElementsByName(elements);
     this.classes = classes;
     this.createDataAttributes();
@@ -12558,12 +12558,12 @@ class NeverBounce {
     this.dateField = dateField;
     this.statusField = statusField;
     this.dateFormat = dateFormat;
-    this.form = EnForm.getInstance();
+    this.form = en_form_EnForm.getInstance();
     this.emailField = null;
     this.emailWrapper = document.querySelector(".en__field--emailAddress");
     this.nbDate = null;
     this.nbStatus = null;
-    this.logger = new EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
+    this.logger = new logger_EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
     this.shouldRun = true;
     this.nbLoaded = false;
     this.emailField = document.getElementById("en__field_supporter_emailAddress");
@@ -12787,13 +12787,13 @@ class NeverBounce {
 
 class FreshAddress {
   constructor() {
-    this.form = EnForm.getInstance();
+    this.form = en_form_EnForm.getInstance();
     this.emailField = null;
     this.emailWrapper = document.querySelector(".en__field--emailAddress");
     this.faDate = null;
     this.faStatus = null;
     this.faMessage = null;
-    this.logger = new EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
+    this.logger = new logger_EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
     this.shouldRun = true;
     this.options = engrid_ENGrid.getOption("FreshAddress");
     if (this.options === false || !window.FreshAddress) return;
@@ -13011,7 +13011,7 @@ class ProgressBar {
 const remember_me_tippy = (__webpack_require__(716)/* ["default"] */ .Ay);
 class RememberMe {
   constructor(options) {
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._events = RememberMeEvents.getInstance();
     this.iframe = null;
     this.remoteUrl = options.remoteUrl ? options.remoteUrl : null;
@@ -13330,7 +13330,7 @@ class RememberMe {
 class ShowIfAmount {
   constructor() {
     this._amount = DonationAmount.getInstance();
-    this.logger = new EngridLogger("ShowIfAmount", "yellow", "black", "👀");
+    this.logger = new logger_EngridLogger("ShowIfAmount", "yellow", "black", "👀");
     this._elements = document.querySelectorAll('[class*="showifamount"]');
     if (this._elements.length > 0) {
       this._amount.onAmountChange.subscribe(() => this.init());
@@ -13439,7 +13439,7 @@ class ShowIfAmount {
 
 class OtherAmount {
   constructor() {
-    this.logger = new EngridLogger("OtherAmount", "green", "black", "💰");
+    this.logger = new logger_EngridLogger("OtherAmount", "green", "black", "💰");
     this._amount = DonationAmount.getInstance();
     "focusin input".split(" ").forEach(e => {
       var _a;
@@ -13507,7 +13507,7 @@ class OtherAmount {
 /**
  * A better logger. It only works if debug is enabled.
  */
-class EngridLogger {
+class logger_EngridLogger {
   constructor(prefix, color, background, emoji) {
     this.prefix = "";
     this.color = "black";
@@ -13592,13 +13592,13 @@ class EngridLogger {
 class MinMaxAmount {
   constructor() {
     var _a, _b;
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._amount = DonationAmount.getInstance();
     this.minAmount = (_a = engrid_ENGrid.getOption("MinAmount")) !== null && _a !== void 0 ? _a : 1;
     this.maxAmount = (_b = engrid_ENGrid.getOption("MaxAmount")) !== null && _b !== void 0 ? _b : 100000;
     this.minAmountMessage = engrid_ENGrid.getOption("MinAmountMessage");
     this.maxAmountMessage = engrid_ENGrid.getOption("MaxAmountMessage");
-    this.logger = new EngridLogger("MinMaxAmount", "white", "purple", "🔢");
+    this.logger = new logger_EngridLogger("MinMaxAmount", "white", "purple", "🔢");
     if (!this.shouldRun()) {
       // If we're not on a Donation Page, get out
       return;
@@ -13657,7 +13657,7 @@ class Ticker {
     this.shuffleSeed = __webpack_require__(5365);
     this.items = [];
     this.tickerElement = document.querySelector(".engrid-ticker");
-    this.logger = new EngridLogger("Ticker", "black", "beige", "🔁");
+    this.logger = new logger_EngridLogger("Ticker", "black", "beige", "🔁");
     if (!this.shouldRun()) {
       this.logger.log("Not running");
       // If we don't find a ticker, get out
@@ -13742,9 +13742,9 @@ class Ticker {
 
 class DataLayer {
   constructor() {
-    this.logger = new EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
+    this.logger = new logger_EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
     this.dataLayer = window.dataLayer || [];
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.endOfGiftProcessStorageKey = "ENGRID_END_OF_GIFT_PROCESS_EVENTS";
     this.excludedFields = [
     // Credit Card
@@ -14009,7 +14009,7 @@ class DataLayer {
 
 class DataReplace {
   constructor() {
-    this.logger = new EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
+    this.logger = new logger_EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
     this.enElements = new Array();
     this.searchElements();
     if (!this.shouldRun()) return;
@@ -14082,7 +14082,7 @@ class DataReplace {
 
 class DataHide {
   constructor() {
-    this.logger = new EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
+    this.logger = new logger_EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
     this.enElements = new Array();
     this.logger.log("Constructor");
     this.enElements = engrid_ENGrid.getUrlParameter("engrid_hide[]");
@@ -14191,8 +14191,8 @@ class AddNameToMessage {
 
 class ExpandRegionName {
   constructor() {
-    this._form = EnForm.getInstance();
-    this.logger = new EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
+    this._form = en_form_EnForm.getInstance();
+    this.logger = new logger_EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
     if (this.shouldRun()) {
       const expandedRegionField = engrid_ENGrid.getOption("RegionLongFormat");
       console.log("expandedRegionField", expandedRegionField);
@@ -14237,7 +14237,7 @@ class ExpandRegionName {
 
 class UrlToForm {
   constructor() {
-    this.logger = new EngridLogger("UrlToForm", "white", "magenta", "🔗");
+    this.logger = new logger_EngridLogger("UrlToForm", "white", "magenta", "🔗");
     this.urlParams = new URLSearchParams(document.location.search);
     if (!this.shouldRun()) return;
     this.urlParams.forEach((value, key) => {
@@ -14264,8 +14264,8 @@ class UrlToForm {
 
 class RequiredIfVisible {
   constructor() {
-    this.logger = new EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
-    this._form = EnForm.getInstance();
+    this.logger = new logger_EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
+    this._form = en_form_EnForm.getInstance();
     this.requiredIfVisibleElements = document.querySelectorAll(`
     .i-required .en__field,
     .i1-required .en__field:nth-of-type(1),
@@ -14347,13 +14347,13 @@ var tidycontact_awaiter = undefined && undefined.__awaiter || function (thisArg,
 class TidyContact {
   constructor() {
     var _a, _b, _c, _d, _e;
-    this.logger = new EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
+    this.logger = new logger_EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
     this.endpoint = "https://api.tidycontact.io";
     this.wasCalled = false; // True if the API endpoint was called
     this.httpStatus = 0;
     this.timeout = 5; // Seconds to API Timeout
     this.isDirty = false; // True if the address was changed by the user
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.countries_list = [["Afghanistan", "af", "93", "070 123 4567"], ["Albania", "al", "355", "067 212 3456"], ["Algeria", "dz", "213", "0551 23 45 67"], ["American Samoa", "as", "1", "(684) 733-1234"], ["Andorra", "ad", "376", "312 345"], ["Angola", "ao", "244", "923 123 456"], ["Anguilla", "ai", "1", "(264) 235-1234"], ["Antigua and Barbuda", "ag", "1", "(268) 464-1234"], ["Argentina", "ar", "54", "011 15-2345-6789"], ["Armenia", "am", "374", "077 123456"], ["Aruba", "aw", "297", "560 1234"], ["Australia", "au", "61", "0412 345 678"], ["Austria", "at", "43", "0664 123456"], ["Azerbaijan", "az", "994", "040 123 45 67"], ["Bahamas", "bs", "1", "(242) 359-1234"], ["Bahrain", "bh", "973", "3600 1234"], ["Bangladesh", "bd", "880", "01812-345678"], ["Barbados", "bb", "1", "(246) 250-1234"], ["Belarus", "by", "375", "8 029 491-19-11"], ["Belgium", "be", "32", "0470 12 34 56"], ["Belize", "bz", "501", "622-1234"], ["Benin", "bj", "229", "90 01 12 34"], ["Bermuda", "bm", "1", "(441) 370-1234"], ["Bhutan", "bt", "975", "17 12 34 56"], ["Bolivia", "bo", "591", "71234567"], ["Bosnia and Herzegovina", "ba", "387", "061 123 456"], ["Botswana", "bw", "267", "71 123 456"], ["Brazil", "br", "55", "(11) 96123-4567"], ["British Indian Ocean Territory", "io", "246", "380 1234"], ["British Virgin Islands", "vg", "1", "(284) 300-1234"], ["Brunei", "bn", "673", "712 3456"], ["Bulgaria", "bg", "359", "048 123 456"], ["Burkina Faso", "bf", "226", "70 12 34 56"], ["Burundi", "bi", "257", "79 56 12 34"], ["Cambodia", "kh", "855", "091 234 567"], ["Cameroon", "cm", "237", "6 71 23 45 67"], ["Canada", "ca", "1", "(506) 234-5678"], ["Cape Verde", "cv", "238", "991 12 34"], ["Caribbean Netherlands", "bq", "599", "318 1234"], ["Cayman Islands", "ky", "1", "(345) 323-1234"], ["Central African Republic", "cf", "236", "70 01 23 45"], ["Chad", "td", "235", "63 01 23 45"], ["Chile", "cl", "56", "(2) 2123 4567"], ["China", "cn", "86", "131 2345 6789"], ["Christmas Island", "cx", "61", "0412 345 678"], ["Cocos Islands", "cc", "61", "0412 345 678"], ["Colombia", "co", "57", "321 1234567"], ["Comoros", "km", "269", "321 23 45"], ["Congo", "cd", "243", "0991 234 567"], ["Congo", "cg", "242", "06 123 4567"], ["Cook Islands", "ck", "682", "71 234"], ["Costa Rica", "cr", "506", "8312 3456"], ["Côte d’Ivoire", "ci", "225", "01 23 45 6789"], ["Croatia", "hr", "385", "092 123 4567"], ["Cuba", "cu", "53", "05 1234567"], ["Curaçao", "cw", "599", "9 518 1234"], ["Cyprus", "cy", "357", "96 123456"], ["Czech Republic", "cz", "420", "601 123 456"], ["Denmark", "dk", "45", "32 12 34 56"], ["Djibouti", "dj", "253", "77 83 10 01"], ["Dominica", "dm", "1", "(767) 225-1234"], ["Dominican Republic", "do", "1", "(809) 234-5678"], ["Ecuador", "ec", "593", "099 123 4567"], ["Egypt", "eg", "20", "0100 123 4567"], ["El Salvador", "sv", "503", "7012 3456"], ["Equatorial Guinea", "gq", "240", "222 123 456"], ["Eritrea", "er", "291", "07 123 456"], ["Estonia", "ee", "372", "5123 4567"], ["Eswatini", "sz", "268", "7612 3456"], ["Ethiopia", "et", "251", "091 123 4567"], ["Falkland Islands", "fk", "500", "51234"], ["Faroe Islands", "fo", "298", "211234"], ["Fiji", "fj", "679", "701 2345"], ["Finland", "fi", "358", "041 2345678"], ["France", "fr", "33", "06 12 34 56 78"], ["French Guiana", "gf", "594", "0694 20 12 34"], ["French Polynesia", "pf", "689", "87 12 34 56"], ["Gabon", "ga", "241", "06 03 12 34"], ["Gambia", "gm", "220", "301 2345"], ["Georgia", "ge", "995", "555 12 34 56"], ["Germany", "de", "49", "01512 3456789"], ["Ghana", "gh", "233", "023 123 4567"], ["Gibraltar", "gi", "350", "57123456"], ["Greece", "gr", "30", "691 234 5678"], ["Greenland", "gl", "299", "22 12 34"], ["Grenada", "gd", "1", "(473) 403-1234"], ["Guadeloupe", "gp", "590", "0690 00 12 34"], ["Guam", "gu", "1", "(671) 300-1234"], ["Guatemala", "gt", "502", "5123 4567"], ["Guernsey", "gg", "44", "07781 123456"], ["Guinea", "gn", "224", "601 12 34 56"], ["Guinea-Bissau", "gw", "245", "955 012 345"], ["Guyana", "gy", "592", "609 1234"], ["Haiti", "ht", "509", "34 10 1234"], ["Honduras", "hn", "504", "9123-4567"], ["Hong Kong", "hk", "852", "5123 4567"], ["Hungary", "hu", "36", "06 20 123 4567"], ["Iceland", "is", "354", "611 1234"], ["India", "in", "91", "081234 56789"], ["Indonesia", "id", "62", "0812-345-678"], ["Iran", "ir", "98", "0912 345 6789"], ["Iraq", "iq", "964", "0791 234 5678"], ["Ireland", "ie", "353", "085 012 3456"], ["Isle of Man", "im", "44", "07924 123456"], ["Israel", "il", "972", "050-234-5678"], ["Italy", "it", "39", "312 345 6789"], ["Jamaica", "jm", "1", "(876) 210-1234"], ["Japan", "jp", "81", "090-1234-5678"], ["Jersey", "je", "44", "07797 712345"], ["Jordan", "jo", "962", "07 9012 3456"], ["Kazakhstan", "kz", "7", "8 (771) 000 9998"], ["Kenya", "ke", "254", "0712 123456"], ["Kiribati", "ki", "686", "72001234"], ["Kosovo", "xk", "383", "043 201 234"], ["Kuwait", "kw", "965", "500 12345"], ["Kyrgyzstan", "kg", "996", "0700 123 456"], ["Laos", "la", "856", "020 23 123 456"], ["Latvia", "lv", "371", "21 234 567"], ["Lebanon", "lb", "961", "71 123 456"], ["Lesotho", "ls", "266", "5012 3456"], ["Liberia", "lr", "231", "077 012 3456"], ["Libya", "ly", "218", "091-2345678"], ["Liechtenstein", "li", "423", "660 234 567"], ["Lithuania", "lt", "370", "(8-612) 34567"], ["Luxembourg", "lu", "352", "628 123 456"], ["Macau", "mo", "853", "6612 3456"], ["North Macedonia", "mk", "389", "072 345 678"], ["Madagascar", "mg", "261", "032 12 345 67"], ["Malawi", "mw", "265", "0991 23 45 67"], ["Malaysia", "my", "60", "012-345 6789"], ["Maldives", "mv", "960", "771-2345"], ["Mali", "ml", "223", "65 01 23 45"], ["Malta", "mt", "356", "9696 1234"], ["Marshall Islands", "mh", "692", "235-1234"], ["Martinique", "mq", "596", "0696 20 12 34"], ["Mauritania", "mr", "222", "22 12 34 56"], ["Mauritius", "mu", "230", "5251 2345"], ["Mayotte", "yt", "262", "0639 01 23 45"], ["Mexico", "mx", "52", "222 123 4567"], ["Micronesia", "fm", "691", "350 1234"], ["Moldova", "md", "373", "0621 12 345"], ["Monaco", "mc", "377", "06 12 34 56 78"], ["Mongolia", "mn", "976", "8812 3456"], ["Montenegro", "me", "382", "067 622 901"], ["Montserrat", "ms", "1", "(664) 492-3456"], ["Morocco", "ma", "212", "0650-123456"], ["Mozambique", "mz", "258", "82 123 4567"], ["Myanmar", "mm", "95", "09 212 3456"], ["Namibia", "na", "264", "081 123 4567"], ["Nauru", "nr", "674", "555 1234"], ["Nepal", "np", "977", "984-1234567"], ["Netherlands", "nl", "31", "06 12345678"], ["New Caledonia", "nc", "687", "75.12.34"], ["New Zealand", "nz", "64", "021 123 4567"], ["Nicaragua", "ni", "505", "8123 4567"], ["Niger", "ne", "227", "93 12 34 56"], ["Nigeria", "ng", "234", "0802 123 4567"], ["Niue", "nu", "683", "888 4012"], ["Norfolk Island", "nf", "672", "3 81234"], ["North Korea", "kp", "850", "0192 123 4567"], ["Northern Mariana Islands", "mp", "1", "(670) 234-5678"], ["Norway", "no", "47", "406 12 345"], ["Oman", "om", "968", "9212 3456"], ["Pakistan", "pk", "92", "0301 2345678"], ["Palau", "pw", "680", "620 1234"], ["Palestine", "ps", "970", "0599 123 456"], ["Panama", "pa", "507", "6123-4567"], ["Papua New Guinea", "pg", "675", "7012 3456"], ["Paraguay", "py", "595", "0961 456789"], ["Peru", "pe", "51", "912 345 678"], ["Philippines", "ph", "63", "0905 123 4567"], ["Poland", "pl", "48", "512 345 678"], ["Portugal", "pt", "351", "912 345 678"], ["Puerto Rico", "pr", "1", "(787) 234-5678"], ["Qatar", "qa", "974", "3312 3456"], ["Réunion", "re", "262", "0692 12 34 56"], ["Romania", "ro", "40", "0712 034 567"], ["Russia", "ru", "7", "8 (912) 345-67-89"], ["Rwanda", "rw", "250", "0720 123 456"], ["Saint Barthélemy", "bl", "590", "0690 00 12 34"], ["Saint Helena", "sh", "290", "51234"], ["Saint Kitts and Nevis", "kn", "1", "(869) 765-2917"], ["Saint Lucia", "lc", "1", "(758) 284-5678"], ["Saint Martin", "mf", "590", "0690 00 12 34"], ["Saint Pierre and Miquelon", "pm", "508", "055 12 34"], ["Saint Vincent and the Grenadines", "vc", "1", "(784) 430-1234"], ["Samoa", "ws", "685", "72 12345"], ["San Marino", "sm", "378", "66 66 12 12"], ["São Tomé and Príncipe", "st", "239", "981 2345"], ["Saudi Arabia", "sa", "966", "051 234 5678"], ["Senegal", "sn", "221", "70 123 45 67"], ["Serbia", "rs", "381", "060 1234567"], ["Seychelles", "sc", "248", "2 510 123"], ["Sierra Leone", "sl", "232", "(025) 123456"], ["Singapore", "sg", "65", "8123 4567"], ["Sint Maarten", "sx", "1", "(721) 520-5678"], ["Slovakia", "sk", "421", "0912 123 456"], ["Slovenia", "si", "386", "031 234 567"], ["Solomon Islands", "sb", "677", "74 21234"], ["Somalia", "so", "252", "7 1123456"], ["South Africa", "za", "27", "071 123 4567"], ["South Korea", "kr", "82", "010-2000-0000"], ["South Sudan", "ss", "211", "0977 123 456"], ["Spain", "es", "34", "612 34 56 78"], ["Sri Lanka", "lk", "94", "071 234 5678"], ["Sudan", "sd", "249", "091 123 1234"], ["Suriname", "sr", "597", "741-2345"], ["Svalbard and Jan Mayen", "sj", "47", "412 34 567"], ["Sweden", "se", "46", "070-123 45 67"], ["Switzerland", "ch", "41", "078 123 45 67"], ["Syria", "sy", "963", "0944 567 890"], ["Taiwan", "tw", "886", "0912 345 678"], ["Tajikistan", "tj", "992", "917 12 3456"], ["Tanzania", "tz", "255", "0621 234 567"], ["Thailand", "th", "66", "081 234 5678"], ["Timor-Leste", "tl", "670", "7721 2345"], ["Togo", "tg", "228", "90 11 23 45"], ["Tokelau", "tk", "690", "7290"], ["Tonga", "to", "676", "771 5123"], ["Trinidad and Tobago", "tt", "1", "(868) 291-1234"], ["Tunisia", "tn", "216", "20 123 456"], ["Turkey", "tr", "90", "0501 234 56 78"], ["Turkmenistan", "tm", "993", "8 66 123456"], ["Turks and Caicos Islands", "tc", "1", "(649) 231-1234"], ["Tuvalu", "tv", "688", "90 1234"], ["U.S. Virgin Islands", "vi", "1", "(340) 642-1234"], ["Uganda", "ug", "256", "0712 345678"], ["Ukraine", "ua", "380", "050 123 4567"], ["United Arab Emirates", "ae", "971", "050 123 4567"], ["United Kingdom", "gb", "44", "07400 123456"], ["United States", "us", "1", "(201) 555-0123"], ["Uruguay", "uy", "598", "094 231 234"], ["Uzbekistan", "uz", "998", "8 91 234 56 78"], ["Vanuatu", "vu", "678", "591 2345"], ["Vatican City", "va", "39", "312 345 6789"], ["Venezuela", "ve", "58", "0412-1234567"], ["Vietnam", "vn", "84", "091 234 56 78"], ["Wallis and Futuna", "wf", "681", "82 12 34"], ["Western Sahara", "eh", "212", "0650-123456"], ["Yemen", "ye", "967", "0712 345 678"], ["Zambia", "zm", "260", "095 5123456"], ["Zimbabwe", "zw", "263", "071 234 5678"], ["Åland Islands", "ax", "358", "041 2345678"]];
     this.countries_dropdown = null;
     this.country_ip = null;
@@ -15248,7 +15248,7 @@ class TidyContact {
 
 class LiveCurrency {
   constructor() {
-    this.logger = new EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
+    this.logger = new logger_EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
     this.elementsFound = false;
     this.isUpdating = false;
     this._amount = DonationAmount.getInstance();
@@ -15435,7 +15435,7 @@ class LiveCurrency {
 
 class CustomCurrency {
   constructor() {
-    this.logger = new EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
+    this.logger = new logger_EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
     this.currencyElement = document.querySelector("[name='transaction.paycurrency']");
     this._country = Country.getInstance();
     if (!this.shouldRun()) return;
@@ -15492,8 +15492,8 @@ class CustomCurrency {
 
 class Autosubmit {
   constructor() {
-    this.logger = new EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
-    this._form = EnForm.getInstance();
+    this.logger = new logger_EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
+    this._form = en_form_EnForm.getInstance();
     if (engrid_ENGrid.checkNested(window.EngagingNetworks, "require", "_defined", "enjs", "checkSubmissionFailed") && !window.EngagingNetworks.require._defined.enjs.checkSubmissionFailed() && engrid_ENGrid.getUrlParameter("autosubmit") === "Y") {
       this.logger.log("Autosubmitting Form");
       // Fix EN ?chain parameter not working with email addresses with + in them
@@ -15558,7 +15558,7 @@ class EventTickets {
 
 class SwapAmounts {
   constructor() {
-    this.logger = new EngridLogger("SwapAmounts", "purple", "white", "💰");
+    this.logger = new logger_EngridLogger("SwapAmounts", "purple", "white", "💰");
     this._amount = DonationAmount.getInstance();
     this._frequency = DonationFrequency.getInstance();
     this.defaultChange = false;
@@ -15608,7 +15608,7 @@ class SwapAmounts {
 class DebugPanel {
   constructor(pageLayouts) {
     var _a, _b;
-    this.logger = new EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
+    this.logger = new logger_EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
     this.brandingHtml = new BrandingHtml();
     this.element = null;
     this.currentTimestamp = this.getCurrentTimestamp();
@@ -16055,7 +16055,7 @@ DebugPanel.debugSessionStorageKey = "engrid_debug_panel";
 
 class DebugHiddenFields {
   constructor() {
-    this.logger = new EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
+    this.logger = new logger_EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
     // Query all hidden input elements within the specified selectors
     const fields = document.querySelectorAll(".en__component--row [type='hidden'][class*='en_'], .engrid-added-input[type='hidden']");
     // Check if there are any hidden fields
@@ -16174,7 +16174,7 @@ class BrandingHtml {
 
 class CountryDisable {
   constructor() {
-    this.logger = new EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
+    this.logger = new logger_EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
     const countries = document.querySelectorAll('select[name="supporter.country"], select[name="transaction.shipcountry"], select[name="supporter.billingCountry"], select[name="transaction.infcountry"]');
     const CountryDisable = engrid_ENGrid.getOption("CountryDisable");
     // Remove the countries from the dropdown list
@@ -16200,7 +16200,7 @@ class CountryDisable {
 
 class PremiumGift {
   constructor() {
-    this.logger = new EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
+    this.logger = new logger_EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
     this.enElements = new Array();
     if (!this.shoudRun()) return;
     this.searchElements();
@@ -16517,7 +16517,7 @@ class MobileCTA {
 
 class LiveFrequency {
   constructor() {
-    this.logger = new EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
+    this.logger = new logger_EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
     this.elementsFound = false;
     this._amount = DonationAmount.getInstance();
     this._frequency = DonationFrequency.getInstance();
@@ -16623,7 +16623,7 @@ class LiveFrequency {
 
 class UniversalOptIn {
   constructor() {
-    this.logger = new EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
+    this.logger = new logger_EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
     this._elements = document.querySelectorAll(".universal-opt-in, .universal-opt-in_null");
     if (!this.shouldRun()) return;
     this.addEventListeners();
@@ -16693,8 +16693,8 @@ class UniversalOptIn {
 
 class Plaid {
   constructor() {
-    this.logger = new EngridLogger("Plaid", "peru", "yellow", "🔗");
-    this._form = EnForm.getInstance();
+    this.logger = new logger_EngridLogger("Plaid", "peru", "yellow", "🔗");
+    this._form = en_form_EnForm.getInstance();
     this.logger.log("Enabled");
     this._form.onSubmit.subscribe(() => this.submit());
   }
@@ -16740,7 +16740,7 @@ class Plaid {
 
 class GiveBySelect {
   constructor() {
-    this.logger = new EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
+    this.logger = new logger_EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
     this.transactionGiveBySelect = document.getElementsByName("transaction.giveBySelect");
     this._frequency = DonationFrequency.getInstance();
     if (!this.transactionGiveBySelect) return;
@@ -16806,7 +16806,7 @@ class GiveBySelect {
 
 class UrlParamsToBodyAttrs {
   constructor() {
-    this.logger = new EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
+    this.logger = new logger_EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
     this.urlParams = new URLSearchParams(document.location.search);
     this.urlParams.forEach((value, key) => {
       if (key.startsWith("data-engrid-")) {
@@ -16823,7 +16823,7 @@ class ExitIntentLightbox {
   constructor() {
     this.opened = false;
     this.dataLayer = window.dataLayer || [];
-    this.logger = new EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
+    this.logger = new logger_EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
     this.triggerDelay = 1000; // Don't run the exit intent lightbox until at least 1 second has passed after page load
     this.triggerTimeout = null;
     let options = "EngridExitIntent" in window ? window.EngridExitIntent : {};
@@ -16967,8 +16967,8 @@ class ExitIntentLightbox {
 
 class SupporterHub {
   constructor() {
-    this.logger = new EngridLogger("SupporterHub", "black", "pink", "🛖");
-    this._form = EnForm.getInstance();
+    this.logger = new logger_EngridLogger("SupporterHub", "black", "pink", "🛖");
+    this._form = en_form_EnForm.getInstance();
     if (!this.shoudRun()) return;
     this.logger.log("Enabled");
     this.watch();
@@ -17044,7 +17044,7 @@ class SupporterHub {
 
 class FastFormFill {
   constructor() {
-    this.logger = new EngridLogger("FastFormFill", "white", "magenta", "📌");
+    this.logger = new logger_EngridLogger("FastFormFill", "white", "magenta", "📌");
     this.rememberMeEvents = RememberMeEvents.getInstance();
     if (engrid_ENGrid.getOption("RememberMe")) {
       this.rememberMeEvents.onLoad.subscribe(hasData => {
@@ -17113,7 +17113,7 @@ class FastFormFill {
 
 class SetAttr {
   constructor() {
-    this.logger = new EngridLogger("SetAttr", "black", "yellow", "📌");
+    this.logger = new logger_EngridLogger("SetAttr", "black", "yellow", "📌");
     const enGrid = document.getElementById("engrid");
     if (enGrid) {
       enGrid.addEventListener("click", e => {
@@ -17158,7 +17158,7 @@ class SetAttr {
 
 class ShowIfPresent {
   constructor() {
-    this.logger = new EngridLogger("ShowIfPresent", "yellow", "black", "👀");
+    this.logger = new logger_EngridLogger("ShowIfPresent", "yellow", "black", "👀");
     this.elements = [];
     if (this.shouldRun()) {
       this.run();
@@ -17217,9 +17217,9 @@ class ShowIfPresent {
 
 class ENValidators {
   constructor() {
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this._enElements = null;
-    this.logger = new EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
+    this.logger = new logger_EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
     if (!this.loadValidators()) {
       // This is an error to flag a racing condition. If the script is loaded before the validators are loaded, it will not work.
       this.logger.error("Not Loaded");
@@ -17306,8 +17306,8 @@ class PostalCodeValidator {
   constructor() {
     var _a, _b;
     this.postalCodeField = engrid_ENGrid.getField("supporter.postcode");
-    this._form = EnForm.getInstance();
-    this.logger = new EngridLogger("Postal Code Validator", "white", "red", "📬");
+    this._form = en_form_EnForm.getInstance();
+    this.logger = new logger_EngridLogger("Postal Code Validator", "white", "red", "📬");
     this.supportedSeparators = ["+", "-", " "];
     this.separator = this.getSeparator();
     this.regexSeparator = this.getRegexSeparator(this.separator);
@@ -17433,11 +17433,11 @@ class PostalCodeValidator {
 
 class VGS {
   constructor() {
-    this.logger = new EngridLogger("VGS", "black", "pink", "💳");
+    this.logger = new logger_EngridLogger("VGS", "black", "pink", "💳");
     this.vgsField = document.querySelector(".en__field--vgs");
     this.options = engrid_ENGrid.getOption("VGS");
     this.paymentTypeField = document.querySelector("#en__field_transaction_paymenttype");
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.field_expiration_month = null;
     this.field_expiration_year = null;
     this.handleExpUpdate = e => {
@@ -17673,7 +17673,7 @@ class VGS {
 
 class CountryRedirect {
   constructor() {
-    this.logger = new EngridLogger("CountryRedirect", "white", "brown", "🛫");
+    this.logger = new logger_EngridLogger("CountryRedirect", "white", "brown", "🛫");
     this._country = Country.getInstance();
     if (!this.shouldRun()) return;
     this._country.onCountryChange.subscribe(country => {
@@ -17839,8 +17839,8 @@ const EcardToTargetOptionsDefaults = {
 class EcardToTarget {
   constructor() {
     this.options = EcardToTargetOptionsDefaults;
-    this.logger = new EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
-    this._form = EnForm.getInstance();
+    this.logger = new logger_EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
+    this._form = en_form_EnForm.getInstance();
     this.supporterNameAddedToMessage = false;
     if (!this.shouldRun()) return;
     this.options = Object.assign(Object.assign({}, this.options), window.EngridEcardToTarget);
@@ -17913,9 +17913,9 @@ const EmbeddedEcardOptionsDefaults = {
 
 class EmbeddedEcard {
   constructor() {
-    this.logger = new EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
+    this.logger = new logger_EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
     this.options = EmbeddedEcardOptionsDefaults;
-    this._form = EnForm.getInstance();
+    this._form = en_form_EnForm.getInstance();
     this.isSubmitting = false;
     // For the page hosting the embedded ecard
     if (this.onHostPage()) {
@@ -18113,7 +18113,7 @@ class EmbeddedEcard {
             recipientEmail.value = recipient.email;
             addRecipientButton === null || addRecipientButton === void 0 ? void 0 : addRecipientButton.click();
           });
-          const form = EnForm.getInstance();
+          const form = en_form_EnForm.getInstance();
           form.submitForm();
           sessionStorage.removeItem("engrid-embedded-ecard");
           sessionStorage.removeItem("engrid-send-embedded-ecard");
@@ -18186,7 +18186,7 @@ class UsOnlyForm {
 
 class ThankYouPageConditionalContent {
   constructor() {
-    this.logger = new EngridLogger("ThankYouPageConditionalContent");
+    this.logger = new logger_EngridLogger("ThankYouPageConditionalContent");
     if (!this.shouldRun()) return;
     this.applyShowHideRadioCheckboxesState();
   }
@@ -18230,7 +18230,7 @@ class ThankYouPageConditionalContent {
 
 class CheckboxLabel {
   constructor() {
-    this.logger = new EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
+    this.logger = new logger_EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
     this.checkBoxesLabels = document.querySelectorAll(".checkbox-label");
     if (!this.shoudRun()) return;
     this.logger.log(`Found ${this.checkBoxesLabels.length} custom labels`);
@@ -18252,10 +18252,208 @@ class CheckboxLabel {
     });
   }
 }
+;// CONCATENATED MODULE: ../engrid/packages/scripts/dist/optin-ladder.js
+// This component is responsible for showing a ladder of checkboxes, one at a time, to the user.
+// If the page is not embedded in an iframe, and there are EN's Opt-In fields on the page, we will store the values to sessionStorage upon Form Submit.
+// If the page is embedded in an iframe and on a Thank You Page, we will look for .optin-ladder elements, compare the values to sessionStorage, and show the next checkbox in the ladder, removing all but the first match.
+// If the page is embedded in an iframe and on a Thank You Page, and the child iFrame is also a Thank You Page, we will look for a sessionStorage that has the current ladder step and the total number of steps.
+// If the current step is less than the total number of steps, we will redirect to the first page. If the current step is equal to the total number of steps, we will show the Thank You Page.
+
+class OptInLadder {
+  constructor() {
+    this.logger = new EngridLogger("OptInLadder", "lightgreen", "darkgreen", "✔");
+    this._form = EnForm.getInstance();
+    if (!this.inIframe()) {
+      this.runAsParent();
+    } else if (ENGrid.getPageNumber() === 1) {
+      this.runAsChildRegular();
+    } else {
+      this.runAsChildThankYou();
+    }
+  }
+  runAsParent() {
+    // Grab all the checkboxes with the name starting with "supporter.questions"
+    const checkboxes = document.querySelectorAll('input[name^="supporter.questions"]');
+    if (checkboxes.length === 0) {
+      this.logger.log("No checkboxes found");
+      return;
+    }
+    this._form.onSubmit.subscribe(() => {
+      // Save the checkbox values to sessionStorage
+      this.saveOptInsToSessionStorage();
+    });
+    this.logger.log("Running as Parent");
+    if (ENGrid.getPageNumber() === 1) {
+      // Delete supporter.questions from sessionStorage
+      sessionStorage.removeItem("engrid.supporter.questions");
+    }
+  }
+  runAsChildRegular() {
+    if (!this.isEmbeddedThankYouPage()) {
+      this.logger.log("Not Embedded on a Thank You Page");
+      return;
+    }
+    const optInHeaders = document.querySelectorAll(".en__component--copyblock.optin-ladder");
+    const optInFormBlocks = document.querySelectorAll(".en__component--formblock.optin-ladder");
+    if (optInHeaders.length === 0 && optInFormBlocks.length === 0) {
+      this.logger.log("No optin-ladder elements found");
+      return;
+    }
+    // Check if the e-mail field exist and is not empty
+    const emailField = ENGrid.getField("supporter.emailAddress");
+    if (!emailField || !emailField.value) {
+      this.logger.log("Email field is empty");
+      // Since this is a OptInLadder page with no e-mail address, hide the page
+      this.hidePage();
+      return;
+    }
+    const sessionStorageCheckboxValues = JSON.parse(sessionStorage.getItem("engrid.supporter.questions") || "{}");
+    let currentStep = 0;
+    let totalSteps = optInHeaders.length;
+    let currentHeader = null;
+    let currentFormBlock = null;
+    for (let i = 0; i < optInHeaders.length; i++) {
+      const header = optInHeaders[i];
+      // Get the optin number from the .optin-ladder-XXXX class
+      const optInNumber = header.className.match(/optin-ladder-(\d+)/);
+      if (!optInNumber) {
+        this.logger.error(`No optin number found in ${header.innerText.trim()}`);
+        return;
+      }
+      const optInIndex = optInNumber[1];
+      // Get the checkbox FormBlock
+      const formBlock = document.querySelector(`.en__component--formblock.optin-ladder:has(.en__field--${optInIndex})`);
+      if (!formBlock) {
+        this.logger.log(`No form block found for ${header.innerText.trim()}`);
+        // Remove the header if there is no form block
+        header.remove();
+        // Increment the current step
+        currentStep++;
+        continue;
+      }
+      // Check if the optInIndex is in sessionStorage
+      if (sessionStorageCheckboxValues[optInIndex] === "Y") {
+        // If the checkbox is checked, remove the header and form block
+        header.remove();
+        formBlock.remove();
+        // Increment the current step
+        currentStep++;
+        continue;
+      }
+      // If there's a header and a form block, end the loop
+      currentHeader = header;
+      currentFormBlock = formBlock;
+      currentStep++;
+      break;
+    }
+    if (!currentHeader || !currentFormBlock) {
+      this.logger.log("No optin-ladder elements found");
+      // Set the current step to the total steps to avoid redirecting to the first page
+      currentStep = totalSteps;
+      this.saveStepToSessionStorage(currentStep, totalSteps);
+      // hide the page
+      this.hidePage();
+      return;
+    }
+    // Show the current header and form block, while removing the rest
+    optInHeaders.forEach(header => {
+      if (header !== currentHeader) {
+        header.remove();
+      } else {
+        header.style.display = "block";
+      }
+    });
+    optInFormBlocks.forEach(formBlock => {
+      if (formBlock !== currentFormBlock) {
+        formBlock.remove();
+      } else {
+        formBlock.style.display = "block";
+      }
+    });
+    // Save the current step to sessionStorage
+    this.saveStepToSessionStorage(currentStep, totalSteps);
+    // On form submit, save the checkbox values to sessionStorage
+    this._form.onSubmit.subscribe(() => {
+      this.saveOptInsToSessionStorage();
+      // Save the current step to sessionStorage
+      currentStep++;
+      this.saveStepToSessionStorage(currentStep, totalSteps);
+    });
+  }
+  runAsChildThankYou() {
+    if (!this.isEmbeddedThankYouPage()) {
+      this.logger.log("Not Embedded on a Thank You Page");
+      return;
+    }
+    const sessionStorageOptInLadder = JSON.parse(sessionStorage.getItem("engrid.optin-ladder") || "{}");
+    const currentStep = sessionStorageOptInLadder.step || 0;
+    const totalSteps = sessionStorageOptInLadder.totalSteps || 0;
+    if (currentStep < totalSteps) {
+      this.logger.log(`Current step ${currentStep} is less than total steps ${totalSteps}`);
+      // Redirect to the first page
+      window.location.href = this.getFirstPageUrl();
+      return;
+    } else {
+      this.logger.log(`Current step ${currentStep} is equal to total steps ${totalSteps}`);
+      // Remove the session storage
+      sessionStorage.removeItem("engrid.optin-ladder");
+    }
+  }
+  inIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return true;
+    }
+  }
+  saveStepToSessionStorage(step, totalSteps) {
+    sessionStorage.setItem("engrid.optin-ladder", JSON.stringify({
+      step,
+      totalSteps
+    }));
+    this.logger.log(`Saved step ${step} of ${totalSteps} to sessionStorage`);
+  }
+  getFirstPageUrl() {
+    // Get the current URL and replace the last path with 1?chain
+    const url = new URL(window.location.href);
+    const path = url.pathname.split("/");
+    path.pop();
+    path.push("1");
+    return url.origin + path.join("/") + "?chain";
+  }
+  saveOptInsToSessionStorage() {
+    // Grab all the checkboxes with the name starting with "supporter.questions"
+    const checkboxes = document.querySelectorAll('input[name^="supporter.questions"]');
+    if (checkboxes.length === 0) {
+      this.logger.log("No checkboxes found");
+      return;
+    }
+    const sessionStorageCheckboxValues = JSON.parse(sessionStorage.getItem("engrid.supporter.questions") || "{}");
+    // Loop through all the checkboxes and store the value in sessionStorage
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        const index = checkbox.name.split(".")[2];
+        sessionStorageCheckboxValues[index] = "Y";
+      }
+    });
+    sessionStorage.setItem("engrid.supporter.questions", JSON.stringify(sessionStorageCheckboxValues));
+    this.logger.log(`Saved checkbox values to sessionStorage: ${JSON.stringify(sessionStorageCheckboxValues)}`);
+  }
+  isEmbeddedThankYouPage() {
+    return ENGrid.getBodyData("embedded") === "thank-you-page-donation";
+  }
+  hidePage() {
+    const engridPage = document.querySelector("#engrid");
+    if (engridPage) {
+      engridPage.classList.add("hide");
+    }
+  }
+}
 ;// CONCATENATED MODULE: ../engrid/packages/scripts/dist/version.js
-const AppVersion = "0.19.22";
+const AppVersion = "0.20.1";
 ;// CONCATENATED MODULE: ../engrid/packages/scripts/dist/index.js
  // Runs first so it can change the DOM markup before any markup dependent code fires
+
 
 
 

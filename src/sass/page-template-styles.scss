@@ -3,7 +3,6 @@
 // All CSS Custom Properties should be scoped to the theme using CSS Data Attributes.
 [data-engrid-theme="fww"] {
   --engrid__page_background-color: #ffffff;
-  --engrid__embedded_page_background-color: #ffffff;
   --error__color: #f24235;
   
   // TYPOGRAPHY DEFAULT
@@ -149,7 +148,7 @@
   }
 
   // Adds styling behind the page during aggressive overscrolling
-  &[data-engrid-js-loading="finished"]:before {
+  &:not([data-engrid-embedded])[data-engrid-js-loading="finished"]:before {
       z-index: -99;
       content: "";
       width: 100vw;
