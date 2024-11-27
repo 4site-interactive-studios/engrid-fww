@@ -23,9 +23,6 @@ const options: Options = {
   SrcDefer: true,
   ProgressBar: true,
   VGS: {
-    // transaction.ccexpire is not defined in engrid/packages/scripts/src/interfaces/options.ts
-    // So, I cannot define it here; however, it might not matter because the font-face is brought in via other field definitions.  I'm seeing it affect the ccexpire field anyhow.
-
     //"transaction.ccexpire": vgsFieldOpts,
     "transaction.ccnumber": vgsFieldOpts,
     "transaction.ccvv": vgsFieldOpts

@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, November 26, 2024 @ 23:09:12 ET
+ *  Date: Tuesday, November 26, 2024 @ 23:38:56 ET
  *  By: michael
  *  ENGrid styles: v0.19.1
  *  ENGrid scripts: v0.19.1
@@ -18416,9 +18416,6 @@ const options = {
   SrcDefer: true,
   ProgressBar: true,
   VGS: {
-    // transaction.ccexpire is not defined in engrid/packages/scripts/src/interfaces/options.ts
-    // So, I cannot define it here; however, it might not matter because the font-face is brought in via other field definitions.  I'm seeing it affect the ccexpire field anyhow.
-
     //"transaction.ccexpire": vgsFieldOpts,
     "transaction.ccnumber": vgsFieldOpts,
     "transaction.ccvv": vgsFieldOpts

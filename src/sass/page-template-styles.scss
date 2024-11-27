@@ -165,7 +165,7 @@
     margin-bottom: 0.75rem;
   }
 
-  [class*=validationFail] label{
+  [class*=validationFail]:not(.en__field--donationAmt) label{
     display: none !important;
   }
 
