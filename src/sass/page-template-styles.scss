@@ -263,7 +263,7 @@
           }
         }
         
-        .en__field__item:nth-child(4) {
+        .en__field__item:nth-child(4n) {
           padding-right: calc(0.5rem - 1px);
           label {
             --recurring-frequency__button_border-radius: 0px 0px 25px 0px;
@@ -295,14 +295,14 @@
         padding-left: calc(0.5rem + 1px) !important;
       }
 
-      &:nth-child(3) {
+      &:nth-child(3n) {
         padding-right: calc(0.5rem + 1px) !important;
       }      
 
-      &:nth-child(4) {
+      &:nth-child(4n) {
         padding-left: calc(0.5rem + 1px) !important;
       }
-
+      
       &:last-child {
         padding-right: calc(0.5rem + 1px) !important;
       }
@@ -328,9 +328,10 @@
         --donation-amount__flex-grow: 1;
         position: relative;
 
-        &:has(input:not(:placeholder-shown)):before {
+        &:has(input:not(:placeholder-shown)):before,
+        &:has(input:focus):before {
           content: attr(data-currency-symbol);
-          left: calc((-84px / 2) + 50%); //calc(-10px + 50% - 26px);
+          left: calc(-43.5px + 50%); //calc(-10px + 50% - 26px);
           position: absolute;
           top: 10px;
           font-family: var(--donation-amount__button_font-family);
