@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 14:39:56 ET
- *  By: fernando
+ *  Date: Wednesday, November 27, 2024 @ 17:19:47 ET
+ *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.1
  *
@@ -7730,7 +7730,7 @@ body[data-engrid-debug]:before{
   --input_border-width:0px;
   --input_border-radius:0px;
   --input_placeholder-color:#7a7c7a;
-  --input_placeholder-font-weight:600;
+  --input_placeholder-font-weight:500;
   --input_box-shadow:inset none;
   --input__background-color:#fff;
   --button_font-family:"GraphikBlack", "Arial Black", "sans-serif";
