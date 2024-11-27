@@ -19,9 +19,9 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 10:49:14 ET
+ *  Date: Wednesday, November 27, 2024 @ 12:49:50 ET
  *  By: michael
- *  ENGrid styles: v0.19.1
+ *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
  *
  *  Created by 4Site Studios
@@ -1807,24 +1807,48 @@ h2{
 }
 
 h3{
+  color:var(--h3_color);
+  font-family:var(--h3_font-family);
   font-size:var(--h3_font-size);
+  font-weight:var(--h3_font-weight);
+  line-height:var(--h3_line-height);
   margin-bottom:calc(1rem*var(--scale-down_40pct));
   margin-top:calc(2rem*var(--scale-down_40pct));
   text-transform:var(--h3_text-transform);
 }
 
-h3,h4,h5,h6{
-  color:var(--h3_color);
-  font-family:var(--h3_font-family);
-  font-weight:var(--h3_font-weight);
-  line-height:var(--h3_line-height);
+h4{
+  color:var(--h4_color);
+  font-family:var(--h4_font-family);
+  font-size:var(--h4_font-size);
+  font-weight:var(--h4_font-weight);
+  line-height:var(--h4_line-height);
+  text-transform:var(--h4_text-transform);
 }
 
-h4,h5,h6{
-  font-size:calc(var(--h3_font-size)*var(--scale-down_20pct));
-  margin-bottom:calc(1rem*var(--scale-down_80pct));
-  margin-top:calc(2rem*var(--scale-down_80pct));
-  text-transform:var(--h4_text-transform);
+h4,h5{
+  margin-bottom:calc(1rem*var(--scale-down_60pct));
+  margin-top:calc(2rem*var(--scale-down_60pct));
+}
+
+h5{
+  color:var(--h5_color);
+  font-family:var(--h5_font-family);
+  font-size:var(--h5_font-size);
+  font-weight:var(--h5_font-weight);
+  line-height:var(--h5_line-height);
+  text-transform:var(--h5_text-transform);
+}
+
+h6{
+  color:var(--h6_color);
+  font-family:var(--h6_font-family);
+  font-size:var(--h6_font-size);
+  font-weight:var(--h6_font-weight);
+  line-height:var(--h6_line-height);
+  margin-bottom:calc(1rem*var(--scale-down_60pct));
+  margin-top:calc(2rem*var(--scale-down_60pct));
+  text-transform:var(--h6_text-transform);
 }
 
 p{
@@ -3123,6 +3147,9 @@ body:not(#en__pagebuilder) .click-to-expand.expanded .click-to-expand-text-wrapp
 body:not(#en__pagebuilder):not([data-engrid-debug]) .hide:not(.en__field--validationFailed):not(:has(.en__field.en__field--validationFailed)),body:not(#en__pagebuilder):not([data-engrid-debug]) div:not(.en__field--validationFailed) .hide:not(.en__field--validationFailed):not(:has(.en__field.en__field--validationFailed)){
   display:none;
 }
+body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-js-loading=finished]) .en__field--donationAmt .en__field__item label{
+  color:#0000 !important;
+}
 body:not(#en__pagebuilder):not([data-engrid-debug]) .en__field--plaid,body:not(#en__pagebuilder):not([data-engrid-debug]) .i1-hide .en__field:not(.en__field--validationFailed):first-of-type,body:not(#en__pagebuilder):not([data-engrid-debug]) .i10-hide .en__field:not(.en__field--validationFailed):nth-of-type(10),body:not(#en__pagebuilder):not([data-engrid-debug]) .i11-hide .en__field:not(.en__field--validationFailed):nth-of-type(11),body:not(#en__pagebuilder):not([data-engrid-debug]) .i2-hide .en__field:not(.en__field--validationFailed):nth-of-type(2),body:not(#en__pagebuilder):not([data-engrid-debug]) .i3-hide .en__field:not(.en__field--validationFailed):nth-of-type(3),body:not(#en__pagebuilder):not([data-engrid-debug]) .i4-hide .en__field:not(.en__field--validationFailed):nth-of-type(4),body:not(#en__pagebuilder):not([data-engrid-debug]) .i5-hide .en__field:not(.en__field--validationFailed):nth-of-type(5),body:not(#en__pagebuilder):not([data-engrid-debug]) .i6-hide .en__field:not(.en__field--validationFailed):nth-of-type(6),body:not(#en__pagebuilder):not([data-engrid-debug]) .i7-hide .en__field:not(.en__field--validationFailed):nth-of-type(7),body:not(#en__pagebuilder):not([data-engrid-debug]) .i8-hide .en__field:not(.en__field--validationFailed):nth-of-type(8),body:not(#en__pagebuilder):not([data-engrid-debug]) .i9-hide .en__field:not(.en__field--validationFailed):nth-of-type(9),body:not(#en__pagebuilder):not([data-engrid-debug]) [hidden-via-url-argument],body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-client-js-loading=finished]) .hide-until-client-js-loading-finished,body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-js-loading=finished]) .hide-until-engrid-js-loading-finished{
   display:none;
 }
@@ -3131,8 +3158,10 @@ body:not(#en__pagebuilder):not([data-engrid-debug]) .en__field--plaid,body:not(#
     display:none;
   }
 }
+body:not(#en__pagebuilder):not([data-engrid-debug])[data-engrid-css-has-selector=false] .hide:not(.en__field--validationFailed),body:not(#en__pagebuilder):not([data-engrid-debug])[data-engrid-css-has-selector=false] div:not(.en__field--validationFailed) .hide:not(.en__field--validationFailed){
+  display:none;
+}
 body:not(#en__pagebuilder):not([data-engrid-debug]) .hide-labels .en__field:not(.en__field--validationFailed)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i1-hide-label .en__field:not(.en__field--validationFailed):first-of-type>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i10-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(10)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i11-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(11)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i2-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(2)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i3-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(3)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i4-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(4)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i5-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(5)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i6-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(6)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i7-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(7)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i8-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(8)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) .i9-hide-label .en__field:not(.en__field--validationFailed):nth-of-type(9)>label,body:not(#en__pagebuilder):not([data-engrid-debug]) div:not(.en__field--validationFailed) label.hide-label{
-  clip:rect(1px 1px 1px 1px);
   clip:rect(1px, 1px, 1px, 1px);
   height:1px;
   overflow:hidden;
@@ -3211,7 +3240,7 @@ body:not(#en__pagebuilder):not([data-engrid-debug]) .hide-labels .en__field:not(
 [data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type-option-apple-pay=true]) .showif-apple-pay-available,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type-option-daf=true]) .showif-daf-available,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type-option-google-pay=true]) .showif-google-pay-available,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type-option-paypal-one-touch=true]) .showif-paypal-one-touch-available,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type-option-venmo=true]) .showif-venmo-available,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type=daf]) .showif-daf-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type=paypaltouch]) .showif-paypaltouch-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements]:not([data-engrid-payment-type=stripedigitalwallet]) .showif-stripedigitalwallet-selected{
   display:none;
 }
-[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=daf] .hideif-daf-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=paypaltouch] .hideif-paypaltouch-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=stripedigitalwallet] .hideif-stripedigitalwallet-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-transaction-recurring=n][data-engrid-payment-type-option-paypal-one-touch=true] .en__field--giveBySelect.paypal,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-transaction-recurring=y] .en__field--giveBySelect.paypaltouch{
+[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=daf] .hideif-daf-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=daf] .hideif-daf-selected_hide-vanilla-submit-button .en__submit,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=paypaltouch] .hideif-paypaltouch-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-payment-type=stripedigitalwallet] .hideif-stripedigitalwallet-selected,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-transaction-recurring=n][data-engrid-payment-type-option-paypal-one-touch=true] .en__field--giveBySelect.paypal,[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug])[data-conditonally-hide-show-digital-wallet-elements][data-engrid-transaction-recurring=y] .en__field--giveBySelect.paypaltouch{
   display:none;
 }
 [data-engrid-theme] iframe.plaid-link-iframe,[data-engrid-theme] iframe[id^=plaid-link-iframe]{
@@ -3616,7 +3645,6 @@ body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-transaction
 #en__pagebuilder .recurring-frequency-annual-hide,#en__pagebuilder .recurring-frequency-annual-show,#en__pagebuilder .recurring-frequency-monthly-hide,#en__pagebuilder .recurring-frequency-monthly-show,#en__pagebuilder .recurring-frequency-n-hide,#en__pagebuilder .recurring-frequency-n-show,#en__pagebuilder .recurring-frequency-onetime-hide,#en__pagebuilder .recurring-frequency-onetime-show,#en__pagebuilder .recurring-frequency-quarterly-hide,#en__pagebuilder .recurring-frequency-quarterly-show,#en__pagebuilder .recurring-frequency-semi-annual-hide,#en__pagebuilder .recurring-frequency-semi-annual-show,#en__pagebuilder .recurring-frequency-y-hide,#en__pagebuilder .recurring-frequency-y-show,[data-engrid-debug] .recurring-frequency-annual-hide,[data-engrid-debug] .recurring-frequency-annual-show,[data-engrid-debug] .recurring-frequency-monthly-hide,[data-engrid-debug] .recurring-frequency-monthly-show,[data-engrid-debug] .recurring-frequency-n-hide,[data-engrid-debug] .recurring-frequency-n-show,[data-engrid-debug] .recurring-frequency-onetime-hide,[data-engrid-debug] .recurring-frequency-onetime-show,[data-engrid-debug] .recurring-frequency-quarterly-hide,[data-engrid-debug] .recurring-frequency-quarterly-show,[data-engrid-debug] .recurring-frequency-semi-annual-hide,[data-engrid-debug] .recurring-frequency-semi-annual-show,[data-engrid-debug] .recurring-frequency-y-hide,[data-engrid-debug] .recurring-frequency-y-show{
   background-color:rgba(0,0,255,.102) !important;
 }
-
 [data-engrid-theme] #dd-container .dtd-callout,[data-engrid-theme] .dtd-plugin .dtd-callout{
   background-color:initial;
   border:none;
@@ -3795,6 +3823,15 @@ body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-transaction
 }
 [data-engrid-theme] .dtd-company-selected .wrongcompany a{
   margin-top:var(--fields_spacing-block);
+}
+[data-engrid-theme]:not(#en__pagebuilder):not([data-engrid-debug]) .en__component--dd360search{
+  display:none;
+}
+[data-engrid-theme]#en__pagebuilder .en__component--dd360search .en__placeholder,[data-engrid-theme][data-engrid-debug] .en__component--dd360search{
+  background-color:rgba(255,0,0,.102) !important;
+}
+[data-engrid-theme] #dd-company-name-input .Select-menu-outer,[data-engrid-theme] .dtd-streamlined-plugin .Select-menu-outer{
+  position:relative;
 }
 
 [data-engrid-theme]{
@@ -4403,12 +4440,10 @@ button.en__eventOccurrence__select>label{
 }
 @keyframes spin{
   0%{
-    tranform:rotate(0deg);
-    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg);
   }
   to{
-    tranform:rotate(1turn);
-    -webkit-transform:rotate(1turn);
+    transform:rotate(1turn);
   }
 }
 [data-engrid-theme]{
@@ -5634,6 +5669,27 @@ body[data-engrid-page-type=e-card][data-engrid-embedded-ecard=true] .en__ecardre
 }
 
 body:not(#en__pagebuilder):not([data-engrid-debug]):not([data-engrid-embedded-ecard-sent=true]) .showif-embedded-ecard-sent,body[data-engrid-page-type=e-card][data-engrid-embedded-ecard=true] .en__ecardrecipients__email .en__ecarditems__addrecipient,body[data-engrid-page-type=e-card][data-engrid-embedded-ecard=true] .en__ecardrecipients__list,body[data-engrid-page-type=e-card][data-engrid-embedded-ecard=true] .en__ecardrecipients__name .en__ecarditems__addrecipient{
+  display:none;
+}
+
+#en__pagebuilder .checkbox-label{
+  background-color:rgba(0,0,255,.102);
+  display:block;
+  position:relative;
+}
+#en__pagebuilder .checkbox-label:after{
+  background-color:#f08080;
+  border-radius:0;
+  color:#fafad2;
+  content:"Checkbox Label";
+  display:block;
+  padding:5px;
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+body:not(#en__pagebuilder) .checkbox-label{
   display:none;
 }
 [data-engrid-theme]{
