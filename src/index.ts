@@ -4,6 +4,13 @@ import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via
 import "./sass/main.scss";
 import { customScript } from "./scripts/main";
 
+const vgsFieldOpts = { css: {
+  '@font-face': {
+    'font-family': 'GraphikSemiBold',
+    'src': `url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff')`,
+    'font-display': 'swap'
+  }
+}};
 const options: Options = {
   applePay: false,
   CapitalizeFields: true,
@@ -15,6 +22,14 @@ const options: Options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
+  VGS: {
+    // transaction.ccexpire is not defined in engrid/packages/scripts/src/interfaces/options.ts
+    // So, I cannot define it here; however, it might not matter because the font-face is brought in via other field definitions.  I'm seeing it affect the ccexpire field anyhow.
+
+    //"transaction.ccexpire": vgsFieldOpts,
+    "transaction.ccnumber": vgsFieldOpts,
+    "transaction.ccvv": vgsFieldOpts
+  },
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
   onResize: () => App.log("Starter Theme Window Resized"),
