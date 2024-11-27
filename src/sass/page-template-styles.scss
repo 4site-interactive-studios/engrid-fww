@@ -444,7 +444,7 @@
 
   @media screen and (min-width: 620px) and (max-width: 1022px) {
     &[data-engrid-js-loading=finished]:before{
-      background: #0057b8;
+      background: #0057b8 !important;
     }
 
     .body-headerOutside{

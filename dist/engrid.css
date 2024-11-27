@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 27, 2024 @ 13:33:12 ET
- *  By: michael
+ *  Date: Wednesday, November 27, 2024 @ 14:03:22 ET
+ *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.19.1
  *
@@ -8004,7 +8004,7 @@ body[data-engrid-debug]:before{
 }
 @media screen and (min-width:620px) and (max-width:1022px){
   [data-engrid-theme=fww][data-engrid-js-loading=finished]:before{
-    background:#0057b8;
+    background:#0057b8 !important;
   }
   [data-engrid-theme=fww] .body-headerOutside{
     border-top:10px solid #000;
