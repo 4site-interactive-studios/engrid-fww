@@ -173,6 +173,12 @@
     border-bottom: 1px solid #000000;
   }
 
+  .body-headerOutside > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .body-title h1{
     font-size: 35px;
     font-weight: 600;
