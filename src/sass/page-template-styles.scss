@@ -332,6 +332,7 @@
 
       &.en__field__item--other {
         --donation-amount__flex-grow: 1;
+        --input_padding: var(--donation-amount__button_padding);
         position: relative;
 
         &:has(input:not(:placeholder-shown)):before,
