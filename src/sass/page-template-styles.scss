@@ -357,6 +357,11 @@
     }
   }
 
+
+  &[data-engrid-visible-gift-amount="4"] .radio-to-buttons_donationAmt .en__field__item--other{
+    padding-left: calc(0.5rem + 1px) !important;
+  }
+
   &[data-engrid-transaction-recurring-frequency] .radio-to-buttons_donationAmt .en__field--donationAmt div:not(.en__field__item--other) .en__field__label--item:after{
     opacity: 1;
   }
@@ -468,8 +473,6 @@
       margin-bottom: 3rem;
     }
   }
-
-
 
   @media screen and (min-width: 1023px) {
     &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage {
