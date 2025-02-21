@@ -1,7 +1,14 @@
-import { Options, App } from "@4site/engrid-scripts"; // Uses ENGrid via NPM
+import {
+  Options,
+  App,
+  DonationAmount,
+  DonationFrequency,
+  EnForm,
+} from "@4site/engrid-scripts"; // Uses ENGrid via NPM
 // import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
 
 import "./sass/main.scss";
+import DonationLightboxForm from "./scripts/donation-lightbox-form";
 import { customScript } from "./scripts/main";
 
 const vgsCss = {
@@ -31,7 +38,11 @@ const options: Options = {
     }
   },
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
-  onLoad: () => customScript(),
+  onLoad: () => {
+    (<any>window).DonationLightboxForm = DonationLightboxForm;
+    new DonationLightboxForm(App, DonationAmount, DonationFrequency);
+    customScript(App, EnForm);
+  },
   onResize: () => App.log("Starter Theme Window Resized"),
 };
 new App(options);

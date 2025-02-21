@@ -1,4 +1,4 @@
-export const customScript = function (App) {
+export const customScript = function (App, EnForm) {
   const observerConfig = { attributes: true, attributeFilter: ['placeholder', 'aria-required'], subtree: true };
 
   const updatePlaceholder = (field) => {

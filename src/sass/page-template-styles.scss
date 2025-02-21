@@ -518,6 +518,13 @@
     // --donation-amount__button_font-size: 1.5rem;
     // --donation-amount__button_count: 3;
     // --donation-amount__button_padding: 17px 0px 13px;
+    --button_border-color_hover: var(--button_border-color);
+
+    .en__field--donationAmt{
+      --give-monthly-donation-amount-appended-label: "/mo";
+      --give-quarterly-donation-amount-appended-label: "/qtr";
+      --give-annual-donation-amount-appended-label: "/yr";
+    }
 
     // VGS
     --en-vgs-height: 46px;
@@ -529,7 +536,7 @@
     &#en__pagebuilder,
     &:not(#en__pagebuilder):not([data-engrid-embedded]) {
       .en__component--row {
-        width: 430px;
+        width: 350px;
         padding-left: 40px;
         padding-right: 40px;
         background-color: #ffffff;
