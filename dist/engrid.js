@@ -17,10 +17,10 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, December 17, 2024 @ 16:08:35 ET
- *  By: bryancasler
+ *  Date: Friday, February 21, 2025 @ 16:41:58 ET
+ *  By: 4Site
  *  ENGrid styles: v0.20.0
- *  ENGrid scripts: v0.20.4
+ *  ENGrid scripts: v0.20.1
  *
  *  Created by 4Site Studios
  *  Come work with us or join our team, we would love to hear from you
@@ -12474,9 +12474,7 @@ class Advocacy {
 
 class DataAttributes {
     constructor() {
-        this.logger = new logger_EngridLogger("Data Attribute Changed", "#FFFFFF", "#4d9068", "🛠️");
         this._country = Country.getInstance();
-        this._frequency = DonationFrequency.getInstance();
         this.setDataAttributes();
     }
     setDataAttributes() {
@@ -12609,7 +12607,6 @@ class DataAttributes {
         }
         if (engrid_ENGrid.getPageType() === "DONATION") {
             this.addFrequencyDataAttribute();
-            this.addGiftAmountDataAttribute();
         }
     }
     // Add a data attribute to the body tag with how many visible frequency options there are
@@ -12622,38 +12619,6 @@ class DataAttributes {
             }
         });
         engrid_ENGrid.setBodyData("visible-frequency", visibleFrequencyOptions.toString());
-    }
-    // Add a data attribute to the body tag with how many visible gift amount options there are
-    addGiftAmountDataAttribute() {
-        const updateGiftAmountData = () => {
-            const giftAmountOptions = document.querySelectorAll(".en__field--donationAmt .en__field__element .en__field__item");
-            let visibleGiftAmountOptions = 0;
-            giftAmountOptions.forEach((option) => {
-                if (engrid_ENGrid.isVisible(option)) {
-                    visibleGiftAmountOptions++;
-                }
-            });
-            engrid_ENGrid.setBodyData("visible-gift-amount", visibleGiftAmountOptions.toString());
-            this.logger.log("Visible Gift Amount Changed to: " + visibleGiftAmountOptions.toString());
-        };
-        // Initial update
-        updateGiftAmountData();
-        // Observe changes in the donation amount section
-        const observer = new MutationObserver(updateGiftAmountData);
-        const targetNode = document.querySelector(".en__field--donationAmt");
-        if (targetNode) {
-            observer.observe(targetNode, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-            });
-        }
-        // Run update updateGiftAmountData when frequency changes
-        this._frequency.onFrequencyChange.subscribe(() => {
-            setTimeout(() => {
-                updateGiftAmountData();
-            }, 10);
-        });
     }
 }
 
@@ -12865,7 +12830,6 @@ class iFrame {
             "giveBySelect-Card",
             "en__field--ccnumber",
             "en__field--survey",
-            "en__component--ecardblock",
             "give-by-select",
             "give-by-select-header",
             "en__submit",
@@ -12876,7 +12840,7 @@ class iFrame {
             "radio-to-buttons_donationAmt",
         ];
         const excludeIds = ["en__digitalWallet"];
-        const components = Array.from(document.querySelectorAll(".body-main:not(.force-visibility) > div:not(:last-child)"));
+        const components = Array.from(document.querySelectorAll(".body-main > div:not(:last-child)"));
         components.forEach((component) => {
             const shouldExclude = excludeClasses.some((cls) => component.classList.contains(cls) ||
                 component.querySelector(`:scope > .${cls}`)) || excludeIds.some((id) => component.querySelector(`#${id}`));
@@ -21431,12 +21395,12 @@ class OptInLadder {
         }
         this._form.onSubmit.subscribe(() => {
             // Save the checkbox values to sessionStorage
-            this.saveOptInsToSessionStorage("parent");
+            this.saveOptInsToSessionStorage();
         });
         this.logger.log("Running as Parent");
         if (ENGrid.getPageNumber() === 1) {
-            // Delete items from sessionStorage
-            this.clearSessionStorage();
+            // Delete supporter.questions from sessionStorage
+            sessionStorage.removeItem("engrid.supporter.questions");
         }
     }
     runAsChildRegular() {
@@ -21527,7 +21491,7 @@ class OptInLadder {
         this.saveStepToSessionStorage(currentStep, totalSteps);
         // On form submit, save the checkbox values to sessionStorage
         this._form.onSubmit.subscribe(() => {
-            this.saveOptInsToSessionStorage("child");
+            this.saveOptInsToSessionStorage();
             // Save the current step to sessionStorage
             currentStep++;
             this.saveStepToSessionStorage(currentStep, totalSteps);
@@ -21538,25 +21502,19 @@ class OptInLadder {
             this.logger.log("Not Embedded on a Thank You Page");
             return;
         }
-        const hasOptInLadderStop = sessionStorage.getItem("engrid.optin-ladder-stop");
-        if (hasOptInLadderStop) {
-            this.logger.log("OptInLadder has been stopped");
-            return;
-        }
         const sessionStorageOptInLadder = JSON.parse(sessionStorage.getItem("engrid.optin-ladder") || "{}");
         const currentStep = sessionStorageOptInLadder.step || 0;
         const totalSteps = sessionStorageOptInLadder.totalSteps || 0;
-        if (currentStep <= totalSteps) {
-            this.logger.log(`Current step ${currentStep} is less or equal to total steps ${totalSteps}`);
-            this.hidePage();
+        if (currentStep < totalSteps) {
+            this.logger.log(`Current step ${currentStep} is less than total steps ${totalSteps}`);
             // Redirect to the first page
             window.location.href = this.getFirstPageUrl();
             return;
         }
         else {
-            this.logger.log(`Current step ${currentStep} is greater than total steps ${totalSteps}`);
+            this.logger.log(`Current step ${currentStep} is equal to total steps ${totalSteps}`);
             // Remove the session storage
-            this.clearSessionStorage();
+            sessionStorage.removeItem("engrid.optin-ladder");
         }
     }
     inIframe() {
@@ -21579,7 +21537,7 @@ class OptInLadder {
         path.push("1");
         return url.origin + path.join("/") + "?chain";
     }
-    saveOptInsToSessionStorage(type = "parent") {
+    saveOptInsToSessionStorage() {
         // Grab all the checkboxes with the name starting with "supporter.questions"
         const checkboxes = document.querySelectorAll('input[name^="supporter.questions"]');
         if (checkboxes.length === 0) {
@@ -21587,23 +21545,15 @@ class OptInLadder {
             return;
         }
         const sessionStorageCheckboxValues = JSON.parse(sessionStorage.getItem("engrid.supporter.questions") || "{}");
-        let hasDeny = false;
         // Loop through all the checkboxes and store the value in sessionStorage
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
                 const index = checkbox.name.split(".")[2];
                 sessionStorageCheckboxValues[index] = "Y";
             }
-            else {
-                hasDeny = true;
-            }
         });
         sessionStorage.setItem("engrid.supporter.questions", JSON.stringify(sessionStorageCheckboxValues));
         this.logger.log(`Saved checkbox values to sessionStorage: ${JSON.stringify(sessionStorageCheckboxValues)}`);
-        if (type === "child" && hasDeny) {
-            // Add a deny value to the sessionStorage to stop the ladder
-            sessionStorage.setItem("engrid.optin-ladder-stop", "Y");
-        }
     }
     isEmbeddedThankYouPage() {
         return ENGrid.getBodyData("embedded") === "thank-you-page-donation";
@@ -21614,15 +21564,10 @@ class OptInLadder {
             engridPage.classList.add("hide");
         }
     }
-    clearSessionStorage() {
-        sessionStorage.removeItem("engrid.supporter.questions");
-        sessionStorage.removeItem("engrid.optin-ladder");
-        sessionStorage.removeItem("engrid.optin-ladder-stop");
-    }
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/version.js
-const AppVersion = "0.20.4";
+const AppVersion = "0.20.1";
 
 ;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/index.js
  // Runs first so it can change the DOM markup before any markup dependent code fires
