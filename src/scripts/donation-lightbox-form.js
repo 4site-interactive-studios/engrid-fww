@@ -110,7 +110,7 @@ export default class DonationLightboxForm {
           );
           const ccnumberBlock = document.querySelector(".en__field--ccnumber");
           if (paymentType && ccnumberBlock) {
-            paymentType.value = "visa";
+            paymentType.value = "card";
             this.showHideCCSection("card");
             ccnumberBlock.classList.add("has-error");
             const errorMessage = document.querySelector(".en__error");
@@ -520,8 +520,8 @@ export default class DonationLightboxForm {
         ccnumberSection
       );
       if (paymentType && paymentType.value === "") {
-        // Set payment type to visa if it's empty
-        paymentType.value = "visa";
+        // Set payment type to card if it's empty
+        paymentType.value = "card";
         this.showHideCCSection("card");
       }
       if (sectionId === false || sectionId == ccnumberSection) {
@@ -890,7 +890,7 @@ export default class DonationLightboxForm {
               "#en__field_transaction_paymenttype"
             );
             if (paymentType) {
-              paymentType.value = "visa";
+              paymentType.value = "card";
             }
           }
         });
@@ -905,7 +905,7 @@ export default class DonationLightboxForm {
       );
       if (
         payment &&
-        ["visa", "mastercard", "amex", "discover", "diners", "jcb"].includes(
+        ["visa", "mastercard", "amex", "discover", "diners", "jcb", "card"].includes(
           payment.value
         )
       ) {

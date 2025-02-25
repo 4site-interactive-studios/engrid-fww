@@ -38,9 +38,10 @@ const options: Options = {
     }
   },
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
+  
   onLoad: () => {
     (<any>window).DonationLightboxForm = DonationLightboxForm;
-    new DonationLightboxForm(App, DonationAmount, DonationFrequency);
+    new DonationLightboxForm(DonationAmount, DonationFrequency, App);
     customScript(App, EnForm);
   },
   onResize: () => App.log("Starter Theme Window Resized"),

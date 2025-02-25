@@ -17,8 +17,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, February 24, 2025 @ 13:42:48 ET
- *  By: 4Site
+ *  Date: Tuesday, February 25, 2025 @ 15:12:15 ET
+ *  By: bryancasler
  *  ENGrid styles: v0.20.9
  *  ENGrid scripts: v0.20.8
  *
@@ -22287,7 +22287,7 @@ class DonationLightboxForm {
           const paymentType = document.querySelector("#en__field_transaction_paymenttype");
           const ccnumberBlock = document.querySelector(".en__field--ccnumber");
           if (paymentType && ccnumberBlock) {
-            paymentType.value = "visa";
+            paymentType.value = "card";
             this.showHideCCSection("card");
             ccnumberBlock.classList.add("has-error");
             const errorMessage = document.querySelector(".en__error");
@@ -22629,8 +22629,8 @@ class DonationLightboxForm {
       const ccnumberSection = this.getSectionId(ccnumberBlock);
       console.log("DonationLightboxForm: validateForm", ccnumberBlock, ccnumberSection);
       if (paymentType && paymentType.value === "") {
-        // Set payment type to visa if it's empty
-        paymentType.value = "visa";
+        // Set payment type to card if it's empty
+        paymentType.value = "card";
         this.showHideCCSection("card");
       }
       if (sectionId === false || sectionId == ccnumberSection) {
@@ -22941,7 +22941,7 @@ class DonationLightboxForm {
           if (item.value === "card") {
             const paymentType = document.querySelector("#en__field_transaction_paymenttype");
             if (paymentType) {
-              paymentType.value = "visa";
+              paymentType.value = "card";
             }
           }
         });
@@ -22952,7 +22952,7 @@ class DonationLightboxForm {
     let ptValue = paymentType;
     if (!paymentType) {
       const payment = document.querySelector("#en__field_transaction_paymenttype");
-      if (payment && ["visa", "mastercard", "amex", "discover", "diners", "jcb"].includes(payment.value)) {
+      if (payment && ["visa", "mastercard", "amex", "discover", "diners", "jcb", "card"].includes(payment.value)) {
         ptValue = "card";
         // Check Card transaction.giveBySelect
         const card = document.querySelector("[name='transaction.giveBySelect'][value='card']");
@@ -23101,7 +23101,7 @@ const options = {
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => {
     window.DonationLightboxForm = DonationLightboxForm;
-    new DonationLightboxForm(App, DonationAmount, DonationFrequency);
+    new DonationLightboxForm(DonationAmount, DonationFrequency, App);
     customScript(App, en_form_EnForm);
   },
   onResize: () => App.log("Starter Theme Window Resized")
