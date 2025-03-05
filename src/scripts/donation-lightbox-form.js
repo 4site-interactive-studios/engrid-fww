@@ -111,7 +111,7 @@ export default class DonationLightboxForm {
           const ccnumberBlock = document.querySelector(".en__field--ccnumber");
           if (paymentType && ccnumberBlock) {
             paymentType.value = "card";
-            this.showHideCCSection("card");
+            this.showHideDynamicSection("card");
             ccnumberBlock.classList.add("has-error");
             const errorMessage = document.querySelector(".en__error");
             const errorMessageText =
@@ -231,7 +231,7 @@ export default class DonationLightboxForm {
     }
     window.addEventListener("message", this.receiveMessage.bind(this), false);
     this.sendMessage("isMobile");
-    this.showHideCCSection(false);
+    this.showHideDynamicSection(false);
   }
   // Send iframe message to parent
   sendMessage(key, value) {
@@ -522,7 +522,7 @@ export default class DonationLightboxForm {
       if (paymentType && paymentType.value === "") {
         // Set payment type to card if it's empty
         paymentType.value = "card";
-        this.showHideCCSection("card");
+        this.showHideDynamicSection("card");
       }
       if (sectionId === false || sectionId == ccnumberSection) {
         if (!paymentType || !paymentType.value) {
@@ -605,6 +605,54 @@ export default class DonationLightboxForm {
             if (cvvBlock) {
               cvvBlock.classList.remove("has-error");
             }
+          }
+        }
+      }
+      // Validate Bank Details
+      if (paymentType && paymentType.value.toLowerCase() === "ach") {
+        const routingNumber = form.querySelector(
+          "#en__field_supporter_bankRoutingNumber"
+        );
+        if (!routingNumber) return;
+        const bankSection = this.getSectionId(routingNumber);
+        if (sectionId === false || sectionId == bankSection) {
+          // All form fields from this section are mandatory if the payment type is ACH
+          const mandatoryFields = this.sections[bankSection].querySelectorAll(
+            "input:not([type='hidden'])"
+          );
+          let hasError = false;
+          mandatoryFields.forEach((field) => {
+            if (hasError) {
+              return;
+            }
+            const fieldElement = field;
+            const fieldLabel = field
+              .closest(".en__field")
+              .querySelector(".en__field__label");
+            if (!fieldElement.value) {
+              this.scrollToElement(fieldElement);
+              this.sendMessage(
+                "error",
+                "Please enter " + fieldLabel.textContent
+              );
+              fieldElement.closest(".en__field").classList.add("has-error");
+              hasError = true;
+              return false;
+            } else if (
+              fieldElement.type === "checkbox" &&
+              !fieldElement.checked
+            ) {
+              this.scrollToElement(fieldElement);
+              this.sendMessage("error", "Please check the agreement checkbox");
+              fieldElement.closest(".en__field").classList.add("has-error");
+              hasError = true;
+              return false;
+            } else {
+              fieldElement.closest(".en__field").classList.remove("has-error");
+            }
+          });
+          if (hasError) {
+            return false;
           }
         }
       }
@@ -884,7 +932,7 @@ export default class DonationLightboxForm {
     if (paymentType.length) {
       paymentType.forEach((item) => {
         item.addEventListener("change", () => {
-          this.showHideCCSection(item.value);
+          this.showHideDynamicSection(item.value.toLowerCase());
           if (item.value === "card") {
             const paymentType = document.querySelector(
               "#en__field_transaction_paymenttype"
@@ -893,11 +941,14 @@ export default class DonationLightboxForm {
               paymentType.value = "card";
             }
           }
+          console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
         });
       });
     }
   }
-  showHideCCSection(paymentType) {
+  // paymentType is any of the values from the giveBySelect radio buttons
+  // it can also be false, in which case it will try to get the value from the paymentType field
+  showHideDynamicSection(paymentType) {
     let ptValue = paymentType;
     if (!paymentType) {
       const payment = document.querySelector(
@@ -905,9 +956,15 @@ export default class DonationLightboxForm {
       );
       if (
         payment &&
-        ["visa", "mastercard", "amex", "discover", "diners", "jcb", "card"].includes(
-          payment.value
-        )
+        [
+          "visa",
+          "mastercard",
+          "amex",
+          "discover",
+          "diners",
+          "jcb",
+          "card",
+        ].includes(payment.value)
       ) {
         ptValue = "card";
         // Check Card transaction.giveBySelect
@@ -919,17 +976,41 @@ export default class DonationLightboxForm {
           const event = new Event("change");
           card.dispatchEvent(event);
         }
+      } else {
+        ptValue = payment ? payment.value.toLowerCase() : null;
+        const giveBySelectItem = document.querySelector(
+          `[name='transaction.giveBySelect'][value='${ptValue}']`
+        );
+        if (giveBySelectItem) {
+          giveBySelectItem.checked = true;
+          const event = new Event("change");
+          giveBySelectItem.dispatchEvent(event);
+        }
       }
     }
-    const ccnumberBlock = document.querySelector(
-      "#en__field_transaction_ccnumber"
+    // Get every element that has the CSS class giveBySelect-*
+    const giveBySelectItems = document.querySelectorAll(
+      "[class*='giveBySelect-']"
     );
-    console.log(ccnumberBlock);
-    const ccnumberSection = this.getSectionId(ccnumberBlock);
-    if (ptValue === "card") {
-      this.sections[ccnumberSection].style.display = "block";
-    } else {
-      this.sections[ccnumberSection].style.display = "none";
-    }
+    // Loop through each element
+    giveBySelectItems.forEach((item) => {
+      // Get the value of the class
+      let value = item.className.split("giveBySelect-")[1];
+      // Get the value until the next space
+      value = value.split(" ")[0];
+      // If the value is the same as the payment type, show the element
+      if (value.toLowerCase() === ptValue) {
+        // Get the element's section
+        const section = this.getSectionId(item);
+        // Show the element
+        this.sections[section].style.display = "block";
+        console.log(`Showing section ${section}`);
+      } else {
+        // Otherwise, hide the section
+        const section = this.getSectionId(item);
+        this.sections[section].style.display = "none";
+        console.log(`Hiding section ${section}`);
+      }
+    });
   }
 }
