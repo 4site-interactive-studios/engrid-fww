@@ -202,9 +202,13 @@ export default class DonationLightboxForm {
             const nextSectionId = Number(this.getSectionId(e));
             const currentSectionId = Number(this.currentSectionId);
 
+            console.log("Focus on", nextSectionId, currentSectionId);
+
             setTimeout(() => {
               const focusIsOnNextSection =
-                nextSectionId === currentSectionId + 1;
+                nextSectionId === currentSectionId + 1 ||
+                (nextSectionId > currentSectionId + 1 &&
+                  !this.isVisible(this.sections[currentSectionId + 1]));
 
               if (focusIsOnNextSection && this.validateForm(currentSectionId)) {
                 // Only scroll if the current section doesn't have radio elements
@@ -224,6 +228,24 @@ export default class DonationLightboxForm {
             }
           });
         });
+      // For TAB navigation, ensure the script will scroll to the focused element's section. So we will watch for the keydown event on the document.
+
+      document.addEventListener("keydown", (event) => {
+        if (event.keyCode === 9) {
+          const focusedElement = document.activeElement;
+          // If the focused element is not inside the form, return
+          if (!focusedElement.closest("form.en__component")) return;
+          console.log("Tabbed to", focusedElement);
+          const nextSectionId = Number(this.getSectionId(focusedElement));
+          const currentSectionId = Number(this.currentSectionId);
+          if (currentSectionId !== nextSectionId) {
+            event.preventDefault();
+            if (this.validateForm(currentSectionId)) {
+              this.scrollToSection(nextSectionId, currentSectionId);
+            }
+          }
+        }
+      });
       // Map the enter key to the next button
       document
         .querySelectorAll("form.en__component input.en__field__input")
@@ -983,6 +1005,13 @@ export default class DonationLightboxForm {
     );
   }
   addEvents() {
+    const feeCover = document.querySelector("#en__field_transaction_feeCover");
+    if (feeCover) {
+      feeCover.addEventListener("change", () => {
+        this.changeSubmitButton();
+      });
+    }
+
     this.frequency
       .getInstance()
       .onFrequencyChange.subscribe((s) => this.bounceArrow(s));
