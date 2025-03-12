@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, March 12, 2025 @ 10:27:04 ET
+ *  Date: Wednesday, March 12, 2025 @ 14:37:39 ET
  *  By: fernando
  *  ENGrid styles: v0.20.9
  *  ENGrid scripts: v0.20.8
@@ -22310,38 +22310,28 @@ class DonationLightboxForm {
       // If Form Submission Failed
       if (this.checkNested(EngagingNetworks, "require", "_defined", "enjs", "checkSubmissionFailed") && EngagingNetworks.require._defined.enjs.checkSubmissionFailed()) {
         console.log("DonationLightboxForm: Submission Failed");
-        // If the en__field_transaction_ccexpire is not empty, show the credit card section
-        const creditCardSection = document.querySelector(".en__field--ccexpire");
-        const creditCardExpire = creditCardSection ? creditCardSection.querySelector("#en__field_transaction_ccexpire") : null;
-        if (creditCardExpire && creditCardExpire.value != "") {
-          const paymentType = document.querySelector("#en__field_transaction_paymenttype");
-          const ccnumberBlock = document.querySelector(".en__field--ccnumber");
-          if (paymentType && ccnumberBlock) {
-            paymentType.value = "card";
-            this.showHideDynamicSection("card");
-            ccnumberBlock.classList.add("has-error");
-            const errorMessage = document.querySelector(".en__error");
-            const errorMessageText = errorMessage && errorMessage.textContent.split(". ").length > 1 && errorMessage.textContent.split(". ")[1] !== "" ? errorMessage.textContent.split(". ")[1] : errorMessage.textContent;
-            this.sendMessage("error", errorMessageText);
-            this.scrollToElement(creditCardSection);
-          }
-        } else if (this.validateForm()) {
-          // Front-End Validation Passed, get first Error Message
-          const error = document.querySelector("li.en__error");
-          if (error) {
-            // Check if error contains "problem processing" to send a smaller message
-            if (error.innerHTML.toLowerCase().indexOf("problem processing") > -1) {
-              this.sendMessage("error", "Sorry! There's a problem processing your donation.");
-              this.scrollToElement(document.querySelector(".en__field--ccnumber"));
-            } else {
-              this.sendMessage("error", error.textContent);
-            }
-            // Check if error contains "payment" or "account" and scroll to the right section
-            if (error.innerHTML.toLowerCase().indexOf("payment") > -1 || error.innerHTML.toLowerCase().indexOf("account") > -1) {
-              this.scrollToElement(document.querySelector(".en__field--ccnumber"));
+        this.showHideDynamicSection(false);
+        window.setTimeout(() => {
+          if (this.validateForm()) {
+            // Front-End Validation Passed, get first Error Message
+            const error = document.querySelector("li.en__error");
+            if (error) {
+              // Check if error contains "problem processing" to send a smaller message
+              if (error.innerHTML.toLowerCase().indexOf("problem processing") > -1) {
+                this.sendMessage("error", "Sorry! There's a problem processing your donation.");
+                this.scrollToElement(document.querySelector(".en__field--ccnumber"));
+              } else {
+                this.sendMessage("error", error.textContent);
+              }
+              // Check if error contains "payment" or "account" and scroll to the right section
+              if (error.innerHTML.toLowerCase().indexOf("payment") > -1 || error.innerHTML.toLowerCase().indexOf("account") > -1) {
+                this.scrollToElement(document.querySelector(".en__field--ccnumber"));
+              } else if (error.innerHTML.toLowerCase().indexOf("routing") > -1 || error.innerHTML.toLowerCase().indexOf("account") > -1 || error.innerHTML.toLowerCase().indexOf("bank") > -1) {
+                this.scrollToElement(document.querySelector(".en__field--bankRoutingNumber"));
+              }
             }
           }
-        }
+        }, 100);
       } else {
         App.watchForError(() => {
           const errorMessage = document.querySelector(".en__error");
@@ -22704,8 +22694,9 @@ class DonationLightboxForm {
       const ccnumberBlock = form.querySelector(".en__field--ccnumber");
       const ccnumberSection = this.getSectionId(ccnumberBlock);
       const isDigitalWalletPayment = ["paypal", "paypaltouch", "stripedigitalwallet"].includes(paymentType.value);
+      const isBankPayment = paymentType.value === "ach";
       console.log("DonationLightboxForm: validateForm", ccnumberBlock, ccnumberSection);
-      if (!isDigitalWalletPayment && (sectionId === false || sectionId == ccnumberSection) && checkCard) {
+      if (!isDigitalWalletPayment && !isBankPayment && (sectionId === false || sectionId == ccnumberSection) && checkCard) {
         if (!paymentType || !paymentType.value) {
           this.scrollToElement(paymentType);
           this.sendMessage("error", "Please add your credit card information");
