@@ -19,9 +19,16 @@
   //     }
   //   }
 
-  &#en__pagebuilder #engrid{
+  &#en__pagebuilder #engrid,
+  &:not([data-engrid-embedded]){
     max-width: 270px;
     margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &:not([data-engrid-embedded]):before{
+    content: none;
   }
 
   &#en__pagebuilder,
@@ -852,5 +859,9 @@
   // Temporarily hide the Credit Card Holder Name field
   .en__field--creditCardHolderName {
     display: none;
+  }
+
+  .transaction-fee-opt-in{
+    margin-top: 2rem;
   }
 }

@@ -562,4 +562,12 @@
   &[data-engrid-subtheme="multistep"] {
     @import "./multistep";
   }
+
+  &[data-engrid-subtheme="multistep"]:not([data-engrid-embedded]) {
+    #engrid {
+      max-width: 270px;
+      margin: 0 auto;
+    }
+  }
+
 }
