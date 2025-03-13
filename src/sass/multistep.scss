@@ -19,6 +19,11 @@
   //     }
   //   }
 
+  #engrid{
+    max-width: 270px;
+    margin: 0 auto;
+  }
+
   &#en__pagebuilder,
   &:not(#en__pagebuilder):not([data-engrid-embedded]) {
     #engrid > .en__component--row {
