@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, March 13, 2025 @ 15:02:18 ET
+ *  Date: Thursday, March 13, 2025 @ 15:48:29 ET
  *  By: bryancasler
  *  ENGrid styles: v0.20.9
  *  ENGrid scripts: v0.20.8
@@ -8083,7 +8083,7 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww] .gift-summary .live-giving-amount{
   font-weight:600;
 }
-[data-engrid-theme=fww][data-engrid-subtheme=multistep] #engrid{
+[data-engrid-theme=fww][data-engrid-subtheme=multistep]#en__pagebuilder #engrid{
   margin:0 auto;
   max-width:270px;
 }
