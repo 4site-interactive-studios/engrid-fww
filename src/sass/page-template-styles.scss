@@ -47,8 +47,8 @@
   --engrid__content_padding: 0px var(--spacing_lg);
 
   // TYPOGRAPHY INPUT
-  --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
-  // --input_color: #000000;
+  --input_font-family: "Graphik", "Arial Black", "sans-serif";
+  --input_color: #c6c6c6;
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
   // --input_line-height: initial;
@@ -526,6 +526,11 @@ h2 {
     color: $blue;
   }
 
+  .en__ticket__field.en__ticket__field--cost {
+    text-align: right;
+    min-width: 80px;
+  }
+
   .en__ticket__price {
     font-size: 1.125em;
   }
@@ -543,6 +548,11 @@ h2 {
     position: relative;
   }
 
+  .en__ticket__quantity {
+    font-size: 1.25em;
+    width: 2em;
+  }
+
   .en__additional {
     border: 2px solid #000000;
     border-radius: 15px;
@@ -555,9 +565,7 @@ h2 {
     .en__additional__promo {
       display: none;
     }
+    
   }
-
-  
-
 
 }
