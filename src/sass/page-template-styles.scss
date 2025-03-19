@@ -19,6 +19,14 @@
   // --h1_font-weight: initial;
   // --h1_line-height: initial;
 
+  // TYPOGRAPHY H2
+  --h2_font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  --h2_color: #0057b8;
+  --h2_font-size: calc(var(--default_font-size) * var(--scale-down_50pct));
+  // --h2_font-weight: initial;
+  // --h2_line-height: initial;
+  // --h2_text-transform: initial;
+
   // TYPOGRAPHY P
   // --p_font-family: var(--default_font-family);
   // --p_color: initial;
@@ -125,6 +133,11 @@
 
   --engrid__content-footer_background-color: #000000;
   --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5) var(--spacing_lg);
+}
+
+h2 {
+  margin-top: calc(2rem * var(--scale-down_80pct));
+  //margin-bottom: calc(1rem * var(--scale-down_20pct));
 }
 
 [data-engrid-theme="fww"] {
@@ -500,4 +513,51 @@
         width: calc(100% - 550px)
     }
   }
+
+  // Client-specific styles
+
+  .en__ticket.en__ticket--ENBL {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  .en__ticket__name {
+    color: $blue;
+  }
+
+  .en__ticket__price {
+    font-size: 1.125em;
+  }
+
+  .en__ticket__selector {
+    margin-top: -4px;
+  }
+
+  .en__ticket__minus, .en__ticket__plus {
+    border: 1px solid #878787;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+    top: 9px;
+    position: relative;
+  }
+
+  .en__additional {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 10px 20px;
+
+    .en__additional__label {
+      color: $blue;
+    }
+  
+    .en__additional__promo {
+      display: none;
+    }
+  }
+
+  
+
+
 }
