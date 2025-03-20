@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, March 19, 2025 @ 09:54:35 ET
+ *  Date: Thursday, March 20, 2025 @ 09:54:51 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -8057,13 +8057,17 @@ h2{
     width:calc(100% - 550px);
   }
 }
-[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
+[data-engrid-theme=fww] .en__component.en__component--eventtickets,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields,[data-engrid-theme=fww] .en__field__element.en__field__element--radio,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
   border:2px solid #000;
   border-radius:15px;
   padding:20px;
 }
+[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields.activated,[data-engrid-theme=fww] .en__field__element.en__field__element--radio.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+  background-color:#e6eff8;
+}
 [data-engrid-theme=fww] .en__ticket__name{
   color:#0057b8;
+  margin-bottom:10px;
 }
 [data-engrid-theme=fww] .en__ticket__field.en__ticket__field--cost{
   min-width:80px;
@@ -8097,6 +8101,47 @@ h2{
 }
 [data-engrid-theme=fww] .en__additional .en__additional__promo{
   display:none;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list li{
+  line-height:1.6;
+  padding-left:20px;
+  position:relative;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list li:before{
+  color:#0057b8;
+  content:"✓";
+  display:block;
+  font-weight:700;
+  left:0;
+  position:absolute;
+  top:0;
+  width:20px;
+}
+[data-engrid-theme=fww] .en__additional__amount .en__additional__input{
+  border-bottom:2px solid #000;
+  color:#000;
+  padding-bottom:5px;
+  padding-left:5px;
+  position:relative;
+  text-align:left;
+}
+[data-engrid-theme=fww] .en__additional__amount{
+  padding-left:20px;
+  position:relative;
+}
+[data-engrid-theme=fww] .en__additional__amount:before{
+  color:#000;
+  content:"$";
+  font-size:1em;
+  left:10px;
+  pointer-events:none;
+  position:absolute;
+  top:10px;
 }
 body{
   opacity:1;

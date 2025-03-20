@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, March 19, 2025 @ 09:54:35 ET
+ *  Date: Thursday, March 20, 2025 @ 09:54:51 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21804,6 +21804,75 @@ const customScript = function (App) {
     });
     updatePlaceholders();
   }
+  function makeDescriptionLists() {
+    const descriptionLists = document.querySelectorAll(".en__ticket__desc");
+    descriptionLists.forEach(list => {
+      if (list.textContent.includes('✔')) {
+        const items = list.textContent.split('✔').map(item => item.trim()).filter(item => item);
+        const ul = document.createElement('ul');
+        ul.classList.add('checked-list');
+        items.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `${item}`;
+          ul.appendChild(li);
+        });
+
+        // Replace the div content with the unordered list
+        list.innerHTML = '';
+        list.appendChild(ul);
+      }
+    });
+  }
+  makeDescriptionLists();
+  function activatedTicket() {
+    document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
+      const toggleClass = () => {
+        const inputText = input.value.trim();
+        const parentDiv = input.closest('div').parentElement.parentElement;
+        if (parentDiv) {
+          if (inputText !== '0' && inputText !== '') {
+            parentDiv.classList.add('activated');
+          } else {
+            parentDiv.classList.remove('activated');
+          }
+        }
+      };
+      input.addEventListener('input', () => {
+        setTimeout(toggleClass, 50);
+      });
+      const plusDiv = input.parentElement.querySelector('.en__ticket__plus');
+      const minusDiv = input.parentElement.querySelector('.en__ticket__minus');
+      if (plusDiv) {
+        plusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+      if (minusDiv) {
+        minusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+    });
+  }
+  activatedTicket();
+  function additionalDonation() {
+    const donationInput = document.querySelector('input.en__additional__input');
+    const checkAmount = () => {
+      const inputText = donationInput.value.trim();
+      const parentDiv = donationInput.closest('div').parentElement;
+      if (parentDiv) {
+        if (inputText !== '0' && inputText !== '') {
+          parentDiv.classList.add('activated');
+        } else {
+          parentDiv.classList.remove('activated');
+        }
+      }
+    };
+    donationInput.addEventListener('input', () => {
+      setTimeout(checkAmount, 50);
+    });
+  }
+  additionalDonation();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM

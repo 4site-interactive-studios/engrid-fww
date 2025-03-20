@@ -51,53 +51,133 @@ export const customScript = function (App) {
   }
 
   // Function to update placeholders dynamically
-function updatePlaceholders() {
-  const donationFields = document.querySelectorAll(
-    ".en__field--donationAmt .en__field__item"
-  );
+  function updatePlaceholders() {
+    const donationFields = document.querySelectorAll(
+      ".en__field--donationAmt .en__field__item"
+    );
 
-  donationFields.forEach((field, index) => {
-    const input = field.querySelector("input[name='transaction.donationAmt.other']");
+    donationFields.forEach((field, index) => {
+      const input = field.querySelector("input[name='transaction.donationAmt.other']");
 
-    if (input) {
-      const placeholder = index === 4 || index === 7 ? "Enter Other Amount" : "Other";
+      if (input) {
+        const placeholder = index === 4 || index === 7 ? "Enter Other Amount" : "Other";
 
-      // Set initial placeholder
-      input.placeholder = placeholder;
+        // Set initial placeholder
+        input.placeholder = placeholder;
 
-      // Use focusin to clear placeholder
-      input.addEventListener("focusin", function () {
-        this.placeholder = ""; // Always clear placeholder on focus
-      });
+        // Use focusin to clear placeholder
+        input.addEventListener("focusin", function () {
+          this.placeholder = ""; // Always clear placeholder on focus
+        });
 
-      // Use focusout to restore placeholder only if value and visual content are empty
-      input.addEventListener("focusout", function () {
-        if (!this.value && isVisuallyEmpty(this)) {
-          this.placeholder = placeholder; // Restore only when value and pseudo-content are empty
+        // Use focusout to restore placeholder only if value and visual content are empty
+        input.addEventListener("focusout", function () {
+          if (!this.value && isVisuallyEmpty(this)) {
+            this.placeholder = placeholder; // Restore only when value and pseudo-content are empty
+          }
+        });
+      }
+    });
+  }
+
+  // Helper function to check if input is visually empty
+  function isVisuallyEmpty(input) {
+    // Check if the ::before pseudo-element has visible content
+    const beforeContent = window.getComputedStyle(input, "::before").getPropertyValue("content");
+    return beforeContent === 'none' || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
+  }
+
+  // Set up MutationObserver (same as before)
+  const targetNode = document.querySelector(".en__field--donationAmt");
+  if (targetNode) {
+    const observer = new MutationObserver(updatePlaceholders);
+
+    observer.observe(targetNode, {
+      childList: true,
+      subtree: true,
+    });
+
+    updatePlaceholders();
+  }
+
+  function makeDescriptionLists() {
+    const descriptionLists = document.querySelectorAll(".en__ticket__desc");
+
+    descriptionLists.forEach((list) => {
+
+      if (list.textContent.includes('✔')) {
+        const items = list.textContent.split('✔').map(item => item.trim()).filter(item => item);
+
+        const ul = document.createElement('ul');
+        ul.classList.add('checked-list');
+
+        items.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `${item}`;
+          ul.appendChild(li);
+        });
+
+        // Replace the div content with the unordered list
+        list.innerHTML = '';
+        list.appendChild(ul);
+      }
+
+    });
+  }
+  makeDescriptionLists();
+
+  function activatedTicket() {
+    document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
+      const toggleClass = () => {
+        const inputText = input.value.trim();
+        const parentDiv = input.closest('div').parentElement.parentElement;
+        if (parentDiv) {
+          if (inputText !== '0' && inputText !== '') {
+            parentDiv.classList.add('activated');
+          } else {
+            parentDiv.classList.remove('activated');
+          }
         }
+      };
+
+      input.addEventListener('input', () => {
+        setTimeout(toggleClass, 50);
       });
-    }
-  });
-}
 
-// Helper function to check if input is visually empty
-function isVisuallyEmpty(input) {
-  // Check if the ::before pseudo-element has visible content
-  const beforeContent = window.getComputedStyle(input, "::before").getPropertyValue("content");
-  return beforeContent === 'none' || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
-}
+      const plusDiv = input.parentElement.querySelector('.en__ticket__plus');
+      const minusDiv = input.parentElement.querySelector('.en__ticket__minus');
+      if (plusDiv) {
+        plusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+      if (minusDiv) {
+        minusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+    });
+  }
+  activatedTicket();
 
-// Set up MutationObserver (same as before)
-const targetNode = document.querySelector(".en__field--donationAmt");
-if (targetNode) {
-  const observer = new MutationObserver(updatePlaceholders);
+  function additionalDonation() {
+    const donationInput = document.querySelector('input.en__additional__input');
 
-  observer.observe(targetNode, {
-    childList: true,
-    subtree: true,
-  });
+    const checkAmount = () => {
+      const inputText = donationInput.value.trim();
+      const parentDiv = donationInput.closest('div').parentElement;
+      if (parentDiv) {
+        if (inputText !== '0' && inputText !== '') {
+          parentDiv.classList.add('activated');
+        } else {
+          parentDiv.classList.remove('activated');
+        }
+      }
+    };
 
-  updatePlaceholders();
-}
-
+    donationInput.addEventListener('input', () => {
+      setTimeout(checkAmount, 50);
+    });
+  }
+  additionalDonation();
 };
