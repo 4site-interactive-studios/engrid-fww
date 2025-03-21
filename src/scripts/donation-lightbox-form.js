@@ -1075,25 +1075,50 @@ export default class DonationLightboxForm {
     const giveBySelectItems = document.querySelectorAll(
       "[class*='giveBySelect-']"
     );
-    // Loop through each element
+
+    // Create a Set of sections that have giveBySelect- elements (excluding those in digital-wallets-wrapper)
+    const sectionsWithGiveBySelect = new Set();
     giveBySelectItems.forEach((item) => {
-      // Get the value of the class
-      let value = item.className.split("giveBySelect-")[1];
-      // Get the value until the next space
-      value = value.split(" ")[0];
-      // If the value is the same as the payment type, show the element
-      if (value.toLowerCase() === ptValue) {
-        // Get the element's section
-        const section = this.getSectionId(item);
-        // Show the element
-        this.sections[section].style.display = "block";
-        console.log(`Showing section ${section}`);
-      } else {
-        // Otherwise, hide the section
-        const section = this.getSectionId(item);
-        this.sections[section].style.display = "none";
-        console.log(`Hiding section ${section}`);
+      // Skip if the element is inside digital-wallets-wrapper
+      if (item.closest(".digital-wallets-wrapper")) {
+        return;
       }
+      const section = this.getSectionId(item);
+      if (section !== false) {
+        sectionsWithGiveBySelect.add(section);
+      }
+    });
+
+    // First, handle sections without giveBySelect- elements
+    this.sections.forEach((section, sectionId) => {
+      if (!sectionsWithGiveBySelect.has(sectionId)) {
+        section.style.display = "block";
+        console.log(`Showing section ${sectionId} (no giveBySelect elements)`);
+      }
+    });
+
+    // Then, handle sections with giveBySelect- elements
+    sectionsWithGiveBySelect.forEach((sectionId) => {
+      const section = this.sections[sectionId];
+      // Only get giveBySelect- elements that are not in digital-wallets-wrapper
+      const sectionItems = Array.from(
+        section.querySelectorAll("[class*='giveBySelect-']")
+      ).filter((item) => !item.closest(".digital-wallets-wrapper"));
+      let shouldShow = false;
+
+      sectionItems.forEach((item) => {
+        // Get the value of the class
+        let value = item.className.split("giveBySelect-")[1];
+        // Get the value until the next space
+        value = value.split(" ")[0];
+        // If the value is the same as the payment type, show the section
+        if (value.toLowerCase() === ptValue) {
+          shouldShow = true;
+        }
+      });
+
+      section.style.display = shouldShow ? "block" : "none";
+      console.log(`${shouldShow ? "Showing" : "Hiding"} section ${sectionId}`);
     });
   }
 }
