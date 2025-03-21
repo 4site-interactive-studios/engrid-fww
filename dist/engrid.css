@@ -8157,6 +8157,45 @@ h3{
   position:absolute;
   top:10px;
 }
+[data-engrid-theme=fww] nav.back{
+  align-items:center;
+  display:flex;
+  font-size:.8em;
+  font-style:italic;
+  justify-content:space-between;
+}
+[data-engrid-theme=fww] nav.back a{
+  -webkit-text-decoration:none;
+  text-decoration:none;
+}
+[data-engrid-theme=fww] nav.back a:hover{
+  -webkit-text-decoration:underline;
+  text-decoration:underline;
+}
+[data-engrid-theme=fww] nav.back svg{
+  height:20px;
+  margin-right:2px;
+  position:relative;
+  top:-2px;
+  width:20px;
+}
+[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--cost,[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--totalAmount{
+  padding-left:20px;
+  text-align:left;
+}
+[data-engrid-theme=fww] .en__component--formblock,[data-engrid-theme=fww] .en__component--svblock,[data-engrid-theme=fww] .en__registrants__registrantDetails{
+  margin-left:calc(var(--fields_spacing-inline)*0);
+  margin-right:calc(var(--fields_spacing-inline)*0);
+}
+[data-engrid-theme=fww] .en__registrants__registrantHead,[data-engrid-theme=fww] .en__registrants__ticketHead{
+  color:#0057b8;
+}
+[data-engrid-theme=fww] [class*="--other2"]{
+  margin:20px 0;
+}
+[data-engrid-theme=fww] input[type=checkbox]:checked+label:before,[data-engrid-theme=fww] input[type=checkbox]:not(:checked)+label:before{
+  border-radius:20px;
+}
 @media screen and (min-width:601px){
   [data-engrid-theme=fww] .en__field--select.en__field--country,[data-engrid-theme=fww] .en__field--select.en__field--region,[data-engrid-theme=fww] .en__field--text.en__field--city,[data-engrid-theme=fww] .en__field--text.en__field--firstName,[data-engrid-theme=fww] .en__field--text.en__field--lastName,[data-engrid-theme=fww] .en__field--text.en__field--postcode{
     flex-basis:50% !important;

@@ -536,6 +536,8 @@ h3 {
 
   // Client-specific styles
 
+  // Page 1
+
   .en__ticket.en__ticket--ENBL,
   //.en__component.en__component--eventtickets,
   .en__registrants,
@@ -638,7 +640,7 @@ h3 {
     text-align: left;
     position: relative;
     padding-left: 5px;
-    padding-bottom: 5px; 
+    padding-bottom: 5px;
     color: #000;
   }
 
@@ -649,12 +651,67 @@ h3 {
     &::before {
       content: "$";
       position: absolute;
-      left: 10px;           
+      left: 10px;
       top: 10px;
-      color: #000;           
-      font-size: 1em;       
+      color: #000;
+      font-size: 1em;
       pointer-events: none;
     }
+  }
+
+  // Page 2
+
+  nav.back {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 0.8em;
+
+    & a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: -2px;
+      margin-right: 2px;
+    }
+  }
+
+  .en__orderSummary__data.en__orderSummary__data--cost,
+  .en__orderSummary__data.en__orderSummary__data--totalAmount {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  // Billing into margin fix
+  .en__component--formblock,
+  .en__component--svblock,
+  .en__registrants__registrantDetails {
+    margin-left: calc(var(--fields_spacing-inline)* 0);
+    margin-right: calc(var(--fields_spacing-inline)* 0);
+  }
+
+  .en__registrants__ticketHead,
+  .en__registrants__registrantHead {
+    color: $blue;
+  }
+
+  // Space for 'Please check which event you would like to attend' text
+  [class*="--other2"] {
+    margin: 20px 0;
+  }
+
+  input[type=checkbox]:not(:checked)+label:before,
+  input[type=checkbox]:checked+label:before {
+    border-radius: 20px;
   }
 
   // CSS for half-size inputs on desktop and hidden labels
