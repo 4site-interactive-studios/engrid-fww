@@ -170,8 +170,8 @@
 
     /* Resize image in pagebuilder */
     .en__captcha__placeholder {
-      background-size: 100%;
-      width: 270px;
+      background-size: 100% !important;
+      width: 270px !important;
     }
   }
 
