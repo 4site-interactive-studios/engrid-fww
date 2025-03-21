@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 21, 2025 @ 00:41:06 ET
- *  By: 4Site
+ *  Date: Friday, March 21, 2025 @ 15:28:51 ET
+ *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
  *
@@ -8073,20 +8073,144 @@ h3{
     width:calc(100% - 550px);
   }
 }
-[data-engrid-theme=fww] .digital-wallets-wrapper{
+[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields,[data-engrid-theme=fww] .en__field__element.en__field__element--radio,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
+  border:2px solid #000;
+  border-radius:15px;
+  padding:20px;
+}
+[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields.activated,[data-engrid-theme=fww] .en__field__element.en__field__element--radio.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+  background-color:#e6eff8;
+}
+[data-engrid-theme=fww] .en__ticket__name{
+  color:#0057b8;
+  margin-bottom:10px;
+}
+[data-engrid-theme=fww] .en__ticket__field.en__ticket__field--cost{
+  min-width:80px;
+  text-align:center;
+}
+@media screen and (min-width:601px){
+  [data-engrid-theme=fww] .en__ticket__field.en__ticket__field--cost{
+    text-align:right;
+  }
+}
+[data-engrid-theme=fww] .en__ticket__price{
+  font-size:1.125em;
+}
+[data-engrid-theme=fww] .en__ticket__selector{
+  margin-top:-4px;
+}
+[data-engrid-theme=fww] .en__ticket__minus,[data-engrid-theme=fww] .en__ticket__plus{
+  border:1px solid #878787;
+  border-radius:5px;
+  height:26px;
+  position:relative;
+  top:9px;
+  width:26px;
+}
+[data-engrid-theme=fww] .en__ticket__quantity{
+  font-size:1.25em;
+  width:2em;
+}
+[data-engrid-theme=fww] .en__additional{
+  border:2px solid #000;
+  border-radius:15px;
+  padding:10px 20px;
+}
+[data-engrid-theme=fww] .en__additional .en__additional__label{
+  color:#0057b8;
+}
+[data-engrid-theme=fww] .en__additional .en__additional__promo{
+  display:none;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list li{
+  line-height:1.6;
+  padding-left:20px;
+  position:relative;
+  text-align:left;
+}
+[data-engrid-theme=fww] .en__ticket__desc ul.checked-list li:before{
+  color:#0057b8;
+  content:"✓";
+  display:block;
+  font-weight:700;
+  left:0;
+  position:absolute;
+  top:0;
+  width:20px;
+}
+[data-engrid-theme=fww] .en__additional__amount .en__additional__input{
+  border-bottom:2px solid #000;
+  color:#000;
+  padding-bottom:5px;
+  padding-left:5px;
+  position:relative;
+  text-align:left;
+}
+[data-engrid-theme=fww] .en__additional__amount{
+  padding-left:20px;
+  position:relative;
+}
+[data-engrid-theme=fww] .en__additional__amount:before{
+  color:#000;
+  content:"$";
+  font-size:1em;
+  left:10px;
+  pointer-events:none;
+  position:absolute;
+  top:10px;
+}
+[data-engrid-theme=fww] nav.back{
   align-items:center;
   display:flex;
-  flex-direction:column-reverse;
-  justify-content:center;
+  font-size:.8em;
+  font-style:italic;
+  justify-content:space-between;
 }
-[data-engrid-theme=fww] .digital-wallets-wrapper div{
-  width:100%;
+[data-engrid-theme=fww] nav.back a{
+  -webkit-text-decoration:none;
+  text-decoration:none;
 }
-[data-engrid-theme=fww] .en__additional__input,[data-engrid-theme=fww] [name="event.discount"]{
-  border-bottom:1px solid #000;
+[data-engrid-theme=fww] nav.back a:hover{
+  -webkit-text-decoration:underline;
+  text-decoration:underline;
 }
-[data-engrid-theme=fww] .en__registrants__registrantHead{
-  font-family:GraphikBlack,Arial Black,"sans-serif";
+[data-engrid-theme=fww] nav.back svg{
+  height:20px;
+  margin-right:2px;
+  position:relative;
+  top:-2px;
+  width:20px;
+}
+[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--cost,[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--totalAmount{
+  padding-left:20px;
+  text-align:left;
+}
+[data-engrid-theme=fww] .en__component--formblock,[data-engrid-theme=fww] .en__component--svblock,[data-engrid-theme=fww] .en__registrants__registrantDetails{
+  margin-left:calc(var(--fields_spacing-inline)*0);
+  margin-right:calc(var(--fields_spacing-inline)*0);
+}
+[data-engrid-theme=fww] .en__registrants__registrantHead,[data-engrid-theme=fww] .en__registrants__ticketHead{
+  color:#0057b8;
+}
+[data-engrid-theme=fww] [class*="--other2"]{
+  margin:20px 0;
+}
+[data-engrid-theme=fww] input[type=checkbox]:checked+label:before,[data-engrid-theme=fww] input[type=checkbox]:not(:checked)+label:before{
+  border-radius:20px;
+}
+@media screen and (min-width:601px){
+  [data-engrid-theme=fww] .en__field--select.en__field--country,[data-engrid-theme=fww] .en__field--select.en__field--region,[data-engrid-theme=fww] .en__field--text.en__field--city,[data-engrid-theme=fww] .en__field--text.en__field--firstName,[data-engrid-theme=fww] .en__field--text.en__field--lastName,[data-engrid-theme=fww] .en__field--text.en__field--postcode{
+    flex-basis:50% !important;
+  }
+}
+[data-engrid-theme=fww] .en__field--select.en__field--country label,[data-engrid-theme=fww] .en__field--select.en__field--region label,[data-engrid-theme=fww] .en__field--text.en__field--address1 label,[data-engrid-theme=fww] .en__field--text.en__field--city label,[data-engrid-theme=fww] .en__field--text.en__field--emailAddress label,[data-engrid-theme=fww] .en__field--text.en__field--firstName label,[data-engrid-theme=fww] .en__field--text.en__field--lastName label,[data-engrid-theme=fww] .en__field--text.en__field--postcode label{
+  display:none !important;
 }
 body{
   opacity:1;

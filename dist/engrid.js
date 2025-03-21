@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 21, 2025 @ 09:52:27 ET
+ *  Date: Friday, March 21, 2025 @ 15:28:51 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21791,7 +21791,7 @@ const customScript = function (App) {
   function isVisuallyEmpty(input) {
     // Check if the ::before pseudo-element has visible content
     const beforeContent = window.getComputedStyle(input, "::before").getPropertyValue("content");
-    return beforeContent === "none" || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
+    return beforeContent === 'none' || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
   }
 
   // Set up MutationObserver (same as before)
