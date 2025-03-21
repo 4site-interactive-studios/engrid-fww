@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, March 20, 2025 @ 22:42:45 ET
+ *  Date: Thursday, March 20, 2025 @ 22:43:21 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -8048,6 +8048,15 @@ body[data-engrid-debug]:before{
     right:550px;
     width:calc(100% - 550px);
   }
+}
+[data-engrid-theme=fww] .digital-wallets-wrapper{
+  align-items:center;
+  display:flex;
+  flex-direction:column-reverse;
+  justify-content:center;
+}
+[data-engrid-theme=fww] .digital-wallets-wrapper div{
+  width:100%;
 }
 body{
   opacity:1;

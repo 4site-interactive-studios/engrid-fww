@@ -527,4 +527,14 @@
       width: calc(100% - 550px);
     }
   }
+
+  .digital-wallets-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    div {
+      width: 100%;
+    }
+  }
 }
