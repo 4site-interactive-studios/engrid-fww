@@ -8065,12 +8065,12 @@ h3{
     width:calc(100% - 550px);
   }
 }
-[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields,[data-engrid-theme=fww] .en__field__element.en__field__element--radio,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
+[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields,[data-engrid-theme=fww] .en__field__element.en__field__element--radio,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
   border:2px solid #000;
   border-radius:15px;
   padding:20px;
 }
-[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields.activated,[data-engrid-theme=fww] .en__field__element.en__field__element--radio.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields.activated,[data-engrid-theme=fww] .en__field__element.en__field__element--radio.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
   background-color:#e6eff8;
 }
 [data-engrid-theme=fww] .en__ticket__name{

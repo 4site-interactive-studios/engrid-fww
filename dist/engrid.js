@@ -21886,17 +21886,26 @@ const customScript = function (App) {
     })}`;
   }
   ;
+  function formatNumbers() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
+      summaryPrices.forEach(price => {
+        price.textContent = formatCurrency(price.textContent);
+      });
+    }
+  }
+  formatNumbers();
 
-  // function formatNumbers() {
-  //   if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
-  //     const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
-
-  //     summaryPrices.forEach(price => {
-  //       price.textContent = formatCurrency(price.textContent);
-  //     });
-  //   }
-  // }
-  // formatNumbers();
+  // for rounded borders styling on order summary on page 2
+  function orderSummaryBorder() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const orderSummary = document.querySelector('.en__component.en__component--eventtickets');
+      if (orderSummary) {
+        orderSummary.classList.add('rounded-borders');
+      }
+    }
+  }
+  orderSummaryBorder();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM
