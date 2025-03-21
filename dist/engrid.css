@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, March 20, 2025 @ 23:42:33 ET
+ *  Date: Friday, March 21, 2025 @ 00:09:32 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -8016,10 +8016,14 @@ body[data-engrid-debug]:before{
   z-index:3 !important;
 }
 [data-engrid-theme=fww][data-engrid-embedded] .email-tooltip{
+  font-size:13px;
   position:absolute;
   right:10px;
   top:15px;
   z-index:10;
+}
+[data-engrid-theme=fww][data-engrid-embedded] .email-tooltip+[data-tippy-root]{
+  font-size:13px;
 }
 [data-engrid-theme=fww]:not([data-engrid-debug]) #en__field_supporter_NOT_TAGGED_3{
   display:none;

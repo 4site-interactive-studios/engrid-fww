@@ -1075,19 +1075,31 @@ export default class DonationLightboxForm {
     const giveBySelectItems = document.querySelectorAll(
       "[class*='giveBySelect-']"
     );
+    console.log(
+      `Found ${giveBySelectItems.length} total giveBySelect- elements`
+    );
 
     // Create a Set of sections that have giveBySelect- elements (excluding those in digital-wallets-wrapper)
     const sectionsWithGiveBySelect = new Set();
     giveBySelectItems.forEach((item) => {
       // Skip if the element is inside digital-wallets-wrapper
       if (item.closest(".digital-wallets-wrapper")) {
+        console.log(
+          `Skipping giveBySelect- element in digital-wallets-wrapper: ${item.className}`
+        );
         return;
       }
       const section = this.getSectionId(item);
       if (section !== false) {
         sectionsWithGiveBySelect.add(section);
+        console.log(
+          `Section ${section} has giveBySelect- element: ${item.className}`
+        );
       }
     });
+    console.log(
+      `Found ${sectionsWithGiveBySelect.size} sections with giveBySelect- elements`
+    );
 
     // First, handle sections without giveBySelect- elements
     this.sections.forEach((section, sectionId) => {
@@ -1104,6 +1116,10 @@ export default class DonationLightboxForm {
       const sectionItems = Array.from(
         section.querySelectorAll("[class*='giveBySelect-']")
       ).filter((item) => !item.closest(".digital-wallets-wrapper"));
+      console.log(
+        `Section ${sectionId} has ${sectionItems.length} giveBySelect- elements (excluding digital-wallets-wrapper)`
+      );
+
       let shouldShow = false;
 
       sectionItems.forEach((item) => {
@@ -1111,14 +1127,22 @@ export default class DonationLightboxForm {
         let value = item.className.split("giveBySelect-")[1];
         // Get the value until the next space
         value = value.split(" ")[0];
+        console.log(
+          `Checking giveBySelect- element in section ${sectionId}: ${value} against payment type: ${ptValue}`
+        );
         // If the value is the same as the payment type, show the section
         if (value.toLowerCase() === ptValue) {
           shouldShow = true;
+          console.log(`Match found for section ${sectionId}`);
         }
       });
 
       section.style.display = shouldShow ? "block" : "none";
-      console.log(`${shouldShow ? "Showing" : "Hiding"} section ${sectionId}`);
+      console.log(
+        `${
+          shouldShow ? "Showing" : "Hiding"
+        } section ${sectionId} (payment type: ${ptValue})`
+      );
     });
   }
 }

@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, March 20, 2025 @ 23:42:33 ET
+ *  Date: Friday, March 21, 2025 @ 00:09:32 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -23013,19 +23013,23 @@ class DonationLightboxForm {
     }
     // Get every element that has the CSS class giveBySelect-*
     const giveBySelectItems = document.querySelectorAll("[class*='giveBySelect-']");
+    console.log(`Found ${giveBySelectItems.length} total giveBySelect- elements`);
 
     // Create a Set of sections that have giveBySelect- elements (excluding those in digital-wallets-wrapper)
     const sectionsWithGiveBySelect = new Set();
     giveBySelectItems.forEach(item => {
       // Skip if the element is inside digital-wallets-wrapper
       if (item.closest(".digital-wallets-wrapper")) {
+        console.log(`Skipping giveBySelect- element in digital-wallets-wrapper: ${item.className}`);
         return;
       }
       const section = this.getSectionId(item);
       if (section !== false) {
         sectionsWithGiveBySelect.add(section);
+        console.log(`Section ${section} has giveBySelect- element: ${item.className}`);
       }
     });
+    console.log(`Found ${sectionsWithGiveBySelect.size} sections with giveBySelect- elements`);
 
     // First, handle sections without giveBySelect- elements
     this.sections.forEach((section, sectionId) => {
@@ -23040,19 +23044,22 @@ class DonationLightboxForm {
       const section = this.sections[sectionId];
       // Only get giveBySelect- elements that are not in digital-wallets-wrapper
       const sectionItems = Array.from(section.querySelectorAll("[class*='giveBySelect-']")).filter(item => !item.closest(".digital-wallets-wrapper"));
+      console.log(`Section ${sectionId} has ${sectionItems.length} giveBySelect- elements (excluding digital-wallets-wrapper)`);
       let shouldShow = false;
       sectionItems.forEach(item => {
         // Get the value of the class
         let value = item.className.split("giveBySelect-")[1];
         // Get the value until the next space
         value = value.split(" ")[0];
+        console.log(`Checking giveBySelect- element in section ${sectionId}: ${value} against payment type: ${ptValue}`);
         // If the value is the same as the payment type, show the section
         if (value.toLowerCase() === ptValue) {
           shouldShow = true;
+          console.log(`Match found for section ${sectionId}`);
         }
       });
       section.style.display = shouldShow ? "block" : "none";
-      console.log(`${shouldShow ? "Showing" : "Hiding"} section ${sectionId}`);
+      console.log(`${shouldShow ? "Showing" : "Hiding"} section ${sectionId} (payment type: ${ptValue})`);
     });
   }
 }
@@ -23146,6 +23153,58 @@ const customScript = function (App, EnForm) {
       subtree: true
     });
     updatePlaceholders();
+  }
+
+  // Function to handle mobile phone number opt-in checkbox
+  function setupPhoneOptInCheckbox() {
+    console.log("Setting up mobile phone opt-in checkbox functionality");
+    const mobilePhoneInput = document.querySelector('input[name="supporter.phoneNumber2"]');
+    const optInCheckbox = document.querySelector('input[name="supporter.questions.829861"]');
+    console.log("Mobile phone input found:", mobilePhoneInput);
+    console.log("Mobile opt-in checkbox found:", optInCheckbox);
+    if (mobilePhoneInput && optInCheckbox) {
+      // Initial check when page loads
+      if (mobilePhoneInput.value && mobilePhoneInput.value.trim() !== "") {
+        console.log("Initial mobile phone value exists, checking opt-in box");
+        optInCheckbox.checked = true;
+      } else {
+        console.log("No initial mobile phone value, unchecking opt-in box");
+        optInCheckbox.checked = false;
+      }
+
+      // Add event listeners for input changes
+      mobilePhoneInput.addEventListener("input", function () {
+        console.log("Mobile phone input changed:", this.value);
+        if (this.value && this.value.trim() !== "") {
+          console.log("Setting mobile opt-in checkbox to checked");
+          optInCheckbox.checked = true;
+        } else {
+          console.log("Setting mobile opt-in checkbox to unchecked");
+          optInCheckbox.checked = false;
+        }
+      });
+
+      // Also listen for change events (for autofill, etc.)
+      mobilePhoneInput.addEventListener("change", function () {
+        console.log("Mobile phone input change event:", this.value);
+        if (this.value && this.value.trim() !== "") {
+          console.log("Setting mobile opt-in checkbox to checked (from change event)");
+          optInCheckbox.checked = true;
+        } else {
+          console.log("Setting mobile opt-in checkbox to unchecked (from change event)");
+          optInCheckbox.checked = false;
+        }
+      });
+    } else {
+      console.log("Could not find mobile phone input or opt-in checkbox");
+    }
+  }
+
+  // Call the function to set up the mobile phone opt-in checkbox behavior only for multistep forms
+  console.log("Checking if multistep form before initializing phone opt-in");
+  if (document.body.getAttribute("data-engrid-subtheme") === "multistep") {
+    console.log("Multistep form detected, initializing mobile phone opt-in checkbox setup");
+    setupPhoneOptInCheckbox();
   }
 };
 ;// CONCATENATED MODULE: ./src/index.ts
