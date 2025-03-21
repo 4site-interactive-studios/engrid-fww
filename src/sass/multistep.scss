@@ -677,7 +677,8 @@
       line-height: 24px;
     }
     &[data-engrid-payment-type="stripedigitalwallet"],
-    &[data-engrid-payment-type="paypaltouch"] {
+    &[data-engrid-payment-type="paypaltouch"],
+    &[data-engrid-payment-type="daf"] {
       [data-last-section="true"] {
         .section-navigation {
           display: none !important;
@@ -688,7 +689,7 @@
         text-decoration: none;
       }
     }
-    &[conditonally-hide-show-digital-wallet-elements]
+    &[data-conditonally-hide-show-digital-wallet-elements]
       #en__digitalWallet
       .en__digitalWallet__container {
       margin-top: 0 !important;
@@ -702,11 +703,11 @@
         width: 100%;
       }
 
-      .back-link {
-        bottom: -0.25rem;
-        position: absolute;
-        z-index: 1; // Put it above the Digital Wallets iFrame
-      }
+      // .back-link {
+      //   bottom: -0.25rem;
+      //   position: absolute;
+      //   z-index: 1; // Put it above the Digital Wallets iFrame
+      // }
     }
 
     // .radio-to-buttons_recurrfreq {
