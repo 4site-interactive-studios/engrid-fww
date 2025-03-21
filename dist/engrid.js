@@ -17,8 +17,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 21, 2025 @ 00:41:06 ET
- *  By: 4Site
+ *  Date: Friday, March 21, 2025 @ 09:52:27 ET
+ *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
  *
@@ -21804,6 +21804,108 @@ const customScript = function (App) {
     });
     updatePlaceholders();
   }
+  function makeDescriptionLists() {
+    const descriptionLists = document.querySelectorAll(".en__ticket__desc");
+    descriptionLists.forEach(list => {
+      if (list.textContent.includes('@@')) {
+        const items = list.textContent.split('@@').map(item => item.trim()).filter(item => item);
+        const ul = document.createElement('ul');
+        ul.classList.add('checked-list');
+        items.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `${item}`;
+          ul.appendChild(li);
+        });
+
+        // Replace the div content with the unordered list
+        list.innerHTML = '';
+        list.appendChild(ul);
+      }
+    });
+  }
+  makeDescriptionLists();
+  function activatedTicket() {
+    document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
+      const toggleClass = () => {
+        const inputText = input.value.trim();
+        const parentDiv = input.closest('div').parentElement.parentElement;
+        if (parentDiv) {
+          if (inputText !== '0' && inputText !== '') {
+            parentDiv.classList.add('activated');
+          } else {
+            parentDiv.classList.remove('activated');
+          }
+        }
+      };
+      input.addEventListener('input', () => {
+        setTimeout(toggleClass, 50);
+      });
+      const plusDiv = input.parentElement.querySelector('.en__ticket__plus');
+      const minusDiv = input.parentElement.querySelector('.en__ticket__minus');
+      if (plusDiv) {
+        plusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+      if (minusDiv) {
+        minusDiv.addEventListener('click', () => {
+          setTimeout(toggleClass, 50);
+        });
+      }
+    });
+  }
+  activatedTicket();
+  function additionalDonation() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 1) {
+      const donationInput = document.querySelector('input.en__additional__input');
+      const checkAmount = () => {
+        const inputText = donationInput.value.trim();
+        const parentDiv = donationInput.closest('div').parentElement;
+        if (parentDiv) {
+          if (inputText !== '0' && inputText !== '') {
+            parentDiv.classList.add('activated');
+          } else {
+            parentDiv.classList.remove('activated');
+          }
+        }
+      };
+      donationInput.addEventListener('input', () => {
+        setTimeout(checkAmount, 50);
+      });
+    }
+  }
+  additionalDonation();
+  function formatCurrency(value) {
+    // Remove non-numeric characters except for "."
+    const numberValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+
+    // Format the number with commas and two decimal places
+    return `$${numberValue.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })}`;
+  }
+  ;
+  function formatNumbers() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
+      summaryPrices.forEach(price => {
+        price.textContent = formatCurrency(price.textContent);
+      });
+    }
+  }
+  formatNumbers();
+
+  // for rounded borders styling on order summary on page 2
+  function orderSummaryBorder() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const orderSummary = document.querySelector('.en__component.en__component--eventtickets');
+      if (orderSummary) {
+        orderSummary.classList.add('rounded-borders');
+      }
+    }
+  }
+  orderSummaryBorder();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM

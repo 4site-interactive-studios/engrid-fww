@@ -2,10 +2,10 @@
 
 // ONE COLUMN LAYOUTS
 // $one_col_content-column_max-width: 1440px;
-$one_col_content-column_min-width: 1023px;
-$one_col_body-column_max-width:    550px;
-$one_col_body-column_min-width:    550px;
-$one_col_body-column_offset-width: 70px;
+// $one_col_content-column_min-width: 1023px;
+$one_col_body-column_max-width:    650px;
+$one_col_body-column_min-width:    650px;
+// $one_col_body-column_offset-width: 70px;
 
 // $centerleft1col_content-column_max-width: 650px;
 // $centerleft1col_content-column_min-width: 650px;
@@ -17,3 +17,7 @@ $centercenter1col_body-column_min-width: 650px;
 // $two_col_content-column_min-width:  900px;
 // $two_col_body-column_max-width:    1080px;
 // $two_col_body-column_min-width:     900px;
+
+// COLORS
+$blue: #0057b8;
+$light-blue: #e6eff8;

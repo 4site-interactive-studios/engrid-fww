@@ -19,6 +19,22 @@
   // --h1_font-weight: initial;
   // --h1_line-height: initial;
 
+  // TYPOGRAPHY H3
+  // --h2_font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  --h2_color: #0057b8;
+  --h2_font-size: calc(var(--default_font-size) * var(--scale-down_50pct));
+  // --h2_font-weight: initial;
+  // --h2_line-height: initial;
+  // --h2_text-transform: initial;
+
+  // TYPOGRAPHY H3
+  // --h3_font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  // --h3_color: #0057b8;
+  //--h3_font-size: calc(var(--default_font-size) * var(--scale-down_20pct));
+  --h3_font-weight: 700;
+  // --h3_line-height: initial;
+  // --h3_text-transform: initial;
+
   // TYPOGRAPHY P
   // --p_font-family: var(--default_font-family);
   // --p_color: initial;
@@ -39,8 +55,8 @@
   --engrid__content_padding: 0px var(--spacing_lg);
 
   // TYPOGRAPHY INPUT
-  --input_font-family: "GraphikSemiBold", "Arial Black", "sans-serif";
-  // --input_color: #000000;
+  --input_font-family: "Graphik", "Arial Black", "sans-serif";
+  --input_color: #c6c6c6;
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
   // --input_line-height: initial;
@@ -126,6 +142,16 @@
   --engrid__content-footer_background-color: #000000;
   --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5)
     var(--spacing_lg);
+}
+
+h2 {
+  margin-top: calc(2rem * var(--scale-down_80pct));
+  //margin-bottom: calc(1rem * var(--scale-down_20pct));
+}
+
+h3 {
+  border-left: none !important;
+  padding-left: none !important;
 }
 
 [data-engrid-theme="fww"] {
@@ -278,6 +304,7 @@
 
         .en__field__item:nth-child(1) {
           padding-left: calc(0.5rem - 1px);
+
           label {
             --recurring-frequency__button_border-radius: 25px 0px 0px 0px;
           }
@@ -285,6 +312,7 @@
 
         .en__field__item:nth-child(2) {
           padding-right: calc(0.5rem - 1px);
+
           label {
             --recurring-frequency__button_border-radius: 0px 25px 0px 0px;
           }
@@ -292,6 +320,7 @@
 
         .en__field__item:nth-child(3) {
           padding-left: calc(0.5rem - 1px);
+
           label {
             --recurring-frequency__button_border-radius: 0px 0px 0px 25px;
           }
@@ -299,6 +328,7 @@
 
         .en__field__item:nth-child(4n) {
           padding-right: calc(0.5rem - 1px);
+
           label {
             --recurring-frequency__button_border-radius: 0px 0px 25px 0px;
           }
@@ -510,55 +540,229 @@
   }
 
   @media screen and (min-width: 1023px) {
-    &:not(#en__pagebuilder)[data-engrid-layout="leftleft1col"]
-      .page-backgroundImage {
-      grid-column: rpc/pc;
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage {
+      grid-column: rpc/pc
     }
 
-    &:not(#en__pagebuilder)[data-engrid-layout="leftleft1col"]
-      .page-backgroundImage
-      figure.media-with-attribution,
-    &:not(#en__pagebuilder)[data-engrid-layout="leftleft1col"]
-      .page-backgroundImage:before {
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage figure.media-with-attribution,
+    &:not(#en__pagebuilder)[data-engrid-layout=leftleft1col] .page-backgroundImage:before {
       background-position: 50% !important;
       left: 550px;
       right: 0;
-      width: calc(100% - 550px);
+      width: calc(100% - 550px)
     }
 
-    &:not(#en__pagebuilder)[data-engrid-layout="rightright1col"]
-      .page-backgroundImage {
-      grid-column: pc/lpc;
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage {
+      grid-column: pc/lpc
     }
 
-    &:not(#en__pagebuilder)[data-engrid-layout="rightright1col"]
-      .page-backgroundImage
-      figure.media-with-attribution,
-    &:not(#en__pagebuilder)[data-engrid-layout="rightright1col"]
-      .page-backgroundImage:before {
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage figure.media-with-attribution,
+    &:not(#en__pagebuilder)[data-engrid-layout=rightright1col] .page-backgroundImage:before {
       background-position: 50% !important;
       left: 0;
       right: 550px;
-      width: calc(100% - 550px);
+      width: calc(100% - 550px)
     }
   }
 
-  .digital-wallets-wrapper {
+  // Client-specific styles
+
+  // Page 1
+
+  .en__ticket.en__ticket--ENBL,
+  .en__component.en__component--eventtickets.rounded-borders,
+  .en__registrants,
+  .en__component.en__component--formblock.hide-fields,
+  .en__component.en__component--formblock.giveBySelect-Card,
+  .en__field__element.en__field__element--radio {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 20px;
+
+    &.activated {
+      background-color: $light-blue;
+    }
+  }
+
+  .en__additional.activated {
+    background-color: $light-blue;
+  }
+
+  .en__ticket__name {
+    color: $blue;
+    margin-bottom: 10px;
+  }
+
+  .en__ticket__field.en__ticket__field--cost {
+    text-align: center;
+    min-width: 80px;
+
+    @media screen and (min-width: 601px) {
+      text-align: right;
+    }
+  }
+
+  .en__ticket__price {
+    font-size: 1.125em;
+  }
+
+  .en__ticket__selector {
+    margin-top: -4px;
+  }
+
+  .en__ticket__minus,
+  .en__ticket__plus {
+    border: 1px solid #878787;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+    top: 9px;
+    position: relative;
+  }
+
+  .en__ticket__quantity {
+    font-size: 1.25em;
+    width: 2em;
+  }
+
+  .en__additional {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 10px 20px;
+
+    .en__additional__label {
+      color: $blue;
+    }
+
+    .en__additional__promo {
+      display: none;
+    }
+  }
+
+  // Custom description lists
+  .en__ticket__desc {
+    ul.checked-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        position: relative;
+        padding-left: 20px;
+        line-height: 1.6;
+        text-align: left;
+
+        &::before {
+          content: "✓";
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 20px;
+          color: $blue;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .en__additional__amount .en__additional__input {
+    border-bottom: 2px solid #000000;
+    text-align: left;
+    position: relative;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: #000;
+  }
+
+  .en__additional__amount {
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      content: "$";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      color: #000;
+      font-size: 1em;
+      pointer-events: none;
+    }
+  }
+
+  // Page 2
+
+  nav.back {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column-reverse;
-    div {
-      width: 100%;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 0.8em;
+
+    & a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: -2px;
+      margin-right: 2px;
     }
   }
 
-  .en__additional__input,
-  [name="event.discount"] {
-    border-bottom: 1px solid #000;
+  .en__orderSummary__data.en__orderSummary__data--cost,
+  .en__orderSummary__data.en__orderSummary__data--totalAmount {
+    text-align: left;
+    padding-left: 20px;
   }
 
+  // Billing into margin fix
+  .en__component--formblock,
+  .en__component--svblock,
+  .en__registrants__registrantDetails {
+    margin-left: calc(var(--fields_spacing-inline)* 0);
+    margin-right: calc(var(--fields_spacing-inline)* 0);
+  }
+
+  .en__registrants__ticketHead,
   .en__registrants__registrantHead {
-    font-family: "GraphikBlack", "Arial Black", "sans-serif";
+    color: $blue;
+  }
+
+  // Space for 'Please check which event you would like to attend' text
+  [class*="--other2"] {
+    margin: 20px 0;
+  }
+
+  input[type=checkbox]:not(:checked)+label:before,
+  input[type=checkbox]:checked+label:before {
+    border-radius: 20px;
+  }
+
+  // CSS for half-size inputs on desktop and hidden labels
+  .en__field--text.en__field--firstName,
+  .en__field--text.en__field--lastName,
+  .en__field--text.en__field--city,
+  .en__field--select.en__field--region,
+  .en__field--text.en__field--postcode,
+  .en__field--select.en__field--country {
+    @media screen and (min-width: 601px) {
+      flex-basis: 50% !important;
+    }
+
+    & label {
+      display: none !important;
+    }
+  }
+
+  .en__field--text.en__field--emailAddress label,
+  .en__field--text.en__field--address1 label {
+    display: none !important;
   }
 }
