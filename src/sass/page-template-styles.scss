@@ -604,7 +604,6 @@ h3 {
     .en__additional__promo {
       display: none;
     }
-
   }
 
   // Custom description lists
@@ -641,7 +640,6 @@ h3 {
     padding-left: 5px;
     padding-bottom: 5px; 
     color: #000;
-
   }
 
   .en__additional__amount {
@@ -657,5 +655,26 @@ h3 {
       font-size: 1em;       
       pointer-events: none;
     }
+  }
+
+  // CSS for half-size inputs on desktop and hidden labels
+  .en__field--text.en__field--firstName,
+  .en__field--text.en__field--lastName,
+  .en__field--text.en__field--city,
+  .en__field--select.en__field--region,
+  .en__field--text.en__field--postcode,
+  .en__field--select.en__field--country {
+    @media screen and (min-width: 601px) {
+      flex-basis: 50% !important;
+    }
+
+    & label {
+      display: none !important;
+    }
+  }
+
+  .en__field--text.en__field--emailAddress label,
+  .en__field--text.en__field--address1 label {
+    display: none !important;
   }
 }

@@ -21807,8 +21807,8 @@ const customScript = function (App) {
   function makeDescriptionLists() {
     const descriptionLists = document.querySelectorAll(".en__ticket__desc");
     descriptionLists.forEach(list => {
-      if (list.textContent.includes('✔')) {
-        const items = list.textContent.split('✔').map(item => item.trim()).filter(item => item);
+      if (list.textContent.includes('@@')) {
+        const items = list.textContent.split('@@').map(item => item.trim()).filter(item => item);
         const ul = document.createElement('ul');
         ul.classList.add('checked-list');
         items.forEach(item => {
@@ -21856,21 +21856,23 @@ const customScript = function (App) {
   }
   activatedTicket();
   function additionalDonation() {
-    const donationInput = document.querySelector('input.en__additional__input');
-    const checkAmount = () => {
-      const inputText = donationInput.value.trim();
-      const parentDiv = donationInput.closest('div').parentElement;
-      if (parentDiv) {
-        if (inputText !== '0' && inputText !== '') {
-          parentDiv.classList.add('activated');
-        } else {
-          parentDiv.classList.remove('activated');
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 1) {
+      const donationInput = document.querySelector('input.en__additional__input');
+      const checkAmount = () => {
+        const inputText = donationInput.value.trim();
+        const parentDiv = donationInput.closest('div').parentElement;
+        if (parentDiv) {
+          if (inputText !== '0' && inputText !== '') {
+            parentDiv.classList.add('activated');
+          } else {
+            parentDiv.classList.remove('activated');
+          }
         }
-      }
-    };
-    donationInput.addEventListener('input', () => {
-      setTimeout(checkAmount, 50);
-    });
+      };
+      donationInput.addEventListener('input', () => {
+        setTimeout(checkAmount, 50);
+      });
+    }
   }
   additionalDonation();
   function formatCurrency(value) {
@@ -21884,13 +21886,17 @@ const customScript = function (App) {
     })}`;
   }
   ;
-  function formatNumbers() {
-    const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
-    summaryPrices.forEach(price => {
-      price.textContent = formatCurrency(price.textContent);
-    });
-  }
-  formatNumbers();
+
+  // function formatNumbers() {
+  //   if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+  //     const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
+
+  //     summaryPrices.forEach(price => {
+  //       price.textContent = formatCurrency(price.textContent);
+  //     });
+  //   }
+  // }
+  // formatNumbers();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM

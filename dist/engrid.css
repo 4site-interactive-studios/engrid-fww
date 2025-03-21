@@ -8157,6 +8157,14 @@ h3{
   position:absolute;
   top:10px;
 }
+@media screen and (min-width:601px){
+  [data-engrid-theme=fww] .en__field--select.en__field--country,[data-engrid-theme=fww] .en__field--select.en__field--region,[data-engrid-theme=fww] .en__field--text.en__field--city,[data-engrid-theme=fww] .en__field--text.en__field--firstName,[data-engrid-theme=fww] .en__field--text.en__field--lastName,[data-engrid-theme=fww] .en__field--text.en__field--postcode{
+    flex-basis:50% !important;
+  }
+}
+[data-engrid-theme=fww] .en__field--select.en__field--country label,[data-engrid-theme=fww] .en__field--select.en__field--region label,[data-engrid-theme=fww] .en__field--text.en__field--address1 label,[data-engrid-theme=fww] .en__field--text.en__field--city label,[data-engrid-theme=fww] .en__field--text.en__field--emailAddress label,[data-engrid-theme=fww] .en__field--text.en__field--firstName label,[data-engrid-theme=fww] .en__field--text.en__field--lastName label,[data-engrid-theme=fww] .en__field--text.en__field--postcode label{
+  display:none !important;
+}
 body{
   opacity:1;
   transition:opacity .2s;
