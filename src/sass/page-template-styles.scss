@@ -552,4 +552,13 @@
       width: 100%;
     }
   }
+
+  .en__additional__input,
+  [name="event.discount"] {
+    border-bottom: 1px solid #000;
+  }
+
+  .en__registrants__registrantHead {
+    font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  }
 }
