@@ -148,7 +148,7 @@
   }
 
   // Adds styling behind the page during aggressive overscrolling
-  &:not([data-engrid-embedded])[data-engrid-js-loading="finished"]:before {
+  &:not([data-engrid-embedded]):not([data-engrid-subtheme="multistep"])[data-engrid-js-loading="finished"]:before {
     z-index: -99;
     content: "";
     width: 100vw;
@@ -159,6 +159,21 @@
       rgb(255, 255, 255) 50%,
       rgb(0, 0, 0) 50%
     );
+  }
+
+  &:not([data-engrid-embedded])[data-engrid-subtheme="multistep"] {
+    --pagebuilder__background-color: #ffffff;
+
+    #engrid {
+      max-width: 270px;
+      margin: 0 auto;
+    }
+
+    /* Resize image in pagebuilder */
+    .en__captcha__placeholder {
+      background-size: 100%;
+      width: 270px;
+    }
   }
 
   [class*="validationFail"] label {

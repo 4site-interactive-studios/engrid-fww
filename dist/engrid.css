@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, March 20, 2025 @ 22:43:21 ET
+ *  Date: Thursday, March 20, 2025 @ 22:54:31 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -7780,13 +7780,24 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww]#en__pagebuilder #engrid{
   width:calc(100% - 51px);
 }
-[data-engrid-theme=fww]:not([data-engrid-embedded])[data-engrid-js-loading=finished]:before{
+[data-engrid-theme=fww]:not([data-engrid-embedded]):not([data-engrid-subtheme=multistep])[data-engrid-js-loading=finished]:before{
   background:linear-gradient(180deg, #fff 50%, #000 0);
   content:"";
   height:100vh;
   position:fixed;
   width:100vw;
   z-index:-99;
+}
+[data-engrid-theme=fww]:not([data-engrid-embedded])[data-engrid-subtheme=multistep]{
+  --pagebuilder__background-color:#fff;
+}
+[data-engrid-theme=fww]:not([data-engrid-embedded])[data-engrid-subtheme=multistep] #engrid{
+  margin:0 auto;
+  max-width:270px;
+}
+[data-engrid-theme=fww]:not([data-engrid-embedded])[data-engrid-subtheme=multistep] .en__captcha__placeholder{
+  background-size:100%;
+  width:270px;
 }
 [data-engrid-theme=fww] [class*=validationFail] label{
   color:#000;
