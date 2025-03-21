@@ -19,13 +19,21 @@
   // --h1_font-weight: initial;
   // --h1_line-height: initial;
 
-  // TYPOGRAPHY H2
+  // TYPOGRAPHY H3
   --h2_font-family: "GraphikBlack", "Arial Black", "sans-serif";
   --h2_color: #0057b8;
   --h2_font-size: calc(var(--default_font-size) * var(--scale-down_50pct));
   // --h2_font-weight: initial;
   // --h2_line-height: initial;
   // --h2_text-transform: initial;
+
+  // TYPOGRAPHY H3
+  --h3_font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  --h3_color: #0057b8;
+  //--h3_font-size: calc(var(--default_font-size) * var(--scale-down_20pct));
+  --h3_font-weight: 700;
+  // --h3_line-height: initial;
+  // --h3_text-transform: initial;
 
   // TYPOGRAPHY P
   // --p_font-family: var(--default_font-family);
@@ -138,6 +146,11 @@
 h2 {
   margin-top: calc(2rem * var(--scale-down_80pct));
   //margin-bottom: calc(1rem * var(--scale-down_20pct));
+}
+
+h3 {
+  border-left: none !important;
+  padding-left: none !important;
 }
 
 [data-engrid-theme="fww"] {
@@ -524,7 +537,7 @@ h2 {
   // Client-specific styles
 
   .en__ticket.en__ticket--ENBL,
-  .en__component.en__component--eventtickets,
+  //.en__component.en__component--eventtickets,
   .en__registrants,
   .en__component.en__component--formblock.hide-fields,
   .en__component.en__component--formblock.giveBySelect-Card,
@@ -548,8 +561,12 @@ h2 {
   }
 
   .en__ticket__field.en__ticket__field--cost {
-    text-align: right;
+    text-align: center;
     min-width: 80px;
+
+    @media screen and (min-width: 601px) {
+      text-align: right;
+    }
   }
 
   .en__ticket__price {
@@ -601,6 +618,7 @@ h2 {
         position: relative;
         padding-left: 20px;
         line-height: 1.6;
+        text-align: left;
 
         &::before {
           content: "✓";

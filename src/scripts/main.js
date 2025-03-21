@@ -180,4 +180,24 @@ export const customScript = function (App) {
     });
   }
   additionalDonation();
+
+  function formatCurrency(value) {
+    // Remove non-numeric characters except for "."
+    const numberValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+
+    // Format the number with commas and two decimal places
+    return `$${numberValue.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })}`;
+  };
+
+  function formatNumbers() {
+    const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
+
+    summaryPrices.forEach(price => {
+      price.textContent = formatCurrency(price.textContent);
+    });
+  }
+  formatNumbers();
 };
