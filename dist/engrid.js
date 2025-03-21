@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 21, 2025 @ 00:09:32 ET
+ *  Date: Friday, March 21, 2025 @ 01:00:26 ET
  *  By: 4Site
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -22455,10 +22455,12 @@ class DonationLightboxForm {
         </button>
       `;
         }
-        sectionCount.innerHTML = `
-        <span class="section-count__current">${key + 1}</span> of
-        <span class="section-count__total">${sectionTotal}</span>
-      `;
+        if (key + 1 < sectionTotal) {
+          sectionCount.innerHTML = `
+          <span class="section-count__current">${key + 1}</span> of
+          <span class="section-count__total">${sectionTotal}</span>
+        `;
+        }
       } else {
         // Single Section Pages
         const submitButtonLabel = document.querySelector(".en__submit button")?.innerText || "Submit";
@@ -22644,7 +22646,7 @@ class DonationLightboxForm {
       const ccnumber = form.querySelector("#en__field_transaction_ccnumber");
       const ccnumberBlock = form.querySelector(".en__field--ccnumber");
       const ccnumberSection = this.getSectionId(ccnumberBlock);
-      const isDigitalWalletPayment = ["paypal", "paypaltouch", "stripedigitalwallet"].includes(paymentType.value);
+      const isDigitalWalletPayment = ["paypal", "paypaltouch", "stripedigitalwallet", "daf"].includes(paymentType.value);
       const isBankPayment = paymentType.value === "ach";
       console.log("DonationLightboxForm: validateForm", ccnumberBlock, ccnumberSection);
       if (!isDigitalWalletPayment && !isBankPayment && (sectionId === false || sectionId == ccnumberSection) && checkCard) {
@@ -23157,53 +23159,61 @@ const customScript = function (App, EnForm) {
 
   // Function to handle mobile phone number opt-in checkbox
   function setupPhoneOptInCheckbox() {
-    console.log("Setting up mobile phone opt-in checkbox functionality");
+    // console.log("Setting up mobile phone opt-in checkbox functionality");
     const mobilePhoneInput = document.querySelector('input[name="supporter.phoneNumber2"]');
     const optInCheckbox = document.querySelector('input[name="supporter.questions.829861"]');
-    console.log("Mobile phone input found:", mobilePhoneInput);
-    console.log("Mobile opt-in checkbox found:", optInCheckbox);
+
+    // console.log("Mobile phone input found:", mobilePhoneInput);
+    // console.log("Mobile opt-in checkbox found:", optInCheckbox);
+
     if (mobilePhoneInput && optInCheckbox) {
       // Initial check when page loads
       if (mobilePhoneInput.value && mobilePhoneInput.value.trim() !== "") {
-        console.log("Initial mobile phone value exists, checking opt-in box");
+        // console.log("Initial mobile phone value exists, checking opt-in box");
         optInCheckbox.checked = true;
       } else {
-        console.log("No initial mobile phone value, unchecking opt-in box");
+        // console.log("No initial mobile phone value, unchecking opt-in box");
         optInCheckbox.checked = false;
       }
 
       // Add event listeners for input changes
       mobilePhoneInput.addEventListener("input", function () {
-        console.log("Mobile phone input changed:", this.value);
+        // console.log("Mobile phone input changed:", this.value);
         if (this.value && this.value.trim() !== "") {
-          console.log("Setting mobile opt-in checkbox to checked");
+          // console.log("Setting mobile opt-in checkbox to checked");
           optInCheckbox.checked = true;
         } else {
-          console.log("Setting mobile opt-in checkbox to unchecked");
+          // console.log("Setting mobile opt-in checkbox to unchecked");
           optInCheckbox.checked = false;
         }
       });
 
       // Also listen for change events (for autofill, etc.)
       mobilePhoneInput.addEventListener("change", function () {
-        console.log("Mobile phone input change event:", this.value);
+        // console.log("Mobile phone input change event:", this.value);
         if (this.value && this.value.trim() !== "") {
-          console.log("Setting mobile opt-in checkbox to checked (from change event)");
+          // console.log(
+          //   "Setting mobile opt-in checkbox to checked (from change event)"
+          // );
           optInCheckbox.checked = true;
         } else {
-          console.log("Setting mobile opt-in checkbox to unchecked (from change event)");
+          // console.log(
+          //   "Setting mobile opt-in checkbox to unchecked (from change event)"
+          // );
           optInCheckbox.checked = false;
         }
       });
     } else {
-      console.log("Could not find mobile phone input or opt-in checkbox");
+      // console.log("Could not find mobile phone input or opt-in checkbox");
     }
   }
 
   // Call the function to set up the mobile phone opt-in checkbox behavior only for multistep forms
-  console.log("Checking if multistep form before initializing phone opt-in");
+  // console.log("Checking if multistep form before initializing phone opt-in");
   if (document.body.getAttribute("data-engrid-subtheme") === "multistep") {
-    console.log("Multistep form detected, initializing mobile phone opt-in checkbox setup");
+    // console.log(
+    //   "Multistep form detected, initializing mobile phone opt-in checkbox setup"
+    // );
     setupPhoneOptInCheckbox();
   }
 };

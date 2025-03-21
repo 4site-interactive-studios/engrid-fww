@@ -369,10 +369,12 @@ export default class DonationLightboxForm {
         </button>
       `;
         }
-        sectionCount.innerHTML = `
-        <span class="section-count__current">${key + 1}</span> of
-        <span class="section-count__total">${sectionTotal}</span>
-      `;
+        if (key + 1 < sectionTotal) {
+          sectionCount.innerHTML = `
+          <span class="section-count__current">${key + 1}</span> of
+          <span class="section-count__total">${sectionTotal}</span>
+        `;
+        }
       } else {
         // Single Section Pages
         const submitButtonLabel =
@@ -605,6 +607,7 @@ export default class DonationLightboxForm {
         "paypal",
         "paypaltouch",
         "stripedigitalwallet",
+        "daf",
       ].includes(paymentType.value);
       const isBankPayment = paymentType.value === "ach";
       console.log(

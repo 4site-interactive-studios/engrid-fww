@@ -20,14 +20,14 @@
   //   }
 
   &#en__pagebuilder #engrid,
-  &:not([data-engrid-embedded]){
+  &:not([data-engrid-embedded]) {
     max-width: 270px;
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
 
-  &:not([data-engrid-embedded]):before{
+  &:not([data-engrid-embedded]):before {
     content: none;
   }
 
@@ -701,6 +701,12 @@
       div {
         width: 100%;
       }
+
+      .back-link {
+        bottom: -0.25rem;
+        position: absolute;
+        z-index: 1; // Put it above the Digital Wallets iFrame
+      }
     }
 
     // .radio-to-buttons_recurrfreq {
@@ -861,7 +867,7 @@
     display: none;
   }
 
-  .transaction-fee-opt-in{
+  .transaction-fee-opt-in {
     margin-top: 2rem;
   }
 }
