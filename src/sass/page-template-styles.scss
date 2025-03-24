@@ -647,7 +647,15 @@ h3 {
   }
 
   // Custom description lists
+
+  .en__ticket__name,
+  .en__ticket__field--cost {
+    text-align: left !important;
+  }
+
   .en__ticket__desc {
+    text-align: left;
+    
     ul.checked-list {
       list-style-type: none;
       margin: 0;
