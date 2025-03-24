@@ -229,4 +229,36 @@ export const customScript = function (App) {
     }
   }
   orderSummaryBorder();
+
+  const wrapElements = (startSelector, endSelector, wrapperClass = 'border-container') => {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const start = document.querySelector(startSelector);
+      const end = document.querySelector(endSelector);
+
+      if (start && end) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add(wrapperClass);
+
+        const fragment = document.createDocumentFragment();
+
+        let current = start.nextElementSibling;
+
+        while (current && current !== end) {
+          const next = current.nextElementSibling;
+          fragment.appendChild(current);
+          current = next;
+        }
+
+        wrapper.appendChild(fragment);
+        start.parentNode.insertBefore(wrapper, start.nextSibling);
+      } else {
+        console.error('Invalid start or end selector');
+      }
+    }
+  };
+
+  wrapElements('.billing-information-title', '.payment-information-title');
+  wrapElements('.payment-information-title', '.submit-button-container');
+
+  paymentContainer()
 };

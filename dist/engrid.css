@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 21, 2025 @ 15:28:51 ET
+ *  Date: Monday, March 24, 2025 @ 13:37:48 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -7778,6 +7778,13 @@ body[data-engrid-debug]:before{
   --engrid__content-footer_background-color:#000;
   --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg);
 }
+@media screen and (max-width:600px){
+  [data-engrid-theme=fww]{
+    --engrid__body-main_padding:0 1.6em;
+    --engrid__body-top_padding:0 1.6em;
+    --engrid__body-title_padding:0 1.6em;
+  }
+}
 
 h2{
   margin-top:calc(2rem*var(--scale-down_80pct));
@@ -8073,12 +8080,12 @@ h3{
     width:calc(100% - 550px);
   }
 }
-[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields,[data-engrid-theme=fww] .en__field__element.en__field__element--radio,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
+[data-engrid-theme=fww] .border-container,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
   border:2px solid #000;
   border-radius:15px;
   padding:20px;
 }
-[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.giveBySelect-Card.activated,[data-engrid-theme=fww] .en__component.en__component--formblock.hide-fields.activated,[data-engrid-theme=fww] .en__field__element.en__field__element--radio.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+[data-engrid-theme=fww] .border-container.activated,[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
   background-color:#e6eff8;
 }
 [data-engrid-theme=fww] .en__ticket__name{
@@ -8109,6 +8116,7 @@ h3{
   width:26px;
 }
 [data-engrid-theme=fww] .en__ticket__quantity{
+  color:#000;
   font-size:1.25em;
   width:2em;
 }
@@ -8187,9 +8195,17 @@ h3{
   top:-2px;
   width:20px;
 }
-[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--cost,[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--totalAmount{
-  padding-left:20px;
+[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--cost,[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--totalAmount,[data-engrid-theme=fww] .en__orderSummary__header.en__orderSummary__header--cost{
+  padding-left:0;
   text-align:left;
+}
+@media screen and (min-width:601px){
+  [data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--cost,[data-engrid-theme=fww] .en__orderSummary__data.en__orderSummary__data--totalAmount,[data-engrid-theme=fww] .en__orderSummary__header.en__orderSummary__header--cost{
+    padding-left:20px;
+  }
+}
+[data-engrid-theme=fww] .en__field--general-mobile-opt-in{
+  padding-left:0;
 }
 [data-engrid-theme=fww] .en__component--formblock,[data-engrid-theme=fww] .en__component--svblock,[data-engrid-theme=fww] .en__registrants__registrantDetails{
   margin-left:calc(var(--fields_spacing-inline)*0);
