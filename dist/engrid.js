@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, March 24, 2025 @ 10:25:47 ET
+ *  Date: Tuesday, March 25, 2025 @ 11:41:39 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21804,6 +21804,8 @@ const customScript = function (App) {
     });
     updatePlaceholders();
   }
+
+  // Allows ticket editor to make an unordered list with checkmark bullets by separating items with '@@'
   function makeDescriptionLists() {
     const descriptionLists = document.querySelectorAll(".en__ticket__desc");
     descriptionLists.forEach(list => {
@@ -21824,6 +21826,8 @@ const customScript = function (App) {
     });
   }
   makeDescriptionLists();
+
+  // Update the background color if the ticket amount is not 0
   function activatedTicket() {
     document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
       const toggleClass = () => {
@@ -21855,6 +21859,8 @@ const customScript = function (App) {
     });
   }
   activatedTicket();
+
+  // Formatting for Additional Donation field
   function additionalDonation() {
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 1) {
       const donationInput = document.querySelector('input.en__additional__input');
@@ -21875,17 +21881,18 @@ const customScript = function (App) {
     }
   }
   additionalDonation();
-  function formatCurrency(value) {
-    // Remove non-numeric characters except for "."
-    const numberValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
 
-    // Format the number with commas and two decimal places
+  // Currency formatting
+  function formatCurrency(value) {
+    const numberValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
     return `$${numberValue.toLocaleString('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
     })}`;
   }
   ;
+
+  // Apply currency formatting to Order Summary
   function formatNumbers() {
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
       const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
@@ -21896,7 +21903,7 @@ const customScript = function (App) {
   }
   formatNumbers();
 
-  // for rounded borders styling on order summary on page 2
+  // Rounded-corners styling for Order Summary
   function orderSummaryBorder() {
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
       const orderSummary = document.querySelector('.en__component.en__component--eventtickets');
@@ -21906,6 +21913,8 @@ const customScript = function (App) {
     }
   }
   orderSummaryBorder();
+
+  // Create the rounded-corners container around the necessary content divs
   const wrapElements = (startSelector, endSelector, wrapperClass = 'border-container') => {
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
       const start = document.querySelector(startSelector);
@@ -21929,7 +21938,6 @@ const customScript = function (App) {
   };
   wrapElements('.billing-information-title', '.payment-information-title');
   wrapElements('.payment-information-title', '.submit-button-container');
-  paymentContainer();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM
