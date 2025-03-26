@@ -21923,6 +21923,7 @@ const customScript = function (App) {
         const wrapper = document.createElement('div');
         wrapper.classList.add(wrapperClass);
         const fragment = document.createDocumentFragment();
+        start.appendChild(fragment);
         let current = start.nextElementSibling;
         while (current && current !== end) {
           const next = current.nextElementSibling;
@@ -21938,6 +21939,20 @@ const customScript = function (App) {
   };
   wrapElements('.billing-information-title', '.payment-information-title');
   wrapElements('.payment-information-title', '.submit-button-container');
+
+  // Move title divs with the move-down class inside the container div below it
+  const moveDivInside = () => {
+    const divs = document.querySelectorAll('.move-down');
+    divs.forEach(div => {
+      const nextDiv = div.nextElementSibling;
+      if (nextDiv) {
+        nextDiv.insertBefore(div, nextDiv.firstChild);
+      } else {
+        console.warn('No div to move into for:', div);
+      }
+    });
+  };
+  setTimeout(moveDivInside, 200);
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM

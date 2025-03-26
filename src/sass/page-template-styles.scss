@@ -573,15 +573,26 @@ h3 {
 
   .en__ticket.en__ticket--ENBL,
   .en__component.en__component--eventtickets.rounded-borders,
-  .en__registrants,
+  .en__component--eventregistrants,
   .border-container {
     border: 2px solid #000000;
     border-radius: 15px;
     padding: 20px;
+    margin-bottom: 40px;
 
     &.activated {
       background-color: $light-blue;
     }
+  }
+
+  // styles to fix headers moved inside rounded corner divs
+  .move-down h3 {
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .titleBorder {
+    display: none;
   }
 
   .en__additional.activated {

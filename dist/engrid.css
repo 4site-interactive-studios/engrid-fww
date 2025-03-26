@@ -8081,12 +8081,23 @@ h3{
     width:calc(100% - 550px);
   }
 }
-[data-engrid-theme=fww] .border-container,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__registrants,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
+[data-engrid-theme=fww] .border-container,[data-engrid-theme=fww] .en__component--eventregistrants,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL{
   border:2px solid #000;
   border-radius:15px;
+  margin-bottom:40px;
   padding:20px;
 }
-[data-engrid-theme=fww] .border-container.activated,[data-engrid-theme=fww] .en__additional.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__registrants.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+[data-engrid-theme=fww] .border-container.activated,[data-engrid-theme=fww] .en__component--eventregistrants.activated,[data-engrid-theme=fww] .en__component.en__component--eventtickets.rounded-borders.activated,[data-engrid-theme=fww] .en__ticket.en__ticket--ENBL.activated{
+  background-color:#e6eff8;
+}
+[data-engrid-theme=fww] .move-down h3{
+  margin-top:0;
+  padding-left:0;
+}
+[data-engrid-theme=fww] .titleBorder{
+  display:none;
+}
+[data-engrid-theme=fww] .en__additional.activated{
   background-color:#e6eff8;
 }
 [data-engrid-theme=fww] .en__ticket__name{
