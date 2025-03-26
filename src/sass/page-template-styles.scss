@@ -4,10 +4,13 @@
 [data-engrid-theme="fww"] {
   --engrid__page_background-color: #ffffff;
   --error__color: #f24235;
-  --engrid__body-main_padding: 0 1.8em;
-  --engrid__body-top_padding: 0 1.8em;
-  --engrid__body-title_padding: 0 1.8em;
-  --engrid__content-footer_padding: 0 1.8em !important;
+
+  @media screen and (max-width: 1022px) {
+    --engrid__body-main_padding: 0 1.8em;
+    --engrid__body-top_padding: 0 1.8em;
+    --engrid__body-title_padding: 0 1.8em;
+    --engrid__content-footer_padding: 0 1.8em !important;
+  }
 
   // TYPOGRAPHY DEFAULT
   --default_font-family: "Graphik",

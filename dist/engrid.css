@@ -7722,10 +7722,6 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww]{
   --engrid__page_background-color:#fff;
   --error__color:#f24235;
-  --engrid__body-main_padding:0 1.8em;
-  --engrid__body-top_padding:0 1.8em;
-  --engrid__body-title_padding:0 1.8em;
-  --engrid__content-footer_padding:0 1.8em !important;
   --default_font-family:"Graphik", "Arial", "sans-serif";
   --h1_font-family:"GraphikBlack", "Arial Black", "sans-serif";
   --h2_color:#0057b8;
@@ -7781,6 +7777,14 @@ body[data-engrid-debug]:before{
   --checkbox_border-color_checked:#fd0;
   --engrid__content-footer_background-color:#000;
   --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg);
+}
+@media screen and (max-width:1022px){
+  [data-engrid-theme=fww]{
+    --engrid__body-main_padding:0 1.8em;
+    --engrid__body-top_padding:0 1.8em;
+    --engrid__body-title_padding:0 1.8em;
+    --engrid__content-footer_padding:0 1.8em !important;
+  }
 }
 
 h2{
