@@ -173,7 +173,7 @@ export const customScript = function (App) {
       }
     });
   }
-  activatedTicket();
+  window.addEventListener('load', activatedTicket);
 
   // Formatting for Additional Donation field
   function additionalDonation() {

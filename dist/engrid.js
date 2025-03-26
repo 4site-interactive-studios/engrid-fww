@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, March 25, 2025 @ 11:41:39 ET
+ *  Date: Wednesday, March 26, 2025 @ 10:29:35 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21858,7 +21858,7 @@ const customScript = function (App) {
       }
     });
   }
-  activatedTicket();
+  window.addEventListener('load', activatedTicket);
 
   // Formatting for Additional Donation field
   function additionalDonation() {

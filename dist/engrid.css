@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, March 25, 2025 @ 11:41:39 ET
+ *  Date: Wednesday, March 26, 2025 @ 10:29:35 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -7734,7 +7734,7 @@ body[data-engrid-debug]:before{
   --p_font-size:18px;
   --engrid__content_padding:0px var(--spacing_lg);
   --input_font-family:"Graphik", "Arial Black", "sans-serif";
-  --input_color:#c6c6c6;
+  --input_color:#000;
   --input_background-color:#0000;
   --input_border-width:0px;
   --input_border-radius:0px;
@@ -8113,7 +8113,6 @@ h3{
   width:26px;
 }
 [data-engrid-theme=fww] .en__ticket__quantity{
-  color:#000;
   font-size:1.25em;
   width:2em;
 }

@@ -4,8 +4,6 @@
 [data-engrid-theme="fww"] {
   --engrid__page_background-color: #ffffff;
   --error__color: #f24235;
-
-
   --engrid__body-main_padding: 0 1.8em;
   --engrid__body-top_padding: 0 1.8em;
   --engrid__body-title_padding: 0 1.8em;
@@ -68,7 +66,7 @@
   --input_font-family: "Graphik",
     "Arial Black",
     "sans-serif";
-  --input_color: #c6c6c6;
+  --input_color: #000000;
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
   // --input_line-height: initial;
@@ -622,7 +620,6 @@ h3 {
   .en__ticket__quantity {
     font-size: 1.25em;
     width: 2em;
-    color: #000;
   }
 
   .en__additional {
