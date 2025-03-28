@@ -143,14 +143,17 @@ export const customScript = function (App) {
   // Update the background color if the ticket amount is not 0
   function activatedTicket() {
     document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
+      input.classList.add('is-zero');
       const toggleClass = () => {
         const inputText = input.value.trim();
         const parentDiv = input.closest('div').parentElement.parentElement;
         if (parentDiv) {
           if (inputText !== '0' && inputText !== '') {
             parentDiv.classList.add('activated');
+            input.classList.remove('is-zero');
           } else {
             parentDiv.classList.remove('activated');
+            input.classList.add('is-zero');
           }
         }
       };
@@ -284,9 +287,9 @@ export const customScript = function (App) {
   function orderSummaryDivider() {
 
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
-  
+
       const targetDiv = document.querySelector('.en__orderSummary__headers');
-  
+
       if (targetDiv) {
         console.log('found the div');
         const newDiv = document.createElement('div');
@@ -297,10 +300,25 @@ export const customScript = function (App) {
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
         `;
-  
+
         targetDiv.after(newDiv);
       }
     } else { console.log('failed'); }
   }
   setTimeout(orderSummaryDivider, 500);
+
+  function attendeePlaceholders() {
+    console.log('running');
+    document.querySelectorAll('.en__registrants__registrant  label[for*="firstName"], .en__registrants__registrant label[for*="lastName"]').forEach(label => {
+      console.log(label.textContent.trim());
+      const input = label.nextElementSibling?.querySelector('input');
+
+      if (input) {
+        input.placeholder = `${label.textContent.trim()}*`;
+        label.style.display = 'none';
+      }
+    });
+  }
+  //setTimeout(attendeePlaceholders, 1000);
+  attendeePlaceholders();
 };

@@ -6,10 +6,10 @@
   --error__color: #f24235;
 
   @media screen and (max-width: 1022px) {
-    --engrid__body-main_padding: 0 1.8em;
-    --engrid__body-top_padding: 0 1.8em;
-    --engrid__body-title_padding: 0 1.8em;
-    --engrid__content-footer_padding: 0 1.8em !important;
+    --engrid__body-main_padding: 0 1em;
+    --engrid__body-top_padding: 0 1em;
+    --engrid__body-title_padding: 0 1em;
+    --engrid__content-footer_padding: 0 1em !important;
   }
 
   // TYPOGRAPHY DEFAULT
@@ -30,11 +30,13 @@
   // --h1_font-weight: initial;
   // --h1_line-height: initial;
 
-  // TYPOGRAPHY H3
-  // --h2_font-family: "GraphikBlack", "Arial Black", "sans-serif";
+  // TYPOGRAPHY H2
+  --h2_font-family: "Graphik",
+  "Arial Black",
+  "sans-serif";
   --h2_color: #0057b8;
   --h2_font-size: calc(var(--default_font-size) * var(--scale-down_50pct));
-  // --h2_font-weight: initial;
+  --h2_font-weight: 700;
   // --h2_line-height: initial;
   // --h2_text-transform: initial;
 
@@ -77,7 +79,7 @@
   --input_border-width: 0px;
   // --input_border-color: #dfdfe1;
   --input_border-radius: 0px;
-  --input_placeholder-color: #7a7c7a;
+  --input_placeholder-color: #757575;
   --input_placeholder-font-weight: 500;
   --input_box-shadow: inset none;
   --input__background-color: #ffffff;
@@ -164,7 +166,6 @@
 
 h2 {
   margin-top: calc(2rem * var(--scale-down_80pct));
-  //margin-bottom: calc(1rem * var(--scale-down_20pct));
 }
 
 h3 {
@@ -575,13 +576,17 @@ h3 {
 
   // Page-specific styles
 
-  .top-banner {
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 10px;
-    font-weight: 700;
-    font-size: 1.3em;
+  .body-headerOutside {
+    padding: 0 !important;
+
+    .top-banner {
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px;
+      font-weight: 700;
+      font-size: 1.3em;
+    }
   }
 
   hr.content-divider {
@@ -648,11 +653,16 @@ h3 {
     height: 26px;
     top: 9px;
     position: relative;
+    filter: grayscale(100%) brightness(0%);
   }
 
   .en__ticket__quantity {
     font-size: 1.25em;
     width: 2em;
+
+    &.is-zero {
+      color: #757575;
+    }
   }
 
   .en__additional {
@@ -716,6 +726,10 @@ h3 {
     position: relative;
     padding-left: 20px;
 
+    @media screen and (min-width: 1022px) {
+      padding-left: 32px;
+    }
+
     &::before {
       content: "$";
       position: absolute;
@@ -724,6 +738,10 @@ h3 {
       color: #000;
       font-size: 1em;
       pointer-events: none;
+
+      @media screen and (min-width: 1022px) {
+        left: 22px;
+      }
     }
   }
 
@@ -731,7 +749,7 @@ h3 {
 
   .en__field__input--select,
   .en__field__input--text::placeholder {
-    color: #000
+    color: var(--input_placeholder-color);
   }
 
   nav.back {
@@ -739,7 +757,8 @@ h3 {
     align-items: center;
     justify-content: space-between;
     font-style: italic;
-    font-size: 0.8em;
+    font-size: 0.72em;
+    margin-bottom: 1em;
 
     & a {
       text-decoration: none;
@@ -755,6 +774,14 @@ h3 {
       position: relative;
       top: -2px;
       margin-right: 2px;
+    }
+  }
+
+  .en__orderSummary {
+    font-size: 0.8em;
+
+    @media screen and (min-width: 601px) {
+      font-size: initial;
     }
   }
 
@@ -786,9 +813,22 @@ h3 {
     margin-right: calc(var(--fields_spacing-inline)* 0);
   }
 
+  .en__registrants__registrantDetails>* {
+    padding-left: 0;
+
+    @media screen and (min-width: 601px) {
+      padding-left: var(--fields_spacing-inline);
+    }
+  }
+
   .en__registrants__ticketHead,
   .en__registrants__registrantHead {
-    color: $blue;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .en__registrants__registrantHead {
+    text-decoration: underline;
   }
 
   // Space for 'Please check which event you would like to attend' text
