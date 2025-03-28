@@ -280,4 +280,27 @@ export const customScript = function (App) {
     });
   };
   setTimeout(moveDivInside, 200);
+
+  function orderSummaryDivider() {
+
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+  
+      const targetDiv = document.querySelector('.en__orderSummary__headers');
+  
+      if (targetDiv) {
+        console.log('found the div');
+        const newDiv = document.createElement('div');
+        newDiv.style.cssText = 'display: table-row;'
+        newDiv.innerHTML = `
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+        `;
+  
+        targetDiv.after(newDiv);
+      }
+    } else { console.log('failed'); }
+  }
+  setTimeout(orderSummaryDivider, 500);
 };

@@ -14,8 +14,8 @@
 
   // TYPOGRAPHY DEFAULT
   --default_font-family: "Graphik",
-    "Arial",
-    "sans-serif";
+  "Arial",
+  "sans-serif";
   // --default_color: initial;
   // --default_font-size: var(--root_font-size);
   // --default_font-weight: initial;
@@ -23,8 +23,8 @@
 
   // TYPOGRAPHY H1
   --h1_font-family: "GraphikBlack",
-    "Arial Black",
-    "sans-serif";
+  "Arial Black",
+  "sans-serif";
   // --h1_color: initial;
   // --h1_font-size: calc(var(--root_font-size) * var(--scale-up_160pct));
   // --h1_font-weight: initial;
@@ -67,8 +67,8 @@
 
   // TYPOGRAPHY INPUT
   --input_font-family: "Graphik",
-    "Arial Black",
-    "sans-serif";
+  "Arial Black",
+  "sans-serif";
   --input_color: #000000;
   // --input_font-size: var(--root_font-size);
   // --input_font-weight: initial;
@@ -92,8 +92,8 @@
 
   // TYPOGRAPHY BUTTON
   --button_font-family: "GraphikBlack",
-    "Arial Black",
-    "sans-serif";
+  "Arial Black",
+  "sans-serif";
   --button_color: #000000;
   // --button_font-size: var(--root_font-size);
   --button_font-weight: 600;
@@ -125,8 +125,8 @@
   --donation-amount__button_border-color_checked: #000000;
 
   --radio_font-family: "Graphik",
-    "Arial",
-    "sans-serif";
+  "Arial",
+  "sans-serif";
 
   --recurring-frequency__button_background-color_hover: #fff6bd;
   --recurring-frequency__button_background-color_checked: #ffe643;
@@ -139,8 +139,8 @@
   --checkbox_font-size: 14px;
   // this is defined & used only within this stylesheet
   --strong_font-family: "GraphikSemiBold",
-    "Arial Black",
-    "sans-serif";
+  "Arial Black",
+  "sans-serif";
 
   --give-by-select__button_border-color_checked: #000000;
   --give-by-select__button_border-color_hover: #000000;
@@ -170,6 +170,10 @@ h2 {
 h3 {
   border-left: none !important;
   padding-left: none !important;
+
+  &.section-header {
+    color: $blue;
+  }
 }
 
 [data-engrid-theme="fww"] {
@@ -569,7 +573,21 @@ h3 {
     }
   }
 
-  // Client-specific styles
+  // Page-specific styles
+
+  .top-banner {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px;
+    font-weight: 700;
+    font-size: 1.3em;
+  }
+
+  hr.content-divider {
+    margin: 40px 0;
+    border-top: 1px solid #d8d8d8;
+  }
 
   .en__ticket.en__ticket--ENBL,
   .en__component.en__component--eventtickets.rounded-borders,
@@ -600,6 +618,7 @@ h3 {
   }
 
   .en__ticket__name {
+    font-size: 1.2em;
     color: $blue;
     margin-bottom: 10px;
   }
@@ -639,7 +658,7 @@ h3 {
   .en__additional {
     border: 2px solid #000000;
     border-radius: 15px;
-    padding: 10px 20px;
+    padding: 10px;
 
     .en__additional__label {
       color: $blue;
@@ -748,6 +767,10 @@ h3 {
     @media screen and (min-width: 601px) {
       padding-left: 20px;
     }
+  }
+
+  .en__field__element.en__field__element--checkbox {
+    margin-top: 10px;
   }
 
   // Remove left padding from checkbox
@@ -867,6 +890,7 @@ h3 {
         a {
           color: #fff;
           text-decoration: underline;
+          font-weight: 700;
           font-size: 1.2em;
           width: 35%;
           text-align: right;

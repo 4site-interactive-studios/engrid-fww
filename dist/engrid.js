@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, March 26, 2025 @ 10:29:35 ET
+ *  Date: Friday, March 28, 2025 @ 07:56:49 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21953,6 +21953,26 @@ const customScript = function (App) {
     });
   };
   setTimeout(moveDivInside, 200);
+  function orderSummaryDivider() {
+    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+      const targetDiv = document.querySelector('.en__orderSummary__headers');
+      if (targetDiv) {
+        console.log('found the div');
+        const newDiv = document.createElement('div');
+        newDiv.style.cssText = 'display: table-row;';
+        newDiv.innerHTML = `
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+          <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
+        `;
+        targetDiv.after(newDiv);
+      }
+    } else {
+      console.log('failed');
+    }
+  }
+  setTimeout(orderSummaryDivider, 500);
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM
