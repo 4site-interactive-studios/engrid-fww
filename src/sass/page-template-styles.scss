@@ -481,6 +481,24 @@ h3 {
     }
   }
 
+  &[data-engrid-page-type="event"] {
+    .en__field--give-by-select{
+      border-radius: 15px;
+      outline: 2px solid #000;
+      outline-offset: -2px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: var(--fields_spacing-inline);
+      margin-right: var(--fields_spacing-inline);
+      overflow: hidden;
+    }
+
+    .payment-information-title h3{
+      padding-left: var(--fields_spacing-inline);
+      margin-bottom: 20px;
+    }
+  }
+
   .en__submit button {
     border-radius: 100px;
     border-width: 2px !important;

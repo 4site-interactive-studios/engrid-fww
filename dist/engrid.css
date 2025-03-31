@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, March 31, 2025 @ 09:28:45 ET
- *  By: daryl
+ *  Date: Monday, March 31, 2025 @ 12:06:04 ET
+ *  By: bryancasler
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
  *
@@ -8016,6 +8016,20 @@ h3.section-header{
 [data-engrid-theme=fww] .give-by-select .en__field__element--radio .en__field__item label{
   outline:2px solid #000;
   outline-offset:-1px;
+}
+[data-engrid-theme=fww][data-engrid-page-type=event] .en__field--give-by-select{
+  border-radius:15px;
+  margin-left:var(--fields_spacing-inline);
+  margin-right:var(--fields_spacing-inline);
+  outline:2px solid #000;
+  outline-offset:-2px;
+  overflow:hidden;
+  padding-left:0;
+  padding-right:0;
+}
+[data-engrid-theme=fww][data-engrid-page-type=event] .payment-information-title h3{
+  margin-bottom:20px;
+  padding-left:var(--fields_spacing-inline);
 }
 [data-engrid-theme=fww] .en__submit button{
   border-radius:100px;
