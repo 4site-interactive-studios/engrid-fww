@@ -291,8 +291,6 @@ export const customScript = function (App) {
       const targetDiv = document.querySelector('.en__orderSummary__headers');
 
       if (targetDiv) {
-        console.log('found the div');
-        const newDiv = document.createElement('div');
         newDiv.style.cssText = 'display: table-row;'
         newDiv.innerHTML = `
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
@@ -303,14 +301,12 @@ export const customScript = function (App) {
 
         targetDiv.after(newDiv);
       }
-    } else { console.log('failed'); }
+    }
   }
   setTimeout(orderSummaryDivider, 500);
 
   function attendeePlaceholders() {
-    console.log('running');
     document.querySelectorAll('.en__registrants__registrant  label[for*="firstName"], .en__registrants__registrant label[for*="lastName"]').forEach(label => {
-      console.log(label.textContent.trim());
       const input = label.nextElementSibling?.querySelector('input');
 
       if (input) {

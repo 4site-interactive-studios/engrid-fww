@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, March 28, 2025 @ 07:56:49 ET
+ *  Date: Monday, March 31, 2025 @ 09:28:45 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21960,8 +21960,6 @@ const customScript = function (App) {
     if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
       const targetDiv = document.querySelector('.en__orderSummary__headers');
       if (targetDiv) {
-        console.log('found the div');
-        const newDiv = document.createElement('div');
         newDiv.style.cssText = 'display: table-row;';
         newDiv.innerHTML = `
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
@@ -21971,15 +21969,11 @@ const customScript = function (App) {
         `;
         targetDiv.after(newDiv);
       }
-    } else {
-      console.log('failed');
     }
   }
   setTimeout(orderSummaryDivider, 500);
   function attendeePlaceholders() {
-    console.log('running');
     document.querySelectorAll('.en__registrants__registrant  label[for*="firstName"], .en__registrants__registrant label[for*="lastName"]').forEach(label => {
-      console.log(label.textContent.trim());
       const input = label.nextElementSibling?.querySelector('input');
       if (input) {
         input.placeholder = `${label.textContent.trim()}*`;
