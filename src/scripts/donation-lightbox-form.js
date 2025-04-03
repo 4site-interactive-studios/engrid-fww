@@ -1028,6 +1028,9 @@ export default class DonationLightboxForm {
             }
           }
           console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
+          window.setTimeout(() => {
+            this.scrollToElement(item.closest(".en__component"));
+          }, 100);
         });
       });
     }
