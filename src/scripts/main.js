@@ -317,4 +317,11 @@ export const customScript = function (App) {
   }
   //setTimeout(attendeePlaceholders, 1000);
   attendeePlaceholders();
+
+  function hideAttendeeTitle() {
+    document.querySelectorAll('.en__registrants__registrantHead').forEach(title => {
+      title.classList.add('hide');
+    });
+  }
+  hideAttendeeTitle();
 };

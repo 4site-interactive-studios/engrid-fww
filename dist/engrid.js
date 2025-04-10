@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, April 7, 2025 @ 10:39:53 ET
+ *  Date: Thursday, April 10, 2025 @ 15:06:52 ET
  *  By: daryl
  *  ENGrid styles: v0.20.0
  *  ENGrid scripts: v0.20.4
@@ -21983,6 +21983,12 @@ const customScript = function (App) {
   }
   //setTimeout(attendeePlaceholders, 1000);
   attendeePlaceholders();
+  function hideAttendeeTitle() {
+    document.querySelectorAll('.en__registrants__registrantHead').forEach(title => {
+      title.classList.add('hide');
+    });
+  }
+  hideAttendeeTitle();
 };
 ;// CONCATENATED MODULE: ./src/index.ts
  // Uses ENGrid via NPM
