@@ -96,8 +96,14 @@ export const customScript = function (App) {
   // Helper function to check if input is visually empty
   function isVisuallyEmpty(input) {
     // Check if the ::before pseudo-element has visible content
-    const beforeContent = window.getComputedStyle(input, "::before").getPropertyValue("content");
-    return beforeContent === 'none' || beforeContent === '""' || beforeContent.trim() === ""; // Adjust based on your styles
+    const beforeContent = window
+      .getComputedStyle(input, "::before")
+      .getPropertyValue("content");
+    return (
+      beforeContent === "none" ||
+      beforeContent === '""' ||
+      beforeContent.trim() === ""
+    ); // Adjust based on your styles
   }
 
   // Set up MutationObserver (same as before)
@@ -118,107 +124,111 @@ export const customScript = function (App) {
     const descriptionLists = document.querySelectorAll(".en__ticket__desc");
 
     descriptionLists.forEach((list) => {
+      if (list.textContent.includes("@@")) {
+        const items = list.textContent
+          .split("@@")
+          .map((item) => item.trim())
+          .filter((item) => item);
 
-      if (list.textContent.includes('@@')) {
-        const items = list.textContent.split('@@').map(item => item.trim()).filter(item => item);
+        const ul = document.createElement("ul");
+        ul.classList.add("checked-list");
 
-        const ul = document.createElement('ul');
-        ul.classList.add('checked-list');
-
-        items.forEach(item => {
-          const li = document.createElement('li');
+        items.forEach((item) => {
+          const li = document.createElement("li");
           li.innerHTML = `${item}`;
           ul.appendChild(li);
         });
 
         // Replace the div content with the unordered list
-        list.innerHTML = '';
+        list.innerHTML = "";
         list.appendChild(ul);
       }
-
     });
   }
   makeDescriptionLists();
 
   // Update the background color if the ticket amount is not 0
   function activatedTicket() {
-    document.querySelectorAll('input.en__ticket__quantity').forEach(input => {
-      input.classList.add('is-zero');
+    document.querySelectorAll("input.en__ticket__quantity").forEach((input) => {
+      input.classList.add("is-zero");
       const toggleClass = () => {
         const inputText = input.value.trim();
-        const parentDiv = input.closest('div').parentElement.parentElement;
+        const parentDiv = input.closest("div").parentElement.parentElement;
         if (parentDiv) {
-          if (inputText !== '0' && inputText !== '') {
-            parentDiv.classList.add('activated');
-            input.classList.remove('is-zero');
+          if (inputText !== "0" && inputText !== "") {
+            parentDiv.classList.add("activated");
+            input.classList.remove("is-zero");
           } else {
-            parentDiv.classList.remove('activated');
-            input.classList.add('is-zero');
+            parentDiv.classList.remove("activated");
+            input.classList.add("is-zero");
           }
         }
       };
 
-      input.addEventListener('input', () => {
+      input.addEventListener("input", () => {
         setTimeout(toggleClass, 50);
       });
 
-      const plusDiv = input.parentElement.querySelector('.en__ticket__plus');
-      const minusDiv = input.parentElement.querySelector('.en__ticket__minus');
+      const plusDiv = input.parentElement.querySelector(".en__ticket__plus");
+      const minusDiv = input.parentElement.querySelector(".en__ticket__minus");
       if (plusDiv) {
-        plusDiv.addEventListener('click', () => {
+        plusDiv.addEventListener("click", () => {
           setTimeout(toggleClass, 50);
         });
       }
       if (minusDiv) {
-        minusDiv.addEventListener('click', () => {
+        minusDiv.addEventListener("click", () => {
           setTimeout(toggleClass, 50);
         });
       }
     });
   }
-  window.addEventListener('load', activatedTicket);
+  window.addEventListener("load", activatedTicket);
 
   // Formatting for Additional Donation field
   function additionalDonation() {
-    if (pageJson.pageType === 'event' && pageJson.pageNumber == 1) {
-      const donationInput = document.querySelector('input.en__additional__input');
+    if (pageJson.pageType === "event" && pageJson.pageNumber == 1) {
+      const donationInput = document.querySelector(
+        "input.en__additional__input"
+      );
 
       const checkAmount = () => {
         const inputText = donationInput.value.trim();
-        const parentDiv = donationInput.closest('div').parentElement;
+        const parentDiv = donationInput.closest("div").parentElement;
         if (parentDiv) {
-          if (inputText !== '0' && inputText !== '') {
-            parentDiv.classList.add('activated');
+          if (inputText !== "0" && inputText !== "") {
+            parentDiv.classList.add("activated");
           } else {
-            parentDiv.classList.remove('activated');
+            parentDiv.classList.remove("activated");
           }
         }
       };
 
-      donationInput.addEventListener('input', () => {
+      donationInput.addEventListener("input", () => {
         setTimeout(checkAmount, 50);
       });
     }
-
   }
   additionalDonation();
 
   // Currency formatting
   function formatCurrency(value) {
-    const numberValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+    const numberValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
 
-    return `$${numberValue.toLocaleString('en-US', {
+    return `$${numberValue.toLocaleString("en-US", {
       minimumFractionDigits: 2,
-      maximumFractionDigits: 2
+      maximumFractionDigits: 2,
     })}`;
-  };
+  }
 
   // Apply currency formatting to Order Summary
   function formatNumbers() {
-    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
-      const summaryPrices = document.querySelectorAll('.en__orderSummary__data.en__orderSummary__data--cost');
+    if (pageJson.pageType === "event" && pageJson.pageNumber == 2) {
+      const summaryPrices = document.querySelectorAll(
+        ".en__orderSummary__data.en__orderSummary__data--cost"
+      );
 
-      summaryPrices.forEach(price => {
+      summaryPrices.forEach((price) => {
         price.textContent = formatCurrency(price.textContent);
       });
     }
@@ -227,23 +237,29 @@ export const customScript = function (App) {
 
   // Rounded-corners styling for Order Summary
   function orderSummaryBorder() {
-    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
-      const orderSummary = document.querySelector('.en__component.en__component--eventtickets');
+    if (pageJson.pageType === "event" && pageJson.pageNumber == 2) {
+      const orderSummary = document.querySelector(
+        ".en__component.en__component--eventtickets"
+      );
       if (orderSummary) {
-        orderSummary.classList.add('rounded-borders');
+        orderSummary.classList.add("rounded-borders");
       }
     }
   }
   orderSummaryBorder();
 
   // Create the rounded-corners container around the necessary content divs
-  const wrapElements = (startSelector, endSelector, wrapperClass = 'border-container') => {
-    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
+  const wrapElements = (
+    startSelector,
+    endSelector,
+    wrapperClass = "border-container"
+  ) => {
+    if (pageJson.pageType === "event" && pageJson.pageNumber == 2) {
       const start = document.querySelector(startSelector);
       const end = document.querySelector(endSelector);
 
       if (start && end) {
-        const wrapper = document.createElement('div');
+        const wrapper = document.createElement("div");
         wrapper.classList.add(wrapperClass);
 
         const fragment = document.createDocumentFragment();
@@ -260,38 +276,36 @@ export const customScript = function (App) {
         wrapper.appendChild(fragment);
         start.parentNode.insertBefore(wrapper, start.nextSibling);
       } else {
-        console.error('Invalid start or end selector');
+        console.error("Invalid start or end selector");
       }
     }
   };
 
-  wrapElements('.billing-information-title', '.payment-information-title');
-  wrapElements('.payment-information-title', '.submit-button-container');
+  wrapElements(".billing-information-title", ".payment-information-title");
+  wrapElements(".payment-information-title", ".submit-button-container");
 
   // Move title divs with the move-down class inside the container div below it
   const moveDivInside = () => {
-    const divs = document.querySelectorAll('.move-down');
+    const divs = document.querySelectorAll(".move-down");
 
-    divs.forEach(div => {
+    divs.forEach((div) => {
       const nextDiv = div.nextElementSibling;
 
       if (nextDiv) {
         nextDiv.insertBefore(div, nextDiv.firstChild);
       } else {
-        console.warn('No div to move into for:', div);
+        console.warn("No div to move into for:", div);
       }
     });
   };
   setTimeout(moveDivInside, 200);
 
   function orderSummaryDivider() {
-
-    if (pageJson.pageType === 'event' && pageJson.pageNumber == 2) {
-
-      const targetDiv = document.querySelector('.en__orderSummary__headers');
+    if (pageJson.pageType === "event" && pageJson.pageNumber == 2) {
+      const targetDiv = document.querySelector(".en__orderSummary__headers");
 
       if (targetDiv) {
-        newDiv.style.cssText = 'display: table-row;'
+        newDiv.style.cssText = "display: table-row;";
         newDiv.innerHTML = `
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
           <div style="display:table-cell; border-bottom:1px solid #d8d8d8;"></div>
@@ -306,22 +320,28 @@ export const customScript = function (App) {
   setTimeout(orderSummaryDivider, 500);
 
   function attendeePlaceholders() {
-    document.querySelectorAll('.en__registrants__registrant  label[for*="firstName"], .en__registrants__registrant label[for*="lastName"]').forEach(label => {
-      const input = label.nextElementSibling?.querySelector('input');
+    document
+      .querySelectorAll(
+        '.en__registrants__registrant  label[for*="firstName"], .en__registrants__registrant label[for*="lastName"]'
+      )
+      .forEach((label) => {
+        const input = label.nextElementSibling?.querySelector("input");
 
-      if (input) {
-        input.placeholder = `${label.textContent.trim()}*`;
-        label.style.display = 'none';
-      }
-    });
+        if (input) {
+          input.placeholder = `${label.textContent.trim()}*`;
+          label.style.display = "none";
+        }
+      });
   }
   //setTimeout(attendeePlaceholders, 1000);
   attendeePlaceholders();
 
   function hideAttendeeTitle() {
-    document.querySelectorAll('.en__registrants__registrantHead').forEach(title => {
-      title.classList.add('hide');
-    });
+    document
+      .querySelectorAll(".en__registrants__registrantHead")
+      .forEach((title) => {
+        title.classList.add("hide");
+      });
   }
   hideAttendeeTitle();
 };
