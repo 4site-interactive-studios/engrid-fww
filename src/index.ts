@@ -22,6 +22,12 @@ const options: Options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
+  MobileCTA: [
+    {
+      pageType: "UNKNOWN",
+      label: "Get Tickets",
+    }
+  ],
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss      
@@ -30,12 +36,6 @@ const options: Options = {
       css: vgsCss
     }
   },
-  MobileCTA: [
-    {
-      pageType: "EVENT",
-      label: "Get Tickets",
-    }
-  ],
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
   onResize: () => App.log("Starter Theme Window Resized"),

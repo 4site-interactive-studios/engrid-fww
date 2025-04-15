@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, April 15, 2025 @ 09:34:38 ET
+ *  Date: Tuesday, April 15, 2025 @ 10:03:13 ET
  *  By: daryl
  *  ENGrid styles: v0.21.0
  *  ENGrid scripts: v0.21.2
@@ -22210,6 +22210,10 @@ const options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
+  MobileCTA: [{
+    pageType: "UNKNOWN",
+    label: "Get Tickets"
+  }],
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss
@@ -22218,10 +22222,6 @@ const options = {
       css: vgsCss
     }
   },
-  MobileCTA: [{
-    pageType: "EVENT",
-    label: "Get Tickets"
-  }],
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
   onResize: () => App.log("Starter Theme Window Resized")
