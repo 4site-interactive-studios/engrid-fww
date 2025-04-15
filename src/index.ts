@@ -30,6 +30,12 @@ const options: Options = {
       css: vgsCss
     }
   },
+  MobileCTA: [
+    {
+      pageType: "EVENT",
+      label: "Get Tickets",
+    }
+  ],
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
   onLoad: () => customScript(),
   onResize: () => App.log("Starter Theme Window Resized"),
