@@ -24,7 +24,7 @@ const options: Options = {
   ProgressBar: true,
   MobileCTA: [
     {
-      pageType: "UNKNOWN",
+      pageType: "EVENT",
       label: "Get Tickets",
     }
   ],

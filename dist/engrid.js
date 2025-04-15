@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, April 15, 2025 @ 10:03:13 ET
+ *  Date: Tuesday, April 15, 2025 @ 14:03:51 ET
  *  By: daryl
  *  ENGrid styles: v0.21.0
  *  ENGrid scripts: v0.21.2
@@ -22211,7 +22211,7 @@ const options = {
   SrcDefer: true,
   ProgressBar: true,
   MobileCTA: [{
-    pageType: "UNKNOWN",
+    pageType: "EVENT",
     label: "Get Tickets"
   }],
   VGS: {
