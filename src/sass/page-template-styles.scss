@@ -5,13 +5,6 @@
   --engrid__page_background-color: #ffffff;
   --error__color: #f24235;
 
-  @media screen and (max-width: 1022px) {
-    --engrid__body-main_padding: 0 1em;
-    --engrid__body-top_padding: 0 1em;
-    --engrid__body-title_padding: 0 1em;
-    --engrid__content-footer_padding: 0 1em !important;
-  }
-
   // TYPOGRAPHY DEFAULT
   --default_font-family: "Graphik", "Arial", "sans-serif";
   // --default_color: initial;
@@ -134,7 +127,6 @@
   --give-by-select__button_border-color_hover: #000000;
   --give-by-select__button_background-color_checked: #ffe643;
 
-  --engrid__content-footer_background-color: #ffffff;
   --engrid__body-headerOutside_background-color: #ffffff;
 
   --engrid__body_box-shadow: none;
@@ -149,19 +141,6 @@
   --engrid__content-footer_background-color: #000000;
   --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5)
     var(--spacing_lg);
-}
-
-h2 {
-  margin-top: calc(2rem * var(--scale-down_80pct));
-}
-
-h3 {
-  border-left: none !important;
-  padding-left: none !important;
-
-  &.section-header {
-    color: $blue;
-  }
 }
 
 [data-engrid-theme="fww"] {
@@ -207,8 +186,8 @@ h3 {
 
     /* Resize image in pagebuilder */
     .en__captcha__placeholder {
-      background-size: 100%;
-      width: 270px;
+      background-size: 100% !important;
+      width: 270px !important;
     }
   }
 
@@ -266,7 +245,6 @@ h3 {
 
       &:first-child {
         padding-left: calc(0.5rem - 1px) !important;
-
         label {
           --recurring-frequency__button_border-radius: 100px 0px 0px 100px;
         }
@@ -274,7 +252,6 @@ h3 {
 
       &:last-child {
         padding-right: calc(0.5rem - 1px) !important;
-
         label {
           --recurring-frequency__button_border-radius: 0px 100px 100px 0px;
         }
@@ -354,9 +331,9 @@ h3 {
 
     --donation-amount__button_color: #000000;
     --give-onetime-donation-amount-appended-label: "";
-    --give-monthly-donation-amount-appended-label: "/ mo.";
-    --give-quarterly-donation-amount-appended-label: "/ qtr.";
-    --give-annual-donation-amount-appended-label: "/ yr.";
+    --give-monthly-donation-amount-appended-label: "/mo";
+    --give-quarterly-donation-amount-appended-label: "/qtr";
+    --give-annual-donation-amount-appended-label: "/yr";
     --donation-amount__button_padding: 12px 0;
 
     .en__field__item {
@@ -390,7 +367,8 @@ h3 {
         white-space: nowrap;
 
         &:after {
-          font-size: var(--donation-amount__button_font-size) !important;
+          font-size: 14px !important;
+          margin-left: 2px;
         }
       }
 
@@ -484,24 +462,6 @@ h3 {
     }
   }
 
-  &[data-engrid-page-type="event"] {
-    .en__field--give-by-select {
-      border-radius: 15px;
-      outline: 2px solid #000;
-      outline-offset: -2px;
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: var(--fields_spacing-inline);
-      margin-right: var(--fields_spacing-inline);
-      overflow: hidden;
-    }
-
-    .payment-information-title h3 {
-      padding-left: var(--fields_spacing-inline);
-      margin-bottom: 20px;
-    }
-  }
-
   .en__submit button {
     border-radius: 100px;
     border-width: 2px !important;
@@ -534,6 +494,18 @@ h3 {
     z-index: 3 !important;
     color: #ffffff;
     line-height: 1rem;
+  }
+
+  &[data-engrid-embedded] .email-tooltip {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    z-index: 10;
+    font-size: 13px;
+  }
+
+  &[data-engrid-embedded] .email-tooltip + [data-tippy-root] {
+    font-size: 13px;
   }
 
   /* Hides the Custom Supporter field that is added to the bottom of the page to track referrals */
@@ -603,389 +575,38 @@ h3 {
     }
   }
 
-  // Page-specific styles
+  .gift-summary {
+    border-width: 1px 0;
+    border-style: dashed;
+    border-color: #0057b8;
+    margin: 30px auto;
+    padding: 20px !important;
 
-  .body-headerOutside {
-    padding: 0 !important;
-
-    .top-banner {
-      color: #fff;
-      text-transform: uppercase;
-      text-align: center;
-      margin: 10px;
-      font-weight: 700;
-      font-size: 1.3em;
-    }
-  }
-
-  hr.content-divider {
-    margin: 40px 0;
-    border-top: 1px solid #d8d8d8;
-  }
-
-  .en__ticket.en__ticket--ENBL,
-  .en__component.en__component--eventtickets.rounded-borders,
-  .en__component--eventregistrants,
-  .border-container {
-    border: 2px solid #000000;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-
-    &.activated {
-      background-color: $light-blue;
-    }
-  }
-
-  .en__ticket.en__ticket--ENBL {
-    margin-bottom: 20px;
-  }
-
-  // styles to fix headers moved inside rounded corner divs
-  .move-down h3 {
-    margin-top: 0;
-    padding-left: 0;
-  }
-
-  .titleBorder {
-    display: none;
-  }
-
-  .en__additional.activated {
-    background-color: $light-blue;
-  }
-
-  .en__ticket__name {
-    font-size: 1.2em;
-    color: $blue;
-    margin-bottom: 10px;
-  }
-
-  .en__ticket__field.en__ticket__field--cost {
-    text-align: center;
-    min-width: 80px;
-
-    @media screen and (min-width: 601px) {
-      text-align: right;
-    }
-  }
-
-  .en__ticket__price {
-    font-size: 1.125em;
-  }
-
-  .en__ticket__selector {
-    margin-top: -4px;
-  }
-
-  .en__ticket__minus,
-  .en__ticket__plus {
-    border: 1px solid #878787;
-    border-radius: 5px;
-    width: 26px;
-    height: 26px;
-    top: 9px;
-    position: relative;
-    filter: grayscale(100%) brightness(0%);
-  }
-
-  .en__ticket__quantity {
-    font-size: 1.25em;
-    width: 2em;
-
-    &.is-zero {
-      color: #757575;
-    }
-  }
-
-  .en__additional {
-    border: 2px solid #000000;
-    border-radius: 15px;
-    padding: 10px;
-
-    .en__additional__label {
-      color: $blue;
+    > img {
+      width: 64px;
+      height: 66px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .en__additional__promo {
-      display: none;
-    }
-  }
-
-  // Custom description lists
-  .en__ticket__name,
-  .en__ticket__field--cost {
-    text-align: left !important;
-  }
-
-  .en__ticket__desc {
-    text-align: left;
-
-    ul.checked-list {
-      list-style-type: none;
+    p {
       margin: 0;
-      padding: 0;
-
-      li {
-        position: relative;
-        padding-left: 20px;
-        line-height: 1.6;
-        text-align: left;
-
-        &::before {
-          content: "✓";
-          display: block;
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 20px;
-          color: $blue;
-          font-weight: 700;
-        }
-      }
-    }
-  }
-
-  .en__additional__amount .en__additional__input {
-    border-bottom: 2px solid #000000;
-    text-align: left;
-    position: relative;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    color: #000;
-  }
-
-  .en__additional__amount {
-    position: relative;
-    padding-left: 20px;
-
-    @media screen and (min-width: 1022px) {
-      padding-left: 32px;
-    }
-
-    &::before {
-      content: "$";
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      color: #000;
-      font-size: 1em;
-      pointer-events: none;
-
-      @media screen and (min-width: 1022px) {
-        left: 22px;
-      }
-    }
-  }
-
-  // Page 2
-
-  .en__field__input--select,
-  .en__field__input--text::placeholder {
-    color: var(--input_placeholder-color);
-  }
-
-  nav.back {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-style: italic;
-    font-size: 0.72em;
-    margin-bottom: 1em;
-
-    & a {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    & svg {
-      width: 20px;
-      height: 20px;
-      position: relative;
-      top: -2px;
-      margin-right: 2px;
-    }
-  }
-
-  .en__orderSummary {
-    font-size: 0.8em;
-
-    @media screen and (min-width: 601px) {
-      font-size: initial;
-    }
-  }
-
-  .en__orderSummary__data.en__orderSummary__data--cost,
-  .en__orderSummary__data.en__orderSummary__data--totalAmount,
-  .en__orderSummary__header.en__orderSummary__header--cost {
-    text-align: left;
-    padding-left: 0;
-
-    @media screen and (min-width: 601px) {
-      padding-left: 20px;
-    }
-  }
-
-  .en__field__element.en__field__element--checkbox {
-    margin-top: 10px;
-  }
-
-  // Remove left padding from checkbox
-  .en__field--general-mobile-opt-in {
-    padding-left: 0;
-  }
-
-  // Billing info margin fix
-  .en__component--formblock,
-  .en__component--svblock,
-  .en__registrants__registrantDetails {
-    margin-left: calc(var(--fields_spacing-inline) * 0);
-    margin-right: calc(var(--fields_spacing-inline) * 0);
-    padding-top: 0 !important;
-  }
-
-  .en__registrants__registrantDetails > * {
-    padding-left: 0;
-
-    @media screen and (min-width: 601px) {
-      padding-left: var(--fields_spacing-inline);
-    }
-  }
-
-  .en__registrants__ticketHead,
-  .en__registrants__registrantHead {
-    font-size: 1.1em;
-    font-weight: 700;
-    text-decoration: none !important;
-  }
-
-  // Space for 'Please check which event you would like to attend' text
-  [class*="--other2"] {
-    margin: 20px 0;
-  }
-
-  input[type="checkbox"]:not(:checked) + label:before,
-  input[type="checkbox"]:checked + label:before {
-    border-radius: 20px;
-  }
-
-  // CSS for half-size inputs on desktop and hidden labels
-  .en__field--text.en__field--firstName,
-  .en__field--text.en__field--lastName,
-  .en__field--text.en__field--city,
-  .en__field--select.en__field--region,
-  .en__field--text.en__field--postcode,
-  .en__field--select.en__field--country {
-    @media screen and (min-width: 601px) {
-      flex-basis: 50% !important;
-    }
-
-    & label {
-      display: none !important;
-    }
-  }
-
-  .en__field.en__field--text.en__field--registrant[class*="--firstName"],
-  .en__field.en__field--text.en__field--registrant[class*="--lastName"] {
-    @media screen and (min-width: 601px) {
-      flex-basis: 50% !important;
-    }
-  }
-
-  .en__field--text.en__field--emailAddress label,
-  .en__field--text.en__field--address1 label {
-    display: none !important;
-  }
-
-  // Footer
-
-  .footer-wrapper {
-    margin: 40px 0;
-
-    hr {
-      margin: 20px 0;
-
-      @media screen and (min-width: 601px) {
-        margin: 20px 0 30px;
-      }
-    }
-
-    .footer-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 12px;
-      margin-top: 20px;
       text-align: center;
+    }
+    .live-giving-amount {
+      font-weight: 600;
+    }
+  }
 
-      @media screen and (min-width: 601px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: auto;
-      }
+  &[data-engrid-subtheme="multistep"] {
+    @import "./multistep";
+  }
 
-      .footer-left {
-        width: 100%;
-        text-align: center;
-
-        @media screen and (min-width: 601px) {
-          width: 65%;
-          text-align: left;
-        }
-
-        p {
-          font-size: 1em;
-          margin-top: 0;
-
-          &.small {
-            font-size: 0.8em;
-          }
-        }
-      }
-
-      .footer-right {
-        width: 100%;
-        text-align: center;
-
-        @media screen and (min-width: 601px) {
-          width: 30%;
-          text-align: right;
-        }
-
-        a {
-          color: #fff;
-          text-decoration: underline;
-          font-weight: 700;
-          font-size: 1.2em;
-          width: 35%;
-          text-align: right;
-        }
-
-        &.social {
-          margin-top: 20px;
-
-          @media screen and (min-width: 601px) {
-            margin-top: 0;
-          }
-
-          a {
-            display: inline-block;
-            margin-left: 10px;
-            width: 30px;
-            height: 30px;
-
-            img {
-              width: 100%;
-            }
-          }
-        }
-      }
+  &[data-engrid-subtheme="multistep"]:not([data-engrid-embedded]) {
+    #engrid {
+      max-width: 270px;
+      margin: 0 auto;
     }
   }
 }
