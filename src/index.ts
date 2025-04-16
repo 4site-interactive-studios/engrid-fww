@@ -29,6 +29,12 @@ const options: Options = {
   SkipToMainContentLink: true,
   SrcDefer: true,
   ProgressBar: true,
+  MobileCTA: [
+    {
+      pageType: "EVENT",
+      label: "Get Tickets",
+    }
+  ],
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss      
