@@ -417,9 +417,9 @@ export const customScript = function (App, EnForm) {
 
 
   function scrollToSummary() {
-    if (pageJson.pageType === "event" && pageJson.pageNumber == 2) {
+    if (pageJson.pageType === "event" && (pageJson.pageNumber === 2 || pageJson.pageNumber === 3)) {
       window.addEventListener('load', () => {
-        const targetY = 650;
+        const targetY = pageJson.pageNumber === 3 ? 220 : 650;
         const duration = 1250;
         const startY = window.scrollY;
         const startTime = performance.now();
