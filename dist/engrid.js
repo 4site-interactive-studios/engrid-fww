@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, May 7, 2025 @ 08:48:02 ET
+ *  Date: Wednesday, May 7, 2025 @ 09:24:01 ET
  *  By: daryl
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
@@ -23610,15 +23610,18 @@ const customScript = function (App, EnForm) {
   function scrollToSummary() {
     if (pageJson.pageType === "event" && (pageJson.pageNumber === 2 || pageJson.pageNumber === 3)) {
       window.addEventListener('load', () => {
-        const targetY = pageJson.pageNumber === 3 ? 220 : 650;
+        const selector = pageJson.pageNumber === 3 ? '.en__component--eventtickets' : '.body-main';
+        const targetElement = document.querySelector(selector);
+        if (!targetElement) return;
+        const offset = 20; // Scroll to 20px above the element
+        const targetY = targetElement.getBoundingClientRect().top + window.scrollY - offset;
         const duration = 1250;
         const startY = window.scrollY;
         const startTime = performance.now();
         function scrollStep(currentTime) {
           const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1); // Clamp between 0 and 1
-          const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress; // easeInOut
-
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
           window.scrollTo(0, startY + (targetY - startY) * ease);
           if (elapsed < duration) {
             requestAnimationFrame(scrollStep);
