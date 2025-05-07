@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, April 22, 2025 @ 09:30:19 ET
+ *  Date: Wednesday, May 7, 2025 @ 08:44:55 ET
  *  By: daryl
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
@@ -8639,7 +8639,7 @@ h3.section-header{
 [data-engrid-theme=fww] .en__ticket__minus,[data-engrid-theme=fww] .en__ticket__plus{
   border:1px solid #878787;
   border-radius:5px;
-  filter:grayscale(100%) brightness(0);
+  filter:grayscale(100%) brightness(50%);
   height:26px;
   position:relative;
   top:9px;
@@ -8782,6 +8782,10 @@ h3.section-header{
   [data-engrid-theme=fww] .en__registrants__registrantDetails>*{
     padding-left:var(--fields_spacing-inline);
   }
+}
+[data-engrid-theme=fww] .en__registrants__registrantDetails .en__field .en__field__element{
+  align-items:flex-start;
+  flex-direction:column;
 }
 [data-engrid-theme=fww] .en__registrants__registrantHead,[data-engrid-theme=fww] .en__registrants__ticketHead{
   font-size:1.1em;

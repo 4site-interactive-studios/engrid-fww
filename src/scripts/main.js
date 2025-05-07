@@ -414,4 +414,33 @@ export const customScript = function (App, EnForm) {
       });
   }
   hideAttendeeTitle();
+
+
+  function scrollToSummary() {
+    if (pageJson.pageType === "event" && (pageJson.pageNumber === 2 || pageJson.pageNumber === 3)) {
+      window.addEventListener('load', () => {
+        const targetY = pageJson.pageNumber === 3 ? 220 : 650;
+        const duration = 1250;
+        const startY = window.scrollY;
+        const startTime = performance.now();
+
+        function scrollStep(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1); // Clamp between 0 and 1
+          const ease = progress < 0.5
+            ? 2 * progress * progress
+            : -1 + (4 - 2 * progress) * progress; // easeInOut
+
+          window.scrollTo(0, startY + (targetY - startY) * ease);
+
+          if (elapsed < duration) {
+            requestAnimationFrame(scrollStep);
+          }
+        }
+
+        requestAnimationFrame(scrollStep);
+      });
+    }
+  }
+  scrollToSummary();
 };
