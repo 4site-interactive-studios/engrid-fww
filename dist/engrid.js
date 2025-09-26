@@ -17,8 +17,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, May 7, 2025 @ 09:24:01 ET
- *  By: daryl
+ *  Date: Friday, September 26, 2025 @ 14:49:22 ET
+ *  By: fernando
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
  *
@@ -22411,7 +22411,7 @@ class DonationLightboxForm {
 
     // Each EN Row is a Section
     this.sections = document.querySelectorAll("form.en__component > .en__component");
-    this.currentSectionId = 0;
+    this.setCurrentSection(0);
     // Check if we're on the Thank You page
     if (pageJson.pageNumber === pageJson.pageCount) {
       this.sendMessage("status", "loaded");
@@ -22675,8 +22675,21 @@ class DonationLightboxForm {
       });
       sectionNavigation.querySelector(".section-navigation__next")?.addEventListener("click", e => {
         e.preventDefault();
+        const ccnumberBlock = document.querySelector(".en__field--ccnumber");
+        const ccnumberSection = this.getSectionId(ccnumberBlock);
+        if (ccnumberSection == key) {
+          // Set payment type to credit card if we're on the credit card section
+          const paymentType = document.querySelector("#en__field_transaction_paymenttype");
+          paymentType.value = "card";
+          paymentType.dispatchEvent(new Event("change"));
+          // Uncheck other payment options
+          document.querySelectorAll(".en__field--giveBySelect input[type='radio']").forEach(el => {
+            el.checked = false;
+          });
+          this.showHideDynamicSection(true);
+        }
         if (this.validateForm(key)) {
-          this.scrollToSection(key + 1, key);
+          this.scrollToNextSection();
         }
       });
       sectionNavigation.querySelector(".section-navigation__submit")?.addEventListener("click", e => {
@@ -22755,7 +22768,7 @@ class DonationLightboxForm {
     }
     if (this.sections[sectionId]) {
       console.log(section);
-      this.currentSectionId = sectionId;
+      this.setCurrentSection(sectionId);
       console.log("Changed current section ID to", sectionId);
       this.sections[sectionId].scrollIntoView({
         behavior: "smooth"
@@ -22764,13 +22777,20 @@ class DonationLightboxForm {
       });
     }
   }
+  scrollToNextSection() {
+    console.log("DonationLightboxForm: scrollToNextSection", this.currentSectionId + 1);
+    this.scrollToSection(this.currentSectionId + 1, this.currentSectionId);
+  }
+  setCurrentSection(sectionId) {
+    this.currentSectionId = parseInt(sectionId);
+  }
   // Scroll to an element's section
   scrollToElement(element) {
     if (element) {
       const sectionId = this.getSectionId(element);
       if (sectionId) {
         const oldSectionId = this.currentSectionId;
-        this.currentSectionId = sectionId;
+        this.setCurrentSection(sectionId);
         console.log("Changed current section ID to", sectionId);
         this.scrollToSection(sectionId, oldSectionId);
       }
@@ -22845,8 +22865,8 @@ class DonationLightboxForm {
       const ccnumber = form.querySelector("#en__field_transaction_ccnumber");
       const ccnumberBlock = form.querySelector(".en__field--ccnumber");
       const ccnumberSection = this.getSectionId(ccnumberBlock);
-      const isDigitalWalletPayment = ["paypal", "paypaltouch", "stripedigitalwallet", "daf"].includes(paymentType.value);
-      const isBankPayment = paymentType.value === "ach";
+      const isDigitalWalletPayment = ["paypal", "paypaltouch", "stripedigitalwallet", "daf"].includes(paymentType.value.toLowerCase());
+      const isBankPayment = paymentType.value.toLowerCase() === "ach";
       console.log("DonationLightboxForm: validateForm", ccnumberBlock, ccnumberSection);
       if (!isDigitalWalletPayment && !isBankPayment && (sectionId === false || sectionId == ccnumberSection) && checkCard) {
         if (!paymentType || !paymentType.value) {
@@ -23112,7 +23132,7 @@ class DonationLightboxForm {
         if (paymentType) {
           paymentType.value = btn.className.substr(15);
           // Go to the next section
-          this.scrollToSection(parseInt(btn.closest("[data-section-id]").dataset.sectionId) + 1, this.currentSectionId);
+          this.scrollToNextSection();
         }
       });
     });
@@ -23184,7 +23204,7 @@ class DonationLightboxForm {
           }
           console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
           window.setTimeout(() => {
-            this.scrollToElement(item.closest(".en__component"));
+            this.scrollToNextSection();
           }, 100);
         });
       });

@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, May 7, 2025 @ 09:24:01 ET
- *  By: daryl
+ *  Date: Friday, September 26, 2025 @ 14:49:22 ET
+ *  By: fernando
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
  *
@@ -8305,7 +8305,7 @@ h3.section-header{
   display:none !important;
 }
 [data-engrid-theme=fww][data-engrid-subtheme=multistep] .credit-card-flags{
-  margin-bottom:25px;
+  margin-bottom:15px;
   text-align:center;
 }
 [data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-embedded]{
@@ -8561,6 +8561,33 @@ h3.section-header{
   margin:13px auto;
   top:0;
 }
+[data-engrid-theme=fww][data-engrid-subtheme=multistep] h4.title-line{
+  color:#000;
+  font-size:16px;
+  font-weight:400;
+  margin:0 0 15px;
+  overflow:hidden;
+  position:relative;
+  text-align:center;
+  width:100%;
+}
+[data-engrid-theme=fww][data-engrid-subtheme=multistep] h4.title-line span{
+  background-color:#fff;
+  display:inline-block;
+  padding-left:10px;
+  padding-right:10px;
+}
+[data-engrid-theme=fww][data-engrid-subtheme=multistep] h4.title-line:before{
+  background-color:#a9a9a9;
+  content:" ";
+  height:1px;
+  left:0;
+  overflow:hidden;
+  position:absolute;
+  top:51%;
+  width:100%;
+  z-index:-1;
+}
 [data-engrid-theme=fww][data-engrid-subtheme=multistep] iframe[title^=recaptcha]{
   left:-1px;
   position:fixed;
@@ -8571,9 +8598,6 @@ h3.section-header{
 }
 [data-engrid-theme=fww][data-engrid-subtheme=multistep] .en__field--creditCardHolderName{
   display:none;
-}
-[data-engrid-theme=fww][data-engrid-subtheme=multistep] .transaction-fee-opt-in{
-  margin-top:2rem;
 }
 [data-engrid-theme=fww][data-engrid-subtheme=multistep]:not([data-engrid-embedded]) #engrid{
   margin:0 auto;
@@ -8800,19 +8824,19 @@ h3.section-header{
   border-radius:20px;
 }
 @media screen and (min-width:601px){
-  [data-engrid-theme=fww] .en__field--select.en__field--country,[data-engrid-theme=fww] .en__field--select.en__field--region,[data-engrid-theme=fww] .en__field--text.en__field--city,[data-engrid-theme=fww] .en__field--text.en__field--firstName,[data-engrid-theme=fww] .en__field--text.en__field--lastName,[data-engrid-theme=fww] .en__field--text.en__field--postcode{
+  [data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--select.en__field--country,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--select.en__field--region,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--city,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--firstName,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--lastName,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--postcode{
     flex-basis:50% !important;
   }
 }
-[data-engrid-theme=fww] .en__field--select.en__field--country label,[data-engrid-theme=fww] .en__field--select.en__field--region label,[data-engrid-theme=fww] .en__field--text.en__field--city label,[data-engrid-theme=fww] .en__field--text.en__field--firstName label,[data-engrid-theme=fww] .en__field--text.en__field--lastName label,[data-engrid-theme=fww] .en__field--text.en__field--postcode label{
+[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--select.en__field--country label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--select.en__field--region label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--city label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--firstName label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--lastName label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--postcode label{
   display:none !important;
 }
 @media screen and (min-width:601px){
-  [data-engrid-theme=fww] .en__field.en__field--text.en__field--registrant[class*="--firstName"],[data-engrid-theme=fww] .en__field.en__field--text.en__field--registrant[class*="--lastName"]{
+  [data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field.en__field--text.en__field--registrant[class*="--firstName"],[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field.en__field--text.en__field--registrant[class*="--lastName"]{
     flex-basis:50% !important;
   }
 }
-[data-engrid-theme=fww] .en__field--text.en__field--address1 label,[data-engrid-theme=fww] .en__field--text.en__field--emailAddress label{
+[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--address1 label,[data-engrid-theme=fww]:not([data-engrid-subtheme=multistep]) .en__field--text.en__field--emailAddress label{
   display:none !important;
 }
 [data-engrid-theme=fww] .footer-wrapper{

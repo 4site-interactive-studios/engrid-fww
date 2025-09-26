@@ -391,7 +391,7 @@
     }
     .credit-card-flags {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
     // h4.title-line {
     //   font-family: "Roboto", sans-serif;
@@ -855,6 +855,36 @@
       }
     }
   }
+  h4.title-line {
+    // font-family: var(--font-stack-aiusa-bold-condensed);
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 15px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    color: #000;
+
+    span {
+      display: inline-block;
+      background-color: #fff;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &:before {
+      background-color: darkgray;
+      content: "\a0";
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      top: 51%;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+  }
   iframe[title^="recaptcha"] {
     position: fixed;
     left: -1px;
@@ -866,9 +896,5 @@
   // Temporarily hide the Credit Card Holder Name field
   .en__field--creditCardHolderName {
     display: none;
-  }
-
-  .transaction-fee-opt-in {
-    margin-top: 2rem;
   }
 }

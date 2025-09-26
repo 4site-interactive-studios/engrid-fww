@@ -52,7 +52,7 @@ export default class DonationLightboxForm {
     this.sections = document.querySelectorAll(
       "form.en__component > .en__component"
     );
-    this.currentSectionId = 0;
+    this.setCurrentSection(0);
     // Check if we're on the Thank You page
     if (pageJson.pageNumber === pageJson.pageCount) {
       this.sendMessage("status", "loaded");
@@ -397,8 +397,25 @@ export default class DonationLightboxForm {
         .querySelector(".section-navigation__next")
         ?.addEventListener("click", (e) => {
           e.preventDefault();
+          const ccnumberBlock = document.querySelector(".en__field--ccnumber");
+          const ccnumberSection = this.getSectionId(ccnumberBlock);
+          if (ccnumberSection == key) {
+            // Set payment type to credit card if we're on the credit card section
+            const paymentType = document.querySelector(
+              "#en__field_transaction_paymenttype"
+            );
+            paymentType.value = "card";
+            paymentType.dispatchEvent(new Event("change"));
+            // Uncheck other payment options
+            document
+              .querySelectorAll(".en__field--giveBySelect input[type='radio']")
+              .forEach((el) => {
+                el.checked = false;
+              });
+            this.showHideDynamicSection(true);
+          }
           if (this.validateForm(key)) {
-            this.scrollToSection(key + 1, key);
+            this.scrollToNextSection();
           }
         });
 
@@ -501,7 +518,7 @@ export default class DonationLightboxForm {
 
     if (this.sections[sectionId]) {
       console.log(section);
-      this.currentSectionId = sectionId;
+      this.setCurrentSection(sectionId);
       console.log("Changed current section ID to", sectionId);
       this.sections[sectionId].scrollIntoView({
         behavior: "smooth",
@@ -510,13 +527,23 @@ export default class DonationLightboxForm {
       });
     }
   }
+  scrollToNextSection() {
+    console.log(
+      "DonationLightboxForm: scrollToNextSection",
+      this.currentSectionId + 1
+    );
+    this.scrollToSection(this.currentSectionId + 1, this.currentSectionId);
+  }
+  setCurrentSection(sectionId) {
+    this.currentSectionId = parseInt(sectionId);
+  }
   // Scroll to an element's section
   scrollToElement(element) {
     if (element) {
       const sectionId = this.getSectionId(element);
       if (sectionId) {
         const oldSectionId = this.currentSectionId;
-        this.currentSectionId = sectionId;
+        this.setCurrentSection(sectionId);
         console.log("Changed current section ID to", sectionId);
         this.scrollToSection(sectionId, oldSectionId);
       }
@@ -608,8 +635,8 @@ export default class DonationLightboxForm {
         "paypaltouch",
         "stripedigitalwallet",
         "daf",
-      ].includes(paymentType.value);
-      const isBankPayment = paymentType.value === "ach";
+      ].includes(paymentType.value.toLowerCase());
+      const isBankPayment = paymentType.value.toLowerCase() === "ach";
       console.log(
         "DonationLightboxForm: validateForm",
         ccnumberBlock,
@@ -931,10 +958,7 @@ export default class DonationLightboxForm {
         if (paymentType) {
           paymentType.value = btn.className.substr(15);
           // Go to the next section
-          this.scrollToSection(
-            parseInt(btn.closest("[data-section-id]").dataset.sectionId) + 1,
-            this.currentSectionId
-          );
+          this.scrollToNextSection();
         }
       });
     });
@@ -1029,7 +1053,7 @@ export default class DonationLightboxForm {
           }
           console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
           window.setTimeout(() => {
-            this.scrollToElement(item.closest(".en__component"));
+            this.scrollToNextSection();
           }, 100);
         });
       });
