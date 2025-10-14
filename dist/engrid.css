@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, October 7, 2025 @ 22:50:33 ET
+ *  Date: Monday, October 13, 2025 @ 22:52:25 ET
  *  By: Cawe Coy
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
@@ -9216,16 +9216,6 @@ h3.section-header{
   line-height:1rem;
   z-index:3 !important;
 }
-[data-engrid-theme=fwa][data-engrid-embedded] .email-tooltip{
-  font-size:13px;
-  position:absolute;
-  right:10px;
-  top:15px;
-  z-index:10;
-}
-[data-engrid-theme=fwa][data-engrid-embedded] .email-tooltip+[data-tippy-root]{
-  font-size:13px;
-}
 [data-engrid-theme=fwa]:not([data-engrid-debug]) #en__field_supporter_NOT_TAGGED_3{
   display:none;
 }
@@ -9609,6 +9599,26 @@ h3.section-header{
 }
 [data-engrid-theme=fwa] .footer-wrapper .footer-container .footer-right.social a img{
   width:100%;
+}
+[data-engrid-theme=fwa][data-engrid-embedded]{
+  --engrid__body-main_padding:var(--engrid__body_padding);
+  --engrid__body-top_padding:var(--engrid__body_padding);
+  --engrid__body-title_padding:var(--engrid__body_padding);
+  --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg) !important;
+  --engrid__content-footer_background-color:#000 !important;
+}
+[data-engrid-theme=fwa][data-engrid-embedded] .email-tooltip{
+  font-size:13px;
+  position:absolute;
+  right:10px;
+  top:15px;
+  z-index:10;
+}
+[data-engrid-theme=fwa][data-engrid-embedded] .email-tooltip+[data-tippy-root]{
+  font-size:13px;
+}
+[data-engrid-theme=fwa][data-engrid-embedded] .body-headerOutside{
+  border:none;
 }
 [data-engrid-theme=fwa][data-engrid-subtheme=multistep]:not([data-engrid-embedded]){
   --pagebuilder__background-color:#fff;

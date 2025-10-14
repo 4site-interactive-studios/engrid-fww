@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, October 7, 2025 @ 22:50:33 ET
+ *  Date: Monday, October 13, 2025 @ 22:52:25 ET
  *  By: Cawe Coy
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
@@ -23661,10 +23661,10 @@ const customScript = function (App, EnForm) {
 
 
 const vgsCss = {
-  '@font-face': {
-    'font-family': 'GraphikSemiBold',
-    'src': `url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff')`,
-    'font-display': 'swap'
+  "@font-face": {
+    "font-family": "GraphikSemiBold",
+    src: `url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff')`,
+    "font-display": "swap"
   }
 };
 const options = {
@@ -23696,7 +23696,19 @@ const options = {
     new DonationLightboxForm(DonationAmount, DonationFrequency, App);
     customScript(App, en_form_EnForm);
   },
-  onResize: () => App.log("Starter Theme Window Resized")
+  onResize: () => App.log("Starter Theme Window Resized"),
+  onSubmit: () => {
+    const phoneNumberOptIn = App.getField("supporter.questions.829861");
+    const phoneNumber = App.getField("supporter.phoneNumber2");
+    const phoneNumberValue = App.getFieldValue("supporter.phoneNumber2");
+    if (phoneNumberOptIn != null) {
+      if (phoneNumber != null && phoneNumberValue.trim().length !== 0) {
+        phoneNumberOptIn.checked = true;
+      } else {
+        phoneNumberOptIn.checked = false;
+      }
+    }
+  }
 };
 new App(options);
 })();

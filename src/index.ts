@@ -12,11 +12,11 @@ import DonationLightboxForm from "./scripts/donation-lightbox-form";
 import { customScript } from "./scripts/main";
 
 const vgsCss = {
-  '@font-face': {
-    'font-family': 'GraphikSemiBold',
-    'src': `url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff')`,
-    'font-display': 'swap'
-  }
+  "@font-face": {
+    "font-family": "GraphikSemiBold",
+    src: `url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10146/Graphik-Semibold-Web.woff')`,
+    "font-display": "swap",
+  },
 };
 const options: Options = {
   applePay: false,
@@ -33,23 +33,36 @@ const options: Options = {
     {
       pageType: "EVENT",
       label: "Get Tickets",
-    }
+    },
   ],
   VGS: {
     "transaction.ccnumber": {
-      css: vgsCss      
+      css: vgsCss,
     },
     "transaction.ccvv": {
-      css: vgsCss
-    }
+      css: vgsCss,
+    },
   },
   Debug: App.getUrlParameter("debug") == "true" ? true : false,
-  
+
   onLoad: () => {
     (<any>window).DonationLightboxForm = DonationLightboxForm;
     new DonationLightboxForm(DonationAmount, DonationFrequency, App);
     customScript(App, EnForm);
   },
   onResize: () => App.log("Starter Theme Window Resized"),
+  onSubmit: () => {
+    const phoneNumberOptIn = App.getField("supporter.questions.829861");
+    const phoneNumber = App.getField("supporter.phoneNumber2");
+    const phoneNumberValue = App.getFieldValue("supporter.phoneNumber2");
+
+    if (phoneNumberOptIn != null) {
+      if (phoneNumber != null && phoneNumberValue.trim().length !== 0) {
+        (phoneNumberOptIn as HTMLInputElement).checked = true;
+      } else {
+        (phoneNumberOptIn as HTMLInputElement).checked = false;
+      }
+    }
+  },
 };
 new App(options);
