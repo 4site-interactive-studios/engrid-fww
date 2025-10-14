@@ -485,18 +485,6 @@
     line-height: 1rem;
   }
 
-  &[data-engrid-embedded] .email-tooltip {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    z-index: 10;
-    font-size: 13px;
-  }
-
-  &[data-engrid-embedded] .email-tooltip + [data-tippy-root] {
-    font-size: 13px;
-  }
-
   /* Hides the Custom Supporter field that is added to the bottom of the page to track referrals */
   &:not([data-engrid-debug]) #en__field_supporter_NOT_TAGGED_3 {
     display: none;
@@ -979,6 +967,27 @@
           }
         }
       }
+    }
+  }
+  &[data-engrid-embedded] {
+    --engrid__body-main_padding: var(--engrid__body_padding);
+    --engrid__body-top_padding: var(--engrid__body_padding);
+    --engrid__body-title_padding: var(--engrid__body_padding);
+    --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5)
+      var(--spacing_lg) !important;
+    --engrid__content-footer_background-color: #000 !important;
+    .email-tooltip {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      z-index: 10;
+      font-size: 13px;
+    }
+    .email-tooltip + [data-tippy-root] {
+      font-size: 13px;
+    }
+    .body-headerOutside {
+      border: none;
     }
   }
 }
