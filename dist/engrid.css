@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Friday, September 26, 2025 @ 14:49:22 ET
- *  By: fernando
+ *  Date: Saturday, November 15, 2025 @ 22:24:09 ET
+ *  By: michaelw
  *  ENGrid styles: v0.21.3
  *  ENGrid scripts: v0.21.3
  *
@@ -7765,6 +7765,10 @@ body[data-engrid-debug]:before{
 [data-engrid-theme=fww]{
   --engrid__page_background-color:#fff;
   --error__color:#f24235;
+  --engrid__body-main_padding:0 1.5em;
+  --engrid__body-top_padding:0 1.5em;
+  --engrid__body-title_padding:0 1.5em;
+  --engrid__content-footer_padding:0 1.5em !important;
   --default_font-family:"Graphik", "Arial", "sans-serif";
   --h1_font-family:"GraphikBlack", "Arial Black", "sans-serif";
   --h2_font-family:"Graphik", "Arial Black", "sans-serif";
@@ -7821,15 +7825,6 @@ body[data-engrid-debug]:before{
   --engrid__content-footer_background-color:#000;
   --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg);
 }
-@media screen and (max-width:1022px){
-  [data-engrid-theme=fww]{
-    --engrid__body-main_padding:0 1em;
-    --engrid__body-top_padding:0 1em;
-    --engrid__body-title_padding:0 1em;
-    --engrid__content-footer_padding:0 1em !important;
-  }
-}
-
 h2{
   margin-top:calc(2rem*var(--scale-down_80pct));
 }
@@ -8920,6 +8915,18 @@ h3.section-header{
 }
 [data-engrid-theme=fww] .footer-wrapper .footer-container .footer-right.social a img{
   width:100%;
+}
+
+.frequency-active:before{
+  margin-left:-50px;
+}
+
+.frequency-active.MONTHLY:before{
+  margin-left:unset;
+}
+
+label[for=en__field_transaction_recurrfreq0],label[for=en__field_transaction_recurrfreq1]{
+  min-width:90px;
 }
 body{
   opacity:1;

@@ -4,12 +4,16 @@
 [data-engrid-theme="fww"] {
   --engrid__page_background-color: #ffffff;
   --error__color: #f24235;
+  --engrid__body-main_padding: 0 1.5em;
+  --engrid__body-top_padding: 0 1.5em;
+  --engrid__body-title_padding: 0 1.5em;
+  --engrid__content-footer_padding: 0 1.5em !important;
 
   @media screen and (max-width: 1022px) {
-    --engrid__body-main_padding: 0 1em;
-    --engrid__body-top_padding: 0 1em;
-    --engrid__body-title_padding: 0 1em;
-    --engrid__content-footer_padding: 0 1em !important;
+    //--engrid__body-main_padding: 0 1em;    
+    //--engrid__body-top_padding: 0 1em;
+    //--engrid__body-title_padding: 0 1em;
+    //--engrid__content-footer_padding: 0 1em !important;
   }
 
   // TYPOGRAPHY DEFAULT
@@ -1025,4 +1029,16 @@ h3 {
       }
     }
   }
+}
+
+.frequency-active::before {
+    margin-left: -50px;
+}
+.frequency-active.MONTHLY::before {
+    margin-left: unset;
+}
+
+label[for="en__field_transaction_recurrfreq0"],
+label[for="en__field_transaction_recurrfreq1"] {
+    min-width: 90px;
 }
