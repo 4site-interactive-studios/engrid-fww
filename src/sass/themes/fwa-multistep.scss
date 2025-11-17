@@ -19,6 +19,21 @@
   //     }
   //   }
 
+  &:not([data-engrid-embedded]) {
+    --pagebuilder__background-color: #ffffff;
+
+    #engrid {
+      max-width: 270px;
+      margin: 0 auto;
+    }
+
+    /* Resize image in pagebuilder */
+    .en__captcha__placeholder {
+      background-size: 100% !important;
+      width: 270px !important;
+    }
+  }
+
   &#en__pagebuilder #engrid,
   &:not([data-engrid-embedded]) {
     max-width: 270px;
@@ -896,5 +911,11 @@
   // Temporarily hide the Credit Card Holder Name field
   .en__field--creditCardHolderName {
     display: none;
+  }
+  &:not([data-engrid-embedded]) {
+    #engrid {
+      max-width: 270px;
+      margin: 0 auto;
+    }
   }
 }

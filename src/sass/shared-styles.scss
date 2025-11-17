@@ -1,0 +1,12 @@
+h2 {
+  margin-top: calc(2rem * var(--scale-down_80pct));
+}
+
+h3 {
+  border-left: none !important;
+  padding-left: none !important;
+
+  &.section-header {
+    color: $blue;
+  }
+}
