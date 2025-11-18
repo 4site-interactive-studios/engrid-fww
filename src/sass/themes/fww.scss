@@ -7,7 +7,7 @@
   --engrid__content-footer_padding: 0 1.5em !important;
 
   @media screen and (max-width: 1022px) {
-    //--engrid__body-main_padding: 0 1em;    
+    //--engrid__body-main_padding: 0 1em;
     //--engrid__body-top_padding: 0 1em;
     //--engrid__body-title_padding: 0 1em;
     //--engrid__content-footer_padding: 0 1em !important;
@@ -985,8 +985,9 @@
   label[for="en__field_transaction_recurrfreq1"] {
     min-width: 90px;
   }
-  
+
   &[data-engrid-embedded] {
+    --engrid__body_padding: 0 1.5em;
     --engrid__body-main_padding: 0 1.5em;
     --engrid__body-top_padding: 0 1.5em;
     --engrid__body-title_padding: 0 1.5em;

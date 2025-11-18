@@ -987,6 +987,7 @@
   }
 
   &[data-engrid-embedded] {
+    --engrid__body_padding: 0 1.5em;
     --engrid__body-main_padding: 0 1.5em;
     --engrid__body-top_padding: 0 1.5em;
     --engrid__body-title_padding: 0 1.5em;
