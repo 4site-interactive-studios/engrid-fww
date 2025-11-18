@@ -516,6 +516,12 @@
       .en__errorList {
         display: none;
       }
+      form > .en__component--advrow > * {
+        --engrid__body_padding: 0 1.5em !important;
+        --engrid__body-main_padding: 0 1.5em !important;
+        --engrid__body-top_padding: 0 1.5em !important;
+        --engrid__body-title_padding: 0 1.5em !important;
+      }
     }
     .has-error {
       label,

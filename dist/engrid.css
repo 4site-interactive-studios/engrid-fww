@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, November 18, 2025 @ 23:15:58 ET
+ *  Date: Tuesday, November 18, 2025 @ 23:32:10 ET
  *  By: cawe
  *  ENGrid styles: v0.23.4
  *  ENGrid scripts: v0.23.4
@@ -8501,10 +8501,9 @@ h3.section-header{
   min-width:90px;
 }
 [data-engrid-theme=fww][data-engrid-embedded]{
-  --engrid__body_padding:0 1.5em !important;
-  --engrid__body-main_padding:0 1.5em !important;
-  --engrid__body-top_padding:0 1.5em !important;
-  --engrid__body-title_padding:0 1.5em !important;
+  --engrid__body-main_padding:var(--engrid__body_padding);
+  --engrid__body-top_padding:var(--engrid__body_padding);
+  --engrid__body-title_padding:var(--engrid__body_padding);
   --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg) !important;
   --engrid__content-footer_background-color:#000 !important;
 }
@@ -8710,6 +8709,12 @@ h3.section-header{
 [data-engrid-theme=fww][data-engrid-subtheme=multistep] .has-error .en__field__input,[data-engrid-theme=fww][data-engrid-subtheme=multistep] .has-error .en__field__input--other,[data-engrid-theme=fww][data-engrid-subtheme=multistep] .has-error label{
   background-color:#ffeeeb66;
   border-color:var(--error__color) !important;
+}
+[data-engrid-theme=fww][data-engrid-subtheme=multistep] .has-error form>.en__component--advrow>*{
+  --engrid__body_padding:0 1.5em !important;
+  --engrid__body-main_padding:0 1.5em !important;
+  --engrid__body-top_padding:0 1.5em !important;
+  --engrid__body-title_padding:0 1.5em !important;
 }
 [data-engrid-theme=fww][data-engrid-subtheme=multistep][data-thank-you] .en__component--imageblock{
   border-radius:100%;
@@ -9661,10 +9666,9 @@ h3.section-header{
   min-width:90px;
 }
 [data-engrid-theme=fwa][data-engrid-embedded]{
-  --engrid__body_padding:0 1.5em !important;
-  --engrid__body-main_padding:0 1.5em !important;
-  --engrid__body-top_padding:0 1.5em !important;
-  --engrid__body-title_padding:0 1.5em !important;
+  --engrid__body-main_padding:var(--engrid__body_padding);
+  --engrid__body-top_padding:var(--engrid__body_padding);
+  --engrid__body-title_padding:var(--engrid__body_padding);
   --engrid__content-footer_padding:calc(var(--spacing_lg)*0.5) var(--spacing_lg) !important;
   --engrid__content-footer_background-color:#000 !important;
 }
@@ -9866,6 +9870,12 @@ h3.section-header{
 }
 [data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-embedded] .en__errorHeader,[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-embedded] .en__errorList,[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-embedded] .en__submit{
   display:none;
+}
+[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-embedded] form>.en__component--advrow>*{
+  --engrid__body_padding:0 1.5em !important;
+  --engrid__body-main_padding:0 1.5em !important;
+  --engrid__body-top_padding:0 1.5em !important;
+  --engrid__body-title_padding:0 1.5em !important;
 }
 [data-engrid-theme=fwa][data-engrid-subtheme=multistep] .has-error .en__field__input,[data-engrid-theme=fwa][data-engrid-subtheme=multistep] .has-error .en__field__input--other,[data-engrid-theme=fwa][data-engrid-subtheme=multistep] .has-error label{
   background-color:#ffeeeb66;

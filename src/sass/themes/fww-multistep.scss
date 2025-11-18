@@ -524,6 +524,12 @@
         border-color: var(--error__color) !important;
         background-color: rgba(255, 238, 235, 0.4);
       }
+      form > .en__component--advrow > * {
+        --engrid__body_padding: 0 1.5em !important;
+        --engrid__body-main_padding: 0 1.5em !important;
+        --engrid__body-top_padding: 0 1.5em !important;
+        --engrid__body-title_padding: 0 1.5em !important;
+      }
     }
     &[data-thank-you] {
       // form.en__component > .en__component {
