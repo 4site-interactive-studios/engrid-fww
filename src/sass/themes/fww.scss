@@ -7,7 +7,7 @@
   --engrid__content-footer_padding: 0 1.5em !important;
 
   @media screen and (max-width: 1022px) {
-    //--engrid__body-main_padding: 0 1em;    
+    //--engrid__body-main_padding: 0 1em;
     //--engrid__body-top_padding: 0 1em;
     //--engrid__body-title_padding: 0 1em;
     //--engrid__content-footer_padding: 0 1em !important;
@@ -985,11 +985,9 @@
   label[for="en__field_transaction_recurrfreq1"] {
     min-width: 90px;
   }
-  
+
   &[data-engrid-embedded] {
-    --engrid__body-main_padding: var(--engrid__body_padding);
-    --engrid__body-top_padding: var(--engrid__body_padding);
-    --engrid__body-title_padding: var(--engrid__body_padding);
+    --engrid__embedded_body_padding: 0 1.5em !important;
     --engrid__content-footer_padding: calc(var(--spacing_lg) * 0.5)
       var(--spacing_lg) !important;
     --engrid__content-footer_background-color: #000 !important;

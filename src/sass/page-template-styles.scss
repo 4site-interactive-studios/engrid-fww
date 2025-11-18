@@ -3,13 +3,13 @@
 // All CSS Custom Properties should be scoped to the theme using CSS Data Attributes.
 
 @import "./shared-styles";
-[data-engrid-theme="fww"] {
+body[data-engrid-theme="fww"] {
   @import "./themes/fww";
   &[data-engrid-subtheme="multistep"] {
     @import "./themes/fww-multistep";
   }
 }
-[data-engrid-theme="fwa"] {
+body[data-engrid-theme="fwa"] {
   @import "./themes/fwa";
   &[data-engrid-subtheme="multistep"] {
     @import "./themes/fwa-multistep";
