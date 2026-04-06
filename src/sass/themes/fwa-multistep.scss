@@ -331,7 +331,6 @@
           transform: translateZ(0);
           backface-visibility: hidden;
           small {
-            font-size: 10px;
             font-weight: 400;
           }
           &.section-navigation__previous {
@@ -691,6 +690,21 @@
       font-weight: 400;
       line-height: 24px;
     }
+    &[data-engrid-payment-type="paypaltouch"] {
+      .i1-hideif-paypaltouch .en__field:nth-of-type(1),
+      .i2-hideif-paypaltouch .en__field:nth-of-type(2),
+      .i3-hideif-paypaltouch .en__field:nth-of-type(3),
+      .i4-hideif-paypaltouch .en__field:nth-of-type(4),
+      .i5-hideif-paypaltouch .en__field:nth-of-type(5),
+      .i6-hideif-paypaltouch .en__field:nth-of-type(6),
+      .i7-hideif-paypaltouch .en__field:nth-of-type(7),
+      .i8-hideif-paypaltouch .en__field:nth-of-type(8),
+      .i9-hideif-paypaltouch .en__field:nth-of-type(9),
+      .i10-hideif-paypaltouch .en__field:nth-of-type(10),
+      .i11-hideif-paypaltouch .en__field:nth-of-type(11) {
+        display: none;
+      }
+    }
     &[data-engrid-payment-type="stripedigitalwallet"],
     &[data-engrid-payment-type="paypaltouch"],
     &[data-engrid-payment-type="daf"] {
@@ -702,6 +716,7 @@
       .back-link {
         display: block;
         text-decoration: none;
+        z-index: 1;
       }
     }
     &[data-conditonally-hide-show-digital-wallet-elements]
