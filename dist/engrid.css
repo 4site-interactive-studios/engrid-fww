@@ -19,10 +19,10 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, March 25, 2026 @ 22:35:43 ET
- *  By: fernando
+ *  Date: Monday, April 6, 2026 @ 16:14:55 ET
+ *  By: nick
  *  ENGrid styles: v0.24.0
- *  ENGrid scripts: v0.24.5
+ *  ENGrid scripts: v0.24.3
  *
  *  Created by 4Site Studios
  *  Come work with us or join our team, we would love to hear from you
@@ -8601,7 +8601,6 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep] form.en__component>.
   transform:translateZ(0);
 }
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep] form.en__component>.en__component .section-navigation button small{
-  font-size:10px;
   font-weight:400;
 }
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep] form.en__component>.en__component .section-navigation button.section-navigation__previous{
@@ -8855,6 +8854,9 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep] .back-link{
   font-weight:400;
   line-height:24px;
 }
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i1-hideif-paypaltouch .en__field:first-of-type,body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i10-hideif-paypaltouch .en__field:nth-of-type(10),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i11-hideif-paypaltouch .en__field:nth-of-type(11),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i2-hideif-paypaltouch .en__field:nth-of-type(2),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i3-hideif-paypaltouch .en__field:nth-of-type(3),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i4-hideif-paypaltouch .en__field:nth-of-type(4),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i5-hideif-paypaltouch .en__field:nth-of-type(5),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i6-hideif-paypaltouch .en__field:nth-of-type(6),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i7-hideif-paypaltouch .en__field:nth-of-type(7),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i8-hideif-paypaltouch .en__field:nth-of-type(8),body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i9-hideif-paypaltouch .en__field:nth-of-type(9){
+  display:none;
+}
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=daf] [data-last-section=true] .section-navigation,body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] [data-last-section=true] .section-navigation,body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-type=stripedigitalwallet] [data-last-section=true] .section-navigation{
   display:none !important;
 }
@@ -8862,6 +8864,7 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-engrid-payment-
   display:block;
   -webkit-text-decoration:none;
   text-decoration:none;
+  z-index:1;
 }
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep][data-conditonally-hide-show-digital-wallet-elements] #en__digitalWallet .en__digitalWallet__container{
   margin-top:0 !important;
@@ -9758,7 +9761,6 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep] form.en__component>.
   transform:translateZ(0);
 }
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep] form.en__component>.en__component .section-navigation button small{
-  font-size:10px;
   font-weight:400;
 }
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep] form.en__component>.en__component .section-navigation button.section-navigation__previous{
@@ -10012,6 +10014,9 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep] .back-link{
   font-weight:400;
   line-height:24px;
 }
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i1-hideif-paypaltouch .en__field:first-of-type,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i10-hideif-paypaltouch .en__field:nth-of-type(10),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i11-hideif-paypaltouch .en__field:nth-of-type(11),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i2-hideif-paypaltouch .en__field:nth-of-type(2),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i3-hideif-paypaltouch .en__field:nth-of-type(3),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i4-hideif-paypaltouch .en__field:nth-of-type(4),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i5-hideif-paypaltouch .en__field:nth-of-type(5),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i6-hideif-paypaltouch .en__field:nth-of-type(6),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i7-hideif-paypaltouch .en__field:nth-of-type(7),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i8-hideif-paypaltouch .en__field:nth-of-type(8),body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] .i9-hideif-paypaltouch .en__field:nth-of-type(9){
+  display:none;
+}
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=daf] [data-last-section=true] .section-navigation,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=paypaltouch] [data-last-section=true] .section-navigation,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-type=stripedigitalwallet] [data-last-section=true] .section-navigation{
   display:none !important;
 }
@@ -10019,6 +10024,7 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-engrid-payment-
   display:block;
   -webkit-text-decoration:none;
   text-decoration:none;
+  z-index:1;
 }
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep][data-conditonally-hide-show-digital-wallet-elements] #en__digitalWallet .en__digitalWallet__container{
   margin-top:0 !important;
