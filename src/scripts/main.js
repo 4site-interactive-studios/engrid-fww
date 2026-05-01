@@ -154,10 +154,6 @@ export const customScript = function (App, EnForm) {
         }
       });
 
-      donationInput.addEventListener("input", () => {
-        setTimeout(checkAmount, 50);
-      });
-
       // Also listen for change events (for autofill, etc.)
       mobilePhoneInput.addEventListener("change", function () {
         // console.log("Mobile phone input change event:", this.value);
