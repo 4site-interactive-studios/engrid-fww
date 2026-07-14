@@ -35,6 +35,22 @@ const options: Options = {
       label: "Get Tickets",
     },
   ],
+  RememberMe: {
+    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
+    fieldNames: [
+      "supporter.firstName",
+      "supporter.lastName",
+      "supporter.emailAddress",
+      "supporter.phoneNumber2",
+      "supporter.address1",
+      "supporter.city",
+      "supporter.postcode",
+      "supporter.country",
+    ],
+    fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
+    fieldClearSelectorTargetLocation: 'after',
+    checked: true
+  },
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss,
