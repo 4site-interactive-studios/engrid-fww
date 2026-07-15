@@ -4,7 +4,7 @@ import {
   DonationAmount,
   DonationFrequency,
   EnForm,
-} from "../../engrid/packages/scripts"; // Uses ENGrid via NPM
+} from "@4site/engrid-scripts"; // Uses ENGrid via NPM
 // import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
 
 import "./sass/main.scss";
@@ -50,7 +50,7 @@ const options: Options = {
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
-    encryptData: true
+    //encryptData: true //needs ENgrid update or use it via NPM
   },
   VGS: {
     "transaction.ccnumber": {
