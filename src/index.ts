@@ -4,7 +4,7 @@ import {
   DonationAmount,
   DonationFrequency,
   EnForm,
-} from "@4site/engrid-scripts"; // Uses ENGrid via NPM
+} from "../../engrid/packages/scripts"; // Uses ENGrid via NPM
 // import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
 
 import "./sass/main.scss";
@@ -36,7 +36,7 @@ const options: Options = {
     },
   ],
   RememberMe: {
-    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
+    remoteUrl: 'https://engrid-fww.test/src/html/data-remember.html',
     fieldNames: [
       "supporter.firstName",
       "supporter.lastName",
@@ -50,7 +50,7 @@ const options: Options = {
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
-    encryptData: true
+    //encryptData: true
   },
   VGS: {
     "transaction.ccnumber": {
