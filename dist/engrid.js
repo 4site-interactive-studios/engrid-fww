@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, July 15, 2026 @ 16:20:57 ET
+ *  Date: Wednesday, July 15, 2026 @ 17:14:25 ET
  *  By: pedroluan
  *  ENGrid styles: v0.25.11
  *  ENGrid scripts: v0.25.11
@@ -28926,12 +28926,12 @@ const options = {
     label: "Get Tickets"
   }],
   RememberMe: {
-    remoteUrl: 'https://engrid-fww.test/src/html/data-remember.html',
+    remoteUrl: 'rememberme.foodandwaterwatch.org',
     fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.country"],
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
-    encryptData: false
+    encryptData: true
   },
   VGS: {
     "transaction.ccnumber": {

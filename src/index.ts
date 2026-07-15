@@ -36,7 +36,7 @@ const options: Options = {
     },
   ],
   RememberMe: {
-    remoteUrl: 'https://engrid-fww.test/src/html/data-remember.html',
+    remoteUrl: 'rememberme.foodandwaterwatch.org',
     fieldNames: [
       "supporter.firstName",
       "supporter.lastName",
@@ -50,7 +50,7 @@ const options: Options = {
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
-    encryptData: false
+    encryptData: true
   },
   VGS: {
     "transaction.ccnumber": {
