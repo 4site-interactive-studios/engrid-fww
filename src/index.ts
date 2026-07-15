@@ -49,7 +49,8 @@ const options: Options = {
     ],
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
-    checked: true
+    checked: true,
+    encryptData: true
   },
   VGS: {
     "transaction.ccnumber": {
