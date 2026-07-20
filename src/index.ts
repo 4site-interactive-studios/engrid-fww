@@ -36,7 +36,7 @@ const options: Options = {
     },
   ],
   RememberMe: {
-    remoteUrl: 'rememberme.foodandwaterwatch.org',
+    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
     fieldNames: [
       "supporter.firstName",
       "supporter.lastName",
@@ -45,12 +45,16 @@ const options: Options = {
       "supporter.address1",
       "supporter.city",
       "supporter.postcode",
+      "supporter.region",
       "supporter.country",
+      "transaction.donationAmt",
+      "transaction.recurrfreq"
     ],
     fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
-    //encryptData: true //needs ENgrid update or use it via NPM
+    encryptData: true,
+    hide: true
   },
   VGS: {
     "transaction.ccnumber": {
