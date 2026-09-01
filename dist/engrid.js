@@ -17,10 +17,10 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, July 20, 2026 @ 14:37:11 ET
+ *  Date: Tuesday, September 1, 2026 @ 09:51:37 ET
  *  By: pedroluan
- *  ENGrid styles: v0.25.11
- *  ENGrid scripts: v0.25.12
+ *  ENGrid styles: v0.28.0
+ *  ENGrid scripts: v0.28.1
  *
  *  Created by 4Site Studios
  *  Come work with us or join our team, we would love to hear from you
@@ -10874,37 +10874,44 @@ const OptionsDefaults = {
         "rightright1col",
         "none",
     ],
+    UseBodyBannerImageAsBackground: false,
 };
 
 ;// ./node_modules/@4site/engrid-scripts/dist/interfaces/upsell-options.js
 const UpsellOptionsDefaults = {
     image: "https://picsum.photos/480/650",
     imagePosition: "left",
-    title: "Will you change your gift to just {new-amount} a month to boost your impact?",
-    paragraph: "Make a monthly pledge today to support us with consistent, reliable resources during emergency moments.",
-    yesLabel: "Yes! Process My <br> {new-amount} monthly gift",
-    noLabel: "No, thanks. Continue with my <br> {old-amount} one-time gift",
+    title: "Will you change your gift to just {new-amount} {new-frequency} to boost your impact?",
+    paragraph: "Make a {new-frequency} pledge today to support us with consistent, reliable resources during emergency moments.",
+    yesLabel: "Yes! Process My <br> {new-amount} {new-frequency} gift",
+    noLabel: "No, thanks. Continue with my <br> {old-amount} {old-frequency} gift",
     otherAmount: true,
-    otherLabel: "Or enter a different monthly amount:",
+    otherLabel: "Or enter a different {new-frequency} amount:",
     upsellOriginalGiftAmountFieldName: "",
     amountRange: [
-        { max: 10, suggestion: 5 },
-        { max: 15, suggestion: 7 },
-        { max: 20, suggestion: 8 },
-        { max: 25, suggestion: 9 },
-        { max: 30, suggestion: 10 },
-        { max: 35, suggestion: 11 },
-        { max: 40, suggestion: 12 },
-        { max: 50, suggestion: 14 },
-        { max: 100, suggestion: 15 },
-        { max: 200, suggestion: 19 },
-        { max: 300, suggestion: 29 },
-        { max: 500, suggestion: "Math.ceil((amount / 12)/5)*5" },
+        { max: 10, suggestion: 5, frequency: "monthly" },
+        { max: 15, suggestion: 7, frequency: "monthly" },
+        { max: 20, suggestion: 8, frequency: "monthly" },
+        { max: 25, suggestion: 9, frequency: "monthly" },
+        { max: 30, suggestion: 10, frequency: "monthly" },
+        { max: 35, suggestion: 11, frequency: "monthly" },
+        { max: 40, suggestion: 12, frequency: "monthly" },
+        { max: 50, suggestion: 14, frequency: "monthly" },
+        { max: 100, suggestion: 15, frequency: "monthly" },
+        { max: 200, suggestion: 19, frequency: "monthly" },
+        { max: 300, suggestion: 29, frequency: "monthly" },
+        {
+            max: 500,
+            suggestion: "Math.ceil((amount / 12)/5)*5",
+            frequency: "monthly",
+        },
     ],
+    upsellToFrequency: "monthly",
     minAmount: 0,
     canClose: true,
     submitOnClose: false,
     oneTime: true,
+    monthly: false,
     annual: false,
     disablePaymentMethods: [],
     skipUpsell: false,
@@ -10945,6 +10952,21 @@ const nlTranslation = [
     { field: "supporter.region", translation: "Provincie" },
     { field: "supporter.country", translation: "Country" },
 ];
+// Page-language layer: keyed by lowercase 2-letter language code
+// (see ENGrid.getPageLanguage()), applied as the base translation layer
+// before any country-specific translations.
+const esTranslation = [
+    { field: "supporter.firstName", translation: "Nombre" },
+    { field: "supporter.lastName", translation: "Apellidos" },
+    { field: "supporter.emailAddress", translation: "Correo electrónico" },
+    { field: "supporter.phoneNumber", translation: "Teléfono" },
+    { field: "supporter.address1", translation: "Dirección" },
+    { field: "supporter.address2", translation: "Departamento/Piso" },
+    { field: "supporter.postcode", translation: "Código Postal" },
+    { field: "supporter.city", translation: "Ciudad" },
+    { field: "supporter.region", translation: "Provincia/Estado" },
+    { field: "supporter.country", translation: "País" },
+];
 const TranslateOptionsDefaults = {
     BR: ptbrTranslation,
     BRA: ptbrTranslation,
@@ -10954,6 +10976,7 @@ const TranslateOptionsDefaults = {
     FRA: frTranslation,
     NL: nlTranslation,
     NLD: nlTranslation,
+    es: esTranslation,
 };
 
 ;// ./node_modules/@4site/engrid-scripts/dist/interfaces/exit-intent-options.js
@@ -10984,6 +11007,8 @@ const FrequencyUpsellOptionsDefaults = {
     onOpen: () => { },
     onAccept: () => { },
     onDecline: () => { },
+    showCloseX: false,
+    submitOnClose: false,
 };
 
 ;// ./node_modules/@4site/engrid-scripts/dist/loader.js
@@ -10991,7 +11016,7 @@ const FrequencyUpsellOptionsDefaults = {
 
 class Loader {
     constructor() {
-        this.logger = new logger_EngridLogger("Loader", "gold", "black", "🔁");
+        this.logger = new EngridLogger("Loader", "gold", "black", "🔁");
         this.cssElement = document.querySelector('link[href*="engrid."][rel="stylesheet"]');
         this.jsElement = document.querySelector('script[src*="engrid."]');
     }
@@ -11170,7 +11195,7 @@ var dist = __webpack_require__(3199);
 
 class EnForm {
     constructor() {
-        this.logger = new logger_EngridLogger("EnForm");
+        this.logger = new EngridLogger("EnForm");
         this._onIntentSubmit = new dist/* SignalDispatcher */.UD();
         this._onSubmit = new dist/* SignalDispatcher */.UD();
         this._onValidate = new dist/* SignalDispatcher */.UD();
@@ -11271,12 +11296,7 @@ class DonationAmount {
                     this.amount = parseFloat(element.value);
                 }
                 else if (element.name == other) {
-                    const cleanedAmount = engrid_ENGrid.cleanAmount(element.value);
-                    element.value =
-                        cleanedAmount % 1 != 0
-                            ? cleanedAmount.toFixed(2)
-                            : cleanedAmount.toString();
-                    this.amount = cleanedAmount;
+                    this.syncOtherAmount(element, true);
                 }
             }
         });
@@ -11284,11 +11304,29 @@ class DonationAmount {
         const otherField = document.querySelector(`[name='${this._other}']`);
         if (otherField) {
             otherField.addEventListener("keyup", (e) => {
-                this.amount = engrid_ENGrid.cleanAmount(otherField.value);
+                this.syncOtherAmount(otherField);
             });
         }
         // Load the current amount
         this.load();
+    }
+    // The "other" radio is the one whose value isn't a numeric amount
+    // (EN renders it as value="other"), so it cleans to 0
+    isOtherAmountSelected() {
+        const selectedAmount = document.querySelector(`input[name="${this._radios}"]:checked`);
+        return (selectedAmount !== null &&
+            engrid_ENGrid.cleanAmount(selectedAmount.value) === 0);
+    }
+    syncOtherAmount(field, formatValue = false) {
+        const otherIsSelected = this.isOtherAmountSelected();
+        const amount = engrid_ENGrid.cleanAmount(field.value);
+        if (!otherIsSelected || amount <= 0) {
+            return;
+        }
+        if (formatValue) {
+            field.value = amount % 1 != 0 ? amount.toFixed(2) : amount.toString();
+        }
+        this.amount = amount;
     }
     static getInstance(radios = "transaction.donationAmt", other = "transaction.donationAmt.other") {
         if (!DonationAmount.instance) {
@@ -11386,7 +11424,66 @@ class DonationAmount {
     }
 }
 
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/i18n-options.js
+const I18nDefaults = {
+    en: {
+        "rememberMe.label": "Remember Me",
+        "rememberMe.clearLabel": "(clear autofill)",
+        "rememberMe.tooltip": "Check “{label}” to complete forms on this device faster. While your financial information won’t be stored, you should only check this box from a personal device. Click “{clearLabel}” to remove the information from your device at any time.",
+        "rememberMe.iframeTitle": "Remember Me iframe",
+        "translateFields.state": "State",
+        "translateFields.stateGeneric": "Province / State",
+        "translateFields.stateRegion": "State/Region",
+        "translateFields.provinceTerritory": "Province / Territory",
+        "translateFields.selectState": "Select State",
+        "translateFields.select": "Select",
+        "translateFields.recipientTo": "To:",
+        "a11y.errorSummary": "There are {count} errors: {messages}.",
+        // InputPlaceholders component defaults
+        "placeholders.firstName": "First Name",
+        "placeholders.lastName": "Last Name",
+        "placeholders.emailAddress": "Email Address",
+        "placeholders.phoneNumber": "Phone Number",
+        "placeholders.phoneNumberOptional": "Phone Number (Optional)",
+        "placeholders.phoneNumber2Optional": "000-000-0000 (Optional)",
+        "placeholders.country": "Country",
+        "placeholders.address1": "Street Address",
+        "placeholders.address2": "Apt., Ste., Bldg.",
+        "placeholders.city": "City",
+        "placeholders.region": "Region",
+        "placeholders.postcode": "ZIP Code",
+    },
+    es: {
+        "rememberMe.label": "Recuérdame",
+        "rememberMe.clearLabel": "(borrar autocompletado)",
+        "rememberMe.tooltip": "Marque “{label}” para completar los formularios en este dispositivo más rápido. Aunque su información financiera no se almacenará, solo debe marcar esta casilla desde un dispositivo personal. Haga clic en “{clearLabel}” para eliminar la información de su dispositivo en cualquier momento.",
+        "rememberMe.iframeTitle": "iframe de Recuérdame",
+        "translateFields.state": "Estado",
+        "translateFields.stateGeneric": "Provincia/Estado",
+        "translateFields.stateRegion": "Estado/Región",
+        "translateFields.provinceTerritory": "Provincia/Territorio",
+        "translateFields.selectState": "Seleccione Estado",
+        "translateFields.select": "Seleccione",
+        "translateFields.recipientTo": "Para:",
+        "a11y.errorSummary": "Hay {count} errores: {messages}.",
+        // InputPlaceholders component defaults
+        "placeholders.firstName": "Nombre",
+        "placeholders.lastName": "Apellidos",
+        "placeholders.emailAddress": "Correo electrónico",
+        "placeholders.phoneNumber": "Teléfono",
+        "placeholders.phoneNumberOptional": "Teléfono (opcional)",
+        "placeholders.phoneNumber2Optional": "000-000-0000 (opcional)",
+        "placeholders.country": "País",
+        "placeholders.address1": "Calle y número",
+        "placeholders.address2": "Depto., Piso, Edif.",
+        "placeholders.city": "Ciudad",
+        "placeholders.region": "Provincia/Estado",
+        "placeholders.postcode": "Código Postal",
+    },
+};
+
 ;// ./node_modules/@4site/engrid-scripts/dist/engrid.js
+
 const errorCallbacks = new Map();
 class engrid_ENGrid {
     constructor() {
@@ -11560,7 +11657,7 @@ class engrid_ENGrid {
         return null;
     }
     static isThankYouPage() {
-        return this.getPageNumber() === this.getPageCount();
+        return (this.getPageNumber() === this.getPageCount() && this.getPageCount() > 1);
     }
     // Return the current page ID
     static getPageID() {
@@ -11594,7 +11691,15 @@ class engrid_ENGrid {
     }
     //returns 'us or 'ca' based on the client ID
     static getDataCenter() {
-        return engrid_ENGrid.getClientID() >= 10000 ? "us" : "ca";
+        if (engrid_ENGrid.getClientID() > 20000) {
+            return "us2";
+        }
+        else if (engrid_ENGrid.getClientID() > 10000) {
+            return "us";
+        }
+        else {
+            return "ca";
+        }
     }
     // Return the current page type
     static getPageType() {
@@ -11651,6 +11756,52 @@ class engrid_ENGrid {
         else {
             return "UNKNOWN";
         }
+    }
+    // Return the current page language: the first 2 characters of
+    // pageJson.locale, lowercased (e.g. "es_US" -> "es"). Defaults to "en"
+    // when pageJson or the locale is not available.
+    static getPageLanguage() {
+        var _a;
+        const locale = (_a = window.pageJson) === null || _a === void 0 ? void 0 : _a.locale;
+        if (typeof locale === "string" && locale.length >= 2) {
+            return locale.substring(0, 2).toLowerCase();
+        }
+        return "en";
+    }
+    // Return the merged i18n dictionaries: window.EngridI18n merged over
+    // I18nDefaults, key-by-key per language, without mutating the defaults.
+    static getI18nDictionaries() {
+        const dictionaries = Object.assign({}, I18nDefaults);
+        if ("EngridI18n" in window && window.EngridI18n) {
+            for (const lang in window.EngridI18n) {
+                dictionaries[lang] = Object.assign(Object.assign({}, (I18nDefaults[lang] || {})), window.EngridI18n[lang]);
+            }
+        }
+        return dictionaries;
+    }
+    // Check if an i18n key is defined in the merged dictionary for the current
+    // page language (the English fallback does not count).
+    static hasI18nKey(key) {
+        var _a;
+        const language = engrid_ENGrid.getPageLanguage();
+        return key in ((_a = engrid_ENGrid.getI18nDictionaries()[language]) !== null && _a !== void 0 ? _a : {});
+    }
+    // Translate a UI string key using the i18n dictionary: I18nDefaults merged
+    // with the window.EngridI18n global (key-by-key, per language, without
+    // mutating the defaults). Resolution order: current page language bucket ->
+    // English bucket -> the key itself. {placeholders} are interpolated from
+    // the replacements argument.
+    static t(key, replacements = {}) {
+        var _a, _b, _c, _d;
+        const dictionaries = engrid_ENGrid.getI18nDictionaries();
+        const language = engrid_ENGrid.getPageLanguage();
+        let text = (_d = (_b = (_a = dictionaries[language]) === null || _a === void 0 ? void 0 : _a[key]) !== null && _b !== void 0 ? _b : (_c = dictionaries["en"]) === null || _c === void 0 ? void 0 : _c[key]) !== null && _d !== void 0 ? _d : key;
+        for (const name in replacements) {
+            // Function replacement: the value is inserted literally, so $-sequences
+            // ($&, $$, ...) in user-facing text are never interpreted.
+            text = text.replace(new RegExp(`\\{${name}\\}`, "g"), () => String(replacements[name]));
+        }
+        return text;
     }
     // Set body engrid data attributes
     static setBodyData(dataName, value) {
@@ -11982,7 +12133,94 @@ class engrid_ENGrid {
     }
 }
 
+;// ./node_modules/@4site/engrid-scripts/dist/logger.js
+
+/**
+ * A better logger. It only works if debug is enabled.
+ */
+class EngridLogger {
+    constructor(prefix, color, background, emoji) {
+        this.prefix = "";
+        this.color = "black";
+        this.background = "white";
+        this.emoji = "";
+        if (emoji) {
+            this.emoji = emoji;
+        }
+        else {
+            switch (color) {
+                case "red":
+                    this.emoji = "🔴";
+                    break;
+                case "green":
+                    this.emoji = "🟢";
+                    break;
+                case "blue":
+                    this.emoji = "🔵";
+                    break;
+                case "yellow":
+                    this.emoji = "🟡";
+                    this.background = "black";
+                    break;
+                case "purple":
+                    this.emoji = "🟣";
+                    break;
+                case "black":
+                default:
+                    this.emoji = "⚫";
+                    break;
+            }
+        }
+        if (prefix) {
+            this.prefix = `[ENgrid ${prefix}]`;
+        }
+        if (color) {
+            this.color = color;
+        }
+        if (background) {
+            this.background = background;
+        }
+    }
+    get log() {
+        if (!engrid_ENGrid.debug && engrid_ENGrid.getUrlParameter("debug") !== "log") {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get success() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c ✅ " + this.prefix + " %s", `color: green; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get danger() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c ⛔️ " + this.prefix + " %s", `color: red; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get warn() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.warn.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get dir() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.dir.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get error() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.error.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+}
+
 ;// ./node_modules/@4site/engrid-scripts/dist/events/donation-frequency.js
+
 
 
 class DonationFrequency {
@@ -11991,6 +12229,8 @@ class DonationFrequency {
         this._frequency = "onetime";
         this._recurring = "n";
         this._dispatch = true;
+        this._frequencies = ["onetime"];
+        this.logger = new EngridLogger("DonationFrequency", "white", "black", "💰");
         // Watch the Radios for Changes
         document.addEventListener("change", (e) => {
             const element = e.target;
@@ -12042,6 +12282,9 @@ class DonationFrequency {
     get onFrequencyChange() {
         return this._onFrequencyChange.asEvent();
     }
+    get frequencies() {
+        return this._frequencies;
+    }
     // Set amount var with currently selected amount
     load() {
         var _a;
@@ -12058,6 +12301,11 @@ class DonationFrequency {
                 ((_a = window.EngagingNetworks.require._defined.enjs
                     .getSupporterData("recurrpay")) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || "n";
         }
+        // List of available frequencies on the form
+        this._frequencies = Array.from(document.querySelectorAll('input[name="transaction.recurrfreq"]'))
+            .filter((el) => el instanceof HTMLInputElement)
+            .map((el) => el.value.toLowerCase());
+        this.logger.log(`Loaded with frequency: ${this.frequency} and recurring: ${this.recurring} \nAvailable frequencies: ${this._frequencies.join(", ")}`);
         // ENGrid.enParseDependencies();
     }
     // Force a new recurrency
@@ -12093,6 +12341,9 @@ class DonationFrequency {
             else {
                 this.setRecurrency("Y", dispatch);
             }
+        }
+        else {
+            this.logger.warn(`Attempted to set a frequency of "${freq}" but it was not found on the form.`);
         }
         // Revert dispatch to default value (true)
         this._dispatch = true;
@@ -12203,7 +12454,7 @@ class ProcessingFees {
 
 class RememberMeEvents {
     constructor() {
-        this.logger = new logger_EngridLogger("RememberMeEvents");
+        this.logger = new EngridLogger("RememberMeEvents");
         this._onLoad = new dist/* SimpleEventDispatcher */.IL();
         this._onClear = new dist/* SignalDispatcher */.UD();
         this.hasData = false;
@@ -12234,7 +12485,7 @@ class RememberMeEvents {
 ;// ./node_modules/@4site/engrid-scripts/dist/events/iframe-queue-events.js
 /* unused harmony import specifier */ var SignalDispatcher;
 /* unused harmony import specifier */ var SimpleEventDispatcher;
-/* unused harmony import specifier */ var EngridLogger;
+/* unused harmony import specifier */ var iframe_queue_events_EngridLogger;
 /**
  * Singleton event hub for the Iframe Queue component.
  *
@@ -12257,7 +12508,7 @@ class RememberMeEvents {
 
 class IframeQueueEvents {
     constructor() {
-        this.logger = new EngridLogger("IframeQueueEvents");
+        this.logger = new iframe_queue_events_EngridLogger("IframeQueueEvents");
         this._onChainComplete = new SignalDispatcher();
         this._onChainError = new SimpleEventDispatcher();
         this._onItemStart = new SimpleEventDispatcher();
@@ -12391,7 +12642,7 @@ class App extends engrid_ENGrid {
         this._amount = DonationAmount.getInstance("transaction.donationAmt", "transaction.donationAmt.other");
         this._frequency = DonationFrequency.getInstance();
         this._country = Country.getInstance();
-        this.logger = new logger_EngridLogger("App", "black", "white", "🍏");
+        this.logger = new EngridLogger("App", "black", "white", "🍏");
         const loader = new Loader();
         this.options = Object.assign(Object.assign({}, OptionsDefaults), options);
         // Add Options to window
@@ -12562,12 +12813,14 @@ class App extends engrid_ENGrid {
         new CustomCurrency();
         // Auto Country Select
         new AutoCountrySelect();
+        // Page Background
+        new PageBackground(this.options.UseBodyBannerImageAsBackground);
         // Add Image Attribution
         if (this.options.MediaAttribution)
             new MediaAttribution();
         // Apple Pay
         if (this.options.applePay)
-            new ApplePay();
+            ApplePay.getInstance();
         // Capitalize Fields
         if (this.options.CapitalizeFields)
             new CapitalizeFields();
@@ -12612,8 +12865,6 @@ class App extends engrid_ENGrid {
         new A11y();
         new AddNameToMessage();
         new ExpandRegionName();
-        // Page Background
-        new PageBackground();
         // Url Params to Form Fields
         new UrlToForm();
         // Required if Visible Fields
@@ -12638,10 +12889,11 @@ class App extends engrid_ENGrid {
         // Supporter Hub Features
         new SupporterHub();
         // Digital Wallets Features
-        if (engrid_ENGrid.getPageType() === "DONATION") {
+        if (engrid_ENGrid.getPageType() === "DONATION" ||
+            engrid_ENGrid.getPageType() === "EVENT") {
             new DigitalWallets();
-            new PreferredPaymentMethod();
         }
+        new PreferredPaymentMethod();
         // Mobile CTA
         new MobileCTA();
         // Live Frequency
@@ -12683,8 +12935,8 @@ class App extends engrid_ENGrid {
             new BrandingHtml().show();
         }
         engrid_ENGrid.setBodyData("js-loading", "finished");
-        window.EngridVersion = AppVersion;
-        this.logger.success(`VERSION: ${AppVersion}`);
+        window.EngridVersion = (/* inlined export .AppVersion */"0.28.1");
+        this.logger.success(`VERSION: ${(/* inlined export .AppVersion */"0.28.1")}`);
         // Window Load
         let onLoad = typeof window.onload === "function" ? window.onload : null;
         if (document.readyState !== "loading") {
@@ -12734,7 +12986,7 @@ class App extends engrid_ENGrid {
         }
     }
     static log(message) {
-        const logger = new logger_EngridLogger("Client", "brown", "aliceblue", "🍪");
+        const logger = new EngridLogger("Client", "brown", "aliceblue", "🍪");
         logger.log(message);
     }
 }
@@ -12798,50 +13050,313 @@ const merchantCapabilities = window.merchantCapabilities;
 const merchantTotalLabel = window.merchantTotalLabel;
 class ApplePay {
     constructor() {
+        this.logger = new EngridLogger("ApplePay", "#000000", "#a6f3a6", "🍎");
         this.applePay = document.querySelector('.en__field__input.en__field__input--radio[value="applepay"]');
         this._amount = DonationAmount.getInstance();
         this._fees = ProcessingFees.getInstance();
         this._form = EnForm.getInstance();
+        // Client hook: runs after the built-in pre-flight, right before the Apple
+        // Pay sheet opens. Return false to abort. The hook shows its own errors
+        // with ENGrid.setError; the donation amount field error is cleared before
+        // every attempt.
+        this.beforeSession = null;
+        // Fields the wallet supplies via requiredBillingContactFields, so they are
+        // excluded from the mandatory-field pre-flight.
+        this.walletFields = [
+            "supporter.address1",
+            "supporter.address2",
+            "supporter.city",
+            "supporter.region",
+            "supporter.postcode",
+            "supporter.country",
+            "supporter.phoneNumber",
+        ];
+        // Field containers this component flagged with ENGrid.setError, so they can
+        // be cleared on the next attempt.
+        this.errorFields = [];
+        ApplePay.instance = this;
         this.checkApplePay();
+    }
+    static getInstance() {
+        if (!ApplePay.instance) {
+            ApplePay.instance = new ApplePay();
+        }
+        return ApplePay.instance;
+    }
+    // True when the page offers Apple Pay, either as a giveBySelect radio tile
+    // or as an option of the payment type select.
+    hasApplePayOption() {
+        if (this.applePay)
+            return true;
+        const paymentTypeField = engrid_ENGrid.getField("transaction.paymenttype");
+        if (!paymentTypeField || !paymentTypeField.options)
+            return false;
+        return Array.from(paymentTypeField.options).some((option) => option.value.toLowerCase() === "applepay");
     }
     checkApplePay() {
         return __awaiter(this, void 0, void 0, function* () {
-            const pageform = document.querySelector("form.en__component--page");
-            if (!this.applePay || !window.hasOwnProperty("ApplePaySession")) {
+            if (!this.hasApplePayOption() ||
+                !window.hasOwnProperty("ApplePaySession")) {
                 const applePayContainer = document.querySelector(".en__field__item.applepay");
                 if (applePayContainer)
                     applePayContainer.remove();
-                if (engrid_ENGrid.debug)
-                    console.log("Apple Pay DISABLED");
+                engrid_ENGrid.setBodyData("apple-pay-available", "false");
+                this.logger.log("DISABLED: not supported by this browser or page");
                 return false;
             }
-            const promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+            if (!merchantIdentifier) {
+                engrid_ENGrid.setBodyData("apple-pay-available", "false");
+                this.logger.log("DISABLED: window.merchantIdentifier is not defined");
+                return false;
+            }
             let applePayEnabled = false;
-            yield promise.then((canMakePayments) => {
-                applePayEnabled = canMakePayments;
-                if (canMakePayments) {
-                    let input = document.createElement("input");
-                    input.setAttribute("type", "hidden");
-                    input.setAttribute("name", "PkPaymentToken");
-                    input.setAttribute("id", "applePayToken");
-                    pageform.appendChild(input);
-                    this._form.onSubmit.subscribe(() => this.onPayClicked());
-                }
-            });
-            if (engrid_ENGrid.debug)
-                console.log("applePayEnabled", applePayEnabled);
-            let applePayWrapper = this.applePay.closest(".en__field__item");
-            if (applePayEnabled) {
-                // Set Apple Pay Class
-                applePayWrapper === null || applePayWrapper === void 0 ? void 0 : applePayWrapper.classList.add("applePayWrapper");
+            try {
+                applePayEnabled = yield ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
             }
-            else {
-                // Hide Apple Pay Wrapper
-                if (applePayWrapper)
-                    applePayWrapper.style.display = "none";
+            catch (e) {
+                applePayEnabled = false;
             }
-            return applePayEnabled;
+            engrid_ENGrid.setBodyData("apple-pay-available", applePayEnabled ? "true" : "false");
+            if (!applePayEnabled) {
+                this.logger.log("DISABLED: no provisioned card");
+                return false;
+            }
+            // Hidden field that carries the wallet token to EN. Only create it if it
+            // doesn't exist yet, so we never post a duplicate PkPaymentToken.
+            if (!engrid_ENGrid.getField("PkPaymentToken")) {
+                engrid_ENGrid.createHiddenInput("PkPaymentToken").setAttribute("id", "applePayToken");
+            }
+            this.writeButtonContainer();
+            // Fallback trigger: an implicit submit (e.g. Enter key) while Apple Pay
+            // is selected and no token exists yet opens the sheet instead of
+            // submitting. After authorization the token is set and the submit
+            // passes through.
+            this._form.onSubmit.subscribe(() => this.onSubmitFallback());
+            this.logger.log("ENABLED");
+            return true;
         });
+    }
+    // Writes the native Apple Pay button container right before the submit
+    // button. CSS swaps it with the submit button while the applepay payment
+    // type is selected (data-engrid-payment-type="applepay").
+    writeButtonContainer() {
+        if (document.querySelector(".apple-pay-container"))
+            return;
+        if (!document.querySelector(".en__submit"))
+            return;
+        // The -apple-pay-button-* properties are set inline because cssnano's
+        // colormin rewrites the keyword "black" to #000 in built stylesheets,
+        // which is not a valid value for -apple-pay-button-style, so Safari
+        // drops it and falls back to white-outline.
+        engrid_ENGrid.addHtml('<div class="apple-pay-container showif-applepay-selected">' +
+            '<div class="apple-pay-button" role="button" tabindex="0" aria-label="Donate with Apple Pay" ' +
+            'style="-apple-pay-button-type: donate; -apple-pay-button-style: black;"></div>' +
+            "</div>", ".en__submit", "before");
+        const button = document.querySelector(".apple-pay-container .apple-pay-button");
+        if (!button)
+            return;
+        button.addEventListener("click", () => this.onPayClicked());
+        button.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                this.onPayClicked();
+            }
+        });
+    }
+    onSubmitFallback() {
+        const applePayToken = document.getElementById("applePayToken");
+        if (engrid_ENGrid.getPaymentType().toLowerCase() !== "applepay" ||
+            (applePayToken && applePayToken.value !== "")) {
+            return; // Not Apple Pay, or already authorized: let the submit proceed
+        }
+        if (!this._form.submit)
+            return; // Another component vetoed this submit
+        this._form.submit = false; // Veto the submit and open the sheet instead
+        this.onPayClicked();
+    }
+    onPayClicked() {
+        if (!this.preflight())
+            return;
+        this.openSession();
+    }
+    preflight() {
+        this.clearErrors();
+        // The wallet supplies billing address and phone, but nothing else. Flag
+        // empty mandatory fields before the sheet opens so a donor never
+        // authorizes a payment EN will bounce for a missing mandatory field.
+        const missing = this.missingMandatoryFields();
+        missing.forEach((field) => {
+            engrid_ENGrid.setError(field, "This field is required");
+            this.errorFields.push(field);
+        });
+        if (missing.length) {
+            this.scrollToError();
+            return false;
+        }
+        const amount = this._amount.amount;
+        if (!amount || amount <= 0) {
+            engrid_ENGrid.setError(".en__field--donationAmt", "Please select a gift amount.");
+            this.scrollToError();
+            return false;
+        }
+        // The client hook owns the donation amount field error from here on
+        engrid_ENGrid.removeError(".en__field--donationAmt");
+        if (this.beforeSession && this.beforeSession() === false) {
+            this.scrollToError();
+            return false;
+        }
+        return true;
+    }
+    // Scrolls to the first field flagged with a validation error so the donor
+    // sees what needs fixing; without this the button looks unresponsive.
+    scrollToError() {
+        const errorField = (this.errorFields[0] ||
+            document.querySelector(".en__field--validationFailed"));
+        if (errorField) {
+            errorField.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }
+    clearErrors() {
+        this.errorFields.forEach((field) => engrid_ENGrid.removeError(field));
+        this.errorFields = [];
+        engrid_ENGrid.removeError(".en__field--donationAmt");
+    }
+    // Every visible mandatory field container that is empty and that the
+    // wallet cannot fill.
+    missingMandatoryFields() {
+        const missing = [];
+        document
+            .querySelectorAll(".en__field.en__mandatory")
+            .forEach((field) => {
+            const fieldElement = field;
+            if (!engrid_ENGrid.isVisible(fieldElement))
+                return;
+            const input = fieldElement.querySelector("input, select, textarea");
+            if (!input || !input.name)
+                return;
+            if (this.walletFields.indexOf(input.name) !== -1)
+                return;
+            if (input.type === "radio" || input.type === "checkbox") {
+                if (!fieldElement.querySelector("input:checked")) {
+                    missing.push(fieldElement);
+                }
+                return;
+            }
+            if (input.value.trim() === "") {
+                missing.push(fieldElement);
+            }
+        });
+        return missing;
+    }
+    openSession() {
+        // ProcessingFees mirrors EN's own fee cover calculation, so the sheet
+        // total matches what EN will actually charge.
+        const donationAmount = (this._amount.amount + this._fees.fee).toFixed(2);
+        const request = {
+            supportedNetworks: merchantSupportedNetworks,
+            merchantCapabilities: merchantCapabilities,
+            countryCode: merchantCountryCode,
+            currencyCode: merchantCurrencyCode,
+            requiredBillingContactFields: ["postalAddress", "phone"],
+            total: {
+                label: merchantTotalLabel || merchantDisplayName || "Donation",
+                amount: donationAmount,
+                type: "final",
+            },
+        };
+        let session;
+        try {
+            session = new ApplePaySession(3, request);
+        }
+        catch (e) {
+            const errorTarget = (document.querySelector(".apple-pay-container") || document.querySelector(".en__submit"));
+            if (errorTarget) {
+                engrid_ENGrid.setError(errorTarget, "Apple Pay error: '" + e.message + "'");
+            }
+            this._form.dispatchError();
+            return;
+        }
+        const thisClass = this;
+        session.onvalidatemerchant = function (event) {
+            thisClass
+                .performValidation(event.validationURL)
+                .then(function (merchantSession) {
+                if (engrid_ENGrid.debug)
+                    console.log("Apple Pay merchantSession", merchantSession);
+                session.completeMerchantValidation(merchantSession);
+            })
+                .catch(function () {
+                session.abort();
+            });
+        };
+        session.onpaymentauthorized = function (event) {
+            thisClass.onPaymentAuthorized(session, event);
+        };
+        session.oncancel = function () {
+            // Donor closed the sheet; return them to the form quietly.
+            thisClass.logger.log("Sheet cancelled by the donor");
+        };
+        session.begin();
+    }
+    onPaymentAuthorized(session, event) {
+        if (engrid_ENGrid.debug)
+            console.log("Apple Pay Token", event.payment.token);
+        // Pass the billing info from Apple Pay back into the EN billing fields -
+        // this won't happen automatically with Vantiv Apple Pay.
+        const billing = event.payment.billingContact || {};
+        const addressLines = billing.addressLines || [];
+        // Country goes first, dispatching change: EN swaps country-dependent
+        // fields (supporter.region is a select for some countries and a text
+        // input for others) when the country changes, so the region field must
+        // already be in its final shape when we fill it below.
+        this.setField("supporter.country", billing.countryCode, true);
+        this.setField("supporter.address1", addressLines[0]);
+        this.setField("supporter.address2", addressLines[1]);
+        this.setField("supporter.city", billing.locality);
+        if (billing.administrativeArea) {
+            this.setRegion(billing.administrativeArea);
+        }
+        this.setField("supporter.postcode", billing.postalCode);
+        this.setField("supporter.phoneNumber", billing.phone);
+        // Apple Pay gifts are one-time on this setup; make sure recurrpay isn't
+        // submitted blank when we bypass the EN submit button.
+        const recurrpay = engrid_ENGrid.getField("transaction.recurrpay");
+        if (recurrpay && !recurrpay.value)
+            recurrpay.value = "N";
+        const applePayToken = document.getElementById("applePayToken");
+        if (applePayToken) {
+            applePayToken.value = JSON.stringify(event.payment.token);
+        }
+        session.completePayment(ApplePaySession.STATUS_SUCCESS);
+        this._form.submitForm();
+    }
+    setField(name, value, dispatchEvents = false) {
+        if (value == null || value === "")
+            return;
+        if (!engrid_ENGrid.getField(name))
+            return;
+        engrid_ENGrid.setFieldValue(name, value, true, dispatchEvents);
+    }
+    // The region field is a select for countries EN has subdivisions for and a
+    // text input for the rest. On a select, the wallet value must match an
+    // option or the write is silently dropped, so match case-insensitively by
+    // option value or label (Apple returns subdivision codes for some
+    // countries and full names for others).
+    setRegion(value) {
+        const field = engrid_ENGrid.getField("supporter.region");
+        if (!field)
+            return;
+        if (field instanceof HTMLSelectElement) {
+            const option = Array.from(field.options).find((o) => o.value.toLowerCase() === value.toLowerCase() ||
+                o.text.toLowerCase() === value.toLowerCase());
+            if (!option) {
+                this.logger.log(`Region "${value}" doesn't match any region select option`);
+                return;
+            }
+            engrid_ENGrid.setFieldValue("supporter.region", option.value);
+            return;
+        }
+        engrid_ENGrid.setFieldValue("supporter.region", value);
     }
     performValidation(url) {
         return new Promise(function (resolve, reject) {
@@ -12871,180 +13386,38 @@ class ApplePay {
             xhr.send();
         });
     }
-    log(name, msg) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/ea-dataservice/rest/applepay/log?name=" + name + "&msg=" + msg);
-        xhr.send();
-    }
-    sendPaymentToken(token) {
-        return new Promise(function (resolve, reject) {
-            resolve(true);
-        });
-    }
-    onPayClicked() {
-        if (!this._form.submit)
-            return;
-        const enFieldPaymentType = document.querySelector("#en__field_transaction_paymenttype");
-        const applePayToken = document.getElementById("applePayToken");
-        const formClass = this._form;
-        // Only work if Payment Type is Apple Pay
-        if (enFieldPaymentType.value == "applepay" && applePayToken.value == "") {
-            try {
-                let donationAmount = this._amount.amount + this._fees.fee;
-                var request = {
-                    supportedNetworks: merchantSupportedNetworks,
-                    merchantCapabilities: merchantCapabilities,
-                    countryCode: merchantCountryCode,
-                    currencyCode: merchantCurrencyCode,
-                    total: {
-                        label: merchantTotalLabel,
-                        amount: donationAmount,
-                    },
-                };
-                var session = new ApplePaySession(1, request);
-                var thisClass = this;
-                session.onvalidatemerchant = function (event) {
-                    thisClass
-                        .performValidation(event.validationURL)
-                        .then(function (merchantSession) {
-                        if (engrid_ENGrid.debug)
-                            console.log("Apple Pay merchantSession", merchantSession);
-                        session.completeMerchantValidation(merchantSession);
-                    });
-                };
-                session.onpaymentauthorized = function (event) {
-                    thisClass
-                        .sendPaymentToken(event.payment.token)
-                        .then(function (success) {
-                        if (engrid_ENGrid.debug)
-                            console.log("Apple Pay Token", event.payment.token);
-                        document.getElementById("applePayToken").value = JSON.stringify(event.payment.token);
-                        formClass.submitForm();
-                    });
-                };
-                session.oncancel = function (event) {
-                    if (engrid_ENGrid.debug)
-                        console.log("Cancelled", event);
-                    alert("You cancelled. Sorry it didn't work out.");
-                    formClass.dispatchError();
-                };
-                session.begin();
-                this._form.submit = false;
-                return false;
-            }
-            catch (e) {
-                alert("Developer mistake: '" + e.message + "'");
-                formClass.dispatchError();
-            }
-        }
-        this._form.submit = true;
-        return true;
-    }
-}
-
-;// ./node_modules/@4site/engrid-scripts/dist/logger.js
-
-/**
- * A better logger. It only works if debug is enabled.
- */
-class logger_EngridLogger {
-    constructor(prefix, color, background, emoji) {
-        this.prefix = "";
-        this.color = "black";
-        this.background = "white";
-        this.emoji = "";
-        if (emoji) {
-            this.emoji = emoji;
-        }
-        else {
-            switch (color) {
-                case "red":
-                    this.emoji = "🔴";
-                    break;
-                case "green":
-                    this.emoji = "🟢";
-                    break;
-                case "blue":
-                    this.emoji = "🔵";
-                    break;
-                case "yellow":
-                    this.emoji = "🟡";
-                    this.background = "black";
-                    break;
-                case "purple":
-                    this.emoji = "🟣";
-                    break;
-                case "black":
-                default:
-                    this.emoji = "⚫";
-                    break;
-            }
-        }
-        if (prefix) {
-            this.prefix = `[ENgrid ${prefix}]`;
-        }
-        if (color) {
-            this.color = color;
-        }
-        if (background) {
-            this.background = background;
-        }
-    }
-    get log() {
-        if (!engrid_ENGrid.debug && engrid_ENGrid.getUrlParameter("debug") !== "log") {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get success() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c ✅ " + this.prefix + " %s", `color: green; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get danger() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c ⛔️ " + this.prefix + " %s", `color: red; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get warn() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.warn.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get dir() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.dir.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get error() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.error.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
 }
 
 ;// ./node_modules/@4site/engrid-scripts/dist/a11y.js
+
+
 
 // a11y means accessibility
 // This Component is supposed to be used as a helper for Aria Attributes & Other Accessibility Features
 class A11y {
     constructor() {
-        this.logger = new logger_EngridLogger("A11y", "#FFFFFF", "#811212", "👁️‍🗨️");
+        var _a;
+        this.logger = new EngridLogger("A11y", "#FFFFFF", "#811212", "👁️‍🗨️");
         this.observer = null;
+        this.liveRegionUpdateTimeout = null;
+        this.shouldFocusFirstInvalidField = false;
         A11y.scanFields();
         this.updateFrequencyLabel();
         const ecardImages = document.querySelectorAll('.en__ecarditems__list img');
         this.setAutoGeneratedAltTags(ecardImages);
-        this.manageErrorListAlertRole();
         this.observeErrorMessages();
+        (_a = engrid_ENGrid.enForm) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', () => {
+            this.shouldFocusFirstInvalidField = true;
+        });
+        // onSubmit only fires once validation has passed, so disarm the focus
+        // flag: a successful submit must not leave it set, or the next unrelated
+        // async field error (e.g. NeverBounce on blur) would steal focus.
+        EnForm.getInstance().onSubmit.subscribe(() => {
+            this.shouldFocusFirstInvalidField = false;
+        });
     }
     /**
-     * Apply the field-level accessibility tagging (error alert live regions,
+     * Apply the field-level accessibility tagging (error containers,
      * aria-required, fallback aria-labels, radio group roles) to every field
      * within `root`. Defaults to the whole document on initial load, but can be
      * pointed at a freshly injected fragment (e.g. a Supporter Hub overlay) so
@@ -13052,24 +13425,29 @@ class A11y {
      * idempotent, so re-scanning already tagged fields is safe.
      */
     static scanFields(root = document) {
-        A11y.addErrorAlertArea(root);
+        A11y.addGlobalErrorLiveRegion(root);
         A11y.addRequired(root);
         A11y.addLabel(root);
         A11y.addGroupRole(root);
     }
-    static addErrorAlertArea(root = document) {
-        const fieldElements = root.querySelectorAll('.en__field .en__field__element');
-        fieldElements.forEach((fieldElement) => {
-            const fieldWrapper = fieldElement.closest('.en__field');
-            if (fieldWrapper === null || fieldWrapper === void 0 ? void 0 : fieldWrapper.querySelector('.en__field__error__alert'))
-                return;
-            const errorAlert = document.createElement('div');
-            errorAlert.setAttribute('aria-live', 'polite');
-            errorAlert.setAttribute('aria-atomic', 'true');
-            errorAlert.classList.add('en__field__error__alert');
-            errorAlert.id = `en__field__error__alert--${Math.random().toString(36).slice(2, 7)}`;
-            fieldElement.insertAdjacentElement('afterend', errorAlert);
-        });
+    static addGlobalErrorLiveRegion(root = document) {
+        var _a;
+        const liveRegionId = 'engrid-a11y-error-summary';
+        if (document.getElementById(liveRegionId))
+            return;
+        const form = (_a = engrid_ENGrid.enForm) !== null && _a !== void 0 ? _a : root.querySelector('form.en__component');
+        if (!form)
+            return;
+        const region = document.createElement('div');
+        region.id = liveRegionId;
+        region.className = 'engrid__sr-only';
+        region.setAttribute('aria-live', 'polite');
+        region.setAttribute('aria-atomic', 'true');
+        form.insertBefore(region, form.firstChild);
+        const errorList = document.querySelector('ul.en__errorList');
+        if (errorList === null || errorList === void 0 ? void 0 : errorList.hasAttribute('role')) {
+            errorList.removeAttribute('role');
+        }
     }
     static addGroupRole(root = document) {
         // Add role="group" to all EN Radio fields
@@ -13083,6 +13461,13 @@ class A11y {
             const label = field.querySelector("label");
             if (label) {
                 label.setAttribute("id", `en__field__label--${Math.random().toString(36).slice(2, 7)}`);
+                // EN renders the group's question label as a <label>, but a radio group
+                // has no single control for `for` to point at. When EN leaves it blank
+                // (`for=""`) it's an invalid IDREF, so strip only that empty case
+                const forAttr = label.getAttribute("for");
+                if (forAttr !== null && forAttr.trim() === "") {
+                    label.removeAttribute("for");
+                }
                 field.setAttribute("aria-labelledby", label.id);
             }
         });
@@ -13159,11 +13544,12 @@ class A11y {
         });
     }
     /**
-     * Observe #engrid for .en__field__error additions and removals, mirroring
-     * text into the per-field .en__field__error__alert live region and toggling
-     * aria-invalid / aria-describedby on the corresponding input. Runs for the
-     * lifetime of the page so async validators (NeverBounce, VGS, server
-     * re-renders) are caught without timing assumptions.
+     * Observe #engrid for .en__field__error additions and removals, relocating
+     * each error after its field's input so DOM order matches visual order. Also
+     * toggles aria-invalid / aria-describedby on the corresponding input (or radio
+     * group when the field has role="group") and updates a single, DOM-ordered
+     * global live region. Runs for the lifetime of the page so async validators
+     * (NeverBounce, VGS, server re-renders) are caught without timing assumptions.
      */
     observeErrorMessages() {
         var _a;
@@ -13174,22 +13560,22 @@ class A11y {
                     continue;
                 record.addedNodes.forEach(node => {
                     if (node instanceof HTMLElement && node.classList.contains('en__field__error')) {
-                        this.moveErrorMessage(node);
+                        this.tagFieldError(node);
                     }
                 });
                 record.removedNodes.forEach(node => {
-                    var _a, _b;
                     if (!(node instanceof HTMLElement))
                         return;
                     if (!node.classList.contains('en__field__error'))
                         return;
+                    if (node.isConnected)
+                        return; // relocated, not removed
                     // node.parentElement is null after removal; record.target is the
                     // former parent. Walk up to the enclosing .en__field to be defensive
                     // against deeper nesting.
-                    const fieldWrapper = (_b = (_a = record.target).closest) === null || _b === void 0 ? void 0 : _b.call(_a, '.en__field');
-                    const alert = fieldWrapper === null || fieldWrapper === void 0 ? void 0 : fieldWrapper.querySelector('.en__field__error__alert');
-                    if (alert)
-                        this.clearErrorMessage(alert);
+                    const fieldWrapper = record.target.closest('.en__field');
+                    if (fieldWrapper)
+                        this.clearFieldError(fieldWrapper, node.id);
                 });
             }
         });
@@ -13198,55 +13584,76 @@ class A11y {
         // before this observer was attached.
         document.querySelectorAll('.en__field').forEach(field => {
             const error = field.querySelector('.en__field__error');
-            const alert = field.querySelector('.en__field__error__alert');
             if (error)
-                this.moveErrorMessage(error);
-            else if (alert)
-                this.clearErrorMessage(alert);
+                this.tagFieldError(error);
         });
     }
-    moveErrorMessage(field) {
+    tagFieldError(error) {
         var _a;
-        if (field.closest('.en__field__error__alert'))
-            return;
-        const fieldWrapper = field.closest('.en__field');
+        const fieldWrapper = error.closest('.en__field');
         if (!fieldWrapper)
             return;
-        const alertContainer = fieldWrapper.querySelector('.en__field__error__alert');
-        if (!alertContainer)
+        const fieldElement = fieldWrapper.querySelector('.en__field__element');
+        if (fieldElement && fieldElement.nextElementSibling !== error) {
+            fieldElement.insertAdjacentElement('afterend', error);
+        }
+        if (!error.id) {
+            error.id = `en__field__error--a11y-${Math.random().toString(36).slice(2, 7)}`;
+        }
+        this.scheduleLiveRegionUpdate();
+        const target = fieldWrapper.getAttribute('role') === 'group'
+            ? fieldWrapper
+            : fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
+        if (!target)
             return;
-        alertContainer.textContent = field.textContent;
-        field.classList.add('en__field__error--hidden-by-a11y');
-        const inputElement = fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
-        if (!inputElement)
-            return;
-        inputElement.setAttribute('aria-invalid', 'true');
-        const describedBy = ((_a = inputElement.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+        target.setAttribute('aria-invalid', 'true');
+        const describedBy = ((_a = target.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
             .split(/\s+/)
             .filter(Boolean);
-        if (describedBy.indexOf(alertContainer.id) === -1) {
-            describedBy.push(alertContainer.id);
+        if (describedBy.indexOf(error.id) === -1) {
+            describedBy.push(error.id);
         }
-        inputElement.setAttribute('aria-describedby', describedBy.join(' '));
+        target.setAttribute('aria-describedby', describedBy.join(' '));
+        // For radio groups, the group itself is the accessible widget; keep the
+        // individual inputs from also being announced as invalid.
+        if (target === fieldWrapper) {
+            fieldWrapper
+                .querySelectorAll('.en__field__element input, .en__field__element select, .en__field__element textarea')
+                .forEach(input => {
+                var _a;
+                input.removeAttribute('aria-invalid');
+                const remaining = ((_a = input.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+                    .split(/\s+/)
+                    .filter(id => id && id !== error.id);
+                if (remaining.length) {
+                    input.setAttribute('aria-describedby', remaining.join(' '));
+                }
+                else {
+                    input.removeAttribute('aria-describedby');
+                }
+            });
+        }
     }
-    clearErrorMessage(alert) {
+    clearFieldError(fieldWrapper, errorId) {
         var _a;
-        alert.textContent = '';
-        const fieldWrapper = alert.closest('.en__field');
-        if (!fieldWrapper)
+        this.scheduleLiveRegionUpdate();
+        const target = fieldWrapper.getAttribute('role') === 'group'
+            ? fieldWrapper
+            : fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
+        if (!target)
             return;
-        const inputElement = fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
-        if (!inputElement)
-            return;
-        inputElement.removeAttribute('aria-invalid');
-        const remaining = ((_a = inputElement.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+        const hasRemainingError = fieldWrapper.querySelector('.en__field__error') !== null;
+        if (!hasRemainingError) {
+            target.removeAttribute('aria-invalid');
+        }
+        const remaining = ((_a = target.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
             .split(/\s+/)
-            .filter(id => id && id !== alert.id);
+            .filter(id => id && id !== errorId);
         if (remaining.length) {
-            inputElement.setAttribute('aria-describedby', remaining.join(' '));
+            target.setAttribute('aria-describedby', remaining.join(' '));
         }
         else {
-            inputElement.removeAttribute('aria-describedby');
+            target.removeAttribute('aria-describedby');
         }
     }
     /**
@@ -13290,30 +13697,112 @@ class A11y {
             });
         }
     }
-    manageErrorListAlertRole() {
-        const errorList = document.querySelector('ul.en__errorList');
-        if (!errorList)
+    scheduleLiveRegionUpdate() {
+        if (this.liveRegionUpdateTimeout !== null) {
+            window.clearTimeout(this.liveRegionUpdateTimeout);
+        }
+        this.liveRegionUpdateTimeout = window.setTimeout(() => {
+            this.liveRegionUpdateTimeout = null;
+            this.updateGlobalErrorLiveRegion();
+        }, 100);
+    }
+    updateGlobalErrorLiveRegion() {
+        var _a;
+        const region = document.getElementById('engrid-a11y-error-summary');
+        if (!region)
             return;
-        const hasErrorItems = () => Boolean(errorList.querySelector('li'));
-        const enableAlert = () => {
-            if (!errorList.hasAttribute('role')) {
-                errorList.setAttribute('role', 'alert');
+        const errorList = document.querySelector('ul.en__errorList');
+        if (errorList === null || errorList === void 0 ? void 0 : errorList.hasAttribute('role')) {
+            errorList.removeAttribute('role');
+        }
+        const fields = Array.from(document.querySelectorAll('.en__field'));
+        const messages = fields
+            .map(field => {
+            var _a;
+            const error = field.querySelector('.en__field__error');
+            if (!((_a = error === null || error === void 0 ? void 0 : error.textContent) === null || _a === void 0 ? void 0 : _a.trim()))
+                return null;
+            const label = this.getFieldLabel(field);
+            const message = this.formatErrorMessage(label, error.textContent.trim());
+            return message;
+        })
+            .filter((message) => Boolean(message));
+        // Top-of-form server errors (ul.en__errorList) aren't tied to a .en__field,
+        // so fold in any that aren't already covered by the per-field messages,
+        // otherwise they would be silent for screen readers.
+        const normalizeForCompare = (value) => value.replace(/\s+/g, ' ').replace(/[.!?:]+$/, '').trim().toLowerCase();
+        const coveredMessages = messages.map(normalizeForCompare).filter(Boolean);
+        const serverMessages = Array.from((_a = errorList === null || errorList === void 0 ? void 0 : errorList.querySelectorAll('li')) !== null && _a !== void 0 ? _a : [])
+            .map(item => { var _a, _b; return (_b = (_a = item.textContent) === null || _a === void 0 ? void 0 : _a.trim()) !== null && _b !== void 0 ? _b : ''; })
+            .filter(text => {
+            if (!text)
+                return false;
+            const normalized = normalizeForCompare(text);
+            if (!normalized)
+                return false;
+            return !coveredMessages.some(covered => covered === normalized ||
+                covered.includes(normalized) ||
+                normalized.includes(covered));
+        });
+        const allMessages = [...messages, ...serverMessages];
+        region.textContent = '';
+        if (!allMessages.length) {
+            this.shouldFocusFirstInvalidField = false;
+            return;
+        }
+        if (allMessages.length === 1) {
+            region.textContent = allMessages[0];
+        }
+        else {
+            const cleaned = allMessages.map(message => message.replace(/[.!?]+$/, '').trim());
+            region.textContent = engrid_ENGrid.t("a11y.errorSummary", {
+                count: allMessages.length,
+                messages: cleaned.join('. '),
+            });
+        }
+        if (this.shouldFocusFirstInvalidField) {
+            this.shouldFocusFirstInvalidField = false;
+            this.focusFirstInvalidField();
+        }
+    }
+    formatErrorMessage(label, message) {
+        const cleanMessage = message.trim();
+        const cleanLabel = this.normalizeLabel(label);
+        if (!cleanLabel)
+            return cleanMessage;
+        // If the message already mentions the field label, no need to prefix it.
+        const escapedLabel = cleanLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const labelRegex = new RegExp(`\\b${escapedLabel}\\b`, 'i');
+        if (labelRegex.test(cleanMessage))
+            return cleanMessage;
+        return `${cleanLabel}: ${cleanMessage}`;
+    }
+    focusFirstInvalidField() {
+        const fields = Array.from(document.querySelectorAll('.en__field'));
+        for (const field of fields) {
+            if (!field.querySelector('.en__field__error'))
+                continue;
+            const target = field.querySelector('.en__field__element input:not([type="hidden"]), .en__field__element select, .en__field__element textarea');
+            if (target && target.offsetParent !== null && !target.hasAttribute('disabled')) {
+                target.focus();
+                return;
             }
-        };
-        const disableAlert = () => {
-            if (errorList.hasAttribute('role')) {
-                errorList.removeAttribute('role');
-            }
-        };
-        hasErrorItems() ? enableAlert() : disableAlert();
-        new MutationObserver(records => {
-            for (const record of records) {
-                if (record.type === 'childList') {
-                    hasErrorItems() ? enableAlert() : disableAlert();
-                    break;
-                }
-            }
-        }).observe(errorList, { childList: true });
+        }
+    }
+    getFieldLabel(field) {
+        var _a, _b, _c, _d, _e, _f, _g;
+        const label = (_c = (_b = (_a = field.querySelector('.en__field__label:not(.en__field__label--item)')) !== null && _a !== void 0 ? _a : field.querySelector('.en__field__label')) !== null && _b !== void 0 ? _b : field.querySelector('label')) !== null && _c !== void 0 ? _c : field.querySelector('legend');
+        const labelText = (_e = (_d = label === null || label === void 0 ? void 0 : label.textContent) === null || _d === void 0 ? void 0 : _d.trim()) !== null && _e !== void 0 ? _e : '';
+        if (labelText)
+            return this.normalizeLabel(labelText);
+        const input = field.querySelector('input, select, textarea');
+        return (_g = (_f = input === null || input === void 0 ? void 0 : input.getAttribute('aria-label')) === null || _f === void 0 ? void 0 : _f.trim()) !== null && _g !== void 0 ? _g : '';
+    }
+    normalizeLabel(label) {
+        return label
+            .replace(/\s+/g, ' ')
+            .replace(/^[*:\s]+|[*:\s]+$/g, '')
+            .trim();
     }
 }
 
@@ -13384,7 +13873,7 @@ class AutoYear {
 
 class Autocomplete {
     constructor() {
-        this.logger = new logger_EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
+        this.logger = new EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
         this.autoCompleteField('[name="supporter.firstName"]', "given-name");
         this.autoCompleteField('[name="supporter.lastName"]', "family-name");
         this.autoCompleteField("#en__field_transaction_ccexpire", "cc-exp-month");
@@ -13423,7 +13912,7 @@ class Autocomplete {
 class Ecard {
     constructor() {
         this._form = EnForm.getInstance();
-        this.logger = new logger_EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
+        this.logger = new EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
         if (!this.shouldRun())
             return;
         this.altsAndArias();
@@ -13754,7 +14243,7 @@ class ClickToExpand {
 
 class Advocacy {
     constructor() {
-        this.logger = new logger_EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
+        this.logger = new EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
         if (!this.shoudRun())
             return;
         this.setClickableLabels();
@@ -13789,7 +14278,7 @@ class Advocacy {
 
 class DataAttributes {
     constructor() {
-        this.logger = new logger_EngridLogger("Data Attribute Changed", "#FFFFFF", "#4d9068", "🛠️");
+        this.logger = new EngridLogger("Data Attribute Changed", "#FFFFFF", "#4d9068", "🛠️");
         this._country = Country.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this.setDataAttributes();
@@ -13805,6 +14294,10 @@ class DataAttributes {
         // Add the Page Type as a Data Attribute on the Body Tag
         if (engrid_ENGrid.checkNested(window, "pageJson", "pageType")) {
             engrid_ENGrid.setBodyData("page-type", window.pageJson.pageType);
+        }
+        // Add the locale as a Data Attribute on the Body Tag
+        if (engrid_ENGrid.checkNested(window, "pageJson", "locale")) {
+            engrid_ENGrid.setBodyData("locale", window.pageJson.locale.toLowerCase());
         }
         // Add the currency code as a Data Attribute on the Body Tag
         engrid_ENGrid.setBodyData("currency-code", engrid_ENGrid.getCurrencyCode());
@@ -13985,7 +14478,7 @@ class DataAttributes {
 class iFrame {
     constructor() {
         this._form = EnForm.getInstance();
-        this.logger = new logger_EngridLogger("iFrame", "brown", "gray", "📡");
+        this.logger = new EngridLogger("iFrame", "brown", "gray", "📡");
         if (this.inIframe()) {
             // Add the data-engrid-embedded attribute when inside an iFrame if it wasn't already added by a script in the Page Template
             engrid_ENGrid.setBodyData("embedded", "");
@@ -14962,7 +15455,7 @@ class IframeQueue {
 
 class InputHasValueAndFocus {
     constructor() {
-        this.logger = new logger_EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
+        this.logger = new EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
         this.formInputs = document.querySelectorAll(".en__field--text, .en__field--email:not(.en__field--checkbox), .en__field--telephone, .en__field--number, .en__field--textarea, .en__field--select, .en__field--checkbox");
         if (this.shouldRun()) {
             this.run();
@@ -15024,6 +15517,9 @@ class InputHasValueAndFocus {
 
 class InputPlaceholders {
     constructor() {
+        // NOTE: for selectors listed in selectorToI18nKey below, these English
+        // strings are shadowed by the i18n dictionary — edit
+        // interfaces/i18n-options.ts ("placeholders.*" keys) instead of here.
         this.defaultPlaceholders = {
             "input#en__field_supporter_firstName": "First Name",
             "input#en__field_supporter_lastName": "Last Name",
@@ -15069,10 +15565,30 @@ class InputPlaceholders {
             "input#en__field_supporter_billingRegion": "Billing Region",
             "input#en__field_supporter_billingPostcode": "Billing Postal Code",
         };
+        // Maps the default-placeholder selectors to i18n dictionary keys, so the
+        // built-in strings follow the page language. Selectors the client overrides
+        // via the Placeholders option are never translated.
+        this.selectorToI18nKey = {
+            "input#en__field_supporter_firstName": "placeholders.firstName",
+            "input#en__field_supporter_lastName": "placeholders.lastName",
+            "input#en__field_supporter_emailAddress": "placeholders.emailAddress",
+            "input#en__field_supporter_phoneNumber": "placeholders.phoneNumberOptional",
+            ".en__mandatory input#en__field_supporter_phoneNumber": "placeholders.phoneNumber",
+            ".i-required input#en__field_supporter_phoneNumber": "placeholders.phoneNumber",
+            "input#en__field_supporter_phoneNumber2": "placeholders.phoneNumber2Optional",
+            "input#en__field_supporter_country": "placeholders.country",
+            "input#en__field_supporter_address1": "placeholders.address1",
+            "input#en__field_supporter_address2": "placeholders.address2",
+            "input#en__field_supporter_city": "placeholders.city",
+            "input#en__field_supporter_region": "placeholders.region",
+            "input#en__field_supporter_postcode": "placeholders.postcode",
+        };
+        this.customSelectors = new Set();
         if (this.shouldRun()) {
             // If there's a Placeholders option, merge it with the default placeholders
             const placeholders = engrid_ENGrid.getOption("Placeholders");
             if (placeholders) {
+                this.customSelectors = new Set(Object.keys(placeholders));
                 this.defaultPlaceholders = Object.assign(Object.assign({}, this.defaultPlaceholders), placeholders);
             }
             this.run();
@@ -15084,8 +15600,17 @@ class InputPlaceholders {
     run() {
         Object.keys(this.defaultPlaceholders).forEach((selector) => {
             if (selector in this.defaultPlaceholders)
-                this.addPlaceholder(selector, this.defaultPlaceholders[selector]);
+                this.addPlaceholder(selector, this.resolvePlaceholder(selector));
         });
+    }
+    // Built-in placeholder strings follow the page language; client-provided
+    // Placeholders options always win.
+    resolvePlaceholder(selector) {
+        const key = this.selectorToI18nKey[selector];
+        if (key && !this.customSelectors.has(selector)) {
+            return engrid_ENGrid.t(key);
+        }
+        return this.defaultPlaceholders[selector];
     }
     addPlaceholder(selector, placeholder) {
         const fieldEl = document.querySelector(selector);
@@ -15324,7 +15849,8 @@ class UpsellLightbox {
         this._frequency = DonationFrequency.getInstance();
         this._dataLayer = DataLayer.getInstance();
         this._suggestAmount = 0;
-        this.logger = new logger_EngridLogger("UpsellLightbox", "black", "pink", "🪟");
+        this._upsellFrequency = "monthly";
+        this.logger = new EngridLogger("UpsellLightbox", "black", "pink", "🪟");
         let options = "EngridUpsell" in window ? window.EngridUpsell : {};
         this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
         //Disable for "applepay" via Vantiv payment method. Adding it to the array like this so it persists
@@ -15341,23 +15867,19 @@ class UpsellLightbox {
         this.renderLightbox();
         this._form.onSubmit.subscribe(() => this.open());
     }
+    parseMergeTags(str) {
+        return str
+            .replace(/\{new-amount\}/g, "<span class='upsell_suggestion'></span>")
+            .replace(/\{new-frequency\}/g, "<span class='upsell_suggestion_frequency'></span>")
+            .replace(/\{old-amount\}/g, "<span class='upsell_amount'></span>")
+            .replace(/\{old-frequency\}/g, "<span class='upsell_frequency'></span>");
+    }
     renderLightbox() {
-        const title = this.options.title
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const paragraph = this.options.paragraph
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const yes = this.options.yesLabel
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const no = this.options.noLabel
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
+        const title = this.parseMergeTags(this.options.title);
+        const paragraph = this.parseMergeTags(this.options.paragraph);
+        const yes = this.parseMergeTags(this.options.yesLabel);
+        const no = this.parseMergeTags(this.options.noLabel);
+        const other = this.parseMergeTags(this.options.otherLabel);
         const markup = `
             <div class="upsellLightboxContainer" id="goMonthly">
               <!-- ideal image size is 480x650 pixels -->
@@ -15372,7 +15894,7 @@ class UpsellLightbox {
                 <div class="upsellOtherAmount">
                   <div class="upsellOtherAmountLabel">
                     <p>
-                      ${this.options.otherLabel}
+                      ${other}
                     </p>
                   </div>
                   <div class="upsellOtherAmountInput">
@@ -15455,7 +15977,7 @@ class UpsellLightbox {
         var _a, _b;
         const value = parseFloat((_b = (_a = this.overlay.querySelector("#secondOtherField")) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "");
         const live_upsell_amount = document.querySelectorAll("#upsellYesButton .upsell_suggestion");
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount } = this.resolveUpsell();
         if (!isNaN(value) && value > 0) {
             this.checkOtherAmount(value);
         }
@@ -15467,59 +15989,87 @@ class UpsellLightbox {
     liveAmounts() {
         const live_upsell_amount = document.querySelectorAll(".upsell_suggestion");
         const live_amount = document.querySelectorAll(".upsell_amount");
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount } = this.resolveUpsell();
         const suggestedAmount = upsellAmount + this._fees.calculateFees(upsellAmount);
         live_upsell_amount.forEach((elem) => (elem.innerHTML = this.getAmountTxt(suggestedAmount)));
         live_amount.forEach((elem) => (elem.innerHTML = this.getAmountTxt(this._amount.amount + this._fees.fee)));
     }
     liveFrequency() {
         const live_upsell_frequency = document.querySelectorAll(".upsell_frequency");
+        const live_upsell_suggestion_frequency = document.querySelectorAll(".upsell_suggestion_frequency");
         live_upsell_frequency.forEach((elem) => (elem.innerHTML = this.getFrequencyTxt()));
+        live_upsell_suggestion_frequency.forEach((elem) => (elem.innerHTML = this.getFrequencyTxt(this._upsellFrequency)));
     }
-    // Return the Suggested Upsell Amount
-    getUpsellAmount() {
-        var _a, _b;
+    // Resolve the upsell amount and target frequency in a single pass and keep
+    // the cached _suggestAmount / _upsellFrequency in sync with the current
+    // donation amount and any value entered in the "other amount" field.
+    resolveUpsell() {
+        var _a, _b, _c, _d, _e;
         const amount = this._amount.amount;
         const otherAmount = parseFloat((_b = (_a = this.overlay.querySelector("#secondOtherField")) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "");
+        const defaultFrequency = (_c = this.options.upsellToFrequency) !== null && _c !== void 0 ? _c : "monthly";
+        let upsellAmount;
+        let upsellFrequency;
         if (otherAmount > 0) {
-            return otherAmount > this.options.minAmount
-                ? otherAmount
-                : this.options.minAmount;
+            // An "other" amount overrides the amount but keeps the frequency that
+            // was already shown when the lightbox opened
+            upsellAmount =
+                otherAmount > this.options.minAmount
+                    ? otherAmount
+                    : this.options.minAmount;
+            upsellFrequency = this._upsellFrequency;
         }
-        let upsellAmount = 0;
-        for (let i = 0; i < this.options.amountRange.length; i++) {
-            let val = this.options.amountRange[i];
-            if (upsellAmount == 0 && amount <= val.max) {
-                upsellAmount = val.suggestion;
-                if (upsellAmount === 0)
-                    return 0;
-                if (typeof upsellAmount !== "number") {
-                    const suggestionMath = upsellAmount.replace("amount", amount.toFixed(2));
-                    upsellAmount = parseFloat(Function('"use strict";return (' + suggestionMath + ")")());
+        else {
+            upsellAmount = 0;
+            upsellFrequency = defaultFrequency;
+            for (let i = 0; i < this.options.amountRange.length; i++) {
+                const val = this.options.amountRange[i];
+                if (upsellAmount == 0 && amount <= val.max) {
+                    if (val.suggestion === 0) {
+                        upsellFrequency = (_d = val.frequency) !== null && _d !== void 0 ? _d : defaultFrequency;
+                        this._suggestAmount = 0;
+                        this._upsellFrequency = upsellFrequency;
+                        return { amount: 0, frequency: upsellFrequency };
+                    }
+                    else if (typeof val.suggestion === "number") {
+                        upsellAmount = val.suggestion;
+                    }
+                    else {
+                        const suggestionMath = val.suggestion.replace("amount", amount.toFixed(2));
+                        upsellAmount = parseFloat(Function('"use strict";return (' + suggestionMath + ")")());
+                    }
+                    upsellFrequency = (_e = val.frequency) !== null && _e !== void 0 ? _e : defaultFrequency;
+                    break;
                 }
-                break;
             }
+            upsellAmount =
+                upsellAmount > this.options.minAmount
+                    ? upsellAmount
+                    : this.options.minAmount;
         }
-        return upsellAmount > this.options.minAmount
-            ? upsellAmount
-            : this.options.minAmount;
+        this._suggestAmount = upsellAmount;
+        this._upsellFrequency = upsellFrequency;
+        return { amount: upsellAmount, frequency: upsellFrequency };
     }
     shouldOpen() {
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount, frequency: upsellFrequency } = this.resolveUpsell();
         const paymenttype = engrid_ENGrid.getFieldValue("transaction.paymenttype") || "";
-        this._suggestAmount = upsellAmount;
-        // If frequency is not onetime or
-        // the modal is already opened or
-        // there's no suggestion for this donation amount,
+        // If frequency is not allowed, or
+        // the modal is already opened, or
+        // there's no suggestion for this donation amount, or
+        // the target upsell frequency is not available on the form,
         // we should not open
         if (this.freqAllowed() &&
             !this.shouldSkip() &&
             !this.options.disablePaymentMethods.includes(paymenttype.toLowerCase()) &&
             !this.overlay.classList.contains("is-submitting") &&
-            upsellAmount > 0) {
+            upsellAmount > 0 &&
+            this._frequency.frequencies.includes(upsellFrequency) &&
+            this._frequency.frequency !== upsellFrequency) {
             this.logger.log("Upsell Frequency " + this._frequency.frequency);
             this.logger.log("Upsell Amount " + this._amount.amount);
             this.logger.log("Upsell Suggested Amount " + upsellAmount);
+            this.logger.log("Upsell Suggested Frequency " + upsellFrequency);
             return true;
         }
         return false;
@@ -15530,6 +16080,8 @@ class UpsellLightbox {
         const allowed = [];
         if (this.options.oneTime)
             allowed.push("onetime");
+        if (this.options.monthly)
+            allowed.push("monthly");
         if (this.options.annual)
             allowed.push("annual");
         return allowed.includes(freq);
@@ -15589,27 +16141,30 @@ class UpsellLightbox {
             ((_a = document.querySelector("#upsellYesButton")) === null || _a === void 0 ? void 0 : _a.contains(e.target))) {
             this.logger.success("Upsold");
             this.setOriginalAmount(this._amount.amount.toString());
-            const upsoldAmount = this.getUpsellAmount();
+            const { amount: upsoldAmount, frequency: upsellFrequency } = this.resolveUpsell();
             const originalAmount = this._amount.amount;
-            this._frequency.setFrequency("monthly");
+            const originalFrequency = this._frequency.frequency;
+            this._frequency.setFrequency(upsellFrequency);
             this._amount.setAmount(upsoldAmount);
             this._dataLayer.addEndOfGiftProcessEvent("ENGRID_UPSELL", {
                 eventValue: true,
+                originalFrequency: originalFrequency,
                 originalAmount: originalAmount,
                 upsoldAmount: upsoldAmount,
-                frequency: "monthly",
+                frequency: upsellFrequency,
             });
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL", true);
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_ORIGINAL_AMOUNT", originalAmount);
-            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", "MONTHLY");
-            this.renderConversionField("upsellSuccess", "onetime", originalAmount, "monthly", this._suggestAmount, "monthly", upsoldAmount);
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_ORIGINAL_FREQUENCY", this.getFrequencyTxt(originalFrequency).toUpperCase());
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", this.getFrequencyTxt(upsellFrequency).toUpperCase());
+            this.renderConversionField("upsellSuccess", originalFrequency, originalAmount, upsellFrequency, this._suggestAmount, upsellFrequency, upsoldAmount);
         }
         else {
             this.setOriginalAmount("");
             window.sessionStorage.removeItem("original");
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL", false);
-            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", "ONE-TIME");
-            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, "monthly", this._suggestAmount, this._frequency.frequency, this._amount.amount);
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", this.getFrequencyTxt(this._frequency.frequency).toUpperCase());
+            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, this._upsellFrequency, this._suggestAmount, this._frequency.frequency, this._amount.amount);
         }
         this._form.submitForm();
     }
@@ -15619,7 +16174,7 @@ class UpsellLightbox {
         this.overlay.classList.add("is-hidden");
         engrid_ENGrid.setBodyData("has-lightbox", false);
         if (this.options.submitOnClose) {
-            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, "monthly", this._suggestAmount, this._frequency.frequency, this._amount.amount);
+            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, this._upsellFrequency, this._suggestAmount, this._frequency.frequency, this._amount.amount);
             this._form.submitForm();
         }
         else {
@@ -15635,14 +16190,16 @@ class UpsellLightbox {
         const amountTxt = engrid_ENGrid.formatNumber(amount, dec_places, dec_separator, thousands_separator);
         return amount > 0 ? symbol + amountTxt : "";
     }
-    getFrequencyTxt() {
+    getFrequencyTxt(frequency = this._frequency.frequency) {
         const freqTxt = {
             onetime: "one-time",
             monthly: "monthly",
+            quarterly: "quarterly",
+            semi_annual: "semi-annual",
             annual: "annual",
         };
-        const frequency = this._frequency.frequency;
-        return frequency in freqTxt ? freqTxt[frequency] : frequency;
+        const freq = frequency;
+        return freq in freqTxt ? freqTxt[freq] : frequency;
     }
     checkOtherAmount(value) {
         const otherInput = document.querySelector(".upsellOtherAmountInput");
@@ -15658,7 +16215,7 @@ class UpsellLightbox {
     renderConversionField(event, // The event that triggered the conversion
     freq, // The frequency of the donation (onetime, monthly, annual)
     amt, // The original amount of the donation (before the upsell)
-    sugFreq, // The suggested frequency of the upsell (monthly)
+    sugFreq, // The suggested frequency of the upsell
     sugAmt, // The suggested amount of the upsell
     subFreq, // The submitted frequency of the upsell (onetime, monthly, annual)
     subAmt // The submitted amount of the upsell
@@ -15697,7 +16254,7 @@ class UpsellCheckbox {
         this.oldAmount = 0;
         this.oldFrequency = "one-time";
         this.resetCheckbox = false;
-        this.logger = new logger_EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
+        this.logger = new EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
         let options = "EngridUpsell" in window ? window.EngridUpsell : {};
         this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
         if (this.options.upsellCheckbox === false) {
@@ -16054,7 +16611,7 @@ class ShowHideRadioCheckboxes {
                 state.push({
                     page: engrid_ENGrid.getPageID(),
                     class: this.classes,
-                    value: element.value,
+                    value: element.value.replace(/\W/g, ""),
                 });
                 this.logger.log("storing radio state", state[state.length - 1]);
             }
@@ -16069,7 +16626,7 @@ class ShowHideRadioCheckboxes {
                 state.push({
                     page: engrid_ENGrid.getPageID(),
                     class: this.classes,
-                    value: (_b = (_a = [...this.elements].find((el) => el.checked)) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "N", // First checked value or "N" if none
+                    value: (_b = (_a = [...this.elements].find((el) => el.checked)) === null || _a === void 0 ? void 0 : _a.value.replace(/\W/g, "")) !== null && _b !== void 0 ? _b : "N", // First checked value or "N" if none
                 });
                 this.logger.log("storing checkbox state", state[state.length - 1]);
             }
@@ -16077,7 +16634,7 @@ class ShowHideRadioCheckboxes {
         window.sessionStorage.setItem(`engrid_ShowHideRadioCheckboxesState`, JSON.stringify(state));
     }
     constructor(elements, classes) {
-        this.logger = new logger_EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
+        this.logger = new EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
         this.elements = document.getElementsByName(elements);
         this.classes = classes;
         this.createDataAttributes();
@@ -16190,7 +16747,9 @@ class TranslateFields {
         };
         this.countriesSelect = document.querySelectorAll('select[name="supporter.country"], select[name="transaction.shipcountry"], select[name="supporter.billingCountry"], select[name="transaction.infcountry"]');
         let options = "EngridTranslate" in window ? window.EngridTranslate : {};
-        this.options = TranslateOptionsDefaults;
+        // Shallow clone: the EngridTranslate merge below concatenates arrays per
+        // key and must never mutate the shared TranslateOptionsDefaults.
+        this.options = Object.assign({}, TranslateOptionsDefaults);
         // Don't run this for US-only forms.
         if (document.querySelector(".en__component--formblock.us-only-form .en__field--country")) {
             return;
@@ -16228,11 +16787,18 @@ class TranslateFields {
                 }
             }
         }
+        else {
+            // No country field on the page: still translate to the page language
+            this.applyLanguageLayer();
+        }
     }
     translateFields(countryName = "supporter.country") {
         this.resetTranslatedFields();
         const countryValue = engrid_ENGrid.getFieldValue(countryName);
-        // Translate the State Field
+        // Apply the page language as the base translation layer
+        this.applyLanguageLayer();
+        // Translate the State Field (runs last so country-specific state labels
+        // like "Provincia" or "Estado" win over the language layer)
         this.setStateField(countryValue, this.countryToStateFields[countryName]);
         if (countryName === "supporter.country") {
             if (countryValue in this.options) {
@@ -16244,6 +16810,14 @@ class TranslateFields {
             // Translate the "To:"
             const recipient_block = document.querySelectorAll(".recipient-block");
             if (!!recipient_block.length) {
+                // Capture the original page-builder text once per cycle so
+                // resetTranslatedFields() can restore it — a country change never
+                // leaves a stale translation behind.
+                recipient_block.forEach((elem) => {
+                    const el = elem;
+                    if (!el.dataset.original)
+                        el.dataset.original = el.innerHTML;
+                });
                 switch (countryValue) {
                     case "FR":
                     case "FRA":
@@ -16260,8 +16834,27 @@ class TranslateFields {
                     case "Netherlands":
                         recipient_block.forEach((elem) => (elem.innerHTML = "Aan:"));
                         break;
+                    default:
+                        // No country-specific rule: use the page language string when the
+                        // language dictionary defines one (e.g. "es" -> "Para:"). English
+                        // pages keep the page-builder text, already restored above.
+                        if (engrid_ENGrid.getPageLanguage() !== "en" &&
+                            engrid_ENGrid.hasI18nKey("translateFields.recipientTo")) {
+                            recipient_block.forEach((elem) => (elem.innerHTML = engrid_ENGrid.t("translateFields.recipientTo")));
+                        }
+                        break;
                 }
             }
+        }
+    }
+    // Apply the translation layer for the current page language (e.g. "es").
+    // This is the base layer; country-specific translations override it per field.
+    applyLanguageLayer() {
+        const language = engrid_ENGrid.getPageLanguage();
+        if (language in this.options) {
+            this.options[language].forEach((field) => {
+                this.translateField(field.field, field.translation);
+            });
         }
     }
     translateField(name, translation) {
@@ -16276,7 +16869,20 @@ class TranslateFields {
                     ? simplecountriesSelect.cloneNode(true)
                     : null;
                 if (field instanceof HTMLInputElement && field.placeholder != "") {
-                    if (!fieldLabel || fieldLabel.innerHTML == field.placeholder) {
+                    // Translate the placeholder when it mirrors the label (the common
+                    // case). Compare normalized visible text so template whitespace and
+                    // required-marker markup don't break the match. Order matters:
+                    // trim before stripping the marker, or labels like "Name *\n"
+                    // keep the asterisk.
+                    const labelText = ((fieldLabel === null || fieldLabel === void 0 ? void 0 : fieldLabel.textContent) || "")
+                        .replace(/\s+/g, " ")
+                        .trim()
+                        .replace(/\s*\*$/, "");
+                    const placeholderText = field.placeholder
+                        .replace(/\s+/g, " ")
+                        .trim()
+                        .replace(/\s*\*$/, "");
+                    if (!fieldLabel || labelText === placeholderText) {
                         field.dataset.original = field.placeholder;
                         field.placeholder = translation;
                     }
@@ -16331,7 +16937,7 @@ class TranslateFields {
             case "GB":
             case "GBR":
             case "United Kingdom":
-                this.setStateValues(state, "State/Region", null);
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateRegion"), null);
                 break;
             case "DE":
             case "DEU":
@@ -16345,8 +16951,8 @@ class TranslateFields {
                 break;
             case "AU":
             case "AUS":
-                this.setStateValues(state, "Province / State", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "New South Wales", value: "NSW" },
                     { label: "Victoria", value: "VIC" },
                     { label: "Queensland", value: "QLD" },
@@ -16358,8 +16964,8 @@ class TranslateFields {
                 ]);
                 break;
             case "Australia":
-                this.setStateValues(state, "Province / State", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "New South Wales", value: "New South Wales" },
                     { label: "Victoria", value: "Victoria" },
                     { label: "Queensland", value: "Queensland" },
@@ -16375,8 +16981,8 @@ class TranslateFields {
                 break;
             case "US":
             case "USA":
-                this.setStateValues(state, "State", [
-                    { label: "Select State", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.state"), [
+                    { label: engrid_ENGrid.t("translateFields.selectState"), value: "" },
                     { label: "Alabama", value: "AL" },
                     { label: "Alaska", value: "AK" },
                     { label: "Arizona", value: "AZ" },
@@ -16453,8 +17059,8 @@ class TranslateFields {
                 ]);
                 break;
             case "United States":
-                this.setStateValues(state, "State", [
-                    { label: "Select State", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.state"), [
+                    { label: engrid_ENGrid.t("translateFields.selectState"), value: "" },
                     { label: "Alabama", value: "Alabama" },
                     { label: "Alaska", value: "Alaska" },
                     { label: "Arizona", value: "Arizona" },
@@ -16541,8 +17147,8 @@ class TranslateFields {
                 break;
             case "CA":
             case "CAN":
-                this.setStateValues(state, "Province / Territory", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.provinceTerritory"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "Alberta", value: "AB" },
                     { label: "British Columbia", value: "BC" },
                     { label: "Manitoba", value: "MB" },
@@ -16559,8 +17165,8 @@ class TranslateFields {
                 ]);
                 break;
             case "Canada":
-                this.setStateValues(state, "Province / Territory", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.provinceTerritory"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "Alberta", value: "Alberta" },
                     { label: "British Columbia", value: "British Columbia" },
                     { label: "Manitoba", value: "Manitoba" },
@@ -16653,7 +17259,7 @@ class TranslateFields {
                 ]);
                 break;
             default:
-                this.setStateValues(state, "Province / State", null);
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), null);
                 break;
         }
     }
@@ -16982,12 +17588,20 @@ class setRecurrFreq {
 ;// ./node_modules/@4site/engrid-scripts/dist/page-background.js
 
 class PageBackground {
-    constructor() {
+    constructor(useBodyBannerImage = false) {
         // @TODO: Change page-backgroundImage to page-background
         this.pageBackground = document.querySelector(".page-backgroundImage");
+        this.bodyBanner = document.querySelector(".body-banner");
+        this.bodyBannerImage = null;
         this.mutationObserver = null;
-        this.logger = new logger_EngridLogger("PageBackground", "lightblue", "darkblue", "🖼️");
-        if (!this.pageBackground) {
+        this.logger = new EngridLogger("PageBackground", "lightblue", "darkblue", "🖼️");
+        if (typeof window.UseBodyBannerImageAsBackground !== "undefined") {
+            useBodyBannerImage = !!window.UseBodyBannerImageAsBackground;
+        }
+        if (useBodyBannerImage) {
+            this.bodyBannerImage = this.findBodyBannerImage();
+        }
+        if (!this.pageBackground && !this.bodyBannerImage) {
             this.logger.log("A background image set in the page was not found, any default image set in the theme on --engrid__page-backgroundImage_url will be used");
             return;
         }
@@ -16996,28 +17610,66 @@ class PageBackground {
         this.processAttributionPositioning();
         this.setupMutationObserver();
     }
+    findBodyBannerImage() {
+        var _a;
+        if (!this.bodyBanner) {
+            return null;
+        }
+        return ((_a = this.bodyBanner.querySelector("img.preferred-image")) !== null && _a !== void 0 ? _a : this.bodyBanner.querySelector("img"));
+    }
     /**
      * Initialize background image by finding and setting CSS custom property
      */
     initializeBackgroundImage() {
-        if (!this.pageBackground)
-            return;
-        const pageBackgroundImg = this.pageBackground.querySelector("img");
-        if (!pageBackgroundImg) {
-            this.logger.log("A background image set in the page was not found, any default image set in the theme on --engrid__page-backgroundImage_url will be used");
+        const backgroundImg = this.getBackgroundImage();
+        if (!backgroundImg) {
+            this.logger.log("No image found in page background and no body banner image found (or pageBackground is already occupied), any default image set in the theme on --engrid__page-backgroundImage_url will be used");
             return;
         }
-        const dataSrc = pageBackgroundImg.getAttribute("data-src");
-        const src = pageBackgroundImg.src;
+        const imageSource = this.getImageSource(backgroundImg);
+        if (!imageSource) {
+            this.logger.log("A background image set in the page was found but without a data-src or src value, no action taken", backgroundImg);
+            return;
+        }
+        this.setBackgroundImageUrl(imageSource.url, imageSource.sourceType);
+    }
+    getBackgroundImage() {
+        if (!this.pageBackground) {
+            return null;
+        }
+        const existingImage = this.pageBackground.querySelector("img");
+        if (existingImage) {
+            return existingImage;
+        }
+        if (this.bodyBannerImage && this.pageBackground.children.length === 0) {
+            return this.useBodyBannerAsBackground();
+        }
+        return null;
+    }
+    useBodyBannerAsBackground() {
+        var _a;
+        if (!this.pageBackground || !this.bodyBanner) {
+            return null;
+        }
+        this.logger.log("No image found in page background, using body banner image as background image instead");
+        const clonedBodyBanner = this.bodyBanner.cloneNode(true);
+        while (clonedBodyBanner.firstChild) {
+            this.pageBackground.appendChild(clonedBodyBanner.firstChild);
+        }
+        document.body.removeAttribute("data-engrid-no-page-backgroundImage");
+        engrid_ENGrid.setBodyData("use-body-banner-background", "");
+        return ((_a = this.pageBackground.querySelector("img.preferred-image")) !== null && _a !== void 0 ? _a : this.pageBackground.querySelector("img"));
+    }
+    getImageSource(backgroundImg) {
+        const dataSrc = backgroundImg.getAttribute("data-src");
         if (dataSrc) {
-            this.setBackgroundImageUrl(dataSrc, "data-src");
+            return { sourceType: "data-src", url: dataSrc };
         }
-        else if (src) {
-            this.setBackgroundImageUrl(src, "src");
+        const src = backgroundImg.src;
+        if (src) {
+            return { sourceType: "src", url: src };
         }
-        else {
-            this.logger.log("A background image set in the page was found but without a data-src or src value, no action taken", pageBackgroundImg);
-        }
+        return null;
     }
     /**
      * Set the background image URL as a CSS custom property
@@ -17237,7 +17889,7 @@ class NeverBounce {
         this.emailWrapper = document.querySelector(".en__field--emailAddress");
         this.nbDate = null;
         this.nbStatus = null;
-        this.logger = new logger_EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
+        this.logger = new EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
         this.shouldRun = true;
         this.nbLoaded = false;
         this.bypassEmails = [
@@ -17548,7 +18200,7 @@ class FreshAddress {
         this.faDate = null;
         this.faStatus = null;
         this.faMessage = null;
-        this.logger = new logger_EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
+        this.logger = new EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
         this.shouldRun = true;
         this.options = engrid_ENGrid.getOption("FreshAddress");
         if (this.options === false ||
@@ -17880,6 +18532,7 @@ var remember_me_awaiter = (undefined && undefined.__awaiter) || function (thisAr
 };
 
 
+
 const remember_me_tippy = (__webpack_require__(9244)/* ["default"] */ .Ay);
 // localStorage key used to cache the per-device AES-GCM encryption key.
 // A random secret generated once per device and held in localStorage.
@@ -17935,7 +18588,10 @@ class RememberMe {
                 : "before";
         this.fieldClearLabel = options.fieldClearLabel
             ? options.fieldClearLabel
-            : "(clear autofill)";
+            : engrid_ENGrid.t("rememberMe.clearLabel");
+        this.rememberMeLabel = options.rememberMeLabel
+            ? options.rememberMeLabel
+            : engrid_ENGrid.t("rememberMe.label");
         this.fieldData = {};
         if (this.useRemote()) {
             this.createIframe(() => {
@@ -18099,12 +18755,11 @@ class RememberMe {
     insertRememberMeOptin() {
         let rememberMeOptInField = document.getElementById("remember-me-opt-in");
         if (!rememberMeOptInField) {
-            const rememberMeLabel = "Remember Me";
-            const rememberMeInfo = `
-				Check “Remember me” to complete forms on this device faster. 
-				While your financial information won’t be stored, you should only check this box from a personal device. 
-				Click “Clear autofill” to remove the information from your device at any time.
-			`;
+            const rememberMeLabel = this.rememberMeLabel;
+            const rememberMeInfo = engrid_ENGrid.t("rememberMe.tooltip", {
+                label: rememberMeLabel,
+                clearLabel: this.fieldClearLabel,
+            });
             const rememberMeOptInFieldChecked = this.rememberMeOptIn ? "checked" : "";
             const rememberMeOptInField = document.createElement("div");
             rememberMeOptInField.classList.add("en__field", "en__field--checkbox", "en__field--question", "rememberme-wrapper");
@@ -18166,7 +18821,7 @@ class RememberMe {
                 "position:absolute;width:1px;height:1px;left:-9999px;";
             iframe.src = this.remoteUrl;
             iframe.setAttribute("sandbox", "allow-same-origin allow-scripts");
-            iframe.setAttribute("title", "Remember Me iframe");
+            iframe.setAttribute("title", engrid_ENGrid.t("rememberMe.iframeTitle"));
             this.iframe = iframe;
             document.body.appendChild(this.iframe);
             this.iframe.addEventListener("load", () => iframeLoaded(), false);
@@ -18572,7 +19227,7 @@ class RememberMe {
 class ShowIfAmount {
     constructor() {
         this._amount = DonationAmount.getInstance();
-        this.logger = new logger_EngridLogger("ShowIfAmount", "yellow", "black", "👀");
+        this.logger = new EngridLogger("ShowIfAmount", "yellow", "black", "👀");
         this._elements = document.querySelectorAll('[class*="showifamount"]');
         if (this._elements.length > 0) {
             this._amount.onAmountChange.subscribe(() => this.init());
@@ -18690,7 +19345,7 @@ class ShowIfAmount {
 
 class OtherAmount {
     constructor() {
-        this.logger = new logger_EngridLogger("OtherAmount", "green", "black", "💰");
+        this.logger = new EngridLogger("OtherAmount", "green", "black", "💰");
         this._amount = DonationAmount.getInstance();
         "focusin input".split(" ").forEach((e) => {
             var _a;
@@ -18711,6 +19366,11 @@ class OtherAmount {
             otherAmountField.setAttribute("autocomplete", "off");
             otherAmountField.setAttribute("data-lpignore", "true");
             otherAmountField.addEventListener("change", (e) => {
+                // Formatting only matters when entering a custom amount; skip
+                // unrelated change events (e.g. browser autofill firing on the
+                // field while a preset amount is selected)
+                if (!this._amount.isOtherAmountSelected())
+                    return;
                 const target = e.target;
                 const amount = target.value;
                 const cleanAmount = engrid_ENGrid.cleanAmount(amount);
@@ -18772,7 +19432,7 @@ class MinMaxAmount {
         this.maxAmountMessage = engrid_ENGrid.getOption("MaxAmountMessage");
         this.disableLiveValidation = engrid_ENGrid.getOption("DisableMinMaxLiveValidation");
         this.enAmountValidator = null;
-        this.logger = new logger_EngridLogger("MinMaxAmount", "white", "purple", "🔢");
+        this.logger = new EngridLogger("MinMaxAmount", "white", "purple", "🔢");
         if (!this.shouldRun()) {
             // If we're not on a Donation Page, get out
             return;
@@ -18921,7 +19581,7 @@ class Ticker {
         this.shuffleSeed = __webpack_require__(3184);
         this.items = [];
         this.tickerElement = document.querySelector(".engrid-ticker");
-        this.logger = new logger_EngridLogger("Ticker", "black", "beige", "🔁");
+        this.logger = new EngridLogger("Ticker", "black", "beige", "🔁");
         if (!this.shouldRun()) {
             this.logger.log("Not running");
             // If we don't find a ticker, get out
@@ -19004,7 +19664,7 @@ var data_layer_awaiter = (undefined && undefined.__awaiter) || function (thisArg
 
 class DataLayer {
     constructor() {
-        this.logger = new logger_EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
+        this.logger = new EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
         this.dataLayer = window.dataLayer || [];
         this._form = EnForm.getInstance();
         this.encoder = new TextEncoder();
@@ -19352,7 +20012,7 @@ class DataLayer {
 
 class DataReplace {
     constructor() {
-        this.logger = new logger_EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
+        this.logger = new EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
         this.enElements = new Array();
         this.searchElements();
         if (!this.shouldRun())
@@ -19429,7 +20089,7 @@ class DataReplace {
 
 class DataHide {
     constructor() {
-        this.logger = new logger_EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
+        this.logger = new EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
         this.enElements = new Array();
         this.logger.log("Constructor");
         this.enElements = engrid_ENGrid.getUrlParameter("engrid_hide[]");
@@ -19545,7 +20205,7 @@ class AddNameToMessage {
 class ExpandRegionName {
     constructor() {
         this._form = EnForm.getInstance();
-        this.logger = new logger_EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
+        this.logger = new EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
         if (this.shouldRun()) {
             const expandedRegionField = engrid_ENGrid.getOption("RegionLongFormat");
             console.log("expandedRegionField", expandedRegionField);
@@ -19593,7 +20253,7 @@ class ExpandRegionName {
 
 class UrlToForm {
     constructor() {
-        this.logger = new logger_EngridLogger("UrlToForm", "white", "magenta", "🔗");
+        this.logger = new EngridLogger("UrlToForm", "white", "magenta", "🔗");
         this.urlParams = new URLSearchParams(document.location.search);
         if (!this.shouldRun())
             return;
@@ -19628,7 +20288,7 @@ class UrlToForm {
 
 class RequiredIfVisible {
     constructor() {
-        this.logger = new logger_EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
+        this.logger = new EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
         this._form = EnForm.getInstance();
         this.requiredIfVisibleElements = document.querySelectorAll(`
     .i-required .en__field,
@@ -19700,7 +20360,7 @@ var tidycontact_awaiter = (undefined && undefined.__awaiter) || function (thisAr
 class TidyContact {
     constructor() {
         var _a, _b, _c, _d, _e;
-        this.logger = new logger_EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
+        this.logger = new EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
         this.endpoint = "https://api.tidycontact.io";
         this.wasCalled = false; // True if the API endpoint was called
         this.httpStatus = 0;
@@ -20907,7 +21567,7 @@ class TidyContact {
 
 class LiveCurrency {
     constructor() {
-        this.logger = new logger_EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
+        this.logger = new EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
         this.elementsFound = false;
         this.isUpdating = false;
         this._amount = DonationAmount.getInstance();
@@ -21103,7 +21763,7 @@ class LiveCurrency {
 
 class CustomCurrency {
     constructor() {
-        this.logger = new logger_EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
+        this.logger = new EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
         this.currencyElement = document.querySelector("[name='transaction.paycurrency']");
         this._country = Country.getInstance();
         if (!this.shouldRun())
@@ -21163,7 +21823,7 @@ class CustomCurrency {
 
 class Autosubmit {
     constructor() {
-        this.logger = new logger_EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
+        this.logger = new EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
         this._form = EnForm.getInstance();
         if (engrid_ENGrid.checkNested(window.EngagingNetworks, "require", "_defined", "enjs", "checkSubmissionFailed") &&
             !window.EngagingNetworks.require._defined.enjs.checkSubmissionFailed() &&
@@ -21238,7 +21898,7 @@ class EventTickets {
 
 class SwapAmounts {
     constructor() {
-        this.logger = new logger_EngridLogger("SwapAmounts", "purple", "white", "💰");
+        this.logger = new EngridLogger("SwapAmounts", "purple", "white", "💰");
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this.defaultChange = false; // Tracks if user changed away from default after swap
@@ -21252,8 +21912,17 @@ class SwapAmounts {
         this.hasRecurringNSG = !!(window.EngagingNetworks.suggestedGift &&
             window.EngagingNetworks.suggestedGift.recurring &&
             window.EngagingNetworks.suggestedGift.recurring.length > 0);
+        if (this.hasOneTimeNSG) {
+            engrid_ENGrid.setBodyData("en-nsg-onetime", true);
+        }
+        if (this.hasRecurringNSG) {
+            engrid_ENGrid.setBodyData("en-nsg-recurring", true);
+        }
         if (this.hasOneTimeNSG || this.hasRecurringNSG) {
-            this.logger.log("Detected NSG amounts", { suggestedGift: window.EngagingNetworks.suggestedGift });
+            engrid_ENGrid.setBodyData("en-nsg", true);
+            this.logger.log("Detected NSG amounts", {
+                suggestedGift: window.EngagingNetworks.suggestedGift,
+            });
         }
         if (!this.shouldRun())
             return;
@@ -21315,7 +21984,9 @@ class SwapAmounts {
         if (!config)
             return;
         if (this.shouldUseNSG(freq, config)) {
-            this.logger.log(`NSG present for ${freq}, using NSG amounts`, { suggestedGift: window.EngagingNetworks.suggestedGift });
+            this.logger.log(`NSG present for ${freq}, using NSG amounts`, {
+                suggestedGift: window.EngagingNetworks.suggestedGift,
+            });
             window.EngagingNetworks.require._defined.enjs.swapList("donationAmt", this.toEnAmountListNSG(window.EngagingNetworks.suggestedGift, freq), { ignoreCurrentValue: true });
             this._amount.load();
             this.swapped = true;
@@ -21379,7 +22050,7 @@ class SwapAmounts {
 class DebugPanel {
     constructor(pageLayouts) {
         var _a, _b;
-        this.logger = new logger_EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
+        this.logger = new EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
         this.brandingHtml = new BrandingHtml();
         this.element = null;
         this.currentTimestamp = this.getCurrentTimestamp();
@@ -21889,7 +22560,7 @@ DebugPanel.debugSessionStorageKey = "engrid_debug_panel";
 
 class DebugHiddenFields {
     constructor() {
-        this.logger = new logger_EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
+        this.logger = new EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
         this.ignoreFields = ["transaction.paycurrency"];
         // Query all hidden input elements within the specified selectors
         const fields = document.querySelectorAll(".en__component--row [type='hidden'][class*='en_'], .engrid-added-input[type='hidden']");
@@ -22011,7 +22682,7 @@ class BrandingHtml {
 
 class CountryDisable {
     constructor() {
-        this.logger = new logger_EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
+        this.logger = new EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
         const countries = document.querySelectorAll('select[name="supporter.country"], select[name="transaction.shipcountry"], select[name="supporter.billingCountry"], select[name="transaction.infcountry"]');
         const CountryDisable = engrid_ENGrid.getOption("CountryDisable");
         // Remove the countries from the dropdown list
@@ -22040,7 +22711,7 @@ class CountryDisable {
 
 class PremiumGift {
     constructor() {
-        this.logger = new logger_EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
+        this.logger = new EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
         this.enElements = new Array();
         this._frequency = DonationFrequency.getInstance();
         this._amount = DonationAmount.getInstance();
@@ -22275,7 +22946,7 @@ class PremiumGift {
 
 class CustomPremium {
     constructor() {
-        this.logger = new logger_EngridLogger("CustomPremium", "teal", "white", "🧩");
+        this.logger = new EngridLogger("CustomPremium", "teal", "white", "🧩");
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this._enForm = EnForm.getInstance();
@@ -22533,7 +23204,7 @@ class CustomPremium {
 
 class DigitalWallets {
     constructor() {
-        this.logger = new logger_EngridLogger("DigitalWallets", "#fff", "#333", "👛");
+        this.logger = new EngridLogger("DigitalWallets", "#fff", "#333", "👛");
         this._form = EnForm.getInstance();
         //digital wallets not enabled.
         if (!document.getElementById("en__digitalWallet")) {
@@ -22809,7 +23480,7 @@ class MobileCTA {
 
 class LiveFrequency {
     constructor() {
-        this.logger = new logger_EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
+        this.logger = new EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
         this.elementsFound = false;
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
@@ -22926,7 +23597,7 @@ class LiveFrequency {
 
 class UniversalOptIn {
     constructor() {
-        this.logger = new logger_EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
+        this.logger = new EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
         this._elements = document.querySelectorAll(".universal-opt-in, .universal-opt-in_null");
         if (!this.shouldRun())
             return;
@@ -23016,7 +23687,7 @@ class UniversalOptIn {
 class StripeFinancialConnections {
     constructor() {
         this.stripeModalOpen = false;
-        this.logger = new logger_EngridLogger("Stripe Financial Connections", "black", "pink", "🏛️");
+        this.logger = new EngridLogger("Stripe Financial Connections", "black", "pink", "🏛️");
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
@@ -23060,7 +23731,7 @@ class StripeFinancialConnections {
 
 class GiveBySelect {
     constructor() {
-        this.logger = new logger_EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
+        this.logger = new EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
         this.transactionGiveBySelect = document.getElementsByName("transaction.giveBySelect");
         this._frequency = DonationFrequency.getInstance();
         if (!this.transactionGiveBySelect)
@@ -23144,7 +23815,7 @@ class GiveBySelect {
 
 class UrlParamsToBodyAttrs {
     constructor() {
-        this.logger = new logger_EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
+        this.logger = new EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
         this.urlParams = new URLSearchParams(document.location.search);
         this.urlParams.forEach((value, key) => {
             if (key.startsWith("data-engrid-")) {
@@ -23162,7 +23833,7 @@ class ExitIntentLightbox {
     constructor() {
         this.opened = false;
         this.dataLayer = window.dataLayer || [];
-        this.logger = new logger_EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
+        this.logger = new EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
         this.triggerDelay = 1000; // Don't run the exit intent lightbox until at least 1 second has passed after page load
         this.triggerTimeout = null;
         let options = "EngridExitIntent" in window ? window.EngridExitIntent : {};
@@ -23307,7 +23978,7 @@ class ExitIntentLightbox {
 
 class SupporterHub {
     constructor() {
-        this.logger = new logger_EngridLogger("SupporterHub", "black", "pink", "🛖");
+        this.logger = new EngridLogger("SupporterHub", "black", "pink", "🛖");
         this._form = EnForm.getInstance();
         if (!this.shoudRun())
             return;
@@ -23698,7 +24369,7 @@ class SupporterHub {
 
 class FastFormFill {
     constructor() {
-        this.logger = new logger_EngridLogger("FastFormFill", "white", "magenta", "📌");
+        this.logger = new EngridLogger("FastFormFill", "white", "magenta", "📌");
         this.rememberMeEvents = RememberMeEvents.getInstance();
         if (engrid_ENGrid.getOption("RememberMe")) {
             this.rememberMeEvents.onLoad.subscribe((hasData) => {
@@ -23773,7 +24444,7 @@ class FastFormFill {
 
 class SetAttr {
     constructor() {
-        this.logger = new logger_EngridLogger("SetAttr", "black", "yellow", "📌");
+        this.logger = new EngridLogger("SetAttr", "black", "yellow", "📌");
         const enGrid = document.getElementById("engrid");
         if (enGrid) {
             enGrid.addEventListener("click", (e) => {
@@ -23819,7 +24490,7 @@ class SetAttr {
 
 class ShowIfPresent {
     constructor() {
-        this.logger = new logger_EngridLogger("ShowIfPresent", "yellow", "black", "👀");
+        this.logger = new EngridLogger("ShowIfPresent", "yellow", "black", "👀");
         this.elements = [];
         if (this.shouldRun()) {
             this.run();
@@ -23888,7 +24559,7 @@ class ENValidators {
     constructor() {
         this._form = EnForm.getInstance();
         this._enElements = null;
-        this.logger = new logger_EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
+        this.logger = new EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
         if (!this.loadValidators()) {
             // This is an error to flag a racing condition. If the script is loaded before the validators are loaded, it will not work.
             this.logger.error("Not Loaded");
@@ -23980,6 +24651,8 @@ class Modal {
             closeButtonLabel: "Okay!",
             customClass: "",
             showCloseX: true,
+            closeOnEsc: true,
+            onDismiss: () => { },
         };
         this.focusTrapHandler = (e) => {
             const modalElement = this.modal;
@@ -24003,6 +24676,11 @@ class Modal {
                     e.preventDefault();
                     firstFocusable.focus();
                 }
+            }
+        };
+        this.escKeyHandler = (e) => {
+            if (e.key === "Escape" && this.options.closeOnEsc) {
+                this.dismiss();
             }
         };
         this.options = Object.assign(Object.assign({}, this.defaultOptions), options);
@@ -24055,7 +24733,7 @@ class Modal {
             button.classList.add("engrid-modal__button");
             button.textContent = this.options.closeButtonLabel;
             button.addEventListener("click", () => {
-                this.close();
+                this.dismiss();
             });
             modalBody === null || modalBody === void 0 ? void 0 : modalBody.appendChild(button);
         }
@@ -24065,13 +24743,13 @@ class Modal {
         var _a, _b, _c, _d, _e;
         // Close event on top X
         (_b = (_a = this.modal) === null || _a === void 0 ? void 0 : _a.querySelector(".engrid-modal__close")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
-            this.close();
+            this.dismiss();
         });
         // Bounce scale when clicking outside of modal
         (_d = (_c = this.modal) === null || _c === void 0 ? void 0 : _c.querySelector(".engrid-modal__overlay")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", (event) => {
             if (event.target === event.currentTarget) {
                 if (this.options.onClickOutside === "close") {
-                    this.close();
+                    this.dismiss();
                 }
                 else if (this.options.onClickOutside === "bounce") {
                     const modal = document.querySelector(".engrid-modal");
@@ -24087,25 +24765,37 @@ class Modal {
         const closeEls = (_e = this.modal) === null || _e === void 0 ? void 0 : _e.querySelectorAll(".modal__close");
         closeEls === null || closeEls === void 0 ? void 0 : closeEls.forEach((el) => {
             el.addEventListener("click", () => {
-                this.close();
+                this.dismiss();
             });
         });
     }
+    /**
+     * Generic entry point for dismissing the modal.
+     * Fires the onDismiss callback before closing, so consumers can react to the modal being
+     * dismissed rather than closed via their own explicit button logic.
+     */
+    dismiss() {
+        var _a, _b;
+        (_b = (_a = this.options).onDismiss) === null || _b === void 0 ? void 0 : _b.call(_a);
+        this.close();
+    }
     open() {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         engrid_ENGrid.setBodyData("has-lightbox", "true");
         (_a = this.modal) === null || _a === void 0 ? void 0 : _a.classList.remove("modal--hidden");
         (_b = this.modal) === null || _b === void 0 ? void 0 : _b.removeAttribute("aria-hidden");
         const container = (_c = this.modal) === null || _c === void 0 ? void 0 : _c.querySelector(".engrid-modal__container");
         container === null || container === void 0 ? void 0 : container.focus({ preventScroll: true });
         (_d = this.modal) === null || _d === void 0 ? void 0 : _d.addEventListener("keydown", this.focusTrapHandler);
+        (_e = this.modal) === null || _e === void 0 ? void 0 : _e.addEventListener("keydown", this.escKeyHandler);
     }
     close() {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         engrid_ENGrid.setBodyData("has-lightbox", false);
         (_a = this.modal) === null || _a === void 0 ? void 0 : _a.classList.add("modal--hidden");
         (_b = this.modal) === null || _b === void 0 ? void 0 : _b.setAttribute("aria-hidden", "true");
         (_c = this.modal) === null || _c === void 0 ? void 0 : _c.removeEventListener("keydown", this.focusTrapHandler);
+        (_d = this.modal) === null || _d === void 0 ? void 0 : _d.removeEventListener("keydown", this.escKeyHandler);
     }
     getModalContent() {
         return "<h1>Default Modal Content</h1>";
@@ -24125,7 +24815,7 @@ class PostalCodeValidator {
         var _a, _b;
         this.postalCodeField = engrid_ENGrid.getField("supporter.postcode");
         this._form = EnForm.getInstance();
-        this.logger = new logger_EngridLogger("Postal Code Validator", "white", "red", "📬");
+        this.logger = new EngridLogger("Postal Code Validator", "white", "red", "📬");
         this.supportedSeparators = ["+", "-", " "];
         this.separator = this.getSeparator();
         this.regexSeparator = this.getRegexSeparator(this.separator);
@@ -24259,7 +24949,7 @@ class PostalCodeValidator {
 
 class VGS {
     constructor() {
-        this.logger = new logger_EngridLogger("VGS", "black", "pink", "💳");
+        this.logger = new EngridLogger("VGS", "black", "pink", "💳");
         this.vgsField = document.querySelector(".en__field--vgs");
         this.options = engrid_ENGrid.getOption("VGS");
         this.paymentTypeField = document.querySelector("#en__field_transaction_paymenttype");
@@ -24519,7 +25209,7 @@ class VGS {
 
 class CountryRedirect {
     constructor() {
-        this.logger = new logger_EngridLogger("CountryRedirect", "white", "brown", "🛫");
+        this.logger = new EngridLogger("CountryRedirect", "white", "brown", "🛫");
         this._country = Country.getInstance();
         if (!this.shouldRun())
             return;
@@ -24753,7 +25443,7 @@ const EcardToTargetOptionsDefaults = {
 class EcardToTarget {
     constructor() {
         this.options = EcardToTargetOptionsDefaults;
-        this.logger = new logger_EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
+        this.logger = new EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
         this._form = EnForm.getInstance();
         this.supporterNameAddedToMessage = false;
         if (!this.shouldRun())
@@ -24859,7 +25549,7 @@ const EmbeddedEcardOptionsDefaults = {
 
 class EmbeddedEcard {
     constructor() {
-        this.logger = new logger_EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
+        this.logger = new EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
         this.options = EmbeddedEcardOptionsDefaults;
         this._form = EnForm.getInstance();
         this.isSubmitting = false;
@@ -25229,7 +25919,7 @@ class UsOnlyForm {
 
 class ThankYouPageConditionalContent {
     constructor() {
-        this.logger = new logger_EngridLogger("ThankYouPageConditionalContent");
+        this.logger = new EngridLogger("ThankYouPageConditionalContent");
         if (!this.shouldRun())
             return;
         this.applyShowHideRadioCheckboxesState();
@@ -25250,13 +25940,16 @@ class ThankYouPageConditionalContent {
             state.forEach((item) => {
                 this.logger.log("Processing TY page conditional content item:", item);
                 if (engrid_ENGrid.getPageID() === item.page) {
+                    const inputValue = item.value.replace(/\W/g, "");
+                    const classPrefix = CSS.escape(item.class);
+                    const selectedClass = CSS.escape(`${item.class}${inputValue}`);
                     document
-                        .querySelectorAll(`[class*="${item.class}"]`)
+                        .querySelectorAll(`[class*="${classPrefix}"]`)
                         .forEach((el) => {
                         el.classList.add("hide");
                     });
                     document
-                        .querySelectorAll(`.${item.class}${item.value}`)
+                        .querySelectorAll(`.${selectedClass}`)
                         .forEach((el) => {
                         el.classList.remove("hide");
                     });
@@ -25280,7 +25973,7 @@ class ThankYouPageConditionalContent {
 
 class CheckboxLabel {
     constructor() {
-        this.logger = new logger_EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
+        this.logger = new EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
         this.checkBoxesLabels = document.querySelectorAll(".checkbox-label");
         if (!this.shoudRun())
             return;
@@ -25663,7 +26356,7 @@ class OptInLadder {
 
 class PostDonationEmbed {
     constructor() {
-        this.logger = new logger_EngridLogger("PostDonationEmbed", "red", "white", "🖼️");
+        this.logger = new EngridLogger("PostDonationEmbed", "red", "white", "🖼️");
         if (!this.shouldRun())
             return;
         this.logger.log("Post Donation Tag found");
@@ -25726,11 +26419,12 @@ class PostDonationEmbed {
  */
 
 class FrequencyUpsellModal extends Modal {
-    constructor(upsellOptions) {
+    constructor(upsellOptions, onDismiss) {
         super({
             onClickOutside: "bounce",
             customClass: `engrid--frequency-upsell-modal ${upsellOptions.customClass}`,
-            showCloseX: false,
+            showCloseX: upsellOptions.showCloseX,
+            onDismiss,
         });
         this._amountWithFees = 0;
         this._upsellAmountWithFees = 0;
@@ -25783,6 +26477,7 @@ class FrequencyUpsellModal extends Modal {
 }
 
 ;// ./node_modules/@4site/engrid-scripts/dist/frequency-upsell.js
+// ! WE ARE PHASING OUT THIS COMPONENT IN FAVOR OF UPSELL-LIGHTBOX. PLEASE USE THAT COMPONENT FOR NEW IMPLEMENTATIONS.
 /*
  * FrequencyUpsell component which creates a modal to upsell the frequency of the donation
  * This is typically used to upsell a single donation into an annual donation, but the component
@@ -25793,7 +26488,7 @@ class FrequencyUpsellModal extends Modal {
 
 class FrequencyUpsell {
     constructor() {
-        this.logger = new logger_EngridLogger("FrequencyUpsell", "lightgray", "darkblue", "🏦");
+        this.logger = new EngridLogger("FrequencyUpsell", "lightgray", "darkblue", "🏦");
         this.upsellModal = null;
         this.options = null;
         this._frequency = DonationFrequency.getInstance();
@@ -25807,7 +26502,7 @@ class FrequencyUpsell {
         }
         this.options = this.selectOptions(window.EngridFrequencyUpsell);
         this.logger.log("FrequencyUpsell initialized", this.options);
-        this.upsellModal = new FrequencyUpsellModal(this.options);
+        this.upsellModal = new FrequencyUpsellModal(this.options, () => this.handleModalDismiss());
         this.createFrequencyField();
         this.addEventListeners();
     }
@@ -25929,6 +26624,20 @@ class FrequencyUpsell {
         });
     }
     /**
+     * Handle the modal being dismissed via the X button, Esc key, or click-outside.
+     * This always counts as a decline (onDecline fires either way).
+     */
+    handleModalDismiss() {
+        this.logger.log("Frequency upsell modal dismissed (declined)");
+        this.options.onDecline();
+        if (this.options.submitOnClose) {
+            this._form.submitForm();
+        }
+        else {
+            this._form.dispatchError();
+        }
+    }
+    /**
      * Create the frequency field for the upsell, if it does not exist on the page already
      * This is required by DonationFrequency to set the frequency
      */
@@ -25951,7 +26660,7 @@ class FrequencyUpsell {
 
 class StickyNSG {
     constructor() {
-        this.logger = new logger_EngridLogger("StickyNSG", "teal", "white", "📌");
+        this.logger = new EngridLogger("StickyNSG", "teal", "white", "📌");
         this.cookieName = "engrid-sticky-nsg";
         if (!this.shouldRun())
             return;
@@ -26071,7 +26780,7 @@ var sticky_prepopulation_awaiter = (undefined && undefined.__awaiter) || functio
 
 class StickyPrepopulation {
     constructor() {
-        this.logger = new logger_EngridLogger("StickyPrepopulation", "teal", "white", "📌");
+        this.logger = new EngridLogger("StickyPrepopulation", "teal", "white", "📌");
         this.options = { fields: [] };
         this.cookieName = "engrid-sticky-prepop";
         if (!this.shouldRun()) {
@@ -26277,7 +26986,7 @@ class StickyPrepopulation {
 class PreferredPaymentMethod {
     constructor() {
         var _a;
-        this.logger = new logger_EngridLogger("PreferredPaymentMethod", "#ffffff", "#1f2933", "⭐️");
+        this.logger = new EngridLogger("PreferredPaymentMethod", "#ffffff", "#1f2933", "⭐️");
         this.availabilityTimeoutMs = 4000;
         this.cleanupHandlers = [];
         this.selectionFinalized = false;
@@ -26560,11 +27269,9 @@ class PreferredPaymentMethod {
     }
 }
 
-;// ./node_modules/@4site/engrid-scripts/dist/version.js
-const AppVersion = "0.25.12";
-
 ;// ./node_modules/@4site/engrid-scripts/dist/index.js
  // Runs first so it can change the DOM markup before any markup dependent code fires
+
 
 
 
@@ -28000,7 +28707,8 @@ const options = {
   RememberMe: {
     remoteUrl: 'https://rememberme.foodandwaterwatch.org',
     fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country", "transaction.donationAmt", "transaction.recurrfreq"],
-    fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
+    fieldClearSelectorTarget: '.your-information-header',
+    fieldClearLabel: '<span style="margin-left: 8px">(clear autofill)</span>',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
     encryptData: true,
