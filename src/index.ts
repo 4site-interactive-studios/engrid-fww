@@ -50,7 +50,8 @@ const options: Options = {
       "transaction.donationAmt",
       "transaction.recurrfreq"
     ],
-    fieldClearSelectorTarget: '.en__field--firstName.en__field--text .en__field__element--text',
+    fieldClearSelectorTarget: '.your-information-header',
+    fieldClearLabel: '<span style="margin-left: 8px">(clear autofill)</span>',
     fieldClearSelectorTargetLocation: 'after',
     checked: true,
     encryptData: true,
