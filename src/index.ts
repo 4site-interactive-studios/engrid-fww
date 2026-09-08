@@ -5,7 +5,14 @@ import {
   DonationFrequency,
   EnForm,
 } from "@4site/engrid-scripts"; // Uses ENGrid via NPM
-// import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
+
+/* import {
+  Options,
+  App,
+  DonationAmount,
+  DonationFrequency,
+  EnForm,
+} from "../../engrid/packages/scripts"; */ // Uses ENGrid via Visual Studio Workspace
 
 import "./sass/main.scss";
 import DonationLightboxForm from "./scripts/donation-lightbox-form";
@@ -51,8 +58,8 @@ const options: Options = {
       "transaction.recurrfreq"
     ],
     fieldClearSelectorTarget: '.your-information-header',
-    fieldClearLabel: '<span style="margin-left: 8px">(clear autofill)</span>',
-    fieldClearSelectorTargetLocation: 'after',
+    fieldClearLabel: 'Welcome Back! {Not $username}?',
+    fieldClearSelectorTargetLocation: 'rightSide',
     checked: true,
     encryptData: true,
     hide: true
