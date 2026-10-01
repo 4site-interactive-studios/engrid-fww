@@ -370,10 +370,20 @@ export default class DonationLightboxForm {
       `;
         }
         if (key + 1 < sectionTotal) {
-          sectionCount.innerHTML = `
-          <span class="section-count__current">${key + 1}</span> of
-          <span class="section-count__total">${sectionTotal}</span>
-        `;
+          sectionCount.setAttribute("role", "progressbar");
+          sectionCount.setAttribute("aria-valuemin", "1");
+          sectionCount.setAttribute("aria-valuemax", sectionTotal);
+          sectionCount.setAttribute("aria-valuenow", key + 1);
+          sectionCount.setAttribute(
+            "aria-label",
+            `Step ${key + 1} of ${sectionTotal}`
+          );
+          sectionCount.innerHTML = Array.from(
+            { length: sectionTotal },
+            (_, index) =>
+              `<span class="section-count__bar${index <= key ? " is-active" : ""
+              }" aria-hidden="true"></span>`
+          ).join("");
         }
       } else {
         // Single Section Pages
@@ -441,7 +451,7 @@ export default class DonationLightboxForm {
               const paymentType = document.querySelector(
                 "#en__field_transaction_paymenttype"
               ).value;
-              if (paymentType != "paypal") {
+              if (paymentType.toLowerCase() != "paypal") {
                 this.sendMessage("status", "loading");
               } else {
                 // If Paypal, submit the form on a new tab
@@ -1036,6 +1046,39 @@ export default class DonationLightboxForm {
       element.getClientRects().length
     );
   }
+  prepareCardAccordion() {
+    const cardOption = document.querySelector(
+      ".give-by-select .en__field__item.card"
+    );
+    const cardNumber = document.querySelector(".en__field--ccnumber");
+    const cardFields = cardNumber?.closest(".en__component--formblock");
+    const cardFlags = document.querySelector(".credit-card-flags");
+
+    if (!cardOption || !cardFields || cardFields.contains(cardOption)) return;
+
+    const placeholder = document.createComment("Credit card fields");
+    cardFields.parentNode.insertBefore(placeholder, cardFields);
+    if (cardFlags && !cardFields.contains(cardFlags)) {
+      cardFields.append(cardFlags);
+    }
+    cardOption.appendChild(cardFields);
+    cardFields.classList.add("card-payment-accordion");
+  }
+  prepareAchAccordion() {
+    const achOption = document.querySelector(
+      ".give-by-select .en__field__item.ach"
+    );
+    const achFields = document
+      .querySelector(".giveBySelect-ACH")
+      ?.closest(".en__component--formblock");
+
+    if (!achOption || !achFields || achFields.contains(achOption)) return;
+
+    const placeholder = document.createComment("ACH fields");
+    achFields.parentNode.insertBefore(placeholder, achFields);
+    achOption.appendChild(achFields);
+    achFields.classList.add("ach-payment-accordion");
+  }
   addEvents() {
     const feeCover = document.querySelector("#en__field_transaction_feeCover");
     if (feeCover) {
@@ -1053,6 +1096,8 @@ export default class DonationLightboxForm {
     this.amount
       .getInstance()
       .onAmountChange.subscribe(() => this.changeSubmitButton());
+    this.prepareCardAccordion();
+    this.prepareAchAccordion();
     // Payment Type Radio Change
     const paymentType = document.querySelectorAll(
       "input[name='transaction.giveBySelect']"
@@ -1068,11 +1113,28 @@ export default class DonationLightboxForm {
             if (paymentType) {
               paymentType.value = "card";
             }
+
+            item.closest(".en__field__item")?.classList.add("is-expanded");
+            document
+              .querySelector(".en__field__item.ach")
+              ?.classList.remove("is-expanded");
+          } else if (item.value === "ACH") {
+            document
+              .querySelector(".en__field__item.card")
+              ?.classList.remove("is-expanded");
+            item.closest(".en__field__item")?.classList.add("is-expanded");
+          } else {
+            document
+              .querySelector(".en__field__item.card")
+              ?.classList.remove("is-expanded");
+            document
+              .querySelector(".en__field__item.ach")
+              ?.classList.remove("is-expanded");
+            console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
+            window.setTimeout(() => {
+              this.scrollToNextSection();
+            }, 100);
           }
-          console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
-          window.setTimeout(() => {
-            this.scrollToNextSection();
-          }, 100);
         });
       });
     }
@@ -1131,7 +1193,10 @@ export default class DonationLightboxForm {
     const sectionsWithGiveBySelect = new Set();
     giveBySelectItems.forEach((item) => {
       // Skip if the element is inside digital-wallets-wrapper
-      if (item.closest(".digital-wallets-wrapper")) {
+      if (
+        item.closest(".digital-wallets-wrapper") ||
+        item.closest(".card-payment-accordion, .ach-payment-accordion")
+      ) {
         console.log(
           `Skipping giveBySelect- element in digital-wallets-wrapper: ${item.className}`
         );
@@ -1163,7 +1228,12 @@ export default class DonationLightboxForm {
       // Only get giveBySelect- elements that are not in digital-wallets-wrapper
       const sectionItems = Array.from(
         section.querySelectorAll("[class*='giveBySelect-']")
-      ).filter((item) => !item.closest(".digital-wallets-wrapper"));
+      ).filter(
+        (item) =>
+          !item.closest(
+            ".digital-wallets-wrapper, .card-payment-accordion, .ach-payment-accordion"
+          )
+      );
       console.log(
         `Section ${sectionId} has ${sectionItems.length} giveBySelect- elements (excluding digital-wallets-wrapper)`
       );

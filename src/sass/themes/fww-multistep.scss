@@ -934,3 +934,192 @@
     }
   }
 }
+
+&.multistep-consolidate-form {
+  form.en__component > .en__component {
+    padding: 45px 20px 20px !important;
+  
+    .section-count {
+      display: flex;
+      gap: 14px;
+      left: 50%;
+      max-width: 284px;
+      position: absolute;
+      top: -20px;
+      transform: translateX(-50%);
+      width: 100%;
+      justify-content: center;
+      height: 5px;
+      .section-count__bar {
+        background-color: #c4c4c4;
+        border-radius: 999px;
+        display: block;
+        flex: 0 0 44px;
+        height: 5px;
+        transition: background-color 0.2s ease-in-out;
+        &.is-active {
+          background-color: #525151;
+        }
+      }
+    }
+  }
+
+  .en__field--recurrfreq {
+    margin-bottom: 8px !important;
+
+    .en__field__item {
+      label {
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  .en__field--donationAmt {
+    label {
+      font-size: 14px !important;
+    }
+  }
+
+  .en__field__item--other {
+    input {
+      font-size: 14px !important;
+    }
+  }
+
+  h3 {
+    margin-top: 4px !important;
+    font-size: 18px !important;
+  }
+
+  input[type=checkbox]+label:before{
+    margin-right: 8px !important;
+  }
+
+  .give-by-select .en__field__item.card {
+    position: relative;
+
+    &.is-expanded {
+      flex-direction: column;
+
+      .card-payment-accordion {
+        margin-bottom: 8px;
+        margin-top: 8px;
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    .card-payment-accordion {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      margin-top: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.2s ease,
+        margin 0.35s ease, visibility 0s linear 0.35s;
+      visibility: hidden;
+      width: 100%;
+
+      .en__field--creditCardHolderName {
+        display: flex !important;
+      }
+
+      .en__field--ccnumber {
+        width: 100%;
+      }
+
+      .credit-card-flags {
+        flex: 0 0 100%;
+        margin: 8px 0 4px !important;
+      }
+
+      .en__field--ccexpire {
+        padding-right: 8px;
+      }
+
+      .en__field--ccvv {
+        padding-left: 8px;
+      }
+    }
+  }
+
+  .give-by-select .en__field__item.ach {
+    position: relative;
+
+    &.is-expanded {
+      flex-direction: column;
+
+      .ach-payment-accordion {
+        margin-bottom: 8px;
+        margin-top: 8px;
+        max-height: 800px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .ach-payment-accordion {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      margin-top: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.2s ease,
+        margin 0.35s ease, visibility 0s linear 0.35s;
+      visibility: hidden;
+      width: 100%;
+
+      .en__field--checkbox .en__field__label--item {
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+  }
+
+  .section-navigation {
+    justify-content: center !important;
+  }
+
+  .digital-wallets-wrapper {
+    flex-direction: row;
+    justify-content: space-between !important;
+
+    #en__digitalWallet{
+      width: 260px !important;
+      flex-basis: unset !important;
+    }
+
+    #en__digitalWallet__paypalTouch__container {
+      padding: 0px !important;
+      margin-bottom: 0px !important;
+      display: flex;
+    }
+  }
+
+  .section-navigation__next, .section-navigation__submit {
+    background-color: #ffe643 !important;
+    border-radius: 100px !important;
+    border: 2px solid black !important;
+    width: 296px !important;
+  
+    &:hover {
+      background-color: #ffd600 !important;
+    }
+
+    span {
+      font-family: "GraphikBlack", "Arial Black", "sans-serif" !important;
+      text-transform: uppercase !important;
+      font-size: 21px !important;
+      font-weight: 600 !important;
+    }
+
+    span, svg {
+      color: black !important;
+    }
+  }
+}
