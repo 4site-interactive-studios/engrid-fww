@@ -17,10 +17,10 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, June 1, 2026 @ 16:54:07 ET
- *  By: fernando
- *  ENGrid styles: v0.25.6
- *  ENGrid scripts: v0.25.6
+ *  Date: Tuesday, September 8, 2026 @ 09:53:40 ET
+ *  By: pedroluan
+ *  ENGrid styles: v0.28.3
+ *  ENGrid scripts: v0.28.4
  *
  *  Created by 4Site Studios
  *  Come work with us or join our team, we would love to hear from you
@@ -30,12 +30,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3309:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 3309
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatchError = void 0;
 /**
  * Indicates an error with dispatching.
@@ -58,14 +59,15 @@ class DispatchError extends Error {
 exports.DispatchError = DispatchError;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8441:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 8441
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherBase = void 0;
 const __1 = __webpack_require__(4604);
 /**
@@ -308,14 +310,15 @@ class DispatcherBase {
 exports.DispatcherBase = DispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8901:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 8901
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherWrapper = void 0;
 /**
  * Hides the implementation of the event dispatcher. Will expose methods that
@@ -436,14 +439,15 @@ class DispatcherWrapper {
 exports.DispatcherWrapper = DispatcherWrapper;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4004:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 4004
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventListBase = void 0;
 /**
  * Base class for event lists classes. Implements the get and remove.
@@ -488,14 +492,15 @@ class EventListBase {
 exports.EventListBase = EventListBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6580:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 6580
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseDispatcherBase = void 0;
 const __1 = __webpack_require__(4604);
 /**
@@ -571,14 +576,15 @@ class PromiseDispatcherBase extends __1.DispatcherBase {
 exports.PromiseDispatcherBase = PromiseDispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 956:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 956
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = void 0;
 const __1 = __webpack_require__(4604);
 /**
@@ -603,14 +609,15 @@ class SubscriptionChangeEventDispatcher extends __1.DispatcherBase {
 exports.SubscriptionChangeEventDispatcher = SubscriptionChangeEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6436:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 6436
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSubscription = void 0;
 /**
  * Subscription implementation for events with promises.
@@ -666,14 +673,15 @@ class PromiseSubscription {
 exports.PromiseSubscription = PromiseSubscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3707:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 3707
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.Subscription = void 0;
 /**
  * Stores a handler. Manages execution meta data.
@@ -720,14 +728,15 @@ class Subscription {
 exports.Subscription = Subscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6442:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 6442
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.HandlingBase = void 0;
 /**
  * Base class that implements event handling. With a an
@@ -815,10 +824,10 @@ class HandlingBase {
 exports.HandlingBase = HandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4604:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4604
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -854,14 +863,15 @@ const SubscriptionChangeEventHandler_1 = __webpack_require__(956);
 Object.defineProperty(exports, "SubscriptionChangeEventDispatcher", ({ enumerable: true, get: function () { return SubscriptionChangeEventHandler_1.SubscriptionChangeEventDispatcher; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 1289:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 1289
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventManagement = void 0;
 /**
  * Allows the user to interact with the event.
@@ -894,14 +904,15 @@ class EventManagement {
 exports.EventManagement = EventManagement;
 
 
-/***/ }),
+/***/ },
 
-/***/ 71:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 71
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventDispatcher = void 0;
 const ste_core_1 = __webpack_require__(4604);
 /**
@@ -966,14 +977,15 @@ class EventDispatcher extends ste_core_1.DispatcherBase {
 exports.EventDispatcher = EventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 2162:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2162
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const EventList_1 = __webpack_require__(338);
@@ -988,14 +1000,15 @@ class EventHandlingBase extends ste_core_1.HandlingBase {
 exports.EventHandlingBase = EventHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 338:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 338
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventList = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const EventDispatcher_1 = __webpack_require__(71);
@@ -1020,14 +1033,15 @@ class EventList extends ste_core_1.EventListBase {
 exports.EventList = EventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 2293:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2293
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.NonUniformEventList = void 0;
 const EventDispatcher_1 = __webpack_require__(71);
 /**
@@ -1067,10 +1081,10 @@ class NonUniformEventList {
 exports.NonUniformEventList = NonUniformEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4214:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4214
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -1094,14 +1108,15 @@ const NonUniformEventList_1 = __webpack_require__(2293);
 Object.defineProperty(exports, "NonUniformEventList", ({ enumerable: true, get: function () { return NonUniformEventList_1.NonUniformEventList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 2725:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2725
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SignalDispatcher = void 0;
 const ste_core_1 = __webpack_require__(4604);
 /**
@@ -1151,14 +1166,15 @@ class SignalDispatcher extends ste_core_1.DispatcherBase {
 exports.SignalDispatcher = SignalDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7936:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 7936
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SignalHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const _1 = __webpack_require__(5010);
@@ -1184,14 +1200,15 @@ class SignalHandlingBase extends ste_core_1.HandlingBase {
 exports.SignalHandlingBase = SignalHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 1064:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 1064
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SignalList = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const _1 = __webpack_require__(5010);
@@ -1227,10 +1244,10 @@ class SignalList extends ste_core_1.EventListBase {
 exports.SignalList = SignalList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5010:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5010
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -1252,14 +1269,15 @@ const SignalList_1 = __webpack_require__(1064);
 Object.defineProperty(exports, "SignalList", ({ enumerable: true, get: function () { return SignalList_1.SignalList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 7376:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 7376
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.NonUniformSimpleEventList = void 0;
 const SimpleEventDispatcher_1 = __webpack_require__(9606);
 /**
@@ -1299,14 +1317,15 @@ class NonUniformSimpleEventList {
 exports.NonUniformSimpleEventList = NonUniformSimpleEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 9606:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 9606
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SimpleEventDispatcher = void 0;
 const ste_core_1 = __webpack_require__(4604);
 /**
@@ -1368,14 +1387,15 @@ class SimpleEventDispatcher extends ste_core_1.DispatcherBase {
 exports.SimpleEventDispatcher = SimpleEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4763:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4763
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SimpleEventHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const SimpleEventList_1 = __webpack_require__(2175);
@@ -1390,14 +1410,15 @@ class SimpleEventHandlingBase extends ste_core_1.HandlingBase {
 exports.SimpleEventHandlingBase = SimpleEventHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 2175:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2175
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SimpleEventList = void 0;
 const ste_core_1 = __webpack_require__(4604);
 const SimpleEventDispatcher_1 = __webpack_require__(9606);
@@ -1422,10 +1443,10 @@ class SimpleEventList extends ste_core_1.EventListBase {
 exports.SimpleEventList = SimpleEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6569:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 6569
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -1441,10 +1462,10 @@ const SimpleEventList_1 = __webpack_require__(2175);
 Object.defineProperty(exports, "SimpleEventList", ({ enumerable: true, get: function () { return SimpleEventList_1.SimpleEventList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 3199:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3199
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 var __webpack_unused_export__;
@@ -1499,10 +1520,10 @@ __webpack_unused_export__ = ({ enumerable: true, get: function () { return ste_p
 __webpack_unused_export__ = ({ enumerable: true, get: function () { return ste_promise_simple_events_1.NonUniformPromiseSimpleEventList; } });
 
 
-/***/ }),
+/***/ },
 
-/***/ 7391:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ 7391
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // A library of seedable RNGs implemented in Javascript.
 //
@@ -1566,10 +1587,10 @@ sr.tychei = tychei;
 module.exports = sr;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7180:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 7180
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A port of an algorithm by Johannes Baagøe <baagoe@baagoe.com>, 2010
@@ -1689,10 +1710,10 @@ if (module && module.exports) {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 3717:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 3717
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A Javascript implementaion of the "Tyche-i" prng algorithm by
@@ -1801,10 +1822,10 @@ if (module && module.exports) {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 3181:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 3181
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A Javascript implementaion of the "xor128" prng algorithm by
@@ -1891,10 +1912,10 @@ if (module && module.exports) {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 6833:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 6833
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A Javascript implementaion of Richard Brent's Xorgens xor4096 algorithm.
@@ -2046,10 +2067,10 @@ if (module && module.exports) {
 );
 
 
-/***/ }),
+/***/ },
 
-/***/ 9067:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 9067
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A Javascript implementaion of the "xorshift7" algorithm by
@@ -2152,10 +2173,10 @@ if (module && module.exports) {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 3031:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 3031
+(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;// A Javascript implementaion of the "xorwow" prng algorithm by
@@ -2247,10 +2268,10 @@ if (module && module.exports) {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 4801:
-/***/ ((module, exports, __webpack_require__) => {
+/***/ 4801
+(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*
 Copyright 2014 David Bau.
@@ -2505,10 +2526,10 @@ if ( true && module.exports) {
 );
 
 
-/***/ }),
+/***/ },
 
-/***/ 3184:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ 3184
+(module, __unused_webpack_exports, __webpack_require__) {
 
 var seedrandom = __webpack_require__(7391);
 var self = __webpack_require__(2287);
@@ -2517,10 +2538,10 @@ module.exports = self;
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 2287:
-/***/ (function(module) {
+/***/ 2287
+(module) {
 
 ;(function() {
 	var self = {};
@@ -2592,14 +2613,15 @@ module.exports = self;
 
 	if(true){
 		module.exports=self;
-	} else {}
+	} else // removed by dead control flow
+{}
 }.call(this));
 
 
-/***/ }),
+/***/ },
 
-/***/ 1196:
-/***/ ((module) => {
+/***/ 1196
+(module) {
 
 /* smoothscroll v0.4.4 - 2019 - Dustan Kasten, Jeremias Menichelli - MIT License */
 (function () {
@@ -3028,19 +3050,21 @@ module.exports = self;
   if (true) {
     // commonjs
     module.exports = { polyfill: polyfill };
-  } else {}
+  } else // removed by dead control flow
+{}
 
 }());
 
 
-/***/ }),
+/***/ },
 
-/***/ 1246:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 1246
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.NonUniformPromiseEventList = void 0;
 const PromiseEventDispatcher_1 = __webpack_require__(2330);
 /**
@@ -3080,14 +3104,15 @@ class NonUniformPromiseEventList {
 exports.NonUniformPromiseEventList = NonUniformPromiseEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 2330:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2330
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseEventDispatcher = void 0;
 const ste_core_1 = __webpack_require__(9184);
 /**
@@ -3146,14 +3171,15 @@ class PromiseEventDispatcher extends ste_core_1.PromiseDispatcherBase {
 exports.PromiseEventDispatcher = PromiseEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3351:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3351
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseEventHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(9184);
 const PromiseEventList_1 = __webpack_require__(4283);
@@ -3168,14 +3194,15 @@ class PromiseEventHandlingBase extends ste_core_1.HandlingBase {
 exports.PromiseEventHandlingBase = PromiseEventHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4283:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4283
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseEventList = void 0;
 const ste_core_1 = __webpack_require__(9184);
 const PromiseEventDispatcher_1 = __webpack_require__(2330);
@@ -3200,10 +3227,10 @@ class PromiseEventList extends ste_core_1.EventListBase {
 exports.PromiseEventList = PromiseEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 606:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 606
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -3227,14 +3254,15 @@ const NonUniformPromiseEventList_1 = __webpack_require__(1246);
 Object.defineProperty(exports, "NonUniformPromiseEventList", ({ enumerable: true, get: function () { return NonUniformPromiseEventList_1.NonUniformPromiseEventList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 3729:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 3729
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatchError = void 0;
 /**
  * Indicates an error with dispatching.
@@ -3257,14 +3285,15 @@ class DispatchError extends Error {
 exports.DispatchError = DispatchError;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4645:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4645
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherBase = void 0;
 const __1 = __webpack_require__(9184);
 /**
@@ -3507,14 +3536,15 @@ class DispatcherBase {
 exports.DispatcherBase = DispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7569:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 7569
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherWrapper = void 0;
 /**
  * Hides the implementation of the event dispatcher. Will expose methods that
@@ -3635,14 +3665,15 @@ class DispatcherWrapper {
 exports.DispatcherWrapper = DispatcherWrapper;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7672:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 7672
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventListBase = void 0;
 /**
  * Base class for event lists classes. Implements the get and remove.
@@ -3687,14 +3718,15 @@ class EventListBase {
 exports.EventListBase = EventListBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4995:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4995
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseDispatcherBase = void 0;
 const __1 = __webpack_require__(9184);
 /**
@@ -3770,14 +3802,15 @@ class PromiseDispatcherBase extends __1.DispatcherBase {
 exports.PromiseDispatcherBase = PromiseDispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3512:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3512
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = void 0;
 const __1 = __webpack_require__(9184);
 /**
@@ -3802,14 +3835,15 @@ class SubscriptionChangeEventDispatcher extends __1.DispatcherBase {
 exports.SubscriptionChangeEventDispatcher = SubscriptionChangeEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7744:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 7744
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSubscription = void 0;
 /**
  * Subscription implementation for events with promises.
@@ -3865,14 +3899,15 @@ class PromiseSubscription {
 exports.PromiseSubscription = PromiseSubscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 455:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 455
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.Subscription = void 0;
 /**
  * Stores a handler. Manages execution meta data.
@@ -3919,14 +3954,15 @@ class Subscription {
 exports.Subscription = Subscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 278:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 278
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.HandlingBase = void 0;
 /**
  * Base class that implements event handling. With a an
@@ -4014,12 +4050,13 @@ class HandlingBase {
 exports.HandlingBase = HandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 9184:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 9184
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
 /*!
  * Strongly Typed Events for TypeScript - Core
@@ -4029,7 +4066,7 @@ exports.HandlingBase = HandlingBase;
  * Copyright Kees C. Bakker / KeesTalksTech
  * Released under the MIT license
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = exports.HandlingBase = exports.PromiseDispatcherBase = exports.PromiseSubscription = exports.DispatchError = exports.EventManagement = exports.EventListBase = exports.DispatcherWrapper = exports.DispatcherBase = exports.Subscription = void 0;
 const DispatcherBase_1 = __webpack_require__(4645);
 Object.defineProperty(exports, "DispatcherBase", ({ enumerable: true, get: function () { return DispatcherBase_1.DispatcherBase; } }));
@@ -4053,14 +4090,15 @@ const SubscriptionChangeEventHandler_1 = __webpack_require__(3512);
 Object.defineProperty(exports, "SubscriptionChangeEventDispatcher", ({ enumerable: true, get: function () { return SubscriptionChangeEventHandler_1.SubscriptionChangeEventDispatcher; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 6413:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 6413
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventManagement = void 0;
 /**
  * Allows the user to interact with the event.
@@ -4093,14 +4131,15 @@ class EventManagement {
 exports.EventManagement = EventManagement;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4450:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4450
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSignalDispatcher = void 0;
 const ste_core_1 = __webpack_require__(7852);
 /**
@@ -4145,14 +4184,15 @@ class PromiseSignalDispatcher extends ste_core_1.PromiseDispatcherBase {
 exports.PromiseSignalDispatcher = PromiseSignalDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5871:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5871
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSignalHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(7852);
 const PromiseSignalList_1 = __webpack_require__(131);
@@ -4167,14 +4207,15 @@ class PromiseSignalHandlingBase extends ste_core_1.HandlingBase {
 exports.PromiseSignalHandlingBase = PromiseSignalHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 131:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 131
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSignalList = void 0;
 const ste_core_1 = __webpack_require__(7852);
 const _1 = __webpack_require__(6042);
@@ -4199,10 +4240,10 @@ class PromiseSignalList extends ste_core_1.EventListBase {
 exports.PromiseSignalList = PromiseSignalList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6042:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 6042
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -4224,14 +4265,15 @@ const PromiseSignalList_1 = __webpack_require__(131);
 Object.defineProperty(exports, "PromiseSignalList", ({ enumerable: true, get: function () { return PromiseSignalList_1.PromiseSignalList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 8589:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 8589
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatchError = void 0;
 /**
  * Indicates an error with dispatching.
@@ -4254,14 +4296,15 @@ class DispatchError extends Error {
 exports.DispatchError = DispatchError;
 
 
-/***/ }),
+/***/ },
 
-/***/ 9737:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 9737
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherBase = void 0;
 const __1 = __webpack_require__(7852);
 /**
@@ -4504,14 +4547,15 @@ class DispatcherBase {
 exports.DispatcherBase = DispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8661:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 8661
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherWrapper = void 0;
 /**
  * Hides the implementation of the event dispatcher. Will expose methods that
@@ -4632,14 +4676,15 @@ class DispatcherWrapper {
 exports.DispatcherWrapper = DispatcherWrapper;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5636:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 5636
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventListBase = void 0;
 /**
  * Base class for event lists classes. Implements the get and remove.
@@ -4684,14 +4729,15 @@ class EventListBase {
 exports.EventListBase = EventListBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6372:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 6372
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseDispatcherBase = void 0;
 const __1 = __webpack_require__(7852);
 /**
@@ -4767,14 +4813,15 @@ class PromiseDispatcherBase extends __1.DispatcherBase {
 exports.PromiseDispatcherBase = PromiseDispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3324:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3324
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = void 0;
 const __1 = __webpack_require__(7852);
 /**
@@ -4799,14 +4846,15 @@ class SubscriptionChangeEventDispatcher extends __1.DispatcherBase {
 exports.SubscriptionChangeEventDispatcher = SubscriptionChangeEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 6484:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 6484
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSubscription = void 0;
 /**
  * Subscription implementation for events with promises.
@@ -4862,14 +4910,15 @@ class PromiseSubscription {
 exports.PromiseSubscription = PromiseSubscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8859:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 8859
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.Subscription = void 0;
 /**
  * Stores a handler. Manages execution meta data.
@@ -4916,14 +4965,15 @@ class Subscription {
 exports.Subscription = Subscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5722:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 5722
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.HandlingBase = void 0;
 /**
  * Base class that implements event handling. With a an
@@ -5011,12 +5061,13 @@ class HandlingBase {
 exports.HandlingBase = HandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 7852:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 7852
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
 /*!
  * Strongly Typed Events for TypeScript - Core
@@ -5026,7 +5077,7 @@ exports.HandlingBase = HandlingBase;
  * Copyright Kees C. Bakker / KeesTalksTech
  * Released under the MIT license
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = exports.HandlingBase = exports.PromiseDispatcherBase = exports.PromiseSubscription = exports.DispatchError = exports.EventManagement = exports.EventListBase = exports.DispatcherWrapper = exports.DispatcherBase = exports.Subscription = void 0;
 const DispatcherBase_1 = __webpack_require__(9737);
 Object.defineProperty(exports, "DispatcherBase", ({ enumerable: true, get: function () { return DispatcherBase_1.DispatcherBase; } }));
@@ -5050,14 +5101,15 @@ const SubscriptionChangeEventHandler_1 = __webpack_require__(3324);
 Object.defineProperty(exports, "SubscriptionChangeEventDispatcher", ({ enumerable: true, get: function () { return SubscriptionChangeEventHandler_1.SubscriptionChangeEventDispatcher; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 1385:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 1385
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventManagement = void 0;
 /**
  * Allows the user to interact with the event.
@@ -5090,14 +5142,15 @@ class EventManagement {
 exports.EventManagement = EventManagement;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5829:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5829
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.NonUniformPromiseSimpleEventList = void 0;
 const PromiseSimpleEventDispatcher_1 = __webpack_require__(3677);
 /**
@@ -5137,14 +5190,15 @@ class NonUniformPromiseSimpleEventList {
 exports.NonUniformPromiseSimpleEventList = NonUniformPromiseSimpleEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3677:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3677
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSimpleEventDispatcher = void 0;
 const ste_core_1 = __webpack_require__(5575);
 /**
@@ -5196,14 +5250,15 @@ class PromiseSimpleEventDispatcher extends ste_core_1.PromiseDispatcherBase {
 exports.PromiseSimpleEventDispatcher = PromiseSimpleEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8648:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 8648
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSimpleEventHandlingBase = void 0;
 const ste_core_1 = __webpack_require__(5575);
 const PromiseSimpleEventList_1 = __webpack_require__(5536);
@@ -5218,14 +5273,15 @@ class PromiseSimpleEventHandlingBase extends ste_core_1.HandlingBase {
 exports.PromiseSimpleEventHandlingBase = PromiseSimpleEventHandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5536:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5536
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSimpleEventList = void 0;
 const ste_core_1 = __webpack_require__(5575);
 const PromiseSimpleEventDispatcher_1 = __webpack_require__(3677);
@@ -5250,10 +5306,10 @@ class PromiseSimpleEventList extends ste_core_1.EventListBase {
 exports.PromiseSimpleEventList = PromiseSimpleEventList;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4225:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 4225
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -5277,14 +5333,15 @@ const PromiseSimpleEventList_1 = __webpack_require__(5536);
 Object.defineProperty(exports, "PromiseSimpleEventList", ({ enumerable: true, get: function () { return PromiseSimpleEventList_1.PromiseSimpleEventList; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 2210:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 2210
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatchError = void 0;
 /**
  * Indicates an error with dispatching.
@@ -5307,14 +5364,15 @@ class DispatchError extends Error {
 exports.DispatchError = DispatchError;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5072:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5072
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherBase = void 0;
 const __1 = __webpack_require__(5575);
 /**
@@ -5557,14 +5615,15 @@ class DispatcherBase {
 exports.DispatcherBase = DispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 1050:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 1050
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.DispatcherWrapper = void 0;
 /**
  * Hides the implementation of the event dispatcher. Will expose methods that
@@ -5685,14 +5744,15 @@ class DispatcherWrapper {
 exports.DispatcherWrapper = DispatcherWrapper;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4211:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 4211
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventListBase = void 0;
 /**
  * Base class for event lists classes. Implements the get and remove.
@@ -5737,14 +5797,15 @@ class EventListBase {
 exports.EventListBase = EventListBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 3787:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 3787
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseDispatcherBase = void 0;
 const __1 = __webpack_require__(5575);
 /**
@@ -5820,14 +5881,15 @@ class PromiseDispatcherBase extends __1.DispatcherBase {
 exports.PromiseDispatcherBase = PromiseDispatcherBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 1789:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 1789
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = void 0;
 const __1 = __webpack_require__(5575);
 /**
@@ -5852,14 +5914,15 @@ class SubscriptionChangeEventDispatcher extends __1.DispatcherBase {
 exports.SubscriptionChangeEventDispatcher = SubscriptionChangeEventDispatcher;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5485:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 5485
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.PromiseSubscription = void 0;
 /**
  * Subscription implementation for events with promises.
@@ -5915,14 +5978,15 @@ class PromiseSubscription {
 exports.PromiseSubscription = PromiseSubscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8080:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 8080
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.Subscription = void 0;
 /**
  * Stores a handler. Manages execution meta data.
@@ -5969,14 +6033,15 @@ class Subscription {
 exports.Subscription = Subscription;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5537:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 5537
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.HandlingBase = void 0;
 /**
  * Base class that implements event handling. With a an
@@ -6064,12 +6129,13 @@ class HandlingBase {
 exports.HandlingBase = HandlingBase;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5575:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 5575
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
+var __webpack_unused_export__;
 
 /*!
  * Strongly Typed Events for TypeScript - Core
@@ -6079,7 +6145,7 @@ exports.HandlingBase = HandlingBase;
  * Copyright Kees C. Bakker / KeesTalksTech
  * Released under the MIT license
  */
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.SubscriptionChangeEventDispatcher = exports.HandlingBase = exports.PromiseDispatcherBase = exports.PromiseSubscription = exports.DispatchError = exports.EventManagement = exports.EventListBase = exports.DispatcherWrapper = exports.DispatcherBase = exports.Subscription = void 0;
 const DispatcherBase_1 = __webpack_require__(5072);
 Object.defineProperty(exports, "DispatcherBase", ({ enumerable: true, get: function () { return DispatcherBase_1.DispatcherBase; } }));
@@ -6103,14 +6169,15 @@ const SubscriptionChangeEventHandler_1 = __webpack_require__(1789);
 Object.defineProperty(exports, "SubscriptionChangeEventDispatcher", ({ enumerable: true, get: function () { return SubscriptionChangeEventHandler_1.SubscriptionChangeEventDispatcher; } }));
 
 
-/***/ }),
+/***/ },
 
-/***/ 3504:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 3504
+(__unused_webpack_module, exports) {
 
 "use strict";
+var __webpack_unused_export__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+__webpack_unused_export__ = ({ value: true });
 exports.EventManagement = void 0;
 /**
  * Allows the user to interact with the event.
@@ -6143,10 +6210,10 @@ class EventManagement {
 exports.EventManagement = EventManagement;
 
 
-/***/ }),
+/***/ },
 
-/***/ 9244:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 9244
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
@@ -6157,7 +6224,7 @@ __webpack_require__.d(__webpack_exports__, {
 
 // UNUSED EXPORTS: animateFill, createSingleton, delegate, followCursor, hideAll, inlinePositioning, roundArrow, sticky
 
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindow.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getWindow.js
 function getWindow(node) {
   if (node == null) {
     return window;
@@ -6170,7 +6237,7 @@ function getWindow(node) {
 
   return node;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
 
 
 function isElement(node) {
@@ -6194,11 +6261,11 @@ function isShadowRoot(node) {
 }
 
 
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/math.js
+;// ./node_modules/@popperjs/core/lib/utils/math.js
 var math_max = Math.max;
 var math_min = Math.min;
 var round = Math.round;
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/userAgent.js
+;// ./node_modules/@popperjs/core/lib/utils/userAgent.js
 function getUAString() {
   var uaData = navigator.userAgentData;
 
@@ -6210,12 +6277,12 @@ function getUAString() {
 
   return navigator.userAgent;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
 
 function isLayoutViewport() {
   return !/^((?!chrome|android).)*safari/i.test(getUAString());
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 
 
 
@@ -6257,7 +6324,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy) {
     y: y
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
 
 function getWindowScroll(node) {
   var win = getWindow(node);
@@ -6268,14 +6335,14 @@ function getWindowScroll(node) {
     scrollTop: scrollTop
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
 function getHTMLElementScroll(element) {
   return {
     scrollLeft: element.scrollLeft,
     scrollTop: element.scrollTop
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
 
 
 
@@ -6287,18 +6354,18 @@ function getNodeScroll(node) {
     return getHTMLElementScroll(node);
   }
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
 function getNodeName(element) {
   return element ? (element.nodeName || '').toLowerCase() : null;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
 
 function getDocumentElement(element) {
   // $FlowFixMe[incompatible-return]: assume body is always available
   return ((isElement(element) ? element.ownerDocument : // $FlowFixMe[prop-missing]
   element.document) || window.document).documentElement;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
 
 
 
@@ -6312,12 +6379,12 @@ function getWindowScrollBarX(element) {
   // this (e.g. Edge 2019, IE11, Safari)
   return getBoundingClientRect(getDocumentElement(element)).left + getWindowScroll(element).scrollLeft;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
 
 function getComputedStyle(element) {
   return getWindow(element).getComputedStyle(element);
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
 
 function isScrollParent(element) {
   // Firefox wants us to check `-x` and `-y` variations as well
@@ -6328,7 +6395,7 @@ function isScrollParent(element) {
 
   return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
 
 
 
@@ -6387,7 +6454,7 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
     height: rect.height
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
  // Returns the layout rect of an element relative to its offsetParent. Layout
 // means it doesn't take into account transforms.
 
@@ -6413,7 +6480,7 @@ function getLayoutRect(element) {
     height: height
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
 
 
 
@@ -6433,7 +6500,7 @@ function getParentNode(element) {
 
   );
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
 
 
 
@@ -6450,7 +6517,7 @@ function getScrollParent(node) {
 
   return getScrollParent(getParentNode(node));
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
 
 
 
@@ -6477,12 +6544,12 @@ function listScrollParents(element, list) {
   return isBody ? updatedList : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
   updatedList.concat(listScrollParents(getParentNode(target)));
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
 
 function isTableElement(element) {
   return ['table', 'td', 'th'].indexOf(getNodeName(element)) >= 0;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
 
 
 
@@ -6552,7 +6619,7 @@ function getOffsetParent(element) {
 
   return offsetParent || getContainingBlock(element) || window;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/enums.js
+;// ./node_modules/@popperjs/core/lib/enums.js
 var enums_top = 'top';
 var bottom = 'bottom';
 var right = 'right';
@@ -6584,7 +6651,7 @@ var beforeWrite = 'beforeWrite';
 var write = 'write';
 var afterWrite = 'afterWrite';
 var modifierPhases = [beforeRead, read, afterRead, beforeMain, main, afterMain, beforeWrite, write, afterWrite];
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/orderModifiers.js
+;// ./node_modules/@popperjs/core/lib/utils/orderModifiers.js
  // source: https://stackoverflow.com/questions/49875255
 
 function order(modifiers) {
@@ -6629,7 +6696,7 @@ function orderModifiers(modifiers) {
     }));
   }, []);
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/debounce.js
+;// ./node_modules/@popperjs/core/lib/utils/debounce.js
 function debounce(fn) {
   var pending;
   return function () {
@@ -6645,7 +6712,7 @@ function debounce(fn) {
     return pending;
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/mergeByName.js
+;// ./node_modules/@popperjs/core/lib/utils/mergeByName.js
 function mergeByName(modifiers) {
   var merged = modifiers.reduce(function (merged, current) {
     var existing = merged[current.name];
@@ -6660,7 +6727,7 @@ function mergeByName(modifiers) {
     return merged[key];
   });
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/createPopper.js
+;// ./node_modules/@popperjs/core/lib/createPopper.js
 
 
 
@@ -6860,7 +6927,7 @@ function popperGenerator(generatorOptions) {
 var createPopper = /*#__PURE__*/(/* unused pure expression or super */ null && (popperGenerator())); // eslint-disable-next-line import/no-unused-modules
 
 
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/eventListeners.js
+;// ./node_modules/@popperjs/core/lib/modifiers/eventListeners.js
  // eslint-disable-next-line import/no-unused-modules
 
 var passive = {
@@ -6910,20 +6977,20 @@ function effect(_ref) {
   effect: effect,
   data: {}
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getBasePlacement.js
+;// ./node_modules/@popperjs/core/lib/utils/getBasePlacement.js
 
 function getBasePlacement(placement) {
   return placement.split('-')[0];
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getVariation.js
+;// ./node_modules/@popperjs/core/lib/utils/getVariation.js
 function getVariation(placement) {
   return placement.split('-')[1];
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
+;// ./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
 function getMainAxisFromPlacement(placement) {
   return ['top', 'bottom'].indexOf(placement) >= 0 ? 'x' : 'y';
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/computeOffsets.js
+;// ./node_modules/@popperjs/core/lib/utils/computeOffsets.js
 
 
 
@@ -6994,7 +7061,7 @@ function computeOffsets(_ref) {
 
   return offsets;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
+;// ./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
 
 
 function popperOffsets(_ref) {
@@ -7020,7 +7087,7 @@ function popperOffsets(_ref) {
   fn: popperOffsets,
   data: {}
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/computeStyles.js
+;// ./node_modules/@popperjs/core/lib/modifiers/computeStyles.js
 
 
 
@@ -7190,7 +7257,7 @@ function computeStyles(_ref5) {
   fn: computeStyles,
   data: {}
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/applyStyles.js
+;// ./node_modules/@popperjs/core/lib/modifiers/applyStyles.js
 
  // This modifier takes the styles prepared by the `computeStyles` modifier
 // and applies them to the HTMLElements such as popper and arrow
@@ -7275,7 +7342,7 @@ function applyStyles_effect(_ref2) {
   effect: applyStyles_effect,
   requires: ['computeStyles']
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/offset.js
+;// ./node_modules/@popperjs/core/lib/modifiers/offset.js
 
  // eslint-disable-next-line import/no-unused-modules
 
@@ -7330,7 +7397,7 @@ function offset(_ref2) {
   requires: ['popperOffsets'],
   fn: offset
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js
+;// ./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js
 var hash = {
   left: 'right',
   right: 'left',
@@ -7342,7 +7409,7 @@ function getOppositePlacement(placement) {
     return hash[matched];
   });
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
+;// ./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
 var getOppositeVariationPlacement_hash = {
   start: 'end',
   end: 'start'
@@ -7352,7 +7419,7 @@ function getOppositeVariationPlacement(placement) {
     return getOppositeVariationPlacement_hash[matched];
   });
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
 
 
 
@@ -7384,7 +7451,7 @@ function getViewportRect(element, strategy) {
     y: y
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
 
 
 
@@ -7414,7 +7481,7 @@ function getDocumentRect(element) {
     y: y
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/contains.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/contains.js
 
 function contains(parent, child) {
   var rootNode = child.getRootNode && child.getRootNode(); // First, attempt with faster native method
@@ -7438,7 +7505,7 @@ function contains(parent, child) {
 
   return false;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/rectToClientRect.js
+;// ./node_modules/@popperjs/core/lib/utils/rectToClientRect.js
 function rectToClientRect(rect) {
   return Object.assign({}, rect, {
     left: rect.x,
@@ -7447,7 +7514,7 @@ function rectToClientRect(rect) {
     bottom: rect.y + rect.height
   });
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
+;// ./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
 
 
 
@@ -7518,7 +7585,7 @@ function getClippingRect(element, boundary, rootBoundary, strategy) {
   clippingRect.y = clippingRect.top;
   return clippingRect;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
+;// ./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
 function getFreshSideObject() {
   return {
     top: 0,
@@ -7527,19 +7594,19 @@ function getFreshSideObject() {
     left: 0
   };
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
+;// ./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
 
 function mergePaddingObject(paddingObject) {
   return Object.assign({}, getFreshSideObject(), paddingObject);
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/expandToHashMap.js
+;// ./node_modules/@popperjs/core/lib/utils/expandToHashMap.js
 function expandToHashMap(value, keys) {
   return keys.reduce(function (hashMap, key) {
     hashMap[key] = value;
     return hashMap;
   }, {});
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/detectOverflow.js
+;// ./node_modules/@popperjs/core/lib/utils/detectOverflow.js
 
 
 
@@ -7605,7 +7672,7 @@ function detectOverflow(state, options) {
 
   return overflowOffsets;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
+;// ./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
 
 
 
@@ -7649,7 +7716,7 @@ function computeAutoPlacement(state, options) {
     return overflows[a] - overflows[b];
   });
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/flip.js
+;// ./node_modules/@popperjs/core/lib/modifiers/flip.js
 
 
 
@@ -7797,11 +7864,11 @@ function flip(_ref) {
     _skip: false
   }
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getAltAxis.js
+;// ./node_modules/@popperjs/core/lib/utils/getAltAxis.js
 function getAltAxis(axis) {
   return axis === 'x' ? 'y' : 'x';
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/within.js
+;// ./node_modules/@popperjs/core/lib/utils/within.js
 
 function within(min, value, max) {
   return math_max(min, math_min(value, max));
@@ -7810,7 +7877,7 @@ function withinMaxClamp(min, value, max) {
   var v = within(min, value, max);
   return v > max ? max : v;
 }
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
+;// ./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
 
 
 
@@ -7953,7 +8020,7 @@ function preventOverflow(_ref) {
   fn: preventOverflow,
   requiresIfExists: ['offset']
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/arrow.js
+;// ./node_modules/@popperjs/core/lib/modifiers/arrow.js
 
 
 
@@ -8044,7 +8111,7 @@ function arrow_effect(_ref2) {
   requires: ['popperOffsets'],
   requiresIfExists: ['preventOverflow']
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/hide.js
+;// ./node_modules/@popperjs/core/lib/modifiers/hide.js
 
 
 
@@ -8106,7 +8173,7 @@ function hide(_ref) {
   requiresIfExists: ['preventOverflow'],
   fn: hide
 });
-;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/popper.js
+;// ./node_modules/@popperjs/core/lib/popper.js
 
 
 
@@ -8127,7 +8194,7 @@ var popper_createPopper = /*#__PURE__*/popperGenerator({
  // eslint-disable-next-line import/no-unused-modules
 
 
-;// CONCATENATED MODULE: ./node_modules/tippy.js/dist/tippy.esm.js
+;// ./node_modules/tippy.js/dist/tippy.esm.js
 /**!
 * tippy.js v6.3.7
 * (c) 2017-2021 atomiks
@@ -8418,7 +8485,8 @@ function getFormattedMessage(message) {
 
 var visitedMessages;
 
-if (false) {}
+if (false) // removed by dead control flow
+{}
 
 function resetVisitedMessages() {
   visitedMessages = new Set();
@@ -8505,7 +8573,8 @@ var defaultProps = Object.assign({
 var defaultKeys = Object.keys(defaultProps);
 var setDefaultProps = function setDefaultProps(partialProps) {
   /* istanbul ignore else */
-  if (false) {}
+  if (false) // removed by dead control flow
+{}
 
   var keys = Object.keys(partialProps);
   keys.forEach(function (key) {
@@ -8779,7 +8848,8 @@ function createTippy(reference, passedProps) {
   /* istanbul ignore if */
 
   if (!props.render) {
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
 
     return instance;
   } // ===========================================================================
@@ -9328,7 +9398,8 @@ function createTippy(reference, passedProps) {
     createPopperInstance();
     /* istanbul ignore else */
 
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
   }
 
   function getNestedPopperTree() {
@@ -9418,7 +9489,8 @@ function createTippy(reference, passedProps) {
 
   function setProps(partialProps) {
     /* istanbul ignore else */
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
 
     if (instance.state.isDestroyed) {
       return;
@@ -9478,7 +9550,8 @@ function createTippy(reference, passedProps) {
 
   function show() {
     /* istanbul ignore else */
-    if (false) {} // Early bail-out
+    if (false) // removed by dead control flow
+{} // Early bail-out
 
 
     var isAlreadyVisible = instance.state.isVisible;
@@ -9569,7 +9642,8 @@ function createTippy(reference, passedProps) {
 
   function hide() {
     /* istanbul ignore else */
-    if (false) {} // Early bail-out
+    if (false) // removed by dead control flow
+{} // Early bail-out
 
 
     var isAlreadyHidden = !instance.state.isVisible;
@@ -9625,7 +9699,8 @@ function createTippy(reference, passedProps) {
 
   function hideWithInteractivity(event) {
     /* istanbul ignore else */
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
 
     getDocument().addEventListener('mousemove', debouncedOnMouseMove);
     pushIfUnique(mouseMoveListeners, debouncedOnMouseMove);
@@ -9634,7 +9709,8 @@ function createTippy(reference, passedProps) {
 
   function unmount() {
     /* istanbul ignore else */
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
 
     if (instance.state.isVisible) {
       instance.hide();
@@ -9665,7 +9741,8 @@ function createTippy(reference, passedProps) {
 
   function destroy() {
     /* istanbul ignore else */
-    if (false) {}
+    if (false) // removed by dead control flow
+{}
 
     if (instance.state.isDestroyed) {
       return;
@@ -9688,7 +9765,8 @@ function tippy(targets, optionalProps) {
   var plugins = defaultProps.plugins.concat(optionalProps.plugins || []);
   /* istanbul ignore else */
 
-  if (false) {}
+  if (false) // removed by dead control flow
+{}
 
   bindGlobalEventListeners();
   var passedProps = Object.assign({}, optionalProps, {
@@ -9697,7 +9775,8 @@ function tippy(targets, optionalProps) {
   var elements = getArrayOfElements(targets);
   /* istanbul ignore else */
 
-  if (false) { var isMoreThanOneReferenceElement, isSingleContentElement; }
+  if (false) // removed by dead control flow
+{ var isMoreThanOneReferenceElement, isSingleContentElement; }
 
   var instances = elements.reduce(function (acc, reference) {
     var instance = reference && createTippy(reference, passedProps);
@@ -9780,7 +9859,8 @@ var createSingleton = function createSingleton(tippyInstances, optionalProps) {
   }
 
   /* istanbul ignore else */
-  if (false) {}
+  if (false) // removed by dead control flow
+{}
 
   var individualInstances = tippyInstances;
   var references = [];
@@ -9973,11 +10053,11 @@ var createSingleton = function createSingleton(tippyInstances, optionalProps) {
   return singleton;
 };
 
-var BUBBLING_EVENTS_MAP = {
+var BUBBLING_EVENTS_MAP = (/* unused pure expression or super */ null && ({
   mouseover: 'mouseenter',
   focusin: 'focus',
   click: 'click'
-};
+}));
 /**
  * Creates a delegate instance that controls the creation of tippy instances
  * for child elements (`target` CSS selector).
@@ -9985,7 +10065,8 @@ var BUBBLING_EVENTS_MAP = {
 
 function delegate(targets, props) {
   /* istanbul ignore else */
-  if (false) {}
+  if (false) // removed by dead control flow
+{}
 
   var listeners = [];
   var childTippyInstances = [];
@@ -10117,7 +10198,7 @@ function delegate(targets, props) {
   return returnValue;
 }
 
-var animateFill = {
+var animateFill = (/* unused pure expression or super */ null && ({
   name: 'animateFill',
   defaultValue: false,
   fn: function fn(instance) {
@@ -10125,7 +10206,8 @@ var animateFill = {
 
     // @ts-ignore
     if (!((_instance$props$rende = instance.props.render) != null && _instance$props$rende.$$tippy)) {
-      if (false) {}
+      if (false) // removed by dead control flow
+{}
 
       return {};
     }
@@ -10171,7 +10253,7 @@ var animateFill = {
       }
     };
   }
-};
+}));
 
 function createBackdropElement() {
   var backdrop = div();
@@ -10180,11 +10262,11 @@ function createBackdropElement() {
   return backdrop;
 }
 
-var mouseCoords = {
+var mouseCoords = (/* unused pure expression or super */ null && ({
   clientX: 0,
   clientY: 0
-};
-var activeInstances = [];
+}));
+var activeInstances = (/* unused pure expression or super */ null && ([]));
 
 function storeMouseCoords(_ref) {
   var clientX = _ref.clientX,
@@ -10203,7 +10285,7 @@ function removeMouseCoordsListener(doc) {
   doc.removeEventListener('mousemove', storeMouseCoords);
 }
 
-var followCursor = {
+var followCursor = (/* unused pure expression or super */ null && ({
   name: 'followCursor',
   defaultValue: false,
   fn: function fn(instance) {
@@ -10356,7 +10438,7 @@ var followCursor = {
       }
     };
   }
-};
+}));
 
 function getProps(props, modifier) {
   var _props$popperOptions;
@@ -10371,7 +10453,7 @@ function getProps(props, modifier) {
   };
 }
 
-var inlinePositioning = {
+var inlinePositioning = (/* unused pure expression or super */ null && ({
   name: 'inlinePositioning',
   defaultValue: false,
   fn: function fn(instance) {
@@ -10446,7 +10528,7 @@ var inlinePositioning = {
       }
     };
   }
-};
+}));
 function getInlineBoundingClientRect(currentBasePlacement, boundingRect, clientRects, cursorRectIndex) {
   // Not an inline element, or placement is not yet known
   if (clientRects.length < 2 || currentBasePlacement === null) {
@@ -10519,7 +10601,7 @@ function getInlineBoundingClientRect(currentBasePlacement, boundingRect, clientR
   }
 }
 
-var sticky = {
+var sticky = (/* unused pure expression or super */ null && ({
   name: 'sticky',
   defaultValue: false,
   fn: function fn(instance) {
@@ -10563,7 +10645,7 @@ var sticky = {
       }
     };
   }
-};
+}));
 
 function areRectsDifferent(rectA, rectB) {
   if (rectA && rectB) {
@@ -10582,29 +10664,29 @@ tippy.setDefaultProps({
 //# sourceMappingURL=tippy.esm.js.map
 
 
-/***/ }),
+/***/ },
 
-/***/ 1234:
-/***/ (() => {
+/***/ 1234
+() {
 
 /* (ignored) */
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
 /******/ 			loaded: false,
 /******/ 			exports: {}
@@ -10637,7 +10719,7 @@ tippy.setDefaultProps({
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			const getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -10647,11 +10729,26 @@ tippy.setDefaultProps({
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
+/******/ 		// define getter/value functions for harmony exports
 /******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			if(Array.isArray(definition)) {
+/******/ 				var i = 0;
+/******/ 				while(i < definition.length) {
+/******/ 					var key = definition[i++];
+/******/ 					var binding = definition[i++];
+/******/ 					if(!__webpack_require__.o(exports, key)) {
+/******/ 						if(binding === 0) {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, value: definition[i++] });
+/******/ 						} else {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, get: binding });
+/******/ 						}
+/******/ 					} else if(binding === 0) { i++; }
+/******/ 				}
+/******/ 			} else {
+/******/ 				for(var key in definition) {
+/******/ 					if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 						Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 					}
 /******/ 				}
 /******/ 			}
 /******/ 		};
@@ -10659,7 +10756,7 @@ tippy.setDefaultProps({
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.hasOwn(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
@@ -10672,12 +10769,13 @@ tippy.setDefaultProps({
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+let __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/deprecated.js
+;// ./node_modules/@4site/engrid-scripts/dist/deprecated.js
+/* unused harmony import specifier */ var ENGrid;
 // A way to gracefully handle deprecation.
 // Find and replace HTML Elements, Classes, and more after the DOM is loaded but before any other Javascript fires.
 
@@ -10719,7 +10817,7 @@ class Deprecated {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/options.js
 const OptionsDefaults = {
     backgroundImage: "",
     MediaAttribution: true,
@@ -10776,37 +10874,44 @@ const OptionsDefaults = {
         "rightright1col",
         "none",
     ],
+    UseBodyBannerImageAsBackground: false,
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/upsell-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/upsell-options.js
 const UpsellOptionsDefaults = {
     image: "https://picsum.photos/480/650",
     imagePosition: "left",
-    title: "Will you change your gift to just {new-amount} a month to boost your impact?",
-    paragraph: "Make a monthly pledge today to support us with consistent, reliable resources during emergency moments.",
-    yesLabel: "Yes! Process My <br> {new-amount} monthly gift",
-    noLabel: "No, thanks. Continue with my <br> {old-amount} one-time gift",
+    title: "Will you change your gift to just {new-amount} {new-frequency} to boost your impact?",
+    paragraph: "Make a {new-frequency} pledge today to support us with consistent, reliable resources during emergency moments.",
+    yesLabel: "Yes! Process My <br> {new-amount} {new-frequency} gift",
+    noLabel: "No, thanks. Continue with my <br> {old-amount} {old-frequency} gift",
     otherAmount: true,
-    otherLabel: "Or enter a different monthly amount:",
+    otherLabel: "Or enter a different {new-frequency} amount:",
     upsellOriginalGiftAmountFieldName: "",
     amountRange: [
-        { max: 10, suggestion: 5 },
-        { max: 15, suggestion: 7 },
-        { max: 20, suggestion: 8 },
-        { max: 25, suggestion: 9 },
-        { max: 30, suggestion: 10 },
-        { max: 35, suggestion: 11 },
-        { max: 40, suggestion: 12 },
-        { max: 50, suggestion: 14 },
-        { max: 100, suggestion: 15 },
-        { max: 200, suggestion: 19 },
-        { max: 300, suggestion: 29 },
-        { max: 500, suggestion: "Math.ceil((amount / 12)/5)*5" },
+        { max: 10, suggestion: 5, frequency: "monthly" },
+        { max: 15, suggestion: 7, frequency: "monthly" },
+        { max: 20, suggestion: 8, frequency: "monthly" },
+        { max: 25, suggestion: 9, frequency: "monthly" },
+        { max: 30, suggestion: 10, frequency: "monthly" },
+        { max: 35, suggestion: 11, frequency: "monthly" },
+        { max: 40, suggestion: 12, frequency: "monthly" },
+        { max: 50, suggestion: 14, frequency: "monthly" },
+        { max: 100, suggestion: 15, frequency: "monthly" },
+        { max: 200, suggestion: 19, frequency: "monthly" },
+        { max: 300, suggestion: 29, frequency: "monthly" },
+        {
+            max: 500,
+            suggestion: "Math.ceil((amount / 12)/5)*5",
+            frequency: "monthly",
+        },
     ],
+    upsellToFrequency: "monthly",
     minAmount: 0,
     canClose: true,
     submitOnClose: false,
     oneTime: true,
+    monthly: false,
     annual: false,
     disablePaymentMethods: [],
     skipUpsell: false,
@@ -10814,7 +10919,7 @@ const UpsellOptionsDefaults = {
     upsellCheckbox: false,
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/translate-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/translate-options.js
 const ptbrTranslation = [
     { field: "supporter.firstName", translation: "Nome" },
     { field: "supporter.lastName", translation: "Sobrenome" },
@@ -10847,6 +10952,21 @@ const nlTranslation = [
     { field: "supporter.region", translation: "Provincie" },
     { field: "supporter.country", translation: "Country" },
 ];
+// Page-language layer: keyed by lowercase 2-letter language code
+// (see ENGrid.getPageLanguage()), applied as the base translation layer
+// before any country-specific translations.
+const esTranslation = [
+    { field: "supporter.firstName", translation: "Nombre" },
+    { field: "supporter.lastName", translation: "Apellidos" },
+    { field: "supporter.emailAddress", translation: "Correo electrónico" },
+    { field: "supporter.phoneNumber", translation: "Teléfono" },
+    { field: "supporter.address1", translation: "Dirección" },
+    { field: "supporter.address2", translation: "Departamento/Piso" },
+    { field: "supporter.postcode", translation: "Código Postal" },
+    { field: "supporter.city", translation: "Ciudad" },
+    { field: "supporter.region", translation: "Provincia/Estado" },
+    { field: "supporter.country", translation: "País" },
+];
 const TranslateOptionsDefaults = {
     BR: ptbrTranslation,
     BRA: ptbrTranslation,
@@ -10856,9 +10976,10 @@ const TranslateOptionsDefaults = {
     FRA: frTranslation,
     NL: nlTranslation,
     NLD: nlTranslation,
+    es: esTranslation,
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/exit-intent-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/exit-intent-options.js
 const ExitIntentOptionsDefaults = {
     enabled: false,
     title: "We are sad that you are leaving",
@@ -10873,7 +10994,7 @@ const ExitIntentOptionsDefaults = {
     },
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/frequency-upsell-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/frequency-upsell-options.js
 const FrequencyUpsellOptionsDefaults = {
     title: "Before we process your donation...",
     paragraph: "Would you like to make it an annual gift?",
@@ -10886,33 +11007,16 @@ const FrequencyUpsellOptionsDefaults = {
     onOpen: () => { },
     onAccept: () => { },
     onDecline: () => { },
+    showCloseX: false,
+    submitOnClose: false,
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/iframe-queue-options.js
-/**
- * Configuration interfaces for the Iframe Queue component.
- *
- * The Iframe Queue loads a sequence of embedded Engaging Networks pages
- * one at a time, passes field values into them via `postMessage`, and
- * exposes a global `IframeQueueEvents` instance so external code can
- * subscribe to chain-completion. See iframe-queue.ts for the component.
- *
- * Configuration may be supplied either programmatically (via
- * `IframeQueue.getInstance().enqueue(...).process()`) or declaratively
- * by setting `window.EngridIframeQueue` on the host EN page before
- * the ENgrid bundle loads.
- */
-const iframe_queue_options_IframeQueueOptionsDefaults = {
-    items: [],
-    autoStart: true,
-};
-
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/loader.js
+;// ./node_modules/@4site/engrid-scripts/dist/loader.js
 // Ref: https://app.getguru.com/card/iMgx968T/ENgrid-Loader
 
 class Loader {
     constructor() {
-        this.logger = new logger_EngridLogger("Loader", "gold", "black", "🔁");
+        this.logger = new EngridLogger("Loader", "gold", "black", "🔁");
         this.cssElement = document.querySelector('link[href*="engrid."][rel="stylesheet"]');
         this.jsElement = document.querySelector('script[src*="engrid."]');
     }
@@ -11086,12 +11190,12 @@ class Loader {
 
 // EXTERNAL MODULE: ./node_modules/@4site/engrid-scripts/node_modules/strongly-typed-events/dist/index.js
 var dist = __webpack_require__(3199);
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/en-form.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/en-form.js
 
 
-class en_form_EnForm {
+class EnForm {
     constructor() {
-        this.logger = new logger_EngridLogger("EnForm");
+        this.logger = new EngridLogger("EnForm");
         this._onIntentSubmit = new dist/* SignalDispatcher */.UD();
         this._onSubmit = new dist/* SignalDispatcher */.UD();
         this._onValidate = new dist/* SignalDispatcher */.UD();
@@ -11102,10 +11206,10 @@ class en_form_EnForm {
         this.validatePromise = false;
     }
     static getInstance() {
-        if (!en_form_EnForm.instance) {
-            en_form_EnForm.instance = new en_form_EnForm();
+        if (!EnForm.instance) {
+            EnForm.instance = new EnForm();
         }
-        return en_form_EnForm.instance;
+        return EnForm.instance;
     }
     dispatchIntentSubmit() {
         this._onIntentSubmit.dispatch();
@@ -11172,7 +11276,7 @@ class en_form_EnForm {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/donation-amount.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/donation-amount.js
 
 
 class DonationAmount {
@@ -11192,12 +11296,7 @@ class DonationAmount {
                     this.amount = parseFloat(element.value);
                 }
                 else if (element.name == other) {
-                    const cleanedAmount = engrid_ENGrid.cleanAmount(element.value);
-                    element.value =
-                        cleanedAmount % 1 != 0
-                            ? cleanedAmount.toFixed(2)
-                            : cleanedAmount.toString();
-                    this.amount = cleanedAmount;
+                    this.syncOtherAmount(element, true);
                 }
             }
         });
@@ -11205,11 +11304,29 @@ class DonationAmount {
         const otherField = document.querySelector(`[name='${this._other}']`);
         if (otherField) {
             otherField.addEventListener("keyup", (e) => {
-                this.amount = engrid_ENGrid.cleanAmount(otherField.value);
+                this.syncOtherAmount(otherField);
             });
         }
         // Load the current amount
         this.load();
+    }
+    // The "other" radio is the one whose value isn't a numeric amount
+    // (EN renders it as value="other"), so it cleans to 0
+    isOtherAmountSelected() {
+        const selectedAmount = document.querySelector(`input[name="${this._radios}"]:checked`);
+        return (selectedAmount !== null &&
+            engrid_ENGrid.cleanAmount(selectedAmount.value) === 0);
+    }
+    syncOtherAmount(field, formatValue = false) {
+        const otherIsSelected = this.isOtherAmountSelected();
+        const amount = engrid_ENGrid.cleanAmount(field.value);
+        if (!otherIsSelected || amount <= 0) {
+            return;
+        }
+        if (formatValue) {
+            field.value = amount % 1 != 0 ? amount.toFixed(2) : amount.toString();
+        }
+        this.amount = amount;
     }
     static getInstance(radios = "transaction.donationAmt", other = "transaction.donationAmt.other") {
         if (!DonationAmount.instance) {
@@ -11307,7 +11424,67 @@ class DonationAmount {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/engrid.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/i18n-options.js
+const I18nDefaults = {
+    en: {
+        "rememberMe.label": "Remember Me",
+        "rememberMe.clearLabel": "(clear autofill)",
+        "rememberMe.tooltip": "Check “{label}” to complete forms on this device faster. While your financial information won’t be stored, you should only check this box from a personal device. Click “{clearLabel}” to remove the information from your device at any time.",
+        "rememberMe.iframeTitle": "Remember Me iframe",
+        "translateFields.state": "State",
+        "translateFields.stateGeneric": "Province / State",
+        "translateFields.stateRegion": "State/Region",
+        "translateFields.provinceTerritory": "Province / Territory",
+        "translateFields.selectState": "Select State",
+        "translateFields.select": "Select",
+        "translateFields.recipientTo": "To:",
+        "a11y.errorSummary": "There are {count} errors: {messages}.",
+        // InputPlaceholders component defaults
+        "placeholders.firstName": "First Name",
+        "placeholders.lastName": "Last Name",
+        "placeholders.emailAddress": "Email Address",
+        "placeholders.phoneNumber": "Phone Number",
+        "placeholders.phoneNumberOptional": "Phone Number (Optional)",
+        "placeholders.phoneNumber2Optional": "000-000-0000 (Optional)",
+        "placeholders.country": "Country",
+        "placeholders.address1": "Street Address",
+        "placeholders.address2": "Apt., Ste., Bldg.",
+        "placeholders.city": "City",
+        "placeholders.region": "Region",
+        "placeholders.postcode": "ZIP Code",
+    },
+    es: {
+        "rememberMe.label": "Recuérdame",
+        "rememberMe.clearLabel": "(borrar autocompletado)",
+        "rememberMe.tooltip": "Marque “{label}” para completar los formularios en este dispositivo más rápido. Aunque su información financiera no se almacenará, solo debe marcar esta casilla desde un dispositivo personal. Haga clic en “{clearLabel}” para eliminar la información de su dispositivo en cualquier momento.",
+        "rememberMe.iframeTitle": "iframe de Recuérdame",
+        "translateFields.state": "Estado",
+        "translateFields.stateGeneric": "Provincia/Estado",
+        "translateFields.stateRegion": "Estado/Región",
+        "translateFields.provinceTerritory": "Provincia/Territorio",
+        "translateFields.selectState": "Seleccione Estado",
+        "translateFields.select": "Seleccione",
+        "translateFields.recipientTo": "Para:",
+        "a11y.errorSummary": "Hay {count} errores: {messages}.",
+        // InputPlaceholders component defaults
+        "placeholders.firstName": "Nombre",
+        "placeholders.lastName": "Apellidos",
+        "placeholders.emailAddress": "Correo electrónico",
+        "placeholders.phoneNumber": "Teléfono",
+        "placeholders.phoneNumberOptional": "Teléfono (opcional)",
+        "placeholders.phoneNumber2Optional": "000-000-0000 (opcional)",
+        "placeholders.country": "País",
+        "placeholders.address1": "Calle y número",
+        "placeholders.address2": "Depto., Piso, Edif.",
+        "placeholders.city": "Ciudad",
+        "placeholders.region": "Provincia/Estado",
+        "placeholders.postcode": "Código Postal",
+    },
+};
+
+;// ./node_modules/@4site/engrid-scripts/dist/engrid.js
+
+const errorCallbacks = new Map();
 class engrid_ENGrid {
     constructor() {
         if (!engrid_ENGrid.enForm) {
@@ -11480,7 +11657,7 @@ class engrid_ENGrid {
         return null;
     }
     static isThankYouPage() {
-        return this.getPageNumber() === this.getPageCount();
+        return (this.getPageNumber() === this.getPageCount() && this.getPageCount() > 1);
     }
     // Return the current page ID
     static getPageID() {
@@ -11514,7 +11691,15 @@ class engrid_ENGrid {
     }
     //returns 'us or 'ca' based on the client ID
     static getDataCenter() {
-        return engrid_ENGrid.getClientID() >= 10000 ? "us" : "ca";
+        if (engrid_ENGrid.getClientID() > 20000) {
+            return "us2";
+        }
+        else if (engrid_ENGrid.getClientID() > 10000) {
+            return "us";
+        }
+        else {
+            return "ca";
+        }
     }
     // Return the current page type
     static getPageType() {
@@ -11525,35 +11710,45 @@ class engrid_ENGrid {
                 case "donation":
                 case "premiumgift":
                     return "DONATION";
-                    break;
+                    // removed by dead control flow
+
                 case "e-card":
                     return "ECARD";
-                    break;
+                    // removed by dead control flow
+
                 case "otherdatacapture":
                 case "survey":
                     return "SURVEY";
-                    break;
+                    // removed by dead control flow
+
                 case "emailtotarget":
                     return "EMAILTOTARGET";
-                    break;
+                    // removed by dead control flow
+
                 case "advocacypetition":
                     return "ADVOCACY";
-                    break;
+                    // removed by dead control flow
+
                 case "emailsubscribeform":
                     return "SUBSCRIBEFORM";
-                    break;
+                    // removed by dead control flow
+
                 case "event":
                     return "EVENT";
-                    break;
+                    // removed by dead control flow
+
                 case "supporterhub":
                     return "SUPPORTERHUB";
-                    break;
+                    // removed by dead control flow
+
                 case "unsubscribe":
                     return "UNSUBSCRIBE";
-                    break;
+                    // removed by dead control flow
+
                 case "tweetpage":
                     return "TWEETPAGE";
-                    break;
+                    // removed by dead control flow
+
                 default:
                     return "UNKNOWN";
             }
@@ -11561,6 +11756,52 @@ class engrid_ENGrid {
         else {
             return "UNKNOWN";
         }
+    }
+    // Return the current page language: the first 2 characters of
+    // pageJson.locale, lowercased (e.g. "es_US" -> "es"). Defaults to "en"
+    // when pageJson or the locale is not available.
+    static getPageLanguage() {
+        var _a;
+        const locale = (_a = window.pageJson) === null || _a === void 0 ? void 0 : _a.locale;
+        if (typeof locale === "string" && locale.length >= 2) {
+            return locale.substring(0, 2).toLowerCase();
+        }
+        return "en";
+    }
+    // Return the merged i18n dictionaries: window.EngridI18n merged over
+    // I18nDefaults, key-by-key per language, without mutating the defaults.
+    static getI18nDictionaries() {
+        const dictionaries = Object.assign({}, I18nDefaults);
+        if ("EngridI18n" in window && window.EngridI18n) {
+            for (const lang in window.EngridI18n) {
+                dictionaries[lang] = Object.assign(Object.assign({}, (I18nDefaults[lang] || {})), window.EngridI18n[lang]);
+            }
+        }
+        return dictionaries;
+    }
+    // Check if an i18n key is defined in the merged dictionary for the current
+    // page language (the English fallback does not count).
+    static hasI18nKey(key) {
+        var _a;
+        const language = engrid_ENGrid.getPageLanguage();
+        return key in ((_a = engrid_ENGrid.getI18nDictionaries()[language]) !== null && _a !== void 0 ? _a : {});
+    }
+    // Translate a UI string key using the i18n dictionary: I18nDefaults merged
+    // with the window.EngridI18n global (key-by-key, per language, without
+    // mutating the defaults). Resolution order: current page language bucket ->
+    // English bucket -> the key itself. {placeholders} are interpolated from
+    // the replacements argument.
+    static t(key, replacements = {}) {
+        var _a, _b, _c, _d;
+        const dictionaries = engrid_ENGrid.getI18nDictionaries();
+        const language = engrid_ENGrid.getPageLanguage();
+        let text = (_d = (_b = (_a = dictionaries[language]) === null || _a === void 0 ? void 0 : _a[key]) !== null && _b !== void 0 ? _b : (_c = dictionaries["en"]) === null || _c === void 0 ? void 0 : _c[key]) !== null && _d !== void 0 ? _d : key;
+        for (const name in replacements) {
+            // Function replacement: the value is inserted literally, so $-sequences
+            // ($&, $$, ...) in user-facing text are never interpreted.
+            text = text.replace(new RegExp(`\\{${name}\\}`, "g"), () => String(replacements[name]));
+        }
+        return text;
     }
     // Set body engrid data attributes
     static setBodyData(dataName, value) {
@@ -11736,6 +11977,7 @@ class engrid_ENGrid {
             else {
                 errorMessageElement.innerHTML = errorMessage;
             }
+            errorCallbacks.forEach((callback) => callback());
         }
     }
     static removeError(element) {
@@ -11820,6 +12062,24 @@ class engrid_ENGrid {
     // This function is used to run a callback function when an error is displayed on the page
     static watchForError(callback) {
         const errorElement = document.querySelector(".en__errorList");
+        const callbackType = engrid_ENGrid.getErrorCallbackKey(callback);
+        // Register callback so setError can trigger it too
+        if (!errorCallbacks.has(callbackType)) {
+            errorCallbacks.set(callbackType, callback);
+        }
+        if (errorElement && !errorElement.dataset[callbackType]) {
+            errorElement.dataset[callbackType] = "true";
+            const observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+                        callback();
+                    }
+                });
+            });
+            observer.observe(errorElement, { childList: true });
+        }
+    }
+    static getErrorCallbackKey(callback) {
         const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
         // Avoid duplicate callbacks
         let callbackType = callback.toString();
@@ -11833,18 +12093,7 @@ class engrid_ENGrid {
         callbackType = callbackType.replace(/[^a-zA-Z0-9]/g, "");
         // Limit to 20 characters and add prefix
         callbackType = callbackType.substring(0, 20);
-        callbackType = "engrid" + capitalize(callbackType);
-        if (errorElement && !errorElement.dataset[callbackType]) {
-            errorElement.dataset[callbackType] = "true";
-            const observer = new MutationObserver(function (mutations) {
-                mutations.forEach(function (mutation) {
-                    if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
-                        callback();
-                    }
-                });
-            });
-            observer.observe(errorElement, { childList: true });
-        }
+        return "engrid" + capitalize(callbackType);
     }
     // Get the Payment Type
     static getPaymentType() {
@@ -11884,7 +12133,94 @@ class engrid_ENGrid {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/donation-frequency.js
+;// ./node_modules/@4site/engrid-scripts/dist/logger.js
+
+/**
+ * A better logger. It only works if debug is enabled.
+ */
+class EngridLogger {
+    constructor(prefix, color, background, emoji) {
+        this.prefix = "";
+        this.color = "black";
+        this.background = "white";
+        this.emoji = "";
+        if (emoji) {
+            this.emoji = emoji;
+        }
+        else {
+            switch (color) {
+                case "red":
+                    this.emoji = "🔴";
+                    break;
+                case "green":
+                    this.emoji = "🟢";
+                    break;
+                case "blue":
+                    this.emoji = "🔵";
+                    break;
+                case "yellow":
+                    this.emoji = "🟡";
+                    this.background = "black";
+                    break;
+                case "purple":
+                    this.emoji = "🟣";
+                    break;
+                case "black":
+                default:
+                    this.emoji = "⚫";
+                    break;
+            }
+        }
+        if (prefix) {
+            this.prefix = `[ENgrid ${prefix}]`;
+        }
+        if (color) {
+            this.color = color;
+        }
+        if (background) {
+            this.background = background;
+        }
+    }
+    get log() {
+        if (!engrid_ENGrid.debug && engrid_ENGrid.getUrlParameter("debug") !== "log") {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get success() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c ✅ " + this.prefix + " %s", `color: green; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get danger() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.log.bind(window.console, "%c ⛔️ " + this.prefix + " %s", `color: red; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get warn() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.warn.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get dir() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.dir.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+    get error() {
+        if (!engrid_ENGrid.debug) {
+            return () => { };
+        }
+        return console.error.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
+    }
+}
+
+;// ./node_modules/@4site/engrid-scripts/dist/events/donation-frequency.js
+
 
 
 class DonationFrequency {
@@ -11893,6 +12229,8 @@ class DonationFrequency {
         this._frequency = "onetime";
         this._recurring = "n";
         this._dispatch = true;
+        this._frequencies = ["onetime"];
+        this.logger = new EngridLogger("DonationFrequency", "white", "black", "💰");
         // Watch the Radios for Changes
         document.addEventListener("change", (e) => {
             const element = e.target;
@@ -11944,6 +12282,9 @@ class DonationFrequency {
     get onFrequencyChange() {
         return this._onFrequencyChange.asEvent();
     }
+    get frequencies() {
+        return this._frequencies;
+    }
     // Set amount var with currently selected amount
     load() {
         var _a;
@@ -11960,6 +12301,11 @@ class DonationFrequency {
                 ((_a = window.EngagingNetworks.require._defined.enjs
                     .getSupporterData("recurrpay")) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || "n";
         }
+        // List of available frequencies on the form
+        this._frequencies = Array.from(document.querySelectorAll('input[name="transaction.recurrfreq"]'))
+            .filter((el) => el instanceof HTMLInputElement)
+            .map((el) => el.value.toLowerCase());
+        this.logger.log(`Loaded with frequency: ${this.frequency} and recurring: ${this.recurring} \nAvailable frequencies: ${this._frequencies.join(", ")}`);
         // ENGrid.enParseDependencies();
     }
     // Force a new recurrency
@@ -11996,12 +12342,15 @@ class DonationFrequency {
                 this.setRecurrency("Y", dispatch);
             }
         }
+        else {
+            this.logger.warn(`Attempted to set a frequency of "${freq}" but it was not found on the form.`);
+        }
         // Revert dispatch to default value (true)
         this._dispatch = true;
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/processing-fees.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/processing-fees.js
 
 
 
@@ -12009,7 +12358,7 @@ class ProcessingFees {
     constructor() {
         this._onFeeChange = new dist/* SimpleEventDispatcher */.IL();
         this._amount = DonationAmount.getInstance();
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._fee = 0;
         this._field = null;
         // console.log('%c Processing Fees Constructor', 'font-size: 30px; background-color: #000; color: #FF0');
@@ -12095,7 +12444,7 @@ class ProcessingFees {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/remember-me-events.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/remember-me-events.js
 /**
  * This class is responsible for managing events related to the "Remember Me" functionality.
  * It uses the Singleton design pattern to ensure only one instance of this class exists.
@@ -12105,7 +12454,7 @@ class ProcessingFees {
 
 class RememberMeEvents {
     constructor() {
-        this.logger = new logger_EngridLogger("RememberMeEvents");
+        this.logger = new EngridLogger("RememberMeEvents");
         this._onLoad = new dist/* SimpleEventDispatcher */.IL();
         this._onClear = new dist/* SignalDispatcher */.UD();
         this.hasData = false;
@@ -12133,7 +12482,10 @@ class RememberMeEvents {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/iframe-queue-events.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/iframe-queue-events.js
+/* unused harmony import specifier */ var SignalDispatcher;
+/* unused harmony import specifier */ var SimpleEventDispatcher;
+/* unused harmony import specifier */ var iframe_queue_events_EngridLogger;
 /**
  * Singleton event hub for the Iframe Queue component.
  *
@@ -12154,9 +12506,9 @@ class RememberMeEvents {
  */
 
 
-class iframe_queue_events_IframeQueueEvents {
+class IframeQueueEvents {
     constructor() {
-        this.logger = new EngridLogger("IframeQueueEvents");
+        this.logger = new iframe_queue_events_EngridLogger("IframeQueueEvents");
         this._onChainComplete = new SignalDispatcher();
         this._onChainError = new SimpleEventDispatcher();
         this._onItemStart = new SimpleEventDispatcher();
@@ -12165,10 +12517,10 @@ class iframe_queue_events_IframeQueueEvents {
     }
     /** Returns the shared IframeQueueEvents singleton. */
     static getInstance() {
-        if (!iframe_queue_events_IframeQueueEvents.instance) {
-            iframe_queue_events_IframeQueueEvents.instance = new iframe_queue_events_IframeQueueEvents();
+        if (!IframeQueueEvents.instance) {
+            IframeQueueEvents.instance = new IframeQueueEvents();
         }
-        return iframe_queue_events_IframeQueueEvents.instance;
+        return IframeQueueEvents.instance;
     }
     /**
      * Fires once when the entire queue completes successfully.
@@ -12225,7 +12577,7 @@ class iframe_queue_events_IframeQueueEvents {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/country.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/country.js
 
 
 class Country {
@@ -12269,7 +12621,7 @@ class Country {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/events/index.js
+;// ./node_modules/@4site/engrid-scripts/dist/events/index.js
 
 
 
@@ -12278,24 +12630,24 @@ class Country {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/app.js
+;// ./node_modules/@4site/engrid-scripts/dist/app.js
 
 
 class App extends engrid_ENGrid {
     constructor(options) {
         super();
         // Events
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._fees = ProcessingFees.getInstance();
         this._amount = DonationAmount.getInstance("transaction.donationAmt", "transaction.donationAmt.other");
         this._frequency = DonationFrequency.getInstance();
         this._country = Country.getInstance();
-        this.logger = new logger_EngridLogger("App", "black", "white", "🍏");
+        this.logger = new EngridLogger("App", "black", "white", "🍏");
         const loader = new Loader();
         this.options = Object.assign(Object.assign({}, OptionsDefaults), options);
         // Add Options to window
         window.EngridOptions = this.options;
-        this._dataLayer = data_layer_DataLayer.getInstance();
+        this._dataLayer = DataLayer.getInstance();
         // If there's a ?pbedit query string, redirect to the page builder to edit on EN
         if (engrid_ENGrid.getUrlParameter("pbedit") === true ||
             engrid_ENGrid.getUrlParameter("pbedit") === "true") {
@@ -12461,12 +12813,14 @@ class App extends engrid_ENGrid {
         new CustomCurrency();
         // Auto Country Select
         new AutoCountrySelect();
+        // Page Background
+        new PageBackground(this.options.UseBodyBannerImageAsBackground);
         // Add Image Attribution
         if (this.options.MediaAttribution)
             new MediaAttribution();
         // Apple Pay
         if (this.options.applePay)
-            new ApplePay();
+            ApplePay.getInstance();
         // Capitalize Fields
         if (this.options.CapitalizeFields)
             new CapitalizeFields();
@@ -12511,8 +12865,6 @@ class App extends engrid_ENGrid {
         new A11y();
         new AddNameToMessage();
         new ExpandRegionName();
-        // Page Background
-        new PageBackground();
         // Url Params to Form Fields
         new UrlToForm();
         // Required if Visible Fields
@@ -12537,10 +12889,11 @@ class App extends engrid_ENGrid {
         // Supporter Hub Features
         new SupporterHub();
         // Digital Wallets Features
-        if (engrid_ENGrid.getPageType() === "DONATION") {
+        if (engrid_ENGrid.getPageType() === "DONATION" ||
+            engrid_ENGrid.getPageType() === "EVENT") {
             new DigitalWallets();
-            new PreferredPaymentMethod();
         }
+        new PreferredPaymentMethod();
         // Mobile CTA
         new MobileCTA();
         // Live Frequency
@@ -12582,8 +12935,8 @@ class App extends engrid_ENGrid {
             new BrandingHtml().show();
         }
         engrid_ENGrid.setBodyData("js-loading", "finished");
-        window.EngridVersion = AppVersion;
-        this.logger.success(`VERSION: ${AppVersion}`);
+        window.EngridVersion = (/* inlined export .AppVersion */"0.28.4");
+        this.logger.success(`VERSION: ${(/* inlined export .AppVersion */"0.28.4")}`);
         // Window Load
         let onLoad = typeof window.onload === "function" ? window.onload : null;
         if (document.readyState !== "loading") {
@@ -12633,12 +12986,12 @@ class App extends engrid_ENGrid {
         }
     }
     static log(message) {
-        const logger = new logger_EngridLogger("Client", "brown", "aliceblue", "🍪");
+        const logger = new EngridLogger("Client", "brown", "aliceblue", "🍪");
         logger.log(message);
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/amount-label.js
+;// ./node_modules/@4site/engrid-scripts/dist/amount-label.js
 // This script checks if the donations amounts are numbers and if they are, appends the correct currency symbol
 
 class AmountLabel {
@@ -12670,7 +13023,7 @@ class AmountLabel {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/apple-pay.js
+;// ./node_modules/@4site/engrid-scripts/dist/apple-pay.js
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -12697,50 +13050,313 @@ const merchantCapabilities = window.merchantCapabilities;
 const merchantTotalLabel = window.merchantTotalLabel;
 class ApplePay {
     constructor() {
+        this.logger = new EngridLogger("ApplePay", "#000000", "#a6f3a6", "🍎");
         this.applePay = document.querySelector('.en__field__input.en__field__input--radio[value="applepay"]');
         this._amount = DonationAmount.getInstance();
         this._fees = ProcessingFees.getInstance();
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
+        // Client hook: runs after the built-in pre-flight, right before the Apple
+        // Pay sheet opens. Return false to abort. The hook shows its own errors
+        // with ENGrid.setError; the donation amount field error is cleared before
+        // every attempt.
+        this.beforeSession = null;
+        // Fields the wallet supplies via requiredBillingContactFields, so they are
+        // excluded from the mandatory-field pre-flight.
+        this.walletFields = [
+            "supporter.address1",
+            "supporter.address2",
+            "supporter.city",
+            "supporter.region",
+            "supporter.postcode",
+            "supporter.country",
+            "supporter.phoneNumber",
+        ];
+        // Field containers this component flagged with ENGrid.setError, so they can
+        // be cleared on the next attempt.
+        this.errorFields = [];
+        ApplePay.instance = this;
         this.checkApplePay();
+    }
+    static getInstance() {
+        if (!ApplePay.instance) {
+            ApplePay.instance = new ApplePay();
+        }
+        return ApplePay.instance;
+    }
+    // True when the page offers Apple Pay, either as a giveBySelect radio tile
+    // or as an option of the payment type select.
+    hasApplePayOption() {
+        if (this.applePay)
+            return true;
+        const paymentTypeField = engrid_ENGrid.getField("transaction.paymenttype");
+        if (!paymentTypeField || !paymentTypeField.options)
+            return false;
+        return Array.from(paymentTypeField.options).some((option) => option.value.toLowerCase() === "applepay");
     }
     checkApplePay() {
         return __awaiter(this, void 0, void 0, function* () {
-            const pageform = document.querySelector("form.en__component--page");
-            if (!this.applePay || !window.hasOwnProperty("ApplePaySession")) {
+            if (!this.hasApplePayOption() ||
+                !window.hasOwnProperty("ApplePaySession")) {
                 const applePayContainer = document.querySelector(".en__field__item.applepay");
                 if (applePayContainer)
                     applePayContainer.remove();
-                if (engrid_ENGrid.debug)
-                    console.log("Apple Pay DISABLED");
+                engrid_ENGrid.setBodyData("apple-pay-available", "false");
+                this.logger.log("DISABLED: not supported by this browser or page");
                 return false;
             }
-            const promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+            if (!merchantIdentifier) {
+                engrid_ENGrid.setBodyData("apple-pay-available", "false");
+                this.logger.log("DISABLED: window.merchantIdentifier is not defined");
+                return false;
+            }
             let applePayEnabled = false;
-            yield promise.then((canMakePayments) => {
-                applePayEnabled = canMakePayments;
-                if (canMakePayments) {
-                    let input = document.createElement("input");
-                    input.setAttribute("type", "hidden");
-                    input.setAttribute("name", "PkPaymentToken");
-                    input.setAttribute("id", "applePayToken");
-                    pageform.appendChild(input);
-                    this._form.onSubmit.subscribe(() => this.onPayClicked());
-                }
-            });
-            if (engrid_ENGrid.debug)
-                console.log("applePayEnabled", applePayEnabled);
-            let applePayWrapper = this.applePay.closest(".en__field__item");
-            if (applePayEnabled) {
-                // Set Apple Pay Class
-                applePayWrapper === null || applePayWrapper === void 0 ? void 0 : applePayWrapper.classList.add("applePayWrapper");
+            try {
+                applePayEnabled = yield ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
             }
-            else {
-                // Hide Apple Pay Wrapper
-                if (applePayWrapper)
-                    applePayWrapper.style.display = "none";
+            catch (e) {
+                applePayEnabled = false;
             }
-            return applePayEnabled;
+            engrid_ENGrid.setBodyData("apple-pay-available", applePayEnabled ? "true" : "false");
+            if (!applePayEnabled) {
+                this.logger.log("DISABLED: no provisioned card");
+                return false;
+            }
+            // Hidden field that carries the wallet token to EN. Only create it if it
+            // doesn't exist yet, so we never post a duplicate PkPaymentToken.
+            if (!engrid_ENGrid.getField("PkPaymentToken")) {
+                engrid_ENGrid.createHiddenInput("PkPaymentToken").setAttribute("id", "applePayToken");
+            }
+            this.writeButtonContainer();
+            // Fallback trigger: an implicit submit (e.g. Enter key) while Apple Pay
+            // is selected and no token exists yet opens the sheet instead of
+            // submitting. After authorization the token is set and the submit
+            // passes through.
+            this._form.onSubmit.subscribe(() => this.onSubmitFallback());
+            this.logger.log("ENABLED");
+            return true;
         });
+    }
+    // Writes the native Apple Pay button container right before the submit
+    // button. CSS swaps it with the submit button while the applepay payment
+    // type is selected (data-engrid-payment-type="applepay").
+    writeButtonContainer() {
+        if (document.querySelector(".apple-pay-container"))
+            return;
+        if (!document.querySelector(".en__submit"))
+            return;
+        // The -apple-pay-button-* properties are set inline because cssnano's
+        // colormin rewrites the keyword "black" to #000 in built stylesheets,
+        // which is not a valid value for -apple-pay-button-style, so Safari
+        // drops it and falls back to white-outline.
+        engrid_ENGrid.addHtml('<div class="apple-pay-container showif-applepay-selected">' +
+            '<div class="apple-pay-button" role="button" tabindex="0" aria-label="Donate with Apple Pay" ' +
+            'style="-apple-pay-button-type: donate; -apple-pay-button-style: black;"></div>' +
+            "</div>", ".en__submit", "before");
+        const button = document.querySelector(".apple-pay-container .apple-pay-button");
+        if (!button)
+            return;
+        button.addEventListener("click", () => this.onPayClicked());
+        button.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                this.onPayClicked();
+            }
+        });
+    }
+    onSubmitFallback() {
+        const applePayToken = document.getElementById("applePayToken");
+        if (engrid_ENGrid.getPaymentType().toLowerCase() !== "applepay" ||
+            (applePayToken && applePayToken.value !== "")) {
+            return; // Not Apple Pay, or already authorized: let the submit proceed
+        }
+        if (!this._form.submit)
+            return; // Another component vetoed this submit
+        this._form.submit = false; // Veto the submit and open the sheet instead
+        this.onPayClicked();
+    }
+    onPayClicked() {
+        if (!this.preflight())
+            return;
+        this.openSession();
+    }
+    preflight() {
+        this.clearErrors();
+        // The wallet supplies billing address and phone, but nothing else. Flag
+        // empty mandatory fields before the sheet opens so a donor never
+        // authorizes a payment EN will bounce for a missing mandatory field.
+        const missing = this.missingMandatoryFields();
+        missing.forEach((field) => {
+            engrid_ENGrid.setError(field, "This field is required");
+            this.errorFields.push(field);
+        });
+        if (missing.length) {
+            this.scrollToError();
+            return false;
+        }
+        const amount = this._amount.amount;
+        if (!amount || amount <= 0) {
+            engrid_ENGrid.setError(".en__field--donationAmt", "Please select a gift amount.");
+            this.scrollToError();
+            return false;
+        }
+        // The client hook owns the donation amount field error from here on
+        engrid_ENGrid.removeError(".en__field--donationAmt");
+        if (this.beforeSession && this.beforeSession() === false) {
+            this.scrollToError();
+            return false;
+        }
+        return true;
+    }
+    // Scrolls to the first field flagged with a validation error so the donor
+    // sees what needs fixing; without this the button looks unresponsive.
+    scrollToError() {
+        const errorField = (this.errorFields[0] ||
+            document.querySelector(".en__field--validationFailed"));
+        if (errorField) {
+            errorField.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }
+    clearErrors() {
+        this.errorFields.forEach((field) => engrid_ENGrid.removeError(field));
+        this.errorFields = [];
+        engrid_ENGrid.removeError(".en__field--donationAmt");
+    }
+    // Every visible mandatory field container that is empty and that the
+    // wallet cannot fill.
+    missingMandatoryFields() {
+        const missing = [];
+        document
+            .querySelectorAll(".en__field.en__mandatory")
+            .forEach((field) => {
+            const fieldElement = field;
+            if (!engrid_ENGrid.isVisible(fieldElement))
+                return;
+            const input = fieldElement.querySelector("input, select, textarea");
+            if (!input || !input.name)
+                return;
+            if (this.walletFields.indexOf(input.name) !== -1)
+                return;
+            if (input.type === "radio" || input.type === "checkbox") {
+                if (!fieldElement.querySelector("input:checked")) {
+                    missing.push(fieldElement);
+                }
+                return;
+            }
+            if (input.value.trim() === "") {
+                missing.push(fieldElement);
+            }
+        });
+        return missing;
+    }
+    openSession() {
+        // ProcessingFees mirrors EN's own fee cover calculation, so the sheet
+        // total matches what EN will actually charge.
+        const donationAmount = (this._amount.amount + this._fees.fee).toFixed(2);
+        const request = {
+            supportedNetworks: merchantSupportedNetworks,
+            merchantCapabilities: merchantCapabilities,
+            countryCode: merchantCountryCode,
+            currencyCode: merchantCurrencyCode,
+            requiredBillingContactFields: ["postalAddress", "phone"],
+            total: {
+                label: merchantTotalLabel || merchantDisplayName || "Donation",
+                amount: donationAmount,
+                type: "final",
+            },
+        };
+        let session;
+        try {
+            session = new ApplePaySession(3, request);
+        }
+        catch (e) {
+            const errorTarget = (document.querySelector(".apple-pay-container") || document.querySelector(".en__submit"));
+            if (errorTarget) {
+                engrid_ENGrid.setError(errorTarget, "Apple Pay error: '" + e.message + "'");
+            }
+            this._form.dispatchError();
+            return;
+        }
+        const thisClass = this;
+        session.onvalidatemerchant = function (event) {
+            thisClass
+                .performValidation(event.validationURL)
+                .then(function (merchantSession) {
+                if (engrid_ENGrid.debug)
+                    console.log("Apple Pay merchantSession", merchantSession);
+                session.completeMerchantValidation(merchantSession);
+            })
+                .catch(function () {
+                session.abort();
+            });
+        };
+        session.onpaymentauthorized = function (event) {
+            thisClass.onPaymentAuthorized(session, event);
+        };
+        session.oncancel = function () {
+            // Donor closed the sheet; return them to the form quietly.
+            thisClass.logger.log("Sheet cancelled by the donor");
+        };
+        session.begin();
+    }
+    onPaymentAuthorized(session, event) {
+        if (engrid_ENGrid.debug)
+            console.log("Apple Pay Token", event.payment.token);
+        // Pass the billing info from Apple Pay back into the EN billing fields -
+        // this won't happen automatically with Vantiv Apple Pay.
+        const billing = event.payment.billingContact || {};
+        const addressLines = billing.addressLines || [];
+        // Country goes first, dispatching change: EN swaps country-dependent
+        // fields (supporter.region is a select for some countries and a text
+        // input for others) when the country changes, so the region field must
+        // already be in its final shape when we fill it below.
+        this.setField("supporter.country", billing.countryCode, true);
+        this.setField("supporter.address1", addressLines[0]);
+        this.setField("supporter.address2", addressLines[1]);
+        this.setField("supporter.city", billing.locality);
+        if (billing.administrativeArea) {
+            this.setRegion(billing.administrativeArea);
+        }
+        this.setField("supporter.postcode", billing.postalCode);
+        this.setField("supporter.phoneNumber", billing.phone);
+        // Apple Pay gifts are one-time on this setup; make sure recurrpay isn't
+        // submitted blank when we bypass the EN submit button.
+        const recurrpay = engrid_ENGrid.getField("transaction.recurrpay");
+        if (recurrpay && !recurrpay.value)
+            recurrpay.value = "N";
+        const applePayToken = document.getElementById("applePayToken");
+        if (applePayToken) {
+            applePayToken.value = JSON.stringify(event.payment.token);
+        }
+        session.completePayment(ApplePaySession.STATUS_SUCCESS);
+        this._form.submitForm();
+    }
+    setField(name, value, dispatchEvents = false) {
+        if (value == null || value === "")
+            return;
+        if (!engrid_ENGrid.getField(name))
+            return;
+        engrid_ENGrid.setFieldValue(name, value, true, dispatchEvents);
+    }
+    // The region field is a select for countries EN has subdivisions for and a
+    // text input for the rest. On a select, the wallet value must match an
+    // option or the write is silently dropped, so match case-insensitively by
+    // option value or label (Apple returns subdivision codes for some
+    // countries and full names for others).
+    setRegion(value) {
+        const field = engrid_ENGrid.getField("supporter.region");
+        if (!field)
+            return;
+        if (field instanceof HTMLSelectElement) {
+            const option = Array.from(field.options).find((o) => o.value.toLowerCase() === value.toLowerCase() ||
+                o.text.toLowerCase() === value.toLowerCase());
+            if (!option) {
+                this.logger.log(`Region "${value}" doesn't match any region select option`);
+                return;
+            }
+            engrid_ENGrid.setFieldValue("supporter.region", option.value);
+            return;
+        }
+        engrid_ENGrid.setFieldValue("supporter.region", value);
     }
     performValidation(url) {
         return new Promise(function (resolve, reject) {
@@ -12770,221 +13386,105 @@ class ApplePay {
             xhr.send();
         });
     }
-    log(name, msg) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/ea-dataservice/rest/applepay/log?name=" + name + "&msg=" + msg);
-        xhr.send();
-    }
-    sendPaymentToken(token) {
-        return new Promise(function (resolve, reject) {
-            resolve(true);
-        });
-    }
-    onPayClicked() {
-        if (!this._form.submit)
-            return;
-        const enFieldPaymentType = document.querySelector("#en__field_transaction_paymenttype");
-        const applePayToken = document.getElementById("applePayToken");
-        const formClass = this._form;
-        // Only work if Payment Type is Apple Pay
-        if (enFieldPaymentType.value == "applepay" && applePayToken.value == "") {
-            try {
-                let donationAmount = this._amount.amount + this._fees.fee;
-                var request = {
-                    supportedNetworks: merchantSupportedNetworks,
-                    merchantCapabilities: merchantCapabilities,
-                    countryCode: merchantCountryCode,
-                    currencyCode: merchantCurrencyCode,
-                    total: {
-                        label: merchantTotalLabel,
-                        amount: donationAmount,
-                    },
-                };
-                var session = new ApplePaySession(1, request);
-                var thisClass = this;
-                session.onvalidatemerchant = function (event) {
-                    thisClass
-                        .performValidation(event.validationURL)
-                        .then(function (merchantSession) {
-                        if (engrid_ENGrid.debug)
-                            console.log("Apple Pay merchantSession", merchantSession);
-                        session.completeMerchantValidation(merchantSession);
-                    });
-                };
-                session.onpaymentauthorized = function (event) {
-                    thisClass
-                        .sendPaymentToken(event.payment.token)
-                        .then(function (success) {
-                        if (engrid_ENGrid.debug)
-                            console.log("Apple Pay Token", event.payment.token);
-                        document.getElementById("applePayToken").value = JSON.stringify(event.payment.token);
-                        formClass.submitForm();
-                    });
-                };
-                session.oncancel = function (event) {
-                    if (engrid_ENGrid.debug)
-                        console.log("Cancelled", event);
-                    alert("You cancelled. Sorry it didn't work out.");
-                    formClass.dispatchError();
-                };
-                session.begin();
-                this._form.submit = false;
-                return false;
-            }
-            catch (e) {
-                alert("Developer mistake: '" + e.message + "'");
-                formClass.dispatchError();
-            }
-        }
-        this._form.submit = true;
-        return true;
-    }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/logger.js
+;// ./node_modules/@4site/engrid-scripts/dist/a11y.js
 
-/**
- * A better logger. It only works if debug is enabled.
- */
-class logger_EngridLogger {
-    constructor(prefix, color, background, emoji) {
-        this.prefix = "";
-        this.color = "black";
-        this.background = "white";
-        this.emoji = "";
-        if (emoji) {
-            this.emoji = emoji;
-        }
-        else {
-            switch (color) {
-                case "red":
-                    this.emoji = "🔴";
-                    break;
-                case "green":
-                    this.emoji = "🟢";
-                    break;
-                case "blue":
-                    this.emoji = "🔵";
-                    break;
-                case "yellow":
-                    this.emoji = "🟡";
-                    this.background = "black";
-                    break;
-                case "purple":
-                    this.emoji = "🟣";
-                    break;
-                case "black":
-                default:
-                    this.emoji = "⚫";
-                    break;
-            }
-        }
-        if (prefix) {
-            this.prefix = `[ENgrid ${prefix}]`;
-        }
-        if (color) {
-            this.color = color;
-        }
-        if (background) {
-            this.background = background;
-        }
-    }
-    get log() {
-        if (!engrid_ENGrid.debug && engrid_ENGrid.getUrlParameter("debug") !== "log") {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get success() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c ✅ " + this.prefix + " %s", `color: green; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get danger() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.log.bind(window.console, "%c ⛔️ " + this.prefix + " %s", `color: red; background-color: white; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get warn() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.warn.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get dir() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.dir.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-    get error() {
-        if (!engrid_ENGrid.debug) {
-            return () => { };
-        }
-        return console.error.bind(window.console, "%c" + this.emoji + " " + this.prefix + " %s", `color: ${this.color}; background-color: ${this.background}; font-size: 1.2em; padding: 4px; border-radius: 2px; font-family: monospace;`);
-    }
-}
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/a11y.js
 
 // a11y means accessibility
 // This Component is supposed to be used as a helper for Aria Attributes & Other Accessibility Features
 class A11y {
     constructor() {
-        this.logger = new logger_EngridLogger("A11y", "#FFFFFF", "#811212", "👁️‍🗨️");
+        var _a;
+        this.logger = new EngridLogger("A11y", "#FFFFFF", "#811212", "👁️‍🗨️");
         this.observer = null;
-        this.addErrorAlertArea();
-        this.addRequired();
-        this.addLabel();
-        this.addGroupRole();
+        this.liveRegionUpdateTimeout = null;
+        this.shouldFocusFirstInvalidField = false;
+        A11y.scanFields();
         this.updateFrequencyLabel();
         const ecardImages = document.querySelectorAll('.en__ecarditems__list img');
         this.setAutoGeneratedAltTags(ecardImages);
-        this.manageErrorListAlertRole();
         this.observeErrorMessages();
-    }
-    addErrorAlertArea() {
-        const fieldElements = document.querySelectorAll('.en__field .en__field__element');
-        fieldElements.forEach((fieldElement) => {
-            var _a;
-            if ((_a = fieldElement.nextElementSibling) === null || _a === void 0 ? void 0 : _a.classList.contains('en__field__error__alert'))
-                return;
-            const errorAlert = document.createElement('div');
-            errorAlert.setAttribute('aria-live', 'polite');
-            errorAlert.setAttribute('aria-atomic', 'true');
-            errorAlert.classList.add('en__field__error__alert');
-            errorAlert.id = `en__field__error__alert--${Math.random().toString(36).slice(2, 7)}`;
-            fieldElement.insertAdjacentElement('afterend', errorAlert);
+        (_a = engrid_ENGrid.enForm) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', () => {
+            this.shouldFocusFirstInvalidField = true;
+        });
+        // onSubmit only fires once validation has passed, so disarm the focus
+        // flag: a successful submit must not leave it set, or the next unrelated
+        // async field error (e.g. NeverBounce on blur) would steal focus.
+        EnForm.getInstance().onSubmit.subscribe(() => {
+            this.shouldFocusFirstInvalidField = false;
         });
     }
-    addGroupRole() {
+    /**
+     * Apply the field-level accessibility tagging (error containers,
+     * aria-required, fallback aria-labels, radio group roles) to every field
+     * within `root`. Defaults to the whole document on initial load, but can be
+     * pointed at a freshly injected fragment (e.g. a Supporter Hub overlay) so
+     * dynamically added forms get the same treatment. All operations are
+     * idempotent, so re-scanning already tagged fields is safe.
+     */
+    static scanFields(root = document) {
+        A11y.addGlobalErrorLiveRegion(root);
+        A11y.addRequired(root);
+        A11y.addLabel(root);
+        A11y.addGroupRole(root);
+    }
+    static addGlobalErrorLiveRegion(root = document) {
+        var _a;
+        const liveRegionId = 'engrid-a11y-error-summary';
+        if (document.getElementById(liveRegionId))
+            return;
+        const form = (_a = engrid_ENGrid.enForm) !== null && _a !== void 0 ? _a : root.querySelector('form.en__component');
+        if (!form)
+            return;
+        const region = document.createElement('div');
+        region.id = liveRegionId;
+        region.className = 'engrid__sr-only';
+        region.setAttribute('aria-live', 'polite');
+        region.setAttribute('aria-atomic', 'true');
+        form.insertBefore(region, form.firstChild);
+        const errorList = document.querySelector('ul.en__errorList');
+        if (errorList === null || errorList === void 0 ? void 0 : errorList.hasAttribute('role')) {
+            errorList.removeAttribute('role');
+        }
+    }
+    static addGroupRole(root = document) {
         // Add role="group" to all EN Radio fields
-        const radioFields = document.querySelectorAll(".en__field--radio");
+        const radioFields = root.querySelectorAll(".en__field--radio");
         radioFields.forEach((field) => {
+            // Skip fields already tagged so re-scans don't regenerate label IDs.
+            if (field.getAttribute("role") === "group")
+                return;
             field.setAttribute("role", "group");
             // Add random ID to the label
             const label = field.querySelector("label");
             if (label) {
                 label.setAttribute("id", `en__field__label--${Math.random().toString(36).slice(2, 7)}`);
+                // EN renders the group's question label as a <label>, but a radio group
+                // has no single control for `for` to point at. When EN leaves it blank
+                // (`for=""`) it's an invalid IDREF, so strip only that empty case
+                const forAttr = label.getAttribute("for");
+                if (forAttr !== null && forAttr.trim() === "") {
+                    label.removeAttribute("for");
+                }
                 field.setAttribute("aria-labelledby", label.id);
             }
         });
     }
-    addRequired() {
-        const mandatoryFields = document.querySelectorAll(".en__mandatory .en__field__input");
+    static addRequired(root = document) {
+        const mandatoryFields = root.querySelectorAll(".en__mandatory .en__field__input");
         mandatoryFields.forEach((field) => {
             field.setAttribute("aria-required", "true");
         });
     }
-    addLabel() {
-        const otherAmount = document.querySelector(".en__field__input--otheramount");
+    static addLabel(root = document) {
+        const otherAmount = root.querySelector(".en__field__input--otheramount");
         if (otherAmount) {
             otherAmount.setAttribute("aria-label", "Enter your custom donation amount");
         }
         // Split selects usually don't have a label, so let's make the first option the label
-        const splitSelects = document.querySelectorAll(".en__field__input--splitselect");
+        const splitSelects = root.querySelectorAll(".en__field__input--splitselect");
         splitSelects.forEach((select) => {
             var _a, _b, _c, _d;
             const firstOption = select.querySelector("option");
@@ -13044,11 +13544,12 @@ class A11y {
         });
     }
     /**
-     * Observe #engrid for .en__field__error additions and removals, mirroring
-     * text into the per-field .en__field__error__alert live region and toggling
-     * aria-invalid / aria-describedby on the corresponding input. Runs for the
-     * lifetime of the page so async validators (NeverBounce, VGS, server
-     * re-renders) are caught without timing assumptions.
+     * Observe #engrid for .en__field__error additions and removals, relocating
+     * each error after its field's input so DOM order matches visual order. Also
+     * toggles aria-invalid / aria-describedby on the corresponding input (or radio
+     * group when the field has role="group") and updates a single, DOM-ordered
+     * global live region. Runs for the lifetime of the page so async validators
+     * (NeverBounce, VGS, server re-renders) are caught without timing assumptions.
      */
     observeErrorMessages() {
         var _a;
@@ -13059,22 +13560,22 @@ class A11y {
                     continue;
                 record.addedNodes.forEach(node => {
                     if (node instanceof HTMLElement && node.classList.contains('en__field__error')) {
-                        this.moveErrorMessage(node);
+                        this.tagFieldError(node);
                     }
                 });
                 record.removedNodes.forEach(node => {
-                    var _a, _b;
                     if (!(node instanceof HTMLElement))
                         return;
                     if (!node.classList.contains('en__field__error'))
                         return;
+                    if (node.isConnected)
+                        return; // relocated, not removed
                     // node.parentElement is null after removal; record.target is the
                     // former parent. Walk up to the enclosing .en__field to be defensive
                     // against deeper nesting.
-                    const fieldWrapper = (_b = (_a = record.target).closest) === null || _b === void 0 ? void 0 : _b.call(_a, '.en__field');
-                    const alert = fieldWrapper === null || fieldWrapper === void 0 ? void 0 : fieldWrapper.querySelector('.en__field__error__alert');
-                    if (alert)
-                        this.clearErrorMessage(alert);
+                    const fieldWrapper = record.target.closest('.en__field');
+                    if (fieldWrapper)
+                        this.clearFieldError(fieldWrapper, node.id);
                 });
             }
         });
@@ -13083,92 +13584,236 @@ class A11y {
         // before this observer was attached.
         document.querySelectorAll('.en__field').forEach(field => {
             const error = field.querySelector('.en__field__error');
-            const alert = field.querySelector('.en__field__error__alert');
             if (error)
-                this.moveErrorMessage(error);
-            else if (alert)
-                this.clearErrorMessage(alert);
+                this.tagFieldError(error);
         });
     }
-    moveErrorMessage(field) {
+    tagFieldError(error) {
         var _a;
-        if (field.closest('.en__field__error__alert'))
-            return;
-        const fieldWrapper = field.closest('.en__field');
+        const fieldWrapper = error.closest('.en__field');
         if (!fieldWrapper)
             return;
-        const alertContainer = fieldWrapper.querySelector('.en__field__error__alert');
-        if (!alertContainer)
+        const fieldElement = fieldWrapper.querySelector('.en__field__element');
+        if (fieldElement && fieldElement.nextElementSibling !== error) {
+            fieldElement.insertAdjacentElement('afterend', error);
+        }
+        if (!error.id) {
+            error.id = `en__field__error--a11y-${Math.random().toString(36).slice(2, 7)}`;
+        }
+        this.scheduleLiveRegionUpdate();
+        const target = fieldWrapper.getAttribute('role') === 'group'
+            ? fieldWrapper
+            : fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
+        if (!target)
             return;
-        alertContainer.textContent = field.textContent;
-        field.classList.add('en__field__error--hidden-by-a11y');
-        const inputElement = fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
-        if (!inputElement)
-            return;
-        inputElement.setAttribute('aria-invalid', 'true');
-        const describedBy = ((_a = inputElement.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+        target.setAttribute('aria-invalid', 'true');
+        const describedBy = ((_a = target.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
             .split(/\s+/)
             .filter(Boolean);
-        if (describedBy.indexOf(alertContainer.id) === -1) {
-            describedBy.push(alertContainer.id);
+        if (describedBy.indexOf(error.id) === -1) {
+            describedBy.push(error.id);
         }
-        inputElement.setAttribute('aria-describedby', describedBy.join(' '));
+        target.setAttribute('aria-describedby', describedBy.join(' '));
+        // For radio groups, the group itself is the accessible widget; keep the
+        // individual inputs from also being announced as invalid.
+        if (target === fieldWrapper) {
+            fieldWrapper
+                .querySelectorAll('.en__field__element input, .en__field__element select, .en__field__element textarea')
+                .forEach(input => {
+                var _a;
+                input.removeAttribute('aria-invalid');
+                const remaining = ((_a = input.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+                    .split(/\s+/)
+                    .filter(id => id && id !== error.id);
+                if (remaining.length) {
+                    input.setAttribute('aria-describedby', remaining.join(' '));
+                }
+                else {
+                    input.removeAttribute('aria-describedby');
+                }
+            });
+        }
     }
-    clearErrorMessage(alert) {
+    clearFieldError(fieldWrapper, errorId) {
         var _a;
-        alert.textContent = '';
-        const fieldWrapper = alert.closest('.en__field');
-        if (!fieldWrapper)
+        this.scheduleLiveRegionUpdate();
+        const target = fieldWrapper.getAttribute('role') === 'group'
+            ? fieldWrapper
+            : fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
+        if (!target)
             return;
-        const inputElement = fieldWrapper.querySelector('.en__field__element input, .en__field__element select, .en__field__element textarea');
-        if (!inputElement)
-            return;
-        inputElement.removeAttribute('aria-invalid');
-        const remaining = ((_a = inputElement.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
+        const hasRemainingError = fieldWrapper.querySelector('.en__field__error') !== null;
+        if (!hasRemainingError) {
+            target.removeAttribute('aria-invalid');
+        }
+        const remaining = ((_a = target.getAttribute('aria-describedby')) !== null && _a !== void 0 ? _a : '')
             .split(/\s+/)
-            .filter(id => id && id !== alert.id);
+            .filter(id => id && id !== errorId);
         if (remaining.length) {
-            inputElement.setAttribute('aria-describedby', remaining.join(' '));
+            target.setAttribute('aria-describedby', remaining.join(' '));
         }
         else {
-            inputElement.removeAttribute('aria-describedby');
+            target.removeAttribute('aria-describedby');
         }
     }
-    manageErrorListAlertRole() {
-        const errorList = document.querySelector('ul.en__errorList');
-        if (!errorList)
-            return;
-        const hasErrorItems = () => Boolean(errorList.querySelector('li'));
-        const enableAlert = () => {
-            if (!errorList.hasAttribute('role')) {
-                errorList.setAttribute('role', 'alert');
-            }
-        };
-        const disableAlert = () => {
-            if (errorList.hasAttribute('role')) {
-                errorList.removeAttribute('role');
-            }
-        };
-        hasErrorItems() ? enableAlert() : disableAlert();
-        new MutationObserver(records => {
-            for (const record of records) {
-                if (record.type === 'childList') {
-                    hasErrorItems() ? enableAlert() : disableAlert();
-                    break;
+    /**
+     * Make everything on the page inert except the supplied overlay element and
+     * its ancestors. This hides background content from assistive technology and
+     * prevents focus from escaping a modal-style overlay.
+     *
+     * @param inert   When true, set `inert` on all siblings of the overlay and of
+     *                each of its ancestors. When false, remove `inert` from every
+     *                element this method previously marked (tracked via the
+     *                `data-engrid-inert` flag).
+     * @param overlay The element that should remain interactive. Required when
+     *                `inert` is true; ignored when `inert` is false.
+     */
+    static inertPage(inert, overlay) {
+        if (inert) {
+            if (!overlay)
+                return;
+            let element = overlay;
+            while (element && element !== document.body) {
+                const parent = element.parentElement;
+                if (parent) {
+                    Array.from(parent.children).forEach((sibling) => {
+                        if (sibling !== element &&
+                            sibling instanceof HTMLElement &&
+                            !sibling.hasAttribute("inert")) {
+                            sibling.setAttribute("inert", "");
+                            sibling.dataset.engridInert = "true";
+                        }
+                    });
                 }
+                element = parent;
             }
-        }).observe(errorList, { childList: true });
+        }
+        else {
+            document
+                .querySelectorAll("[data-engrid-inert]")
+                .forEach((element) => {
+                element.removeAttribute("inert");
+                delete element.dataset.engridInert;
+            });
+        }
+    }
+    scheduleLiveRegionUpdate() {
+        if (this.liveRegionUpdateTimeout !== null) {
+            window.clearTimeout(this.liveRegionUpdateTimeout);
+        }
+        this.liveRegionUpdateTimeout = window.setTimeout(() => {
+            this.liveRegionUpdateTimeout = null;
+            this.updateGlobalErrorLiveRegion();
+        }, 100);
+    }
+    updateGlobalErrorLiveRegion() {
+        var _a;
+        const region = document.getElementById('engrid-a11y-error-summary');
+        if (!region)
+            return;
+        const errorList = document.querySelector('ul.en__errorList');
+        if (errorList === null || errorList === void 0 ? void 0 : errorList.hasAttribute('role')) {
+            errorList.removeAttribute('role');
+        }
+        const fields = Array.from(document.querySelectorAll('.en__field'));
+        const messages = fields
+            .map(field => {
+            var _a;
+            const error = field.querySelector('.en__field__error');
+            if (!((_a = error === null || error === void 0 ? void 0 : error.textContent) === null || _a === void 0 ? void 0 : _a.trim()))
+                return null;
+            const label = this.getFieldLabel(field);
+            const message = this.formatErrorMessage(label, error.textContent.trim());
+            return message;
+        })
+            .filter((message) => Boolean(message));
+        // Top-of-form server errors (ul.en__errorList) aren't tied to a .en__field,
+        // so fold in any that aren't already covered by the per-field messages,
+        // otherwise they would be silent for screen readers.
+        const normalizeForCompare = (value) => value.replace(/\s+/g, ' ').replace(/[.!?:]+$/, '').trim().toLowerCase();
+        const coveredMessages = messages.map(normalizeForCompare).filter(Boolean);
+        const serverMessages = Array.from((_a = errorList === null || errorList === void 0 ? void 0 : errorList.querySelectorAll('li')) !== null && _a !== void 0 ? _a : [])
+            .map(item => { var _a, _b; return (_b = (_a = item.textContent) === null || _a === void 0 ? void 0 : _a.trim()) !== null && _b !== void 0 ? _b : ''; })
+            .filter(text => {
+            if (!text)
+                return false;
+            const normalized = normalizeForCompare(text);
+            if (!normalized)
+                return false;
+            return !coveredMessages.some(covered => covered === normalized ||
+                covered.includes(normalized) ||
+                normalized.includes(covered));
+        });
+        const allMessages = [...messages, ...serverMessages];
+        region.textContent = '';
+        if (!allMessages.length) {
+            this.shouldFocusFirstInvalidField = false;
+            return;
+        }
+        if (allMessages.length === 1) {
+            region.textContent = allMessages[0];
+        }
+        else {
+            const cleaned = allMessages.map(message => message.replace(/[.!?]+$/, '').trim());
+            region.textContent = engrid_ENGrid.t("a11y.errorSummary", {
+                count: allMessages.length,
+                messages: cleaned.join('. '),
+            });
+        }
+        if (this.shouldFocusFirstInvalidField) {
+            this.shouldFocusFirstInvalidField = false;
+            this.focusFirstInvalidField();
+        }
+    }
+    formatErrorMessage(label, message) {
+        const cleanMessage = message.trim();
+        const cleanLabel = this.normalizeLabel(label);
+        if (!cleanLabel)
+            return cleanMessage;
+        // If the message already mentions the field label, no need to prefix it.
+        const escapedLabel = cleanLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const labelRegex = new RegExp(`\\b${escapedLabel}\\b`, 'i');
+        if (labelRegex.test(cleanMessage))
+            return cleanMessage;
+        return `${cleanLabel}: ${cleanMessage}`;
+    }
+    focusFirstInvalidField() {
+        const fields = Array.from(document.querySelectorAll('.en__field'));
+        for (const field of fields) {
+            if (!field.querySelector('.en__field__error'))
+                continue;
+            const target = field.querySelector('.en__field__element input:not([type="hidden"]), .en__field__element select, .en__field__element textarea');
+            if (target && target.offsetParent !== null && !target.hasAttribute('disabled')) {
+                target.focus();
+                return;
+            }
+        }
+    }
+    getFieldLabel(field) {
+        var _a, _b, _c, _d, _e, _f, _g;
+        const label = (_c = (_b = (_a = field.querySelector('.en__field__label:not(.en__field__label--item)')) !== null && _a !== void 0 ? _a : field.querySelector('.en__field__label')) !== null && _b !== void 0 ? _b : field.querySelector('label')) !== null && _c !== void 0 ? _c : field.querySelector('legend');
+        const labelText = (_e = (_d = label === null || label === void 0 ? void 0 : label.textContent) === null || _d === void 0 ? void 0 : _d.trim()) !== null && _e !== void 0 ? _e : '';
+        if (labelText)
+            return this.normalizeLabel(labelText);
+        const input = field.querySelector('input, select, textarea');
+        return (_g = (_f = input === null || input === void 0 ? void 0 : input.getAttribute('aria-label')) === null || _f === void 0 ? void 0 : _f.trim()) !== null && _g !== void 0 ? _g : '';
+    }
+    normalizeLabel(label) {
+        return label
+            .replace(/\s+/g, ' ')
+            .replace(/^[*:\s]+|[*:\s]+$/g, '')
+            .trim();
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/capitalize-fields.js
+;// ./node_modules/@4site/engrid-scripts/dist/capitalize-fields.js
 // CapitalizeFields is a class that capitalizes the first letter of the fields passed to it.
 // It subscribes to the onSubmit event of the EnForm class and capitalizes the fields on submit.
 
 
 class CapitalizeFields {
     constructor() {
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._form.onSubmit.subscribe(() => this.capitalizeFields("en__field_supporter_firstName", "en__field_supporter_lastName", "en__field_supporter_address1", "en__field_supporter_city"));
     }
     capitalizeFields(...fields) {
@@ -13185,7 +13830,7 @@ class CapitalizeFields {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/auto-year.js
+;// ./node_modules/@4site/engrid-scripts/dist/auto-year.js
 // This class changes the Credit Card Expiration Year Field Options to
 // include the current year and the next 19 years.
 class AutoYear {
@@ -13222,13 +13867,13 @@ class AutoYear {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/autocomplete.js
+;// ./node_modules/@4site/engrid-scripts/dist/autocomplete.js
 // This class adds the autocomplete attribute to
 // the most common input elements
 
 class Autocomplete {
     constructor() {
-        this.logger = new logger_EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
+        this.logger = new EngridLogger("Autocomplete", "#330033", "#f0f0f0", "📇");
         this.autoCompleteField('[name="supporter.firstName"]', "given-name");
         this.autoCompleteField('[name="supporter.lastName"]', "family-name");
         this.autoCompleteField("#en__field_transaction_ccexpire", "cc-exp-month");
@@ -13262,14 +13907,15 @@ class Autocomplete {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/ecard.js
+;// ./node_modules/@4site/engrid-scripts/dist/ecard.js
 
 class Ecard {
     constructor() {
-        this._form = en_form_EnForm.getInstance();
-        this.logger = new logger_EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
+        this._form = EnForm.getInstance();
+        this.logger = new EngridLogger("Ecard", "red", "#f5f5f5", "🪪");
         if (!this.shouldRun())
             return;
+        this.altsAndArias();
         this._form.onValidate.subscribe(() => this.checkRecipientFields());
         const schedule = engrid_ENGrid.getUrlParameter("engrid_ecard.schedule");
         const scheduleField = engrid_ENGrid.getField("ecard.schedule");
@@ -13323,9 +13969,203 @@ class Ecard {
         }
         return true;
     }
+    altsAndArias() {
+        document.querySelectorAll(".en__ecarditems__list").forEach((list) => {
+            this.altsAndAriasEcardItemsList(list);
+        });
+        const ecardMessage = document.querySelector(".en__ecardmessage");
+        if (ecardMessage) {
+            this.coupleH2AndInput(ecardMessage, "Add a Message to your eCard");
+        }
+        const ecardRecipients = document.querySelector(".en__ecardrecipients");
+        if (ecardRecipients) {
+            const recipientName = ecardRecipients.querySelector(".en__ecardrecipients__name");
+            if (recipientName) {
+                this.coupleLabelAndInput(recipientName, "Recipient Name");
+            }
+            const recipientEmail = ecardRecipients.querySelector(".en__ecardrecipients__email");
+            if (recipientEmail) {
+                this.coupleLabelAndInput(recipientEmail, "Recipient Email");
+            }
+        }
+        const ecardFutureDelivery = document.querySelector(".en__ecardrecipients__futureDelivery");
+        if (ecardFutureDelivery) {
+            this.coupleH2AndInput(ecardFutureDelivery, "Schedule your eCard for future delivery");
+        }
+        const previewButton = document.querySelector(".en__ecarditems__showprev");
+        if (previewButton) {
+            previewButton.setAttribute("aria-controls", "ecard-preview");
+            previewButton.setAttribute("aria-haspopup", "dialog");
+        }
+        const previewModal = document.querySelector(".en__ecarditems__preview");
+        if (previewModal) {
+            previewModal.setAttribute("role", "dialog");
+            previewModal.setAttribute("aria-modal", "true");
+            previewModal.setAttribute("aria-label", "Ecard Preview Modal");
+            previewModal.setAttribute("id", "ecard-preview");
+            const closeButton = previewModal.querySelector(".en__ecarditems__prevclose");
+            if (closeButton) {
+                closeButton.setAttribute("role", "button");
+                closeButton.setAttribute("aria-label", "Close Preview");
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape" &&
+                        previewModal.classList.contains("preview--show")) {
+                        closeButton.click();
+                    }
+                });
+            }
+            const iframe = previewModal.querySelector("iframe");
+            if (iframe) {
+                iframe.setAttribute("title", "Ecard Preview Frame");
+            }
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === "attributes" &&
+                        mutation.attributeName === "class") {
+                        const target = mutation.target;
+                        if (target.classList.contains("preview--show")) {
+                            A11y.inertPage(true, previewModal);
+                            // Focus the iframe or the first focusable element in the modal
+                            const focusableElements = previewModal.querySelectorAll('iframe, a[href], area[href], button:not([disabled]), object, embed, [tabindex="0"]');
+                            if (focusableElements.length) {
+                                focusableElements[0].focus();
+                            }
+                        }
+                        else {
+                            A11y.inertPage(false);
+                            // Return focus to the preview button
+                            if (previewButton) {
+                                previewButton.focus();
+                            }
+                        }
+                    }
+                });
+            });
+            observer.observe(previewModal, {
+                attributes: true,
+                attributeFilter: ["class"],
+            });
+        }
+    }
+    altsAndAriasEcardItemsList(list) {
+        // if there's a sibling h2, use its text as the aria-label for the list
+        const h2 = list.previousElementSibling;
+        if (h2 && h2.tagName === "H2") {
+            const id = `ecard-list-${Math.random().toString(36).substring(2, 9)}`;
+            h2.setAttribute("id", id);
+            list.setAttribute("aria-labelledby", id);
+        }
+        list.setAttribute("role", "radiogroup");
+        const thumbs = Array.from(list.querySelectorAll(".en__ecarditems__thumb"));
+        let isSelection = false;
+        thumbs.forEach((thumb, index) => {
+            thumb.setAttribute("role", "radio");
+            if (thumb.classList.contains("thumb--active")) {
+                thumb.setAttribute("aria-checked", "true");
+                thumb.setAttribute("tabindex", "0");
+                isSelection = true;
+            }
+            else {
+                thumb.setAttribute("aria-checked", "false");
+                thumb.setAttribute("tabindex", "-1");
+            }
+            const img = thumb.querySelector("img");
+            if (img) {
+                thumb.setAttribute("aria-label", img.alt || "Ecard Thumbnail");
+                img.setAttribute("aria-hidden", "true");
+            }
+            // Keyboard navigation (WAI-ARIA radio group pattern)
+            thumb.addEventListener("keydown", (e) => {
+                let nextIndex = null;
+                switch (e.key) {
+                    case "ArrowRight":
+                    case "ArrowDown":
+                        nextIndex = (index + 1) % thumbs.length;
+                        break;
+                    case "ArrowLeft":
+                    case "ArrowUp":
+                        nextIndex = (index - 1 + thumbs.length) % thumbs.length;
+                        break;
+                    case "Home":
+                        nextIndex = 0;
+                        break;
+                    case "End":
+                        nextIndex = thumbs.length - 1;
+                        break;
+                    case "Enter":
+                    case " ":
+                        e.preventDefault();
+                        thumb.click();
+                        return;
+                    default:
+                        return;
+                }
+                e.preventDefault();
+                // In a radio group, moving focus also selects the option.
+                // click() lets EN's own handler set the value + thumb--active class;
+                // the MutationObserver below then syncs aria-checked + tabindex.
+                thumbs[nextIndex].focus();
+                thumbs[nextIndex].click();
+            });
+        });
+        if (!isSelection && thumbs.length) {
+            thumbs[0].setAttribute("tabindex", "0");
+        }
+        // MutationObserver to watch for "thumb--active" class changes and keep
+        // aria-checked + roving tabindex in sync with the selected thumb
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === "attributes" &&
+                    mutation.attributeName === "class") {
+                    const target = mutation.target;
+                    if (target.classList.contains("thumb--active")) {
+                        target.setAttribute("aria-checked", "true");
+                        // Roving tabindex: only the active thumb is tabbable
+                        target.setAttribute("tabindex", "0");
+                        thumbs.forEach((t) => {
+                            if (t !== target)
+                                t.setAttribute("tabindex", "-1");
+                        });
+                    }
+                    else {
+                        target.setAttribute("aria-checked", "false");
+                    }
+                }
+            });
+        });
+        observer.observe(list, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ["class"],
+        });
+    }
+    coupleLabelAndInput(parent, labelText) {
+        const label = parent.querySelector("label");
+        const input = parent.querySelector("input, textarea, select");
+        if (label && input) {
+            const id = `ecard-input-${Math.random().toString(36).substring(2, 9)}`;
+            label.setAttribute("id", id);
+            input.setAttribute("aria-labelledby", id);
+        }
+        else if (input) {
+            input.setAttribute("aria-label", labelText);
+        }
+    }
+    coupleH2AndInput(parent, labelText) {
+        const h2 = parent.querySelector("h2");
+        const input = parent.querySelector("textarea, input, select");
+        if (h2 && input) {
+            const id = `ecard-message-${Math.random().toString(36).substring(2, 9)}`;
+            h2.setAttribute("id", id);
+            input.setAttribute("aria-labelledby", id);
+        }
+        else if (input) {
+            input.setAttribute("aria-label", labelText);
+        }
+    }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/click-to-expand.js
+;// ./node_modules/@4site/engrid-scripts/dist/click-to-expand.js
 // This class is used to expand content when a user clicks on a div with the class "click-to-expand".
 // The content is shortened by default and will expand when clicked.
 
@@ -13397,13 +14237,13 @@ class ClickToExpand {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/advocacy.js
+;// ./node_modules/@4site/engrid-scripts/dist/advocacy.js
 // Component to handle advocacy features
 // 1 - Adds EN Polyfill to support "label" clicking on Advocacy Recipient "labels"
 
 class Advocacy {
     constructor() {
-        this.logger = new logger_EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
+        this.logger = new EngridLogger("Advocacy", "#232323", "#f7b500", "👨‍⚖️");
         if (!this.shoudRun())
             return;
         this.setClickableLabels();
@@ -13433,12 +14273,12 @@ class Advocacy {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/data-attributes.js
+;// ./node_modules/@4site/engrid-scripts/dist/data-attributes.js
 // Component that adds data attributes to the Body
 
 class DataAttributes {
     constructor() {
-        this.logger = new logger_EngridLogger("Data Attribute Changed", "#FFFFFF", "#4d9068", "🛠️");
+        this.logger = new EngridLogger("Data Attribute Changed", "#FFFFFF", "#4d9068", "🛠️");
         this._country = Country.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this.setDataAttributes();
@@ -13454,6 +14294,10 @@ class DataAttributes {
         // Add the Page Type as a Data Attribute on the Body Tag
         if (engrid_ENGrid.checkNested(window, "pageJson", "pageType")) {
             engrid_ENGrid.setBodyData("page-type", window.pageJson.pageType);
+        }
+        // Add the locale as a Data Attribute on the Body Tag
+        if (engrid_ENGrid.checkNested(window, "pageJson", "locale")) {
+            engrid_ENGrid.setBodyData("locale", window.pageJson.locale.toLowerCase());
         }
         // Add the currency code as a Data Attribute on the Body Tag
         engrid_ENGrid.setBodyData("currency-code", engrid_ENGrid.getCurrencyCode());
@@ -13628,13 +14472,13 @@ class DataAttributes {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/iframe.js
+;// ./node_modules/@4site/engrid-scripts/dist/iframe.js
 
 
 class iFrame {
     constructor() {
-        this._form = en_form_EnForm.getInstance();
-        this.logger = new logger_EngridLogger("iFrame", "brown", "gray", "📡");
+        this._form = EnForm.getInstance();
+        this.logger = new EngridLogger("iFrame", "brown", "gray", "📡");
         if (this.inIframe()) {
             // Add the data-engrid-embedded attribute when inside an iFrame if it wasn't already added by a script in the Page Template
             engrid_ENGrid.setBodyData("embedded", "");
@@ -13941,7 +14785,12 @@ class iFrame {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/iframe-queue.js
+;// ./node_modules/@4site/engrid-scripts/dist/iframe-queue.js
+/* unused harmony import specifier */ var iframe_queue_EngridLogger;
+/* unused harmony import specifier */ var iframe_queue_ENGrid;
+/* unused harmony import specifier */ var iframe_queue_IframeQueueEvents;
+/* unused harmony import specifier */ var iframe_queue_EnForm;
+/* unused harmony import specifier */ var IframeQueueOptionsDefaults;
 /**
  * Iframe Queue — load embedded EN pages sequentially.
  *
@@ -14058,7 +14907,7 @@ const PROPAGATED_PARENT_PARAMS = (/* unused pure expression or super */ null && 
     "mode",
 ]));
 /** Default visually-hidden style for queue iframes. */
-const DEFAULT_HIDDEN_STYLE = {
+const DEFAULT_HIDDEN_STYLE = (/* unused pure expression or super */ null && ({
     position: "absolute",
     width: "1px",
     height: "1px",
@@ -14066,7 +14915,7 @@ const DEFAULT_HIDDEN_STYLE = {
     top: "0",
     opacity: "0",
     border: "0",
-};
+}));
 class IframeQueue {
     /**
      * Returns the shared IframeQueue singleton. The bootstrap in app.ts
@@ -14081,9 +14930,9 @@ class IframeQueue {
         return IframeQueue.instance;
     }
     constructor() {
-        this.logger = new EngridLogger("IframeQueue", "white", "#1f6feb", "🚂");
-        this.events = IframeQueueEvents.getInstance();
-        this._form = EnForm.getInstance();
+        this.logger = new iframe_queue_EngridLogger("IframeQueue", "white", "#1f6feb", "🚂");
+        this.events = iframe_queue_IframeQueueEvents.getInstance();
+        this._form = iframe_queue_EnForm.getInstance();
         this.queue = [];
         this._isProcessing = false;
         this._aborted = false;
@@ -14260,7 +15109,7 @@ class IframeQueue {
         return new Promise((resolve, reject) => {
             var _a, _b;
             const url = this.prepareIframeUrl(item.url);
-            const expectedPageId = ENGrid.getPageIdFromUrl(url);
+            const expectedPageId = iframe_queue_ENGrid.getPageIdFromUrl(url);
             if (!expectedPageId) {
                 reject(new Error(`IframeQueue: could not parse Page ID from URL "${item.url}".`));
                 return;
@@ -14459,7 +15308,7 @@ class IframeQueue {
         if (item.keepIframeOnError)
             return true;
         try {
-            return ENGrid.debug === true;
+            return iframe_queue_ENGrid.debug === true;
         }
         catch (_a) {
             return false;
@@ -14538,7 +15387,7 @@ class IframeQueue {
                 // EN's form-validation state machine doesn't see the new
                 // values and leaves `en__submit--disabled` on the submit
                 // button, causing the auto-click below to no-op.
-                ENGrid.setFieldValue(name, value, true, true);
+                iframe_queue_ENGrid.setFieldValue(name, value, true, true);
             }
             if (autoSubmit) {
                 // Defer slightly so any synchronous EN dependency parsing in
@@ -14557,7 +15406,7 @@ class IframeQueue {
             this.logger.danger(`handlePopulate failed: ${error.message}`);
             window.parent.postMessage({
                 type: MSG_ERROR,
-                pageId: (_b = data.pageId) !== null && _b !== void 0 ? _b : ENGrid.getPageID(),
+                pageId: (_b = data.pageId) !== null && _b !== void 0 ? _b : iframe_queue_ENGrid.getPageID(),
                 message: error.message,
             }, "*");
         }
@@ -14601,12 +15450,12 @@ class IframeQueue {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/input-has-value-and-focus.js
+;// ./node_modules/@4site/engrid-scripts/dist/input-has-value-and-focus.js
 // Component that adds has-value and has-focus classes to form inputs
 
 class InputHasValueAndFocus {
     constructor() {
-        this.logger = new logger_EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
+        this.logger = new EngridLogger("InputHasValueAndFocus", "yellow", "#333", "🌈");
         this.formInputs = document.querySelectorAll(".en__field--text, .en__field--email:not(.en__field--checkbox), .en__field--telephone, .en__field--number, .en__field--textarea, .en__field--select, .en__field--checkbox");
         if (this.shouldRun()) {
             this.run();
@@ -14653,7 +15502,7 @@ class InputHasValueAndFocus {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/input-placeholders.js
+;// ./node_modules/@4site/engrid-scripts/dist/input-placeholders.js
 // Component that adds input placeholders
 // You can override the default placeholders by adding a Placeholders option to the EngridOptions on the client theme.
 // You can also add an EngridPageOptions override to the page, if you want to override the placeholders on a specific page. Example:
@@ -14668,6 +15517,9 @@ class InputHasValueAndFocus {
 
 class InputPlaceholders {
     constructor() {
+        // NOTE: for selectors listed in selectorToI18nKey below, these English
+        // strings are shadowed by the i18n dictionary — edit
+        // interfaces/i18n-options.ts ("placeholders.*" keys) instead of here.
         this.defaultPlaceholders = {
             "input#en__field_supporter_firstName": "First Name",
             "input#en__field_supporter_lastName": "Last Name",
@@ -14713,10 +15565,30 @@ class InputPlaceholders {
             "input#en__field_supporter_billingRegion": "Billing Region",
             "input#en__field_supporter_billingPostcode": "Billing Postal Code",
         };
+        // Maps the default-placeholder selectors to i18n dictionary keys, so the
+        // built-in strings follow the page language. Selectors the client overrides
+        // via the Placeholders option are never translated.
+        this.selectorToI18nKey = {
+            "input#en__field_supporter_firstName": "placeholders.firstName",
+            "input#en__field_supporter_lastName": "placeholders.lastName",
+            "input#en__field_supporter_emailAddress": "placeholders.emailAddress",
+            "input#en__field_supporter_phoneNumber": "placeholders.phoneNumberOptional",
+            ".en__mandatory input#en__field_supporter_phoneNumber": "placeholders.phoneNumber",
+            ".i-required input#en__field_supporter_phoneNumber": "placeholders.phoneNumber",
+            "input#en__field_supporter_phoneNumber2": "placeholders.phoneNumber2Optional",
+            "input#en__field_supporter_country": "placeholders.country",
+            "input#en__field_supporter_address1": "placeholders.address1",
+            "input#en__field_supporter_address2": "placeholders.address2",
+            "input#en__field_supporter_city": "placeholders.city",
+            "input#en__field_supporter_region": "placeholders.region",
+            "input#en__field_supporter_postcode": "placeholders.postcode",
+        };
+        this.customSelectors = new Set();
         if (this.shouldRun()) {
             // If there's a Placeholders option, merge it with the default placeholders
             const placeholders = engrid_ENGrid.getOption("Placeholders");
             if (placeholders) {
+                this.customSelectors = new Set(Object.keys(placeholders));
                 this.defaultPlaceholders = Object.assign(Object.assign({}, this.defaultPlaceholders), placeholders);
             }
             this.run();
@@ -14728,8 +15600,17 @@ class InputPlaceholders {
     run() {
         Object.keys(this.defaultPlaceholders).forEach((selector) => {
             if (selector in this.defaultPlaceholders)
-                this.addPlaceholder(selector, this.defaultPlaceholders[selector]);
+                this.addPlaceholder(selector, this.resolvePlaceholder(selector));
         });
+    }
+    // Built-in placeholder strings follow the page language; client-provided
+    // Placeholders options always win.
+    resolvePlaceholder(selector) {
+        const key = this.selectorToI18nKey[selector];
+        if (key && !this.customSelectors.has(selector)) {
+            return engrid_ENGrid.t(key);
+        }
+        return this.defaultPlaceholders[selector];
     }
     addPlaceholder(selector, placeholder) {
         const fieldEl = document.querySelector(selector);
@@ -14739,7 +15620,7 @@ class InputPlaceholders {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/media-attribution.js
+;// ./node_modules/@4site/engrid-scripts/dist/media-attribution.js
 /*
   Looks for specially crafted <img> links and will transform its markup to display an attribution overlay on top of the image
   Depends on "_engrid-media-attribution.scss" for styling
@@ -14807,7 +15688,7 @@ class MediaAttribution {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/live-variables.js
+;// ./node_modules/@4site/engrid-scripts/dist/live-variables.js
 
 
 class LiveVariables {
@@ -14816,7 +15697,7 @@ class LiveVariables {
         this._amount = DonationAmount.getInstance();
         this._fees = ProcessingFees.getInstance();
         this._frequency = DonationFrequency.getInstance();
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.multiplier = 1 / 12;
         this.options = Object.assign(Object.assign({}, OptionsDefaults), options);
         this.submitLabel =
@@ -14956,19 +15837,20 @@ class LiveVariables {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/upsell-lightbox.js
+;// ./node_modules/@4site/engrid-scripts/dist/upsell-lightbox.js
 
 
 class UpsellLightbox {
     constructor() {
         this.overlay = document.createElement("div");
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._amount = DonationAmount.getInstance();
         this._fees = ProcessingFees.getInstance();
         this._frequency = DonationFrequency.getInstance();
-        this._dataLayer = data_layer_DataLayer.getInstance();
+        this._dataLayer = DataLayer.getInstance();
         this._suggestAmount = 0;
-        this.logger = new logger_EngridLogger("UpsellLightbox", "black", "pink", "🪟");
+        this._upsellFrequency = "monthly";
+        this.logger = new EngridLogger("UpsellLightbox", "black", "pink", "🪟");
         let options = "EngridUpsell" in window ? window.EngridUpsell : {};
         this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
         //Disable for "applepay" via Vantiv payment method. Adding it to the array like this so it persists
@@ -14985,23 +15867,19 @@ class UpsellLightbox {
         this.renderLightbox();
         this._form.onSubmit.subscribe(() => this.open());
     }
+    parseMergeTags(str) {
+        return str
+            .replace(/\{new-amount\}/g, "<span class='upsell_suggestion'></span>")
+            .replace(/\{new-frequency\}/g, "<span class='upsell_suggestion_frequency'></span>")
+            .replace(/\{old-amount\}/g, "<span class='upsell_amount'></span>")
+            .replace(/\{old-frequency\}/g, "<span class='upsell_frequency'></span>");
+    }
     renderLightbox() {
-        const title = this.options.title
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const paragraph = this.options.paragraph
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const yes = this.options.yesLabel
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
-        const no = this.options.noLabel
-            .replace("{new-amount}", "<span class='upsell_suggestion'></span>")
-            .replace("{old-amount}", "<span class='upsell_amount'></span>")
-            .replace("{old-frequency}", "<span class='upsell_frequency'></span>");
+        const title = this.parseMergeTags(this.options.title);
+        const paragraph = this.parseMergeTags(this.options.paragraph);
+        const yes = this.parseMergeTags(this.options.yesLabel);
+        const no = this.parseMergeTags(this.options.noLabel);
+        const other = this.parseMergeTags(this.options.otherLabel);
         const markup = `
             <div class="upsellLightboxContainer" id="goMonthly">
               <!-- ideal image size is 480x650 pixels -->
@@ -15016,7 +15894,7 @@ class UpsellLightbox {
                 <div class="upsellOtherAmount">
                   <div class="upsellOtherAmountLabel">
                     <p>
-                      ${this.options.otherLabel}
+                      ${other}
                     </p>
                   </div>
                   <div class="upsellOtherAmountInput">
@@ -15099,7 +15977,7 @@ class UpsellLightbox {
         var _a, _b;
         const value = parseFloat((_b = (_a = this.overlay.querySelector("#secondOtherField")) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "");
         const live_upsell_amount = document.querySelectorAll("#upsellYesButton .upsell_suggestion");
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount } = this.resolveUpsell();
         if (!isNaN(value) && value > 0) {
             this.checkOtherAmount(value);
         }
@@ -15111,59 +15989,87 @@ class UpsellLightbox {
     liveAmounts() {
         const live_upsell_amount = document.querySelectorAll(".upsell_suggestion");
         const live_amount = document.querySelectorAll(".upsell_amount");
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount } = this.resolveUpsell();
         const suggestedAmount = upsellAmount + this._fees.calculateFees(upsellAmount);
         live_upsell_amount.forEach((elem) => (elem.innerHTML = this.getAmountTxt(suggestedAmount)));
         live_amount.forEach((elem) => (elem.innerHTML = this.getAmountTxt(this._amount.amount + this._fees.fee)));
     }
     liveFrequency() {
         const live_upsell_frequency = document.querySelectorAll(".upsell_frequency");
+        const live_upsell_suggestion_frequency = document.querySelectorAll(".upsell_suggestion_frequency");
         live_upsell_frequency.forEach((elem) => (elem.innerHTML = this.getFrequencyTxt()));
+        live_upsell_suggestion_frequency.forEach((elem) => (elem.innerHTML = this.getFrequencyTxt(this._upsellFrequency)));
     }
-    // Return the Suggested Upsell Amount
-    getUpsellAmount() {
-        var _a, _b;
+    // Resolve the upsell amount and target frequency in a single pass and keep
+    // the cached _suggestAmount / _upsellFrequency in sync with the current
+    // donation amount and any value entered in the "other amount" field.
+    resolveUpsell() {
+        var _a, _b, _c, _d, _e;
         const amount = this._amount.amount;
         const otherAmount = parseFloat((_b = (_a = this.overlay.querySelector("#secondOtherField")) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "");
+        const defaultFrequency = (_c = this.options.upsellToFrequency) !== null && _c !== void 0 ? _c : "monthly";
+        let upsellAmount;
+        let upsellFrequency;
         if (otherAmount > 0) {
-            return otherAmount > this.options.minAmount
-                ? otherAmount
-                : this.options.minAmount;
+            // An "other" amount overrides the amount but keeps the frequency that
+            // was already shown when the lightbox opened
+            upsellAmount =
+                otherAmount > this.options.minAmount
+                    ? otherAmount
+                    : this.options.minAmount;
+            upsellFrequency = this._upsellFrequency;
         }
-        let upsellAmount = 0;
-        for (let i = 0; i < this.options.amountRange.length; i++) {
-            let val = this.options.amountRange[i];
-            if (upsellAmount == 0 && amount <= val.max) {
-                upsellAmount = val.suggestion;
-                if (upsellAmount === 0)
-                    return 0;
-                if (typeof upsellAmount !== "number") {
-                    const suggestionMath = upsellAmount.replace("amount", amount.toFixed(2));
-                    upsellAmount = parseFloat(Function('"use strict";return (' + suggestionMath + ")")());
+        else {
+            upsellAmount = 0;
+            upsellFrequency = defaultFrequency;
+            for (let i = 0; i < this.options.amountRange.length; i++) {
+                const val = this.options.amountRange[i];
+                if (upsellAmount == 0 && amount <= val.max) {
+                    if (val.suggestion === 0) {
+                        upsellFrequency = (_d = val.frequency) !== null && _d !== void 0 ? _d : defaultFrequency;
+                        this._suggestAmount = 0;
+                        this._upsellFrequency = upsellFrequency;
+                        return { amount: 0, frequency: upsellFrequency };
+                    }
+                    else if (typeof val.suggestion === "number") {
+                        upsellAmount = val.suggestion;
+                    }
+                    else {
+                        const suggestionMath = val.suggestion.replace("amount", amount.toFixed(2));
+                        upsellAmount = parseFloat(Function('"use strict";return (' + suggestionMath + ")")());
+                    }
+                    upsellFrequency = (_e = val.frequency) !== null && _e !== void 0 ? _e : defaultFrequency;
+                    break;
                 }
-                break;
             }
+            upsellAmount =
+                upsellAmount > this.options.minAmount
+                    ? upsellAmount
+                    : this.options.minAmount;
         }
-        return upsellAmount > this.options.minAmount
-            ? upsellAmount
-            : this.options.minAmount;
+        this._suggestAmount = upsellAmount;
+        this._upsellFrequency = upsellFrequency;
+        return { amount: upsellAmount, frequency: upsellFrequency };
     }
     shouldOpen() {
-        const upsellAmount = this.getUpsellAmount();
+        const { amount: upsellAmount, frequency: upsellFrequency } = this.resolveUpsell();
         const paymenttype = engrid_ENGrid.getFieldValue("transaction.paymenttype") || "";
-        this._suggestAmount = upsellAmount;
-        // If frequency is not onetime or
-        // the modal is already opened or
-        // there's no suggestion for this donation amount,
+        // If frequency is not allowed, or
+        // the modal is already opened, or
+        // there's no suggestion for this donation amount, or
+        // the target upsell frequency is not available on the form,
         // we should not open
         if (this.freqAllowed() &&
             !this.shouldSkip() &&
             !this.options.disablePaymentMethods.includes(paymenttype.toLowerCase()) &&
             !this.overlay.classList.contains("is-submitting") &&
-            upsellAmount > 0) {
+            upsellAmount > 0 &&
+            this._frequency.frequencies.includes(upsellFrequency) &&
+            this._frequency.frequency !== upsellFrequency) {
             this.logger.log("Upsell Frequency " + this._frequency.frequency);
             this.logger.log("Upsell Amount " + this._amount.amount);
             this.logger.log("Upsell Suggested Amount " + upsellAmount);
+            this.logger.log("Upsell Suggested Frequency " + upsellFrequency);
             return true;
         }
         return false;
@@ -15174,6 +16080,8 @@ class UpsellLightbox {
         const allowed = [];
         if (this.options.oneTime)
             allowed.push("onetime");
+        if (this.options.monthly)
+            allowed.push("monthly");
         if (this.options.annual)
             allowed.push("annual");
         return allowed.includes(freq);
@@ -15233,27 +16141,30 @@ class UpsellLightbox {
             ((_a = document.querySelector("#upsellYesButton")) === null || _a === void 0 ? void 0 : _a.contains(e.target))) {
             this.logger.success("Upsold");
             this.setOriginalAmount(this._amount.amount.toString());
-            const upsoldAmount = this.getUpsellAmount();
+            const { amount: upsoldAmount, frequency: upsellFrequency } = this.resolveUpsell();
             const originalAmount = this._amount.amount;
-            this._frequency.setFrequency("monthly");
+            const originalFrequency = this._frequency.frequency;
+            this._frequency.setFrequency(upsellFrequency);
             this._amount.setAmount(upsoldAmount);
             this._dataLayer.addEndOfGiftProcessEvent("ENGRID_UPSELL", {
                 eventValue: true,
+                originalFrequency: originalFrequency,
                 originalAmount: originalAmount,
                 upsoldAmount: upsoldAmount,
-                frequency: "monthly",
+                frequency: upsellFrequency,
             });
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL", true);
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_ORIGINAL_AMOUNT", originalAmount);
-            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", "MONTHLY");
-            this.renderConversionField("upsellSuccess", "onetime", originalAmount, "monthly", this._suggestAmount, "monthly", upsoldAmount);
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_ORIGINAL_FREQUENCY", this.getFrequencyTxt(originalFrequency).toUpperCase());
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", this.getFrequencyTxt(upsellFrequency).toUpperCase());
+            this.renderConversionField("upsellSuccess", originalFrequency, originalAmount, upsellFrequency, this._suggestAmount, upsellFrequency, upsoldAmount);
         }
         else {
             this.setOriginalAmount("");
             window.sessionStorage.removeItem("original");
             this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL", false);
-            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", "ONE-TIME");
-            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, "monthly", this._suggestAmount, this._frequency.frequency, this._amount.amount);
+            this._dataLayer.addEndOfGiftProcessVariable("ENGRID_UPSELL_DONATION_FREQUENCY", this.getFrequencyTxt(this._frequency.frequency).toUpperCase());
+            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, this._upsellFrequency, this._suggestAmount, this._frequency.frequency, this._amount.amount);
         }
         this._form.submitForm();
     }
@@ -15263,7 +16174,7 @@ class UpsellLightbox {
         this.overlay.classList.add("is-hidden");
         engrid_ENGrid.setBodyData("has-lightbox", false);
         if (this.options.submitOnClose) {
-            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, "monthly", this._suggestAmount, this._frequency.frequency, this._amount.amount);
+            this.renderConversionField("upsellFail", this._frequency.frequency, this._amount.amount, this._upsellFrequency, this._suggestAmount, this._frequency.frequency, this._amount.amount);
             this._form.submitForm();
         }
         else {
@@ -15279,14 +16190,16 @@ class UpsellLightbox {
         const amountTxt = engrid_ENGrid.formatNumber(amount, dec_places, dec_separator, thousands_separator);
         return amount > 0 ? symbol + amountTxt : "";
     }
-    getFrequencyTxt() {
+    getFrequencyTxt(frequency = this._frequency.frequency) {
         const freqTxt = {
             onetime: "one-time",
             monthly: "monthly",
+            quarterly: "quarterly",
+            semi_annual: "semi-annual",
             annual: "annual",
         };
-        const frequency = this._frequency.frequency;
-        return frequency in freqTxt ? freqTxt[frequency] : frequency;
+        const freq = frequency;
+        return freq in freqTxt ? freqTxt[freq] : frequency;
     }
     checkOtherAmount(value) {
         const otherInput = document.querySelector(".upsellOtherAmountInput");
@@ -15302,7 +16215,7 @@ class UpsellLightbox {
     renderConversionField(event, // The event that triggered the conversion
     freq, // The frequency of the donation (onetime, monthly, annual)
     amt, // The original amount of the donation (before the upsell)
-    sugFreq, // The suggested frequency of the upsell (monthly)
+    sugFreq, // The suggested frequency of the upsell
     sugAmt, // The suggested amount of the upsell
     subFreq, // The submitted frequency of the upsell (onetime, monthly, annual)
     subAmt // The submitted amount of the upsell
@@ -15321,7 +16234,7 @@ class UpsellLightbox {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/upsell-checkbox.js
+;// ./node_modules/@4site/engrid-scripts/dist/upsell-checkbox.js
 // This component will add a checkbox to the donation form that will allow the user to upgrade their donation to a monthly donation.
 
 
@@ -15336,12 +16249,12 @@ class UpsellCheckbox {
         this._amount = DonationAmount.getInstance();
         this._fees = ProcessingFees.getInstance();
         this._frequency = DonationFrequency.getInstance();
-        this._dataLayer = data_layer_DataLayer.getInstance();
+        this._dataLayer = DataLayer.getInstance();
         this.checkboxContainer = null;
         this.oldAmount = 0;
         this.oldFrequency = "one-time";
         this.resetCheckbox = false;
-        this.logger = new logger_EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
+        this.logger = new EngridLogger("UpsellCheckbox", "black", "LemonChiffon", "✅");
         let options = "EngridUpsell" in window ? window.EngridUpsell : {};
         this.options = Object.assign(Object.assign({}, UpsellOptionsDefaults), options);
         if (this.options.upsellCheckbox === false) {
@@ -15568,7 +16481,7 @@ class UpsellCheckbox {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/show-hide-radio-checkboxes.js
+;// ./node_modules/@4site/engrid-scripts/dist/show-hide-radio-checkboxes.js
 
 class ShowHideRadioCheckboxes {
     // Create default data attributes on all fields
@@ -15698,7 +16611,7 @@ class ShowHideRadioCheckboxes {
                 state.push({
                     page: engrid_ENGrid.getPageID(),
                     class: this.classes,
-                    value: element.value,
+                    value: element.value.replace(/\W/g, ""),
                 });
                 this.logger.log("storing radio state", state[state.length - 1]);
             }
@@ -15713,7 +16626,7 @@ class ShowHideRadioCheckboxes {
                 state.push({
                     page: engrid_ENGrid.getPageID(),
                     class: this.classes,
-                    value: (_b = (_a = [...this.elements].find((el) => el.checked)) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "N", // First checked value or "N" if none
+                    value: (_b = (_a = [...this.elements].find((el) => el.checked)) === null || _a === void 0 ? void 0 : _a.value.replace(/\W/g, "")) !== null && _b !== void 0 ? _b : "N", // First checked value or "N" if none
                 });
                 this.logger.log("storing checkbox state", state[state.length - 1]);
             }
@@ -15721,7 +16634,7 @@ class ShowHideRadioCheckboxes {
         window.sessionStorage.setItem(`engrid_ShowHideRadioCheckboxesState`, JSON.stringify(state));
     }
     constructor(elements, classes) {
-        this.logger = new logger_EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
+        this.logger = new EngridLogger("ShowHideRadioCheckboxes", "black", "lightblue", "👁");
         this.elements = document.getElementsByName(elements);
         this.classes = classes;
         this.createDataAttributes();
@@ -15741,7 +16654,7 @@ class ShowHideRadioCheckboxes {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/cookie.js
+;// ./node_modules/@4site/engrid-scripts/dist/cookie.js
 /**
 Example:
 import * as cookie from "./cookie";
@@ -15819,7 +16732,7 @@ function remove(name, attributes) {
     set(name, "", Object.assign(Object.assign({}, attributes), { expires: -1 }));
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/translate-fields.js
+;// ./node_modules/@4site/engrid-scripts/dist/translate-fields.js
 // Component to translate fields based on the country selected
 // It will also adapt the state field to the country selected
 
@@ -15834,7 +16747,9 @@ class TranslateFields {
         };
         this.countriesSelect = document.querySelectorAll('select[name="supporter.country"], select[name="transaction.shipcountry"], select[name="supporter.billingCountry"], select[name="transaction.infcountry"]');
         let options = "EngridTranslate" in window ? window.EngridTranslate : {};
-        this.options = TranslateOptionsDefaults;
+        // Shallow clone: the EngridTranslate merge below concatenates arrays per
+        // key and must never mutate the shared TranslateOptionsDefaults.
+        this.options = Object.assign({}, TranslateOptionsDefaults);
         // Don't run this for US-only forms.
         if (document.querySelector(".en__component--formblock.us-only-form .en__field--country")) {
             return;
@@ -15872,11 +16787,18 @@ class TranslateFields {
                 }
             }
         }
+        else {
+            // No country field on the page: still translate to the page language
+            this.applyLanguageLayer();
+        }
     }
     translateFields(countryName = "supporter.country") {
         this.resetTranslatedFields();
         const countryValue = engrid_ENGrid.getFieldValue(countryName);
-        // Translate the State Field
+        // Apply the page language as the base translation layer
+        this.applyLanguageLayer();
+        // Translate the State Field (runs last so country-specific state labels
+        // like "Provincia" or "Estado" win over the language layer)
         this.setStateField(countryValue, this.countryToStateFields[countryName]);
         if (countryName === "supporter.country") {
             if (countryValue in this.options) {
@@ -15888,6 +16810,14 @@ class TranslateFields {
             // Translate the "To:"
             const recipient_block = document.querySelectorAll(".recipient-block");
             if (!!recipient_block.length) {
+                // Capture the original page-builder text once per cycle so
+                // resetTranslatedFields() can restore it — a country change never
+                // leaves a stale translation behind.
+                recipient_block.forEach((elem) => {
+                    const el = elem;
+                    if (!el.dataset.original)
+                        el.dataset.original = el.innerHTML;
+                });
                 switch (countryValue) {
                     case "FR":
                     case "FRA":
@@ -15904,8 +16834,27 @@ class TranslateFields {
                     case "Netherlands":
                         recipient_block.forEach((elem) => (elem.innerHTML = "Aan:"));
                         break;
+                    default:
+                        // No country-specific rule: use the page language string when the
+                        // language dictionary defines one (e.g. "es" -> "Para:"). English
+                        // pages keep the page-builder text, already restored above.
+                        if (engrid_ENGrid.getPageLanguage() !== "en" &&
+                            engrid_ENGrid.hasI18nKey("translateFields.recipientTo")) {
+                            recipient_block.forEach((elem) => (elem.innerHTML = engrid_ENGrid.t("translateFields.recipientTo")));
+                        }
+                        break;
                 }
             }
+        }
+    }
+    // Apply the translation layer for the current page language (e.g. "es").
+    // This is the base layer; country-specific translations override it per field.
+    applyLanguageLayer() {
+        const language = engrid_ENGrid.getPageLanguage();
+        if (language in this.options) {
+            this.options[language].forEach((field) => {
+                this.translateField(field.field, field.translation);
+            });
         }
     }
     translateField(name, translation) {
@@ -15920,7 +16869,20 @@ class TranslateFields {
                     ? simplecountriesSelect.cloneNode(true)
                     : null;
                 if (field instanceof HTMLInputElement && field.placeholder != "") {
-                    if (!fieldLabel || fieldLabel.innerHTML == field.placeholder) {
+                    // Translate the placeholder when it mirrors the label (the common
+                    // case). Compare normalized visible text so template whitespace and
+                    // required-marker markup don't break the match. Order matters:
+                    // trim before stripping the marker, or labels like "Name *\n"
+                    // keep the asterisk.
+                    const labelText = ((fieldLabel === null || fieldLabel === void 0 ? void 0 : fieldLabel.textContent) || "")
+                        .replace(/\s+/g, " ")
+                        .trim()
+                        .replace(/\s*\*$/, "");
+                    const placeholderText = field.placeholder
+                        .replace(/\s+/g, " ")
+                        .trim()
+                        .replace(/\s*\*$/, "");
+                    if (!fieldLabel || labelText === placeholderText) {
                         field.dataset.original = field.placeholder;
                         field.placeholder = translation;
                     }
@@ -15975,7 +16937,7 @@ class TranslateFields {
             case "GB":
             case "GBR":
             case "United Kingdom":
-                this.setStateValues(state, "State/Region", null);
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateRegion"), null);
                 break;
             case "DE":
             case "DEU":
@@ -15989,8 +16951,8 @@ class TranslateFields {
                 break;
             case "AU":
             case "AUS":
-                this.setStateValues(state, "Province / State", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "New South Wales", value: "NSW" },
                     { label: "Victoria", value: "VIC" },
                     { label: "Queensland", value: "QLD" },
@@ -16002,8 +16964,8 @@ class TranslateFields {
                 ]);
                 break;
             case "Australia":
-                this.setStateValues(state, "Province / State", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "New South Wales", value: "New South Wales" },
                     { label: "Victoria", value: "Victoria" },
                     { label: "Queensland", value: "Queensland" },
@@ -16019,8 +16981,8 @@ class TranslateFields {
                 break;
             case "US":
             case "USA":
-                this.setStateValues(state, "State", [
-                    { label: "Select State", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.state"), [
+                    { label: engrid_ENGrid.t("translateFields.selectState"), value: "" },
                     { label: "Alabama", value: "AL" },
                     { label: "Alaska", value: "AK" },
                     { label: "Arizona", value: "AZ" },
@@ -16097,8 +17059,8 @@ class TranslateFields {
                 ]);
                 break;
             case "United States":
-                this.setStateValues(state, "State", [
-                    { label: "Select State", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.state"), [
+                    { label: engrid_ENGrid.t("translateFields.selectState"), value: "" },
                     { label: "Alabama", value: "Alabama" },
                     { label: "Alaska", value: "Alaska" },
                     { label: "Arizona", value: "Arizona" },
@@ -16185,8 +17147,8 @@ class TranslateFields {
                 break;
             case "CA":
             case "CAN":
-                this.setStateValues(state, "Province / Territory", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.provinceTerritory"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "Alberta", value: "AB" },
                     { label: "British Columbia", value: "BC" },
                     { label: "Manitoba", value: "MB" },
@@ -16203,8 +17165,8 @@ class TranslateFields {
                 ]);
                 break;
             case "Canada":
-                this.setStateValues(state, "Province / Territory", [
-                    { label: "Select", value: "" },
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.provinceTerritory"), [
+                    { label: engrid_ENGrid.t("translateFields.select"), value: "" },
                     { label: "Alberta", value: "Alberta" },
                     { label: "British Columbia", value: "British Columbia" },
                     { label: "Manitoba", value: "Manitoba" },
@@ -16297,7 +17259,7 @@ class TranslateFields {
                 ]);
                 break;
             default:
-                this.setStateValues(state, "Province / State", null);
+                this.setStateValues(state, engrid_ENGrid.t("translateFields.stateGeneric"), null);
                 break;
         }
     }
@@ -16369,7 +17331,7 @@ class TranslateFields {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/auto-country-select.js
+;// ./node_modules/@4site/engrid-scripts/dist/auto-country-select.js
 // This class works when the user has added ".simple_country_select" as a class in page builder for the Country select
 
 
@@ -16441,7 +17403,7 @@ class AutoCountrySelect {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/skip-link.js
+;// ./node_modules/@4site/engrid-scripts/dist/skip-link.js
 // Javascript that adds an accessible "Skip Link" button after the <body> opening that jumps to
 // the first <title> or <h1> field in a "body-" section, or the first <h1> if none are found
 // in those sections
@@ -16479,7 +17441,7 @@ class SkipToMainContentLink {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/src-defer.js
+;// ./node_modules/@4site/engrid-scripts/dist/src-defer.js
 // Build Notes: Add the vanilla Javascript version inline inside the page template right before </body>
 // In the event the vanilla javascript is not inlined we should still process any assets with a data-src still defined on it. Plus we only process background video via this JS file as to not block the page with a large video file downloading.
 // // 4Site's simplified image lazy loader
@@ -16551,7 +17513,7 @@ class SrcDefer {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/set-recurr-freq.js
+;// ./node_modules/@4site/engrid-scripts/dist/set-recurr-freq.js
 
 
 class setRecurrFreq {
@@ -16623,15 +17585,23 @@ class setRecurrFreq {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/page-background.js
+;// ./node_modules/@4site/engrid-scripts/dist/page-background.js
 
 class PageBackground {
-    constructor() {
+    constructor(useBodyBannerImage = false) {
         // @TODO: Change page-backgroundImage to page-background
         this.pageBackground = document.querySelector(".page-backgroundImage");
+        this.bodyBanner = document.querySelector(".body-banner");
+        this.bodyBannerImage = null;
         this.mutationObserver = null;
-        this.logger = new logger_EngridLogger("PageBackground", "lightblue", "darkblue", "🖼️");
-        if (!this.pageBackground) {
+        this.logger = new EngridLogger("PageBackground", "lightblue", "darkblue", "🖼️");
+        if (typeof window.UseBodyBannerImageAsBackground !== "undefined") {
+            useBodyBannerImage = !!window.UseBodyBannerImageAsBackground;
+        }
+        if (useBodyBannerImage) {
+            this.bodyBannerImage = this.findBodyBannerImage();
+        }
+        if (!this.pageBackground && !this.bodyBannerImage) {
             this.logger.log("A background image set in the page was not found, any default image set in the theme on --engrid__page-backgroundImage_url will be used");
             return;
         }
@@ -16640,28 +17610,66 @@ class PageBackground {
         this.processAttributionPositioning();
         this.setupMutationObserver();
     }
+    findBodyBannerImage() {
+        var _a;
+        if (!this.bodyBanner) {
+            return null;
+        }
+        return ((_a = this.bodyBanner.querySelector("img.preferred-image")) !== null && _a !== void 0 ? _a : this.bodyBanner.querySelector("img"));
+    }
     /**
      * Initialize background image by finding and setting CSS custom property
      */
     initializeBackgroundImage() {
-        if (!this.pageBackground)
-            return;
-        const pageBackgroundImg = this.pageBackground.querySelector("img");
-        if (!pageBackgroundImg) {
-            this.logger.log("A background image set in the page was not found, any default image set in the theme on --engrid__page-backgroundImage_url will be used");
+        const backgroundImg = this.getBackgroundImage();
+        if (!backgroundImg) {
+            this.logger.log("No image found in page background and no body banner image found (or pageBackground is already occupied), any default image set in the theme on --engrid__page-backgroundImage_url will be used");
             return;
         }
-        const dataSrc = pageBackgroundImg.getAttribute("data-src");
-        const src = pageBackgroundImg.src;
+        const imageSource = this.getImageSource(backgroundImg);
+        if (!imageSource) {
+            this.logger.log("A background image set in the page was found but without a data-src or src value, no action taken", backgroundImg);
+            return;
+        }
+        this.setBackgroundImageUrl(imageSource.url, imageSource.sourceType);
+    }
+    getBackgroundImage() {
+        if (!this.pageBackground) {
+            return null;
+        }
+        const existingImage = this.pageBackground.querySelector("img");
+        if (existingImage) {
+            return existingImage;
+        }
+        if (this.bodyBannerImage && this.pageBackground.children.length === 0) {
+            return this.useBodyBannerAsBackground();
+        }
+        return null;
+    }
+    useBodyBannerAsBackground() {
+        var _a;
+        if (!this.pageBackground || !this.bodyBanner) {
+            return null;
+        }
+        this.logger.log("No image found in page background, using body banner image as background image instead");
+        const clonedBodyBanner = this.bodyBanner.cloneNode(true);
+        while (clonedBodyBanner.firstChild) {
+            this.pageBackground.appendChild(clonedBodyBanner.firstChild);
+        }
+        document.body.removeAttribute("data-engrid-no-page-backgroundImage");
+        engrid_ENGrid.setBodyData("use-body-banner-background", "");
+        return ((_a = this.pageBackground.querySelector("img.preferred-image")) !== null && _a !== void 0 ? _a : this.pageBackground.querySelector("img"));
+    }
+    getImageSource(backgroundImg) {
+        const dataSrc = backgroundImg.getAttribute("data-src");
         if (dataSrc) {
-            this.setBackgroundImageUrl(dataSrc, "data-src");
+            return { sourceType: "data-src", url: dataSrc };
         }
-        else if (src) {
-            this.setBackgroundImageUrl(src, "src");
+        const src = backgroundImg.src;
+        if (src) {
+            return { sourceType: "src", url: src };
         }
-        else {
-            this.logger.log("A background image set in the page was found but without a data-src or src value, no action taken", pageBackgroundImg);
-        }
+        return null;
     }
     /**
      * Set the background image URL as a CSS custom property
@@ -16867,7 +17875,568 @@ class PageBackground {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/neverbounce.js
+;// ./node_modules/@4site/engrid-scripts/dist/page-background-rotation.js
+/* unused harmony import specifier */ var page_background_rotation_ENGrid;
+/* unused harmony import specifier */ var page_background_rotation_EngridLogger;
+// PageBackgroundRotation handles the rotation of background images within a page-backgroundImage block
+// By default, this feature is not enabled, and must be enabled by importing and initializing it in the client theme's onLoad block
+// Within the page-backgroundImage block, if there is a parent div with a class of 'background-rotation', then the background image will rotate every 5 seconds
+// The image rotates on a cross-fade transition, and the next image is randomly selected from the list of child elements with a class of 'background-image-item' within the 'background-rotation' div
+// The random selection of the next image is done in a way that ensures that the same image is not displayed twice in a row, and that all images are displayed before any image is repeated
+// On mobile, the background image will not rotate, and a random image in the list will be displayed as a static background image
+// The background image will also not rotate if the user has set a preference for reduced motion in their system settings, unless controls are present which will allow the user to "start" the process manually.
+// Figattributes/figcaptions, if included on the image, will also need to be updated to reflect the new image being displayed
+// Each image item can include a data-theme (default 'dark') attribute, which allow for client themes to style particular elements based on the background color.
+// Options block:
+/**
+ * Set via the default options, overridden by the options passed to the constructor, and overridden by a window-level variable called 'EngridPageBackgroundRotationOptions' if it exists. The options are as follows:
+ * enabled: Whether the background rotation is enabled (default: true)
+ * interval: The interval in milliseconds between image rotations (default: 5000)
+ * initialDelay: The delay in milliseconds before the first rotation, giving the first image time to load (default: 10000)
+ * transitionDuration: The duration of the cross-fade transition in milliseconds (default: 500)
+ * transitionClass: The CSS class to apply to the background image container during the transition (default: 'background-rotation-transition')
+ * eachImageSelector: The CSS selector for each individual background image (default: '.page-background-image-item')
+ * backgroundImageSelector: The CSS selector for the background image container (default: '.page-background-rotation')
+ * slideOrder: The order in which the images are displayed (default: 'random' [random-bag], other options: 'sequential', 'true-random')
+ * randomStart: Whether to start the rotation at a random image (default: true)
+ * reducedMotion: Whether to respect the user's preference for reduced motion (default: true)
+ * rotateOnMobile: Whether to rotate the background image on mobile devices (default: false)
+ * mobileBreakpoint: Where to consider the layout as being "mobile" (default: ‘(max-width: 499px)’)
+ * controls: Whether to add back, pause, and forward buttons for the rotation (default: false)
+ */
+
+
+class PageBackgroundRotation {
+    constructor(options = {}) {
+        var _a;
+        this.logger = new page_background_rotation_EngridLogger("PageBackgroundRotation", "white", "rebeccapurple", "🌄");
+        this.defaultOptions = {
+            enabled: true,
+            interval: 5000,
+            initialDelay: 10000,
+            transitionDuration: 500,
+            transitionClass: "background-rotation-transition",
+            eachImageSelector: ".page-background-image-item",
+            backgroundImageSelector: ".page-background-rotation",
+            slideOrder: "random",
+            randomStart: true,
+            reducedMotion: true,
+            rotateOnMobile: false,
+            mobileBreakpoint: "(max-width: 499px)",
+            controls: false,
+        };
+        this.container = null;
+        this.items = [];
+        this.layers = [];
+        this.imageUrls = [];
+        this.imagesWarmed = false;
+        this.warmingScheduled = false;
+        this.firstImagePreloaded = false;
+        this.currentIndex = -1;
+        this.randomBag = [];
+        this.history = [];
+        this.isPaused = false;
+        this.pausedForReducedMotion = false;
+        this.interactionPauses = new Set();
+        this.previousButton = null;
+        this.pauseButton = null;
+        this.liveRegion = null;
+        this.rotationTimer = null;
+        this.initialDelayTimer = null;
+        this.initialDelayElapsed = false;
+        this.transitionTimer = null;
+        this.reducedMotionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        this.options = Object.assign(Object.assign(Object.assign({}, this.defaultOptions), options), ((_a = window.EngridPageBackgroundRotationOptions) !== null && _a !== void 0 ? _a : {}));
+        this.mobileMediaQuery = window.matchMedia(this.options.mobileBreakpoint);
+        if (!this.shouldRun())
+            return;
+        this.container = document.querySelector(`.page-backgroundImage ${this.options.backgroundImageSelector}, .body-banner ${this.options.backgroundImageSelector}`);
+        this.items = Array.from(this.container.querySelectorAll(this.options.eachImageSelector));
+        this.container.style.setProperty("--background-rotation-transition-duration", `${this.options.transitionDuration}ms`);
+        document.body.style.setProperty("--background-rotation-transition-duration", `${this.options.transitionDuration}ms`);
+        this.prepareItems();
+        if (this.items.length === 1) {
+            this.showStaticImage();
+            return;
+        }
+        this.updateMode();
+        if (!this.options.rotateOnMobile) {
+            this.mobileMediaQuery.addEventListener("change", () => this.updateMode());
+        }
+        if (this.options.reducedMotion) {
+            this.reducedMotionMediaQuery.addEventListener("change", () => this.updateMode());
+        }
+        if (this.options.controls) {
+            this.createControls();
+        }
+    }
+    shouldRun() {
+        if (!this.options.enabled) {
+            this.logger.log("Background rotation is disabled");
+            return false;
+        }
+        const container = document.querySelector(`.page-backgroundImage ${this.options.backgroundImageSelector}, .body-banner ${this.options.backgroundImageSelector}`);
+        if (!container)
+            return false;
+        if (!container.querySelector(this.options.eachImageSelector)) {
+            this.logger.log("No background image items found to rotate");
+            return false;
+        }
+        return true;
+    }
+    prepareItems() {
+        this.items.forEach((item, index) => {
+            const layer = this.getItemLayer(item);
+            const imageUrl = this.getItemImageUrl(item);
+            if (!imageUrl) {
+                this.logger.log("Background image item has no image source", item);
+            }
+            this.imageUrls[index] = imageUrl;
+            layer.classList.add("background-rotation-layer");
+            layer.setAttribute("aria-hidden", "true");
+            this.layers[index] = layer;
+        });
+    }
+    // The inline background-image is what makes a layer fetch its image, so it is
+    // applied when the layer is first shown rather than for every layer up front
+    applyLayerImage(index) {
+        const layer = this.layers[index];
+        const imageUrl = this.imageUrls[index];
+        if (!layer || !imageUrl || layer.style.backgroundImage)
+            return;
+        layer.style.backgroundImage = `url('${imageUrl}')`;
+    }
+    // Fetches the first image ahead of other page assets so the background
+    // paints as early as possible; only ever applied to the first image shown
+    preloadFirstImage(index) {
+        if (this.firstImagePreloaded)
+            return;
+        this.firstImagePreloaded = true;
+        const imageUrl = this.imageUrls[index];
+        if (!imageUrl)
+            return;
+        const preload = document.createElement("link");
+        preload.rel = "preload";
+        preload.setAttribute("as", "image");
+        preload.href = imageUrl;
+        preload.setAttribute("fetchpriority", "high");
+        document.head.appendChild(preload);
+    }
+    // The remaining layers are applied once the page has settled, so a full set of
+    // viewport-sized images isn't competing with the form's own assets during load.
+    // Warming waits until the first image has finished loading AND a minimum 4s
+    // delay has passed, so it never competes with the first image's bandwidth.
+    // The layers are still applied ahead of the first rotation (10s initialDelay),
+    // so cross-fades don't start against an image that hasn't been fetched yet.
+    scheduleImageWarming(index) {
+        if (this.warmingScheduled || this.imagesWarmed)
+            return;
+        this.warmingScheduled = true;
+        const imageUrl = this.imageUrls[index];
+        const firstImageLoaded = new Promise((resolve) => {
+            if (!imageUrl) {
+                resolve();
+                return;
+            }
+            const probe = new Image();
+            probe.onload = () => resolve();
+            probe.onerror = () => resolve();
+            probe.src = imageUrl;
+        });
+        const minimumDelay = new Promise((resolve) => window.setTimeout(resolve, 4000));
+        Promise.all([firstImageLoaded, minimumDelay]).then(() => this.warmRemainingImages());
+    }
+    warmRemainingImages() {
+        if (this.imagesWarmed)
+            return;
+        this.imagesWarmed = true;
+        const warm = () => this.items.forEach((_, index) => this.applyLayerImage(index));
+        const requestIdle = window.requestIdleCallback;
+        if (requestIdle) {
+            requestIdle.call(window, warm, { timeout: 3000 });
+        }
+        else {
+            window.setTimeout(warm, 1000);
+        }
+    }
+    // The item is typically the <img> tag itself. If MediaAttribution has wrapped
+    // it in a <figure class="media-with-attribution">, the figure becomes the fade
+    // layer so its figattribution cross-fades in sync with the image
+    getItemLayer(item) {
+        var _a;
+        if (item instanceof HTMLImageElement &&
+            ((_a = item.parentElement) === null || _a === void 0 ? void 0 : _a.matches("figure.media-with-attribution"))) {
+            return item.parentElement;
+        }
+        return item;
+    }
+    getItemImage(item) {
+        if (item instanceof HTMLImageElement)
+            return item;
+        return item.querySelector("img");
+    }
+    getItemImageUrl(item) {
+        const img = this.getItemImage(item);
+        if (!img)
+            return null;
+        return img.getAttribute("data-src") || img.getAttribute("src");
+    }
+    isStaticMode() {
+        // With controls enabled a reduced-motion user can still advance the
+        // images on their own, so only treat reduced motion as static mode
+        // when there are no controls
+        if (this.reducedMotionPreferred() && !this.options.controls) {
+            return true;
+        }
+        if (!this.options.rotateOnMobile && this.mobileMediaQuery.matches) {
+            return true;
+        }
+        return false;
+    }
+    reducedMotionPreferred() {
+        return this.options.reducedMotion && this.reducedMotionMediaQuery.matches;
+    }
+    // Starts or stops the rotation based on the current viewport and motion
+    // preferences, called on page load and whenever they change
+    updateMode() {
+        if (this.isStaticMode()) {
+            this.stopRotation();
+            if (this.currentIndex === -1) {
+                this.showStaticImage();
+            }
+            else {
+                page_background_rotation_ENGrid.setBodyData("background-rotation", "static");
+            }
+            this.logger.log("Static background image mode");
+            return;
+        }
+        // A reduced-motion preference (with controls enabled) starts paused so
+        // the user can advance the images on their own; if the preference is
+        // removed again, only auto-resume when the pause wasn't user-initiated
+        if (this.reducedMotionPreferred()) {
+            this.stopRotationTimer();
+            this.isPaused = true;
+            this.pausedForReducedMotion = true;
+            this.updatePauseButton();
+            this.logger.log("Auto-rotation paused for reduced motion preference");
+        }
+        else if (this.pausedForReducedMotion) {
+            this.pausedForReducedMotion = false;
+            this.isPaused = false;
+            this.updatePauseButton();
+        }
+        if (this.rotationTimer !== null || this.initialDelayTimer !== null)
+            return;
+        const startIndex = this.currentIndex !== -1
+            ? this.currentIndex
+            : this.options.randomStart
+                ? this.getRandomIndex()
+                : 0;
+        // Preload before the layer's background-image is applied, so the
+        // high-priority fetch is the one that hits the network first
+        this.preloadFirstImage(startIndex);
+        this.setActiveItem(startIndex);
+        this.scheduleImageWarming(startIndex);
+        page_background_rotation_ENGrid.setBodyData("background-rotation", "active");
+        if (this.canRotate())
+            this.startRotationTimer();
+        this.logger.log(`Rotating ${this.items.length} background images every ${this.options.interval}ms`);
+    }
+    // The first rotation waits for initialDelay to give the first image (and the
+    // warming of the rest) time to load; later rotations use the normal interval.
+    // If paused before the first rotation, the full initial delay re-arms on resume
+    startRotationTimer() {
+        this.stopRotationTimer();
+        if (!this.initialDelayElapsed) {
+            this.initialDelayTimer = window.setTimeout(() => {
+                this.initialDelayTimer = null;
+                this.initialDelayElapsed = true;
+                this.rotateToNextImage();
+                this.rotationTimer = window.setInterval(() => this.rotateToNextImage(), this.options.interval);
+            }, this.options.initialDelay);
+            return;
+        }
+        this.rotationTimer = window.setInterval(() => this.rotateToNextImage(), this.options.interval);
+    }
+    stopRotationTimer() {
+        if (this.initialDelayTimer !== null) {
+            window.clearTimeout(this.initialDelayTimer);
+            this.initialDelayTimer = null;
+        }
+        if (this.rotationTimer !== null) {
+            window.clearInterval(this.rotationTimer);
+            this.rotationTimer = null;
+        }
+    }
+    stopRotation() {
+        this.stopRotationTimer();
+        this.finishTransition();
+    }
+    // Settles a cross-fade: only the current image keeps the class that makes it
+    // visible, and the in-flow layer moves to it. Runs when a transition ends, and
+    // again if the next transition starts first, so an interrupted fade can never
+    // leave a stale layer stacked on top of the current one
+    finishTransition() {
+        var _a;
+        if (this.transitionTimer !== null) {
+            window.clearTimeout(this.transitionTimer);
+            this.transitionTimer = null;
+        }
+        this.layers.forEach((layer, index) => {
+            layer.classList.remove("background-rotation-outgoing");
+            if (index === this.currentIndex)
+                return;
+            layer.classList.remove("active");
+            layer.setAttribute("aria-hidden", "true");
+        });
+        if (this.currentIndex !== -1) {
+            this.setFlowLayer(this.layers[this.currentIndex]);
+        }
+        (_a = this.container) === null || _a === void 0 ? void 0 : _a.classList.remove(this.options.transitionClass);
+    }
+    showStaticImage() {
+        const index = this.options.randomStart ? this.getRandomIndex() : 0;
+        this.preloadFirstImage(index);
+        this.setActiveItem(index);
+        page_background_rotation_ENGrid.setBodyData("background-rotation", "static");
+    }
+    setActiveItem(index, moveFlow = true) {
+        var _a;
+        const layer = this.layers[index];
+        if (!layer)
+            return;
+        this.applyLayerImage(index);
+        layer.classList.add("active");
+        layer.removeAttribute("aria-hidden");
+        this.currentIndex = index;
+        if (moveFlow)
+            this.setFlowLayer(layer);
+        const imageUrl = this.imageUrls[index];
+        if (imageUrl) {
+            document.body.style.setProperty("--background-rotation-image", `url('${imageUrl}')`);
+        }
+        setTimeout(() => {
+            page_background_rotation_ENGrid.setBodyData("background-rotation-theme", this.getItemTheme(this.items[index]));
+        }, 300);
+        this.logger.log("Active background image", index + 1, "of", this.items.length, (_a = this.getItemAttribution(this.items[index])) !== null && _a !== void 0 ? _a : "");
+    }
+    // Marks the single layer that stays in-flow to give the container its height
+    // at the <=499px breakpoint. Kept on the outgoing layer during a cross-fade
+    // so two in-flow layers never stack, and moved to the incoming layer once
+    // the transition ends (see finishTransition)
+    setFlowLayer(layer) {
+        this.layers.forEach((item) => item.classList.remove("background-rotation-flow"));
+        layer.classList.add("background-rotation-flow");
+    }
+    rotateToNextImage() {
+        this.goToImage(this.getNextIndex());
+    }
+    goToImage(nextIndex, addToHistory = true) {
+        if (nextIndex === this.currentIndex)
+            return;
+        if (addToHistory && this.currentIndex !== -1) {
+            this.history.push(this.currentIndex);
+            if (this.history.length > this.items.length * 2)
+                this.history.shift();
+        }
+        this.updatePreviousButtonState();
+        // Settle a fade that is still running before starting the next one
+        this.finishTransition();
+        const outgoingLayer = this.layers[this.currentIndex];
+        // The outgoing layer keeps .active (staying fully opaque) while the
+        // incoming layer fades in on top of it, so the composite is opaque at
+        // every point of the cross-fade — nothing behind the layers ever washes
+        // through. It loses .active in finishTransition, once it is fully covered.
+        outgoingLayer === null || outgoingLayer === void 0 ? void 0 : outgoingLayer.classList.add("background-rotation-outgoing");
+        outgoingLayer === null || outgoingLayer === void 0 ? void 0 : outgoingLayer.setAttribute("aria-hidden", "true");
+        this.container.classList.add(this.options.transitionClass);
+        this.setActiveItem(nextIndex, false);
+        this.transitionTimer = window.setTimeout(() => this.finishTransition(), this.options.transitionDuration);
+    }
+    goToNextImage() {
+        this.goToImage(this.getNextIndex());
+        this.announceImage();
+        if (this.canRotate())
+            this.startRotationTimer();
+    }
+    goToPreviousImage() {
+        const previousIndex = this.history.pop();
+        if (previousIndex === undefined) {
+            this.logger.log("No previous background image in the history");
+            return;
+        }
+        this.goToImage(previousIndex, false);
+        this.announceImage();
+        if (this.canRotate())
+            this.startRotationTimer();
+    }
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        // Once the user touches the pause control the pause is theirs, so a later
+        // reduced-motion change no longer auto-resumes the rotation
+        this.pausedForReducedMotion = false;
+        if (this.isPaused) {
+            this.stopRotationTimer();
+            this.logger.log("Background rotation paused");
+        }
+        else {
+            if (this.canRotate())
+                this.startRotationTimer();
+            this.logger.log("Background rotation resumed");
+        }
+        this.updatePauseButton();
+    }
+    createControls() {
+        const controls = document.createElement("div");
+        controls.className = "background-rotation-controls";
+        controls.setAttribute("role", "group");
+        controls.setAttribute("aria-label", "Background image rotation controls");
+        // Pause the auto-rotation while the user is hovering or tabbing through the
+        // controls, so nobody has to chase a moving target
+        controls.addEventListener("mouseenter", () => this.pauseForInteraction("hover"));
+        controls.addEventListener("mouseleave", () => this.resumeFromInteraction("hover"));
+        controls.addEventListener("focusin", () => this.pauseForInteraction("focus"));
+        controls.addEventListener("focusout", (event) => {
+            if (!controls.contains(event.relatedTarget)) {
+                this.resumeFromInteraction("focus");
+            }
+        });
+        this.previousButton = this.createControlButton("background-rotation-prev", "Previous background image", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>');
+        this.previousButton.addEventListener("click", () => this.goToPreviousImage());
+        this.pauseButton = this.createControlButton("background-rotation-pause", "Pause background rotation", this.pauseIcon());
+        this.pauseButton.setAttribute("aria-pressed", "false");
+        this.pauseButton.addEventListener("click", () => this.togglePause());
+        const nextButton = this.createControlButton("background-rotation-next", "Next background image", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>');
+        nextButton.addEventListener("click", () => this.goToNextImage());
+        this.liveRegion = document.createElement("div");
+        this.liveRegion.className = "engrid__sr-only";
+        this.liveRegion.setAttribute("aria-live", "polite");
+        this.liveRegion.setAttribute("aria-atomic", "true");
+        controls.append(this.previousButton, this.pauseButton, nextButton, this.liveRegion);
+        document.body.appendChild(controls);
+        this.updatePreviousButtonState();
+        // Reflect a pause that happened before the controls existed (e.g. the
+        // reduced-motion auto-pause in updateMode)
+        this.updatePauseButton();
+    }
+    // Auto-rotation pauses while the user interacts with the controls, separately
+    // from a user-initiated pause, and resumes when the interaction ends
+    pauseForInteraction(kind) {
+        this.interactionPauses.add(kind);
+        if (!this.isPaused)
+            this.stopRotationTimer();
+    }
+    resumeFromInteraction(kind) {
+        this.interactionPauses.delete(kind);
+        if (this.canRotate() &&
+            this.rotationTimer === null &&
+            this.initialDelayTimer === null &&
+            !this.isStaticMode()) {
+            this.startRotationTimer();
+        }
+    }
+    // Auto-rotation only runs when nothing is holding it: no user-initiated pause,
+    // and no hover or focus on the controls. Using a control implies one of those
+    // interactions, so the timer can't be restarted out from under the user
+    canRotate() {
+        return !this.isPaused && this.interactionPauses.size === 0;
+    }
+    updatePreviousButtonState() {
+        if (this.previousButton) {
+            this.previousButton.disabled = this.history.length === 0;
+        }
+    }
+    // Announce user-initiated image changes to screen readers. Auto-rotation is
+    // intentionally not announced to avoid interrupting every few seconds.
+    announceImage() {
+        var _a;
+        if (!this.liveRegion)
+            return;
+        const item = this.items[this.currentIndex];
+        const description = ((_a = this.getItemImage(item)) === null || _a === void 0 ? void 0 : _a.getAttribute("alt")) ||
+            this.getItemAttribution(item);
+        this.liveRegion.textContent = `Background image ${this.currentIndex + 1} of ${this.items.length}${description ? `: ${description}` : ""}`;
+    }
+    createControlButton(className, ariaLabel, icon) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = className;
+        button.setAttribute("aria-label", ariaLabel);
+        button.innerHTML = icon;
+        return button;
+    }
+    updatePauseButton() {
+        if (!this.pauseButton)
+            return;
+        this.pauseButton.innerHTML = this.isPaused
+            ? this.playIcon()
+            : this.pauseIcon();
+        this.pauseButton.setAttribute("aria-label", this.isPaused ? "Play background rotation" : "Pause background rotation");
+        this.pauseButton.setAttribute("aria-pressed", String(this.isPaused));
+    }
+    pauseIcon() {
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+    }
+    playIcon() {
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    }
+    getNextIndex() {
+        switch (this.options.slideOrder) {
+            case "sequential":
+                return (this.currentIndex + 1) % this.items.length;
+            case "true-random":
+                return this.getRandomIndex(this.currentIndex);
+            case "random":
+            default:
+                return this.getNextFromRandomBag();
+        }
+    }
+    // "Random bag" selection: every image is displayed once before any image is
+    // repeated, and the current image is never repeated back-to-back
+    getNextFromRandomBag() {
+        if (this.randomBag.length === 0) {
+            this.randomBag = this.items
+                .map((_, index) => index)
+                .filter((index) => index !== this.currentIndex);
+            for (let i = this.randomBag.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [this.randomBag[i], this.randomBag[j]] = [
+                    this.randomBag[j],
+                    this.randomBag[i],
+                ];
+            }
+        }
+        return this.randomBag.pop();
+    }
+    getRandomIndex(excludeIndex = -1) {
+        if (this.items.length <= 1)
+            return 0;
+        let index = excludeIndex;
+        while (index === excludeIndex) {
+            index = Math.floor(Math.random() * this.items.length);
+        }
+        return index;
+    }
+    // Each item can set a data-theme="light" or data-theme="dark" (default)
+    // attribute to control the .body-title h1 text color shown over its image
+    getItemTheme(item) {
+        var _a;
+        return ((_a = item.getAttribute("data-theme")) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "light"
+            ? "light"
+            : "dark";
+    }
+    // Each item carries its own figattribution/figcaption (added by the MediaAttribution
+    // component or authored directly), so it cross-fades in sync with its image
+    getItemAttribution(item) {
+        var _a;
+        const attribution = item.matches("img")
+            ? (_a = item.parentElement) === null || _a === void 0 ? void 0 : _a.querySelector("figattribution, figcaption")
+            : item.querySelector("figattribution, figcaption");
+        return attribution ? attribution.textContent : null;
+    }
+}
+
+;// ./node_modules/@4site/engrid-scripts/dist/neverbounce.js
 
 
 class NeverBounce {
@@ -16876,12 +18445,12 @@ class NeverBounce {
         this.dateField = dateField;
         this.statusField = statusField;
         this.dateFormat = dateFormat;
-        this.form = en_form_EnForm.getInstance();
+        this.form = EnForm.getInstance();
         this.emailField = null;
         this.emailWrapper = document.querySelector(".en__field--emailAddress");
         this.nbDate = null;
         this.nbStatus = null;
-        this.logger = new logger_EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
+        this.logger = new EngridLogger("NeverBounce", "#039bc4", "#dfdfdf", "📧");
         this.shouldRun = true;
         this.nbLoaded = false;
         this.bypassEmails = [
@@ -17173,7 +18742,7 @@ class NeverBounce {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/freshaddress.js
+;// ./node_modules/@4site/engrid-scripts/dist/freshaddress.js
 // According to the FreshAddress documentation, you need to add the following code to your page:
 // jQuery library.
 // <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
@@ -17186,13 +18755,13 @@ class NeverBounce {
 class FreshAddress {
     constructor() {
         var _a;
-        this.form = en_form_EnForm.getInstance();
+        this.form = EnForm.getInstance();
         this.emailField = null;
         this.emailWrapper = document.querySelector(".en__field--emailAddress");
         this.faDate = null;
         this.faStatus = null;
         this.faMessage = null;
-        this.logger = new logger_EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
+        this.logger = new EngridLogger("FreshAddress", "#039bc4", "#dfdfdf", "📧");
         this.shouldRun = true;
         this.options = engrid_ENGrid.getOption("FreshAddress");
         if (this.options === false ||
@@ -17470,7 +19039,7 @@ class FreshAddress {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/progress-bar.js
+;// ./node_modules/@4site/engrid-scripts/dist/progress-bar.js
 
 class ProgressBar {
     constructor() {
@@ -17512,15 +19081,30 @@ class ProgressBar {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/remember-me.js
+;// ./node_modules/@4site/engrid-scripts/dist/remember-me.js
+var remember_me_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
 
 
 const remember_me_tippy = (__webpack_require__(9244)/* ["default"] */ .Ay);
+// localStorage key used to cache the per-device AES-GCM encryption key.
+// A random secret generated once per device and held in localStorage.
+const RM_ENCRYPTION_KEY_STORAGE_NAME = "engrid-remember-me-key";
 class RememberMe {
     constructor(options) {
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._events = RememberMeEvents.getInstance();
         this.iframe = null;
+        this.encryptData = options.encryptData ? options.encryptData : false;
+        this.hide = options.hide ? options.hide : false;
         this.remoteUrl = options.remoteUrl ? options.remoteUrl : null;
         this.cookieName = options.cookieName
             ? options.cookieName
@@ -17558,11 +19142,21 @@ class RememberMe {
             options.fieldClearSelectorTargetLocation
                 ? options.fieldClearSelectorTargetLocation
                 : "before";
+        this.fieldClearLabel = options.fieldClearLabel
+            ? options.fieldClearLabel
+            : engrid_ENGrid.t("rememberMe.clearLabel");
+        this.rememberMeLabel = options.rememberMeLabel
+            ? options.rememberMeLabel
+            : engrid_ENGrid.t("rememberMe.label");
         this.fieldData = {};
         if (this.useRemote()) {
             this.createIframe(() => {
                 if (this.iframe && this.iframe.contentWindow) {
-                    this.iframe.contentWindow.postMessage(JSON.stringify({ key: this.cookieName, operation: "read" }), "*");
+                    this.iframe.contentWindow.postMessage(JSON.stringify({
+                        key: this.cookieName,
+                        operation: "read",
+                        encryptData: this.encryptData,
+                    }), "*");
                     this._form.onSubmit.subscribe(() => {
                         if (this.rememberMeOptIn) {
                             this.readFields();
@@ -17581,7 +19175,9 @@ class RememberMe {
                     data.key &&
                     data.value !== undefined &&
                     data.key === this.cookieName) {
-                    this.updateFieldData(data.value);
+                    if (data.value !== null) {
+                        this.updateFieldData(data.value);
+                    }
                     this.writeFields();
                     let hasFieldData = Object.keys(this.fieldData).length > 0;
                     if (!hasFieldData) {
@@ -17593,16 +19189,37 @@ class RememberMe {
                 }
             });
         }
+        else if (this.encryptData) {
+            // Same flow as the unencrypted branch below, but the cookie payload is
+            // AES-GCM encrypted/decrypted (browser-native Web Crypto), so reading
+            // the cookie is asynchronous. A failed decrypt (foreign device or
+            // cleared localStorage) leaves fieldData empty and silently falls back
+            // to the standard, no-autofill experience.
+            this.readCookieEncrypted().then(() => {
+                let hasFieldData = Object.keys(this.fieldData).length > 0;
+                if (!hasFieldData) {
+                    this.insertRememberMeOptin();
+                }
+                else {
+                    this.insertClearRememberMeLink();
+                }
+                this.writeFields();
+                this._form.onSubmit.subscribe(() => {
+                    if (this.rememberMeOptIn) {
+                        this.readFields();
+                        this.saveCookieEncrypted();
+                    }
+                });
+            });
+        }
         else {
             this.readCookie();
             let hasFieldData = Object.keys(this.fieldData).length > 0;
             if (!hasFieldData) {
                 this.insertRememberMeOptin();
-                this.rememberMeOptIn = false;
             }
             else {
                 this.insertClearRememberMeLink();
-                this.rememberMeOptIn = true;
             }
             this.writeFields();
             this._form.onSubmit.subscribe(() => {
@@ -17614,27 +19231,44 @@ class RememberMe {
         }
     }
     updateFieldData(jsonData) {
-        if (jsonData) {
-            let data = JSON.parse(jsonData);
-            for (let i = 0; i < this.fieldNames.length; i++) {
-                if (data[this.fieldNames[i]] !== undefined) {
-                    this.fieldData[this.fieldNames[i]] = decodeURIComponent(data[this.fieldNames[i]]);
-                }
+        if (!jsonData)
+            return;
+        let data;
+        try {
+            data = JSON.parse(jsonData);
+        }
+        catch (e) {
+            // Payload is not valid JSON (e.g. corrupted or unexpected ciphertext).
+            // Fall back silently to the no-autofill experience.
+            return;
+        }
+        for (let i = 0; i < this.fieldNames.length; i++) {
+            if (data[this.fieldNames[i]] !== undefined) {
+                this.fieldData[this.fieldNames[i]] = decodeURIComponent(data[this.fieldNames[i]]);
             }
         }
     }
     insertClearRememberMeLink() {
+        var _a;
         let clearRememberMeField = document.getElementById("clear-autofill-data");
+        const { html, hasInnerLink } = this.buildClearLabelMarkup();
         if (!clearRememberMeField) {
-            const clearAutofillLabel = "clear autofill";
-            clearRememberMeField = document.createElement("a");
+            clearRememberMeField = document.createElement(hasInnerLink ? "span" : "a");
             clearRememberMeField.setAttribute("id", "clear-autofill-data");
-            clearRememberMeField.classList.add("label-tooltip");
-            clearRememberMeField.setAttribute("style", "cursor: pointer;");
-            clearRememberMeField.innerHTML = `(${clearAutofillLabel})`;
+            if (hasInnerLink) {
+                clearRememberMeField.classList.add("clear-autofill-data-wrapper");
+            }
+            else {
+                clearRememberMeField.classList.add("label-tooltip");
+                clearRememberMeField.setAttribute("style", "cursor: pointer;");
+            }
+            clearRememberMeField.innerHTML = html;
             const targetField = this.getElementByFirstSelector(this.fieldClearSelectorTarget);
             if (targetField) {
-                if (this.fieldClearSelectorTargetLocation === "after") {
+                if (this.fieldClearSelectorTargetLocation === "rightSide") {
+                    this.placeOnRightSide(targetField, clearRememberMeField);
+                }
+                else if (this.fieldClearSelectorTargetLocation === "after") {
                     targetField.appendChild(clearRememberMeField);
                 }
                 else {
@@ -17642,11 +19276,17 @@ class RememberMe {
                 }
             }
         }
-        clearRememberMeField.addEventListener("click", (e) => {
+        const clickTarget = hasInnerLink
+            ? (_a = clearRememberMeField.querySelector("#clear-autofill-data-link")) !== null && _a !== void 0 ? _a : clearRememberMeField
+            : clearRememberMeField;
+        const onClear = (e) => {
             e.preventDefault();
             this.clearFields(["supporter.country" /*, 'supporter.emailAddress'*/]);
             if (this.useRemote()) {
                 this.clearCookieOnRemote();
+            }
+            else if (this.encryptData) {
+                this.clearCookieEncrypted();
             }
             else {
                 this.clearCookie();
@@ -17658,9 +19298,53 @@ class RememberMe {
             this.rememberMeOptIn = false;
             this._events.dispatchClear();
             window.dispatchEvent(new CustomEvent("RememberMe_Cleared"));
-        });
+        };
+        clickTarget.addEventListener("click", onClear);
         this._events.dispatchLoad(true);
         window.dispatchEvent(new CustomEvent("RememberMe_Loaded", { detail: { withData: true } }));
+    }
+    escapeHtml(value) {
+        const map = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+        };
+        return value.replace(/[&<>"']/g, (c) => map[c]);
+    }
+    buildClearLabelMarkup() {
+        var _a;
+        const username = this.getUsernameFromFieldData();
+        const label = username
+            ? this.fieldClearLabel.replace(/\$username/g, () => this.escapeHtml(username))
+            : this.fieldClearLabel.replace(/[^\S\r\n]?\$username/g, "");
+        // Only the first non-empty {...} segment becomes the clickable clear link.
+        // Any additional {...} segments remain as literal text (braces included),
+        // and empty {} braces are left as-is. When no non-empty braces are present,
+        // the entire element is clickable (legacy behaviour).
+        const match = label.match(/\{([^}]+)\}/);
+        if (!match) {
+            return { html: label, hasInnerLink: false };
+        }
+        const before = label.slice(0, match.index);
+        const linkText = match[1];
+        const after = label.slice(((_a = match.index) !== null && _a !== void 0 ? _a : 0) + match[0].length);
+        const html = before +
+            `<a id="clear-autofill-data-link" class="label-tooltip" style="cursor: pointer;">${linkText}</a>` +
+            after;
+        return { html, hasInnerLink: true };
+    }
+    getUsernameFromFieldData() {
+        const value = this.fieldData["supporter.firstName"];
+        return value ? value.trim() : "";
+    }
+    getClearLabelPlainText() {
+        const username = this.getUsernameFromFieldData();
+        const label = username
+            ? this.fieldClearLabel.replace(/\$username/g, () => username)
+            : this.fieldClearLabel.replace(/[^\S\r\n]?\$username/g, "");
+        return label.replace(/\{([^}]*)\}/g, "$1");
     }
     getElementByFirstSelector(selectorsString) {
         // iterate through the selectors until we find one that exists
@@ -17674,15 +19358,77 @@ class RememberMe {
         }
         return targetField;
     }
+    placeOnRightSide(targetField, elementToPlace) {
+        const wrapperClass = "rememberme-right-side-wrapper";
+        let wrapper;
+        if (targetField.parentElement &&
+            targetField.parentElement.classList.contains(wrapperClass)) {
+            wrapper = targetField.parentElement;
+        }
+        else {
+            // Read the target's computed styles BEFORE moving it into the flex
+            // wrapper. Once inside a flex container, margin collapsing no longer
+            // applies and the reported values can change. We transfer the original
+            // margin-top to the wrapper itself so the block retains its vertical
+            // spacing in the document flow, and zero out the target's own margin-top
+            // so it doesn't double-apply inside the flex row.
+            const targetStyle = window.getComputedStyle(targetField);
+            const targetMarginTop = targetStyle.marginTop;
+            const targetMarginBottom = targetStyle.marginBottom;
+            wrapper = document.createElement("div");
+            wrapper.classList.add(wrapperClass);
+            wrapper.style.display = "flex";
+            wrapper.style.alignItems = "center";
+            wrapper.style.gap = "8px";
+            wrapper.style.flexWrap = "wrap";
+            // Transfer vertical margins from the target to the wrapper so the
+            // surrounding layout is unchanged after the DOM move.
+            wrapper.style.marginTop = targetMarginTop;
+            wrapper.style.marginBottom = targetMarginBottom;
+            if (targetField.parentNode) {
+                targetField.parentNode.insertBefore(wrapper, targetField);
+            }
+            // Zero out the target's own margin-top/-bottom now that the wrapper
+            // owns them, so they don't double-apply inside the flex row.
+            targetField.style.marginTop = "0px";
+            targetField.style.marginBottom = "0px";
+            wrapper.appendChild(targetField);
+        }
+        // Read padding-left AFTER the wrapper exists but before any alignment
+        // logic, so it reflects the current computed value.
+        const targetPaddingLeft = window.getComputedStyle(targetField).paddingLeft;
+        wrapper.appendChild(elementToPlace);
+        const applyAlignment = () => {
+            const wrapped = elementToPlace.offsetTop > targetField.offsetTop;
+            if (wrapped) {
+                // When wrapped below, left-align with the target's content area.
+                elementToPlace.style.marginTop = "0px";
+                elementToPlace.style.marginLeft = targetPaddingLeft;
+            }
+            else {
+                // When side-by-side, both items are already vertically centred by the
+                // flex container — no extra margin-top needed on elementToPlace.
+                elementToPlace.style.marginTop = "0px";
+                elementToPlace.style.marginLeft = "0px";
+            }
+        };
+        // Defer the first alignment check to the next animation frame so the
+        // browser has had a chance to perform layout. Without this, offsetTop on
+        // both elements is still 0 (or stale) at call time.
+        requestAnimationFrame(applyAlignment);
+        if (typeof window.ResizeObserver === "function") {
+            const observer = new window.ResizeObserver(() => applyAlignment());
+            observer.observe(wrapper);
+        }
+    }
     insertRememberMeOptin() {
         let rememberMeOptInField = document.getElementById("remember-me-opt-in");
         if (!rememberMeOptInField) {
-            const rememberMeLabel = "Remember Me";
-            const rememberMeInfo = `
-				Check “Remember me” to complete forms on this device faster. 
-				While your financial information won’t be stored, you should only check this box from a personal device. 
-				Click “Clear autofill” to remove the information from your device at any time.
-			`;
+            const rememberMeLabel = this.rememberMeLabel;
+            const rememberMeInfo = engrid_ENGrid.t("rememberMe.tooltip", {
+                label: rememberMeLabel,
+                clearLabel: this.getClearLabelPlainText(),
+            });
             const rememberMeOptInFieldChecked = this.rememberMeOptIn ? "checked" : "";
             const rememberMeOptInField = document.createElement("div");
             rememberMeOptInField.classList.add("en__field", "en__field--checkbox", "en__field--question", "rememberme-wrapper");
@@ -17705,9 +19451,14 @@ class RememberMe {
 			`;
             const targetField = this.getElementByFirstSelector(this.fieldOptInSelectorTarget);
             if (targetField && targetField.parentNode) {
-                targetField.parentNode.insertBefore(rememberMeOptInField, this.fieldOptInSelectorTargetLocation == "before"
-                    ? targetField
-                    : targetField.nextSibling);
+                if (this.fieldOptInSelectorTargetLocation === "rightSide") {
+                    this.placeOnRightSide(targetField, rememberMeOptInField);
+                }
+                else {
+                    targetField.parentNode.insertBefore(rememberMeOptInField, this.fieldOptInSelectorTargetLocation == "before"
+                        ? targetField
+                        : targetField.nextSibling);
+                }
                 const rememberMeCheckbox = document.getElementById("remember-me-checkbox");
                 if (rememberMeCheckbox) {
                     rememberMeCheckbox.addEventListener("change", () => {
@@ -17718,6 +19469,9 @@ class RememberMe {
                             this.rememberMeOptIn = false;
                         }
                     });
+                }
+                if (this.hide) {
+                    rememberMeOptInField.classList.add("hide");
                 }
                 remember_me_tippy("#rememberme-learn-more-toggle", { content: rememberMeInfo });
             }
@@ -17741,7 +19495,7 @@ class RememberMe {
                 "position:absolute;width:1px;height:1px;left:-9999px;";
             iframe.src = this.remoteUrl;
             iframe.setAttribute("sandbox", "allow-same-origin allow-scripts");
-            iframe.setAttribute("title", "Remember Me iframe");
+            iframe.setAttribute("title", engrid_ENGrid.t("rememberMe.iframeTitle"));
             this.iframe = iframe;
             document.body.appendChild(this.iframe);
             this.iframe.addEventListener("load", () => iframeLoaded(), false);
@@ -17768,6 +19522,7 @@ class RememberMe {
                 value: this.fieldData,
                 operation: "write",
                 expires: this.cookieExpirationDays,
+                encryptData: this.encryptData,
             }), "*");
         }
     }
@@ -17778,6 +19533,142 @@ class RememberMe {
         set(this.cookieName, JSON.stringify(this.fieldData), {
             expires: this.cookieExpirationDays,
         });
+    }
+    /**
+     * Reads and decrypts the local (non-remote) Remember Me cookie using
+     * browser-native AES-GCM (Web Crypto), with the key held in localStorage
+     * on this device. If the key is absent (different device or cleared
+     * storage) or decryption otherwise fails, the field data is left empty
+     * and the component falls back to the normal, no-autofill experience.
+     */
+    readCookieEncrypted() {
+        return remember_me_awaiter(this, void 0, void 0, function* () {
+            const raw = get(this.cookieName);
+            if (!raw) {
+                return;
+            }
+            const decrypted = yield this.decryptPayload(raw);
+            if (decrypted) {
+                this.updateFieldData(decrypted);
+            }
+        });
+    }
+    /**
+     * Encrypts the current fieldData with AES-GCM (Web Crypto) and stores the
+     * base64-encoded result in the local cookie. If encryption isn't possible
+     * (e.g. Web Crypto unavailable), nothing is written.
+     */
+    saveCookieEncrypted() {
+        return remember_me_awaiter(this, void 0, void 0, function* () {
+            const encrypted = yield this.encryptPayload(JSON.stringify(this.fieldData));
+            if (encrypted) {
+                set(this.cookieName, encrypted, {
+                    expires: this.cookieExpirationDays,
+                });
+            }
+        });
+    }
+    clearCookieEncrypted() {
+        this.fieldData = {};
+        this.saveCookieEncrypted();
+    }
+    /**
+     * Retrieves the per-device AES-GCM encryption key. A random secret
+     * generated once per device and held in localStorage — never written
+     * to the cookie, so it never travels with the transported value.
+     */
+    getEncryptionKey() {
+        return remember_me_awaiter(this, void 0, void 0, function* () {
+            if (!window.crypto || !window.crypto.subtle) {
+                return null;
+            }
+            const storedKey = window.localStorage.getItem(RM_ENCRYPTION_KEY_STORAGE_NAME);
+            if (storedKey) {
+                try {
+                    return yield window.crypto.subtle.importKey("raw", this.base64ToArrayBuffer(storedKey), { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+                }
+                catch (e) {
+                    return null;
+                }
+            }
+            try {
+                const key = yield window.crypto.subtle.generateKey({ name: "AES-GCM", length: 256 }, true, ["encrypt", "decrypt"]);
+                const exported = yield window.crypto.subtle.exportKey("raw", key);
+                window.localStorage.setItem(RM_ENCRYPTION_KEY_STORAGE_NAME, this.arrayBufferToBase64(exported));
+                return key;
+            }
+            catch (e) {
+                return null;
+            }
+        });
+    }
+    /**
+     * Encrypts a plaintext string with AES-GCM and returns the base64-encoded
+     * IV + ciphertext, ready for storage. Returns null if a key isn't
+     * available (e.g. Web Crypto unsupported).
+     */
+    encryptPayload(plaintext) {
+        return remember_me_awaiter(this, void 0, void 0, function* () {
+            const key = yield this.getEncryptionKey();
+            if (!key) {
+                return null;
+            }
+            const iv = window.crypto.getRandomValues(new Uint8Array(12));
+            const ciphertext = yield window.crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(plaintext));
+            const combined = new Uint8Array(iv.length + ciphertext.byteLength);
+            combined.set(iv);
+            combined.set(new Uint8Array(ciphertext), iv.length);
+            return this.arrayBufferToBase64(combined);
+        });
+    }
+    /**
+     * Decrypts a base64-encoded IV + ciphertext payload previously produced by
+     * encryptPayload. Returns null (rather than throwing) if the key is
+     * missing or decryption otherwise fails, so callers can gracefully fall
+     * back to the standard, no-autofill experience.
+     */
+    decryptPayload(encryptedBase64) {
+        return remember_me_awaiter(this, void 0, void 0, function* () {
+            const key = yield this.getEncryptionKey();
+            if (!key) {
+                return null;
+            }
+            let combined;
+            try {
+                combined = new Uint8Array(this.base64ToArrayBuffer(encryptedBase64));
+            }
+            catch (e) {
+                return null;
+            }
+            if (combined.length < 13) {
+                return null;
+            }
+            const iv = combined.slice(0, 12);
+            const ciphertext = combined.slice(12);
+            try {
+                const decrypted = yield window.crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ciphertext);
+                return new TextDecoder().decode(decrypted);
+            }
+            catch (e) {
+                return null;
+            }
+        });
+    }
+    arrayBufferToBase64(buffer) {
+        let binary = "";
+        const bytes = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
+        for (let i = 0; i < bytes.byteLength; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(binary);
+    }
+    base64ToArrayBuffer(base64) {
+        const binary = window.atob(base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+            bytes[i] = binary.charCodeAt(i);
+        }
+        return bytes.buffer;
     }
     readFields() {
         for (let i = 0; i < this.fieldNames.length; i++) {
@@ -17906,13 +19797,13 @@ class RememberMe {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/show-if-amount.js
+;// ./node_modules/@4site/engrid-scripts/dist/show-if-amount.js
 
 
 class ShowIfAmount {
     constructor() {
         this._amount = DonationAmount.getInstance();
-        this.logger = new logger_EngridLogger("ShowIfAmount", "yellow", "black", "👀");
+        this.logger = new EngridLogger("ShowIfAmount", "yellow", "black", "👀");
         this._elements = document.querySelectorAll('[class*="showifamount"]');
         if (this._elements.length > 0) {
             this._amount.onAmountChange.subscribe(() => this.init());
@@ -18025,12 +19916,12 @@ class ShowIfAmount {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/other-amount.js
+;// ./node_modules/@4site/engrid-scripts/dist/other-amount.js
 // This class automatically select other radio input when an amount is entered into it.
 
 class OtherAmount {
     constructor() {
-        this.logger = new logger_EngridLogger("OtherAmount", "green", "black", "💰");
+        this.logger = new EngridLogger("OtherAmount", "green", "black", "💰");
         this._amount = DonationAmount.getInstance();
         "focusin input".split(" ").forEach((e) => {
             var _a;
@@ -18051,6 +19942,11 @@ class OtherAmount {
             otherAmountField.setAttribute("autocomplete", "off");
             otherAmountField.setAttribute("data-lpignore", "true");
             otherAmountField.addEventListener("change", (e) => {
+                // Formatting only matters when entering a custom amount; skip
+                // unrelated change events (e.g. browser autofill firing on the
+                // field while a preset amount is selected)
+                if (!this._amount.isOtherAmountSelected())
+                    return;
                 const target = e.target;
                 const amount = target.value;
                 const cleanAmount = engrid_ENGrid.cleanAmount(amount);
@@ -18097,13 +19993,13 @@ class OtherAmount {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/min-max-amount.js
+;// ./node_modules/@4site/engrid-scripts/dist/min-max-amount.js
 // This script adds an erros message to the page if the amount is greater than the max amount or less than the min amount.
 
 class MinMaxAmount {
     constructor() {
         var _a, _b;
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this.minAmount = (_a = engrid_ENGrid.getOption("MinAmount")) !== null && _a !== void 0 ? _a : 1;
@@ -18112,7 +20008,7 @@ class MinMaxAmount {
         this.maxAmountMessage = engrid_ENGrid.getOption("MaxAmountMessage");
         this.disableLiveValidation = engrid_ENGrid.getOption("DisableMinMaxLiveValidation");
         this.enAmountValidator = null;
-        this.logger = new logger_EngridLogger("MinMaxAmount", "white", "purple", "🔢");
+        this.logger = new EngridLogger("MinMaxAmount", "white", "purple", "🔢");
         if (!this.shouldRun()) {
             // If we're not on a Donation Page, get out
             return;
@@ -18254,14 +20150,14 @@ class MinMaxAmount {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/ticker.js
+;// ./node_modules/@4site/engrid-scripts/dist/ticker.js
 
 class Ticker {
     constructor() {
         this.shuffleSeed = __webpack_require__(3184);
         this.items = [];
         this.tickerElement = document.querySelector(".engrid-ticker");
-        this.logger = new logger_EngridLogger("Ticker", "black", "beige", "🔁");
+        this.logger = new EngridLogger("Ticker", "black", "beige", "🔁");
         if (!this.shouldRun()) {
             this.logger.log("Not running");
             // If we don't find a ticker, get out
@@ -18322,7 +20218,7 @@ class Ticker {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/data-layer.js
+;// ./node_modules/@4site/engrid-scripts/dist/data-layer.js
 // DataLayer: singleton helper for pushing structured analytics events/vars to window.dataLayer.
 // On load it emits one aggregated event `pageJsonVariablesReady` with:
 //   EN_PAGEJSON_* (normalized pageJson), EN_URLPARAM_*, EN_RECURRING_FREQUENCIES (donation pages),
@@ -18342,11 +20238,11 @@ var data_layer_awaiter = (undefined && undefined.__awaiter) || function (thisArg
     });
 };
 
-class data_layer_DataLayer {
+class DataLayer {
     constructor() {
-        this.logger = new logger_EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
+        this.logger = new EngridLogger("DataLayer", "#f1e5bc", "#009cdc", "📊");
         this.dataLayer = window.dataLayer || [];
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.encoder = new TextEncoder();
         this.endOfGiftProcessStorageKey = "ENGRID_END_OF_GIFT_PROCESS_EVENTS";
         // pageJson entries related to the gift process
@@ -18415,11 +20311,11 @@ class data_layer_DataLayer {
         this._form.onSubmit.subscribe(() => this.onSubmit());
     }
     static getInstance() {
-        if (!data_layer_DataLayer.instance) {
-            data_layer_DataLayer.instance = new data_layer_DataLayer();
-            window._dataLayer = data_layer_DataLayer.instance;
+        if (!DataLayer.instance) {
+            DataLayer.instance = new DataLayer();
+            window._dataLayer = DataLayer.instance;
         }
-        return data_layer_DataLayer.instance;
+        return DataLayer.instance;
     }
     transformJSON(value) {
         if (typeof value === "string") {
@@ -18681,7 +20577,7 @@ class data_layer_DataLayer {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/data-replace.js
+;// ./node_modules/@4site/engrid-scripts/dist/data-replace.js
 // This script is used to replace merge tags in the EN Blocks of the page.
 // It searches for HTML elements containing the data to be replaced and replaces it.
 // The data to be replaced is passed as URL parameters, example: ?engrid_data[key]=value.
@@ -18692,7 +20588,7 @@ class data_layer_DataLayer {
 
 class DataReplace {
     constructor() {
-        this.logger = new logger_EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
+        this.logger = new EngridLogger("DataReplace", "#333333", "#00f3ff", "⤵️");
         this.enElements = new Array();
         this.searchElements();
         if (!this.shouldRun())
@@ -18759,7 +20655,7 @@ class DataReplace {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/data-hide.js
+;// ./node_modules/@4site/engrid-scripts/dist/data-hide.js
 // Hides elements based on URL arguments.
 //
 // The DataHide class is used to hide elements based on URL arguments.
@@ -18769,7 +20665,7 @@ class DataReplace {
 
 class DataHide {
     constructor() {
-        this.logger = new logger_EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
+        this.logger = new EngridLogger("DataHide", "#333333", "#f0f0f0", "🙈");
         this.enElements = new Array();
         this.logger.log("Constructor");
         this.enElements = engrid_ENGrid.getUrlParameter("engrid_hide[]");
@@ -18827,7 +20723,7 @@ class DataHide {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/add-name-to-message.js
+;// ./node_modules/@4site/engrid-scripts/dist/add-name-to-message.js
 /*
  Adds first and last name when First Name and Last Name fields lose focus if name shortcodes aren't present
 */
@@ -18878,14 +20774,14 @@ class AddNameToMessage {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/expand-region-name.js
+;// ./node_modules/@4site/engrid-scripts/dist/expand-region-name.js
 // Populates hidden supporter field "Region Long Format" with expanded name (e.g FL becomes Florida)
 
 
 class ExpandRegionName {
     constructor() {
-        this._form = en_form_EnForm.getInstance();
-        this.logger = new logger_EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
+        this._form = EnForm.getInstance();
+        this.logger = new EngridLogger("ExpandRegionName", "#333333", "#00eb65", "🌍");
         if (this.shouldRun()) {
             const expandedRegionField = engrid_ENGrid.getOption("RegionLongFormat");
             console.log("expandedRegionField", expandedRegionField);
@@ -18924,7 +20820,7 @@ class ExpandRegionName {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/url-to-form.js
+;// ./node_modules/@4site/engrid-scripts/dist/url-to-form.js
 // Component that allows to set a field value from URL parameters
 // Workflow:
 // 1. Loop through all the URL parameters
@@ -18933,7 +20829,7 @@ class ExpandRegionName {
 
 class UrlToForm {
     constructor() {
-        this.logger = new logger_EngridLogger("UrlToForm", "white", "magenta", "🔗");
+        this.logger = new EngridLogger("UrlToForm", "white", "magenta", "🔗");
         this.urlParams = new URLSearchParams(document.location.search);
         if (!this.shouldRun())
             return;
@@ -18964,12 +20860,12 @@ class UrlToForm {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/required-if-visible.js
+;// ./node_modules/@4site/engrid-scripts/dist/required-if-visible.js
 
 class RequiredIfVisible {
     constructor() {
-        this.logger = new logger_EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
-        this._form = en_form_EnForm.getInstance();
+        this.logger = new EngridLogger("RequiredIfVisible", "#FFFFFF", "#811212", "🚥");
+        this._form = EnForm.getInstance();
         this.requiredIfVisibleElements = document.querySelectorAll(`
     .i-required .en__field,
     .i1-required .en__field:nth-of-type(1),
@@ -19026,7 +20922,7 @@ class RequiredIfVisible {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/tidycontact.js
+;// ./node_modules/@4site/engrid-scripts/dist/tidycontact.js
 var tidycontact_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -19040,13 +20936,13 @@ var tidycontact_awaiter = (undefined && undefined.__awaiter) || function (thisAr
 class TidyContact {
     constructor() {
         var _a, _b, _c, _d, _e;
-        this.logger = new logger_EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
+        this.logger = new EngridLogger("TidyContact", "#FFFFFF", "#4d9068", "📧");
         this.endpoint = "https://api.tidycontact.io";
         this.wasCalled = false; // True if the API endpoint was called
         this.httpStatus = 0;
         this.timeout = 5; // Seconds to API Timeout
         this.isDirty = false; // True if the address was changed by the user
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.countries_list = [
             ["Afghanistan", "af", "93", "070 123 4567"],
             ["Albania", "al", "355", "067 212 3456"],
@@ -20242,12 +22138,12 @@ class TidyContact {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/live-currency.js
+;// ./node_modules/@4site/engrid-scripts/dist/live-currency.js
 // This script enables live currency symbol and code to the page.
 
 class LiveCurrency {
     constructor() {
-        this.logger = new logger_EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
+        this.logger = new EngridLogger("LiveCurrency", "#1901b1", "#feb47a", "💲");
         this.elementsFound = false;
         this.isUpdating = false;
         this._amount = DonationAmount.getInstance();
@@ -20384,7 +22280,7 @@ class LiveCurrency {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/custom-currency.js
+;// ./node_modules/@4site/engrid-scripts/dist/custom-currency.js
 // This component allows you to customize the currency options in the currency field
 // It is used in the following way:
 //
@@ -20443,7 +22339,7 @@ class LiveCurrency {
 
 class CustomCurrency {
     constructor() {
-        this.logger = new logger_EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
+        this.logger = new EngridLogger("CustomCurrency", "#1901b1", "#00cc95", "🤑");
         this.currencyElement = document.querySelector("[name='transaction.paycurrency']");
         this._country = Country.getInstance();
         if (!this.shouldRun())
@@ -20498,13 +22394,13 @@ class CustomCurrency {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/autosubmit.js
+;// ./node_modules/@4site/engrid-scripts/dist/autosubmit.js
 // Automatically submits the page if a URL argument is present
 
 class Autosubmit {
     constructor() {
-        this.logger = new logger_EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
-        this._form = en_form_EnForm.getInstance();
+        this.logger = new EngridLogger("Autosubmit", "#f0f0f0", "#ff0000", "🚀");
+        this._form = EnForm.getInstance();
         if (engrid_ENGrid.checkNested(window.EngagingNetworks, "require", "_defined", "enjs", "checkSubmissionFailed") &&
             !window.EngagingNetworks.require._defined.enjs.checkSubmissionFailed() &&
             engrid_ENGrid.getUrlParameter("autosubmit") === "Y") {
@@ -20516,7 +22412,7 @@ class Autosubmit {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/event-tickets.js
+;// ./node_modules/@4site/engrid-scripts/dist/event-tickets.js
 class EventTickets {
     constructor() {
         // --------------------------------------------
@@ -20542,7 +22438,7 @@ class EventTickets {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/swap-amounts.js
+;// ./node_modules/@4site/engrid-scripts/dist/swap-amounts.js
 // This script allows you to override the default donation amounts in Engaging Networks
 // with a custom list of amounts.
 // If the URL contains a query parameter "engrid-amounts" with a comma separated values, the script will load the
@@ -20578,12 +22474,32 @@ class EventTickets {
 
 class SwapAmounts {
     constructor() {
-        this.logger = new logger_EngridLogger("SwapAmounts", "purple", "white", "💰");
+        this.logger = new EngridLogger("SwapAmounts", "purple", "white", "💰");
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
         this.defaultChange = false; // Tracks if user changed away from default after swap
         this.swapped = false; // Tracks if we've already executed at least one swap
+        this.hasOneTimeNSG = false;
+        this.hasRecurringNSG = false;
         this.loadAmountsFromUrl();
+        this.hasOneTimeNSG = !!(window.EngagingNetworks.suggestedGift &&
+            window.EngagingNetworks.suggestedGift.single &&
+            window.EngagingNetworks.suggestedGift.single.length > 0);
+        this.hasRecurringNSG = !!(window.EngagingNetworks.suggestedGift &&
+            window.EngagingNetworks.suggestedGift.recurring &&
+            window.EngagingNetworks.suggestedGift.recurring.length > 0);
+        if (this.hasOneTimeNSG) {
+            engrid_ENGrid.setBodyData("en-nsg-onetime", true);
+        }
+        if (this.hasRecurringNSG) {
+            engrid_ENGrid.setBodyData("en-nsg-recurring", true);
+        }
+        if (this.hasOneTimeNSG || this.hasRecurringNSG) {
+            engrid_ENGrid.setBodyData("en-nsg", true);
+            this.logger.log("Detected NSG amounts", {
+                suggestedGift: window.EngagingNetworks.suggestedGift,
+            });
+        }
         if (!this.shouldRun())
             return;
         // Respond when frequency changes
@@ -20643,6 +22559,15 @@ class SwapAmounts {
         const config = configs[freq];
         if (!config)
             return;
+        if (this.shouldUseNSG(freq, config)) {
+            this.logger.log(`NSG present for ${freq}, using NSG amounts`, {
+                suggestedGift: window.EngagingNetworks.suggestedGift,
+            });
+            window.EngagingNetworks.require._defined.enjs.swapList("donationAmt", this.toEnAmountListNSG(window.EngagingNetworks.suggestedGift, freq), { ignoreCurrentValue: true });
+            this._amount.load();
+            this.swapped = true;
+            return;
+        }
         const stickyDefault = !!config.stickyDefault;
         // If stickyDefault, always ignore current value so selected flag in list enforces default
         const ignoreCurrentValue = stickyDefault ? true : this.ignoreCurrentValue();
@@ -20650,6 +22575,15 @@ class SwapAmounts {
         this._amount.load();
         this.logger.log("Amounts Swapped To", config, { ignoreCurrentValue });
         this.swapped = true;
+    }
+    shouldUseNSG(freq, config) {
+        if (freq === "onetime" && this.hasOneTimeNSG && !config.overrideNSG) {
+            return true;
+        }
+        if (freq === "monthly" && this.hasRecurringNSG && !config.overrideNSG) {
+            return true;
+        }
+        return false;
     }
     /**
      * Convert the internal config object into the structure Engaging Networks expects
@@ -20661,13 +22595,19 @@ class SwapAmounts {
             value: value.toString(),
         }));
     }
+    /**
+     * Convert the Engaging Networks NSG config object into the structure Engaging Network Lists expect
+     */
+    toEnAmountListNSG(config, freq) {
+        const frequency = freq === "onetime" ? "single" : "recurring";
+        return config[frequency].map(({ nextSuggestedGift, value }) => ({
+            selected: nextSuggestedGift,
+            label: value > 0 ? value.toString() : "Other",
+            value: value > 0 ? value.toString() : "other",
+        }));
+    }
     shouldRun() {
-        const hasNSG = window.EngagingNetworks.suggestedGift !== undefined &&
-            Object.keys(window.EngagingNetworks.suggestedGift).length > 0;
-        if (!!window.EngridAmounts && hasNSG) {
-            this.logger.log("Not swapping amounts because NSG is active on page");
-        }
-        return !!window.EngridAmounts && !hasNSG;
+        return !!window.EngridAmounts;
     }
     ignoreCurrentValue() {
         const urlParam = engrid_ENGrid.getUrlParameter("transaction.donationAmt");
@@ -20681,12 +22621,12 @@ class SwapAmounts {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/debug-panel.js
+;// ./node_modules/@4site/engrid-scripts/dist/debug-panel.js
 
 class DebugPanel {
     constructor(pageLayouts) {
         var _a, _b;
-        this.logger = new logger_EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
+        this.logger = new EngridLogger("Debug Panel", "#f0f0f0", "#ff0000", "💥");
         this.brandingHtml = new BrandingHtml();
         this.element = null;
         this.currentTimestamp = this.getCurrentTimestamp();
@@ -21191,12 +23131,12 @@ class DebugPanel {
 }
 DebugPanel.debugSessionStorageKey = "engrid_debug_panel";
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/debug-hidden-fields.js
+;// ./node_modules/@4site/engrid-scripts/dist/debug-hidden-fields.js
 // Switches hidden fields to be type text when debug mode is enabled.
 
 class DebugHiddenFields {
     constructor() {
-        this.logger = new logger_EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
+        this.logger = new EngridLogger("Debug hidden fields", "#f0f0f0", "#ff0000", "🫣");
         this.ignoreFields = ["transaction.paycurrency"];
         // Query all hidden input elements within the specified selectors
         const fields = document.querySelectorAll(".en__component--row [type='hidden'][class*='en_'], .engrid-added-input[type='hidden']");
@@ -21241,7 +23181,7 @@ class DebugHiddenFields {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/branding-html.js
+;// ./node_modules/@4site/engrid-scripts/dist/branding-html.js
 var branding_html_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -21313,12 +23253,12 @@ class BrandingHtml {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/country-disable.js
+;// ./node_modules/@4site/engrid-scripts/dist/country-disable.js
 // This class allows you to disable some countries from the country dropdown list.
 
 class CountryDisable {
     constructor() {
-        this.logger = new logger_EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
+        this.logger = new EngridLogger("CountryDisable", "#f0f0f0", "#333333", "🌎");
         const countries = document.querySelectorAll('select[name="supporter.country"], select[name="transaction.shipcountry"], select[name="supporter.billingCountry"], select[name="transaction.infcountry"]');
         const CountryDisable = engrid_ENGrid.getOption("CountryDisable");
         // Remove the countries from the dropdown list
@@ -21337,7 +23277,7 @@ class CountryDisable {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/premium-gift.js
+;// ./node_modules/@4site/engrid-scripts/dist/premium-gift.js
 // Component to handle premium gift features
 // 1 - Add a class to body to indicate which premium gift is selected (data-engrid-premium-gift-name="item-name-slugged")
 // 2 - Add a class to body to indicate if the "maximize my impact" is selected (data-engrid-premium-gift-maximize="true|false")
@@ -21347,7 +23287,7 @@ class CountryDisable {
 
 class PremiumGift {
     constructor() {
-        this.logger = new logger_EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
+        this.logger = new EngridLogger("PremiumGift", "#232323", "#f7b500", "🎁");
         this.enElements = new Array();
         this._frequency = DonationFrequency.getInstance();
         this._amount = DonationAmount.getInstance();
@@ -21380,11 +23320,14 @@ class PremiumGift {
                             if (newPremiumGift) {
                                 newPremiumGift.checked = true;
                                 newPremiumGift.dispatchEvent(new Event("change"));
+                                this.altsAndArias();
                             }
                         }, 100);
                     }
                     window.setTimeout(() => {
                         this.checkPremiumGift();
+                        this.altsAndArias();
+                        this.maxDonationAria();
                     }, 110);
                 }
             });
@@ -21471,35 +23414,78 @@ class PremiumGift {
     }
     // Sets alt tags for premium gift images and aria tags for premium gift radio inputs
     altsAndArias() {
-        const premiumTitle = document.querySelectorAll(".en__pg__detail h2.en__pg__name");
+        const premiumHeader = document.querySelector(".en__pgHeader");
+        const radioGroup = document.querySelector(".en__pgList");
+        if (premiumHeader && radioGroup) {
+            const premiumHeaderId = premiumHeader.id || "premium-gift-header";
+            premiumHeader.setAttribute("id", premiumHeaderId);
+            premiumHeader.setAttribute("role", "heading");
+            premiumHeader.setAttribute("aria-level", "2");
+            radioGroup.setAttribute("aria-labelledby", premiumHeaderId);
+            radioGroup.setAttribute("role", "radiogroup");
+        }
         const multistepBackButton = document.querySelectorAll(".multistep-button-container button.btn-back");
-        premiumTitle.forEach((item) => {
-            if (item) {
-                const titleText = item.innerHTML;
-                const parent = item.parentElement;
-                const prevSibling = parent === null || parent === void 0 ? void 0 : parent.previousElementSibling;
-                const radioInputSibling = prevSibling === null || prevSibling === void 0 ? void 0 : prevSibling.previousElementSibling;
-                if (prevSibling) {
-                    const imageDiv = prevSibling.querySelector(".en__pg__images");
-                    if (imageDiv) {
-                        const img = imageDiv.querySelector("img");
-                        if (img) {
-                            img.setAttribute("alt", titleText);
-                            img.style.width = "125px";
-                            img.style.height = "100px";
-                        }
-                    }
+        multistepBackButton.forEach((item) => {
+            item.setAttribute("aria-label", "Back");
+        });
+        const premiumRow = document.querySelectorAll(".en__pg");
+        premiumRow.forEach((item) => {
+            const premiumTitle = item.querySelector(".en__pg__detail h2.en__pg__name");
+            const titleText = (premiumTitle === null || premiumTitle === void 0 ? void 0 : premiumTitle.innerHTML) || "";
+            const premiumGiftInput = item.querySelector('input[name="en__pg"]');
+            const premiumGiftId = (premiumGiftInput === null || premiumGiftInput === void 0 ? void 0 : premiumGiftInput.value) || engrid_ENGrid.slugify(titleText);
+            premiumTitle === null || premiumTitle === void 0 ? void 0 : premiumTitle.setAttribute("id", `premium-gift-option-${premiumGiftId}`);
+            const details = item.querySelector(".en__pg__detail");
+            const display = item.querySelector(".en__pg__display");
+            const select = item.querySelector(".en__pg__select");
+            if (select) {
+                const radioInput = select.querySelector('input[type="radio"]');
+                if (radioInput) {
+                    radioInput.setAttribute("aria-labelledby", (premiumTitle === null || premiumTitle === void 0 ? void 0 : premiumTitle.id) || "");
                 }
-                if (radioInputSibling) {
-                    const radioInput = radioInputSibling.querySelector('input[type="radio"]');
-                    if (radioInput) {
-                        radioInput.setAttribute("aria-label", titleText);
+            }
+            if (details) {
+                const optionTypesParent = details.querySelector(".en__pg__optionTypes");
+                if (optionTypesParent) {
+                    this.altsAndAriasForSelects(optionTypesParent, titleText, premiumGiftId);
+                }
+            }
+            if (display) {
+                const imageDiv = display.querySelector(".en__pg__images");
+                if (imageDiv) {
+                    const img = imageDiv.querySelector("img");
+                    if (img) {
+                        img.setAttribute("alt", titleText);
+                        img.style.width = "125px";
+                        img.style.height = "100px";
                     }
                 }
             }
-            multistepBackButton.forEach((item) => {
-                item.setAttribute("aria-label", "Back");
+        });
+        this.syncOptionSelectStates();
+    }
+    syncOptionSelectStates() {
+        const premiumRows = document.querySelectorAll(".en__pg");
+        premiumRows.forEach((row) => {
+            const radioInput = row.querySelector('input[name="en__pg"]');
+            const optionSelects = row.querySelectorAll(".en__pg__optionType select");
+            optionSelects.forEach((select) => {
+                select.disabled = !(radioInput === null || radioInput === void 0 ? void 0 : radioInput.checked);
             });
+        });
+    }
+    altsAndAriasForSelects(optionTypesParent, titleText, premiumGiftId) {
+        optionTypesParent.setAttribute("aria-label", `Options for ${titleText}`);
+        const optionTypes = optionTypesParent.querySelectorAll(".en__pg__optionType");
+        optionTypes.forEach((option, index) => {
+            const label = option.querySelector("label");
+            const select = option.querySelector('select');
+            if (label && select) {
+                const labelId = engrid_ENGrid.slugify(label.innerText) || index.toString();
+                select.setAttribute("id", `premium-gift-option-type-${premiumGiftId}-${labelId}`);
+                label.setAttribute("for", select.id);
+                label.setAttribute("aria-label", `${label.innerText} for ${titleText}`);
+            }
         });
     }
     // This is for the Maximize My Donation aria-label - the tree structure for it is slightly different.
@@ -21522,7 +23508,7 @@ class PremiumGift {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/custom-premium.js
+;// ./node_modules/@4site/engrid-scripts/dist/custom-premium.js
 // ENgrid component: CustomPremium
 // Filters premium gifts based on window.EngridPageOptions.CustomPremium configuration
 // Rules:
@@ -21536,10 +23522,10 @@ class PremiumGift {
 
 class CustomPremium {
     constructor() {
-        this.logger = new logger_EngridLogger("CustomPremium", "teal", "white", "🧩");
+        this.logger = new EngridLogger("CustomPremium", "teal", "white", "🧩");
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
-        this._enForm = en_form_EnForm.getInstance();
+        this._enForm = EnForm.getInstance();
         this.stylesInjected = false;
         this.pendingFrequencyChange = false;
         if (!this.shouldRun())
@@ -21788,14 +23774,14 @@ class CustomPremium {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/digital-wallets.js
+;// ./node_modules/@4site/engrid-scripts/dist/digital-wallets.js
 
 
 
 class DigitalWallets {
     constructor() {
-        this.logger = new logger_EngridLogger("DigitalWallets", "#fff", "#333", "👛");
-        this._form = en_form_EnForm.getInstance();
+        this.logger = new EngridLogger("DigitalWallets", "#fff", "#333", "👛");
+        this._form = EnForm.getInstance();
         //digital wallets not enabled.
         if (!document.getElementById("en__digitalWallet")) {
             engrid_ENGrid.setBodyData("payment-type-option-stripedigitalwallet", "false");
@@ -21986,7 +23972,7 @@ class DigitalWallets {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/mobile-cta.js
+;// ./node_modules/@4site/engrid-scripts/dist/mobile-cta.js
 // This component adds a floating CTA button to the page, which can be used to scroll to the top of the form
 
 class MobileCTA {
@@ -22063,14 +24049,14 @@ class MobileCTA {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/live-frequency.js
+;// ./node_modules/@4site/engrid-scripts/dist/live-frequency.js
 // This script creates merge tags: [[frequency]], [[Frequency]], or [[FREQUENCY]]
 // that gets replaced with the donation frequency
 // and can be used on any Code Block, Text Block, or Form Block
 
 class LiveFrequency {
     constructor() {
-        this.logger = new logger_EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
+        this.logger = new EngridLogger("LiveFrequency", "#00ff00", "#000000", "🧾");
         this.elementsFound = false;
         this._amount = DonationAmount.getInstance();
         this._frequency = DonationFrequency.getInstance();
@@ -22174,7 +24160,7 @@ class LiveFrequency {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/universal-opt-in.js
+;// ./node_modules/@4site/engrid-scripts/dist/universal-opt-in.js
 /**
  * This class will add event listeners to every yes/no radio button or checkbox
  * inside a universal opt-in element (any form block with the CSS class universal-opt-in). When the user clicks on a radio/checkbox
@@ -22187,7 +24173,7 @@ class LiveFrequency {
 
 class UniversalOptIn {
     constructor() {
-        this.logger = new logger_EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
+        this.logger = new EngridLogger("UniversalOptIn", "#f0f0f0", "#d2691e", "🪞");
         this._elements = document.querySelectorAll(".universal-opt-in, .universal-opt-in_null");
         if (!this.shouldRun())
             return;
@@ -22267,7 +24253,7 @@ class UniversalOptIn {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/stripe-financial-connections.js
+;// ./node_modules/@4site/engrid-scripts/dist/stripe-financial-connections.js
 /**
  * This component improves EN's implementation of Stripe Financial Connections.
  * Enhancements:
@@ -22277,7 +24263,7 @@ class UniversalOptIn {
 class StripeFinancialConnections {
     constructor() {
         this.stripeModalOpen = false;
-        this.logger = new logger_EngridLogger("Stripe Financial Connections", "black", "pink", "🏛️");
+        this.logger = new EngridLogger("Stripe Financial Connections", "black", "pink", "🏛️");
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
@@ -22317,11 +24303,11 @@ class StripeFinancialConnections {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/give-by-select.js
+;// ./node_modules/@4site/engrid-scripts/dist/give-by-select.js
 
 class GiveBySelect {
     constructor() {
-        this.logger = new logger_EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
+        this.logger = new EngridLogger("GiveBySelect", "#FFF", "#333", "🐇");
         this.transactionGiveBySelect = document.getElementsByName("transaction.giveBySelect");
         this._frequency = DonationFrequency.getInstance();
         if (!this.transactionGiveBySelect)
@@ -22400,12 +24386,12 @@ class GiveBySelect {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/url-params-to-body-attrs.js
+;// ./node_modules/@4site/engrid-scripts/dist/url-params-to-body-attrs.js
 //This component adds any url parameters that begin with "data-engrid-" to the body as attributes.
 
 class UrlParamsToBodyAttrs {
     constructor() {
-        this.logger = new logger_EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
+        this.logger = new EngridLogger("UrlParamsToBodyAttrs", "white", "magenta", "📌");
         this.urlParams = new URLSearchParams(document.location.search);
         this.urlParams.forEach((value, key) => {
             if (key.startsWith("data-engrid-")) {
@@ -22416,14 +24402,14 @@ class UrlParamsToBodyAttrs {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/exit-intent-lightbox.js
+;// ./node_modules/@4site/engrid-scripts/dist/exit-intent-lightbox.js
 
 
 class ExitIntentLightbox {
     constructor() {
         this.opened = false;
         this.dataLayer = window.dataLayer || [];
-        this.logger = new logger_EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
+        this.logger = new EngridLogger("ExitIntentLightbox", "yellow", "black", "🚪");
         this.triggerDelay = 1000; // Don't run the exit intent lightbox until at least 1 second has passed after page load
         this.triggerTimeout = null;
         let options = "EngridExitIntent" in window ? window.EngridExitIntent : {};
@@ -22563,18 +24549,22 @@ class ExitIntentLightbox {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/supporter-hub.js
+;// ./node_modules/@4site/engrid-scripts/dist/supporter-hub.js
 // Component that adds 4Site Special Features to the Supporter Hub Page
 
 class SupporterHub {
     constructor() {
-        this.logger = new logger_EngridLogger("SupporterHub", "black", "pink", "🛖");
-        this._form = en_form_EnForm.getInstance();
+        this.logger = new EngridLogger("SupporterHub", "black", "pink", "🛖");
+        this._form = EnForm.getInstance();
         if (!this.shoudRun())
             return;
         this.logger.log("Enabled");
         this.watch();
         this.preventDuplicateSubmits();
+        this.pageAltsAndArias();
+        if (engrid_ENGrid.getPageNumber() === 1) {
+            this.announceLoginResponses();
+        }
     }
     shoudRun() {
         return ("pageJson" in window &&
@@ -22593,8 +24583,24 @@ class SupporterHub {
                             if (overlay.classList.contains("en__hubOverlay") ||
                                 overlay.classList.contains("en__hubPledge__panels")) {
                                 this.logger.log("Overlay found");
-                                this.creditCardUpdate(node);
-                                this.amountLabelUpdate(node);
+                                this.creditCardUpdate(overlay);
+                                this.amountLabelUpdate(overlay);
+                                this.dialogAltsAndArias(overlay);
+                                this.accessibilityScan(overlay);
+                            }
+                        }
+                    });
+                    mutation.removedNodes.forEach((node) => {
+                        if (node.nodeName === "DIV") {
+                            const overlay = node;
+                            if (overlay.classList.contains("en__hubOverlay") ||
+                                overlay.classList.contains("en__hubPledge__panels")) {
+                                this.logger.log("Overlay removed");
+                                A11y.inertPage(false);
+                                const remainingOverlay = document.querySelector(".en__hubOverlay, .en__hubPledge__panels");
+                                if (remainingOverlay) {
+                                    A11y.inertPage(true, remainingOverlay);
+                                }
                             }
                         }
                     });
@@ -22611,7 +24617,238 @@ class SupporterHub {
         if (hubOverlay) {
             this.creditCardUpdate(hubOverlay);
             this.amountLabelUpdate(hubOverlay);
+            this.dialogAltsAndArias(hubOverlay);
+            this.accessibilityScan(hubOverlay);
         }
+    }
+    pageAltsAndArias() {
+        // Find every en__component--hubgadget and set role as button and aria-label as the span content of the component
+        document.querySelectorAll(".en__component--hubgadget").forEach((node) => {
+            const button = node;
+            const labelSpan = button.querySelector("span");
+            if (!labelSpan)
+                return;
+            const img = button.querySelector("img");
+            img === null || img === void 0 ? void 0 : img.setAttribute("aria-hidden", "true");
+            const slug = engrid_ENGrid.slugify(labelSpan.innerText);
+            const labelId = `hubgadget-label-${slug}`;
+            labelSpan.setAttribute("id", labelId);
+            button.setAttribute("aria-labelledby", labelId);
+            button.setAttribute("role", "button");
+            button.setAttribute("aria-controls", `huboverlay-${slug}`);
+            button.setAttribute("aria-haspopup", "dialog");
+            if (!button.classList.contains("en__component--hubgadget--inactive")) {
+                button.setAttribute("tabindex", "0");
+                button.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        button.click();
+                    }
+                });
+            }
+        });
+        const emailField = document.querySelector('.en__field--hublogin');
+        if (emailField) {
+            const label = emailField.querySelector('label');
+            const input = emailField.querySelector('input');
+            if (label && input) {
+                const slug = engrid_ENGrid.slugify(label.innerText);
+                const labelId = `hublogin-label-${slug}`;
+                label.setAttribute("id", labelId);
+                input.setAttribute("aria-labelledby", labelId);
+            }
+        }
+    }
+    /**
+     * The Supporter Hub login form shows success / failure / loading messages by
+     * toggling the inline `display` on static `.en__hubgadget__response` divs.
+     * Wire the login body up to the shared response announcer.
+     */
+    announceLoginResponses() {
+        const body = document.querySelector(".en__supporterHubLogin__body");
+        if (!body)
+            return;
+        const emailInput = body.querySelector(".en__field--hublogin input");
+        const emailField = emailInput === null || emailInput === void 0 ? void 0 : emailInput.closest(".en__field--hublogin");
+        // Login failures are about the email field: flag it invalid and point AT at
+        // the alert describing why. This is login-specific, so it lives here rather
+        // than in the shared announcer.
+        this.announceHubResponses(body, {
+            onResult: (isFailure, alertRegionId) => {
+                if (emailInput) {
+                    if (isFailure) {
+                        emailInput.setAttribute("aria-invalid", "true");
+                        emailInput.setAttribute("aria-describedby", alertRegionId);
+                    }
+                    else {
+                        emailInput.removeAttribute("aria-invalid");
+                        emailInput.removeAttribute("aria-describedby");
+                    }
+                }
+                emailField === null || emailField === void 0 ? void 0 : emailField.classList.toggle("en__field--validationFailed", isFailure);
+            },
+        });
+    }
+    /**
+     * Mirror `.en__hubgadget__response` messages within `container` into screen
+     * reader live regions. Engaging Networks owns these responses, and assistive
+     * tech doesn't reliably announce content that was already in the DOM and
+     * merely flipped to visible — and in hub overlays the responses don't even
+     * exist until a submit injects them.
+     *
+     * We append a polite (`role="status"`) and an assertive (`role="alert"`) live
+     * region, hide the originals from AT, then on any childList / display / class
+     * change we debounce and announce whichever response is currently visible,
+     * preferring a terminal result over the transient "Loading" so an instant
+     * failure isn't preceded by a stray "Loading". Failures (and, for overlays,
+     * all messages) use the assertive region; everything else uses the polite one.
+     *
+     * This is a form-agnostic engine: callers supply their own side effects via
+     * `onResult` rather than this method knowing about any specific form.
+     *
+     * @param container The element that holds (or will hold) the responses.
+     * @param options   `preferAssertive` announces success assertively too —
+     *                  overlays redraw their content (and shift focus) on success,
+     *                  which makes screen readers drop polite announcements, so
+     *                  assertive ones are used to survive that. `onResult` is fired
+     *                  with each settled result (and the assertive region's id) so
+     *                  callers can react — e.g. the login form flags its email
+     *                  field invalid — without baking that into the engine.
+     */
+    announceHubResponses(container, options = {}) {
+        var _a;
+        const { preferAssertive = false, onResult } = options;
+        // Guard against wiring the same container up twice.
+        if (container.dataset.engridResponseAnnounce === "true")
+            return;
+        container.dataset.engridResponseAnnounce = "true";
+        // The overlay popup is an `aria-modal="true"` dialog, which tells assistive
+        // tech to ignore everything outside it. Live regions appended to the outer
+        // .en__hubOverlay (a sibling of the dialog) are therefore never announced.
+        // Anchor the regions inside the dialog so they live within the modal scope.
+        // Falls back to the container itself for the non-modal login form.
+        const regionAnchor = (_a = container.querySelector(".en__hubOverlay__popup")) !== null && _a !== void 0 ? _a : container;
+        const makeRegion = (assertive) => {
+            const region = document.createElement("div");
+            region.setAttribute("role", assertive ? "alert" : "status");
+            region.setAttribute("aria-atomic", "true");
+            region.classList.add("engrid__sr-only");
+            return regionAnchor.appendChild(region);
+        };
+        const politeRegion = makeRegion(false);
+        const assertiveRegion = makeRegion(true);
+        assertiveRegion.id = `en__hubgadget__response--failure-alert-${Math.random()
+            .toString(36)
+            .slice(2, 7)}`;
+        const isVisible = (el) => window.getComputedStyle(el).display !== "none";
+        // The live regions own announcements; hide the originals so each message is
+        // read once rather than twice. Responses can be injected after the fact
+        // (overlays), so re-hide on every pass, but only write when needed to avoid
+        // retriggering our own observer.
+        const hideResponses = () => {
+            container
+                .querySelectorAll(".en__hubgadget__response")
+                .forEach((r) => {
+                if (r.getAttribute("aria-hidden") !== "true") {
+                    r.setAttribute("aria-hidden", "true");
+                }
+            });
+        };
+        // Clear then set on the next frame so the screen reader registers a fresh
+        // change even when the same message is re-stated after a content redraw.
+        const speak = (region, text) => {
+            region.textContent = "";
+            window.requestAnimationFrame(() => {
+                region.textContent = text;
+            });
+        };
+        let lastAnnounced = "";
+        // Set when a response node is added/removed (i.e. the overlay redrew its
+        // content). A polite announcement made mid-redraw gets dropped, so we must
+        // re-state the message once things settle even if the text is unchanged.
+        let forceReannounce = false;
+        const announce = () => {
+            var _a;
+            hideResponses();
+            const responses = Array.from(container.querySelectorAll(".en__hubgadget__response"));
+            const visible = responses.filter(isVisible);
+            const target = (_a = visible.find((r) => !r.classList.contains("en__hubgadget__response--loading"))) !== null && _a !== void 0 ? _a : visible[0];
+            const message = target ? (target.textContent || "").trim() : "";
+            const isFailure = !!(target === null || target === void 0 ? void 0 : target.classList.contains("en__hubgadget__response--failure"));
+            const reannounce = forceReannounce;
+            forceReannounce = false;
+            if (message === lastAnnounced && !reannounce)
+                return;
+            lastAnnounced = message;
+            if (!message) {
+                politeRegion.textContent = "";
+                assertiveRegion.textContent = "";
+                onResult === null || onResult === void 0 ? void 0 : onResult(false, assertiveRegion.id);
+                return;
+            }
+            this.logger.log(`Announcing hub response: ${message}`);
+            // Overlays must announce assertively (polite is dropped on their content
+            // redraw); the login form keeps polite for non-failures.
+            const useAssertive = isFailure || preferAssertive;
+            if (useAssertive) {
+                politeRegion.textContent = "";
+                speak(assertiveRegion, message);
+            }
+            else {
+                assertiveRegion.textContent = "";
+                speak(politeRegion, message);
+            }
+            onResult === null || onResult === void 0 ? void 0 : onResult(isFailure, assertiveRegion.id);
+        };
+        // Only react to mutations that actually involve a response. The container
+        // (especially an overlay) is full of unrelated churn — form fields, the
+        // loading spinner, the a11y error regions — and our own live-region writes
+        // are children of it too. Reacting to all of that would perpetually reset
+        // the debounce and drown out the real announcement.
+        const isResponse = (node) => node instanceof HTMLElement &&
+            (node.classList.contains("en__hubgadget__response") ||
+                !!node.querySelector(".en__hubgadget__response"));
+        const isRelevant = (record) => {
+            if (record.type === "childList") {
+                return (Array.from(record.addedNodes).some(isResponse) ||
+                    Array.from(record.removedNodes).some(isResponse));
+            }
+            // attribute (style/class) change directly on a response element
+            return (record.target instanceof HTMLElement &&
+                record.target.classList.contains("en__hubgadget__response"));
+        };
+        let debounce = 0;
+        new MutationObserver((records) => {
+            const relevant = records.filter(isRelevant);
+            if (!relevant.length)
+                return;
+            // A response node being added/removed means the content was redrawn;
+            // force a re-announcement so a message dropped mid-redraw is re-stated.
+            if (relevant.some((r) => r.type === "childList")) {
+                forceReannounce = true;
+            }
+            window.clearTimeout(debounce);
+            debounce = window.setTimeout(announce, 250);
+        }).observe(container, {
+            attributes: true,
+            attributeFilter: ["style", "class"],
+            childList: true,
+            subtree: true,
+        });
+        announce(); // catch any response already visible at setup
+    }
+    /**
+     * Run the field-level accessibility scan and response announcer against a
+     * freshly opened overlay. EN injects overlay markup (and its fields) when the
+     * gadget is clicked, so A11y's constructor-time sweep never sees them. The
+     * scan is idempotent and the announcer guards against double-wiring, so a
+     * delayed pass — matching the timing of the other overlay handlers — is safe.
+     */
+    accessibilityScan(overlay) {
+        window.setTimeout(() => {
+            A11y.scanFields(overlay);
+            this.announceHubResponses(overlay, { preferAssertive: true });
+        }, 300);
     }
     creditCardUpdate(overlay) {
         window.setTimeout(() => {
@@ -22639,6 +24876,47 @@ class SupporterHub {
             }
         }, 300);
     }
+    dialogAltsAndArias(overlay) {
+        window.setTimeout(() => {
+            const hubOverlay = overlay.classList.contains("en__hubOverlay")
+                ? overlay
+                : document.querySelector(".en__hubOverlay") ||
+                    overlay;
+            A11y.inertPage(true, hubOverlay);
+            const header = overlay.querySelector(".en__hubOverlay__header"), closeButton = header.querySelector("a");
+            // Tag close button
+            if (header && closeButton) {
+                closeButton.setAttribute("role", "button");
+                closeButton.setAttribute("aria-label", "Close");
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") {
+                        this.logger.log("Escape key pressed, closing overlay");
+                        closeButton.click();
+                    }
+                }, { once: true });
+            }
+            // Tag header and label dialog
+            const headerTitle = header.querySelector("h2");
+            const slug = engrid_ENGrid.slugify((headerTitle === null || headerTitle === void 0 ? void 0 : headerTitle.innerText) || "supporter-hub-overlay");
+            let headerTitleId = `huboverlay-title-${slug}`;
+            if (headerTitle) {
+                headerTitleId = headerTitle.id || headerTitleId;
+                headerTitle.setAttribute("id", headerTitleId);
+            }
+            const popup = overlay.querySelector(".en__hubOverlay__popup");
+            if (popup) {
+                popup.setAttribute("id", `huboverlay-${slug}`);
+                popup.setAttribute("role", "dialog");
+                popup.setAttribute("aria-modal", "true");
+                if (headerTitle) {
+                    popup.setAttribute("aria-labelledby", headerTitleId);
+                }
+                else {
+                    popup.setAttribute("aria-label", "Supporter Hub Overlay");
+                }
+            }
+        }, 300);
+    }
     // The supporter hub does not properly handle or prevent duplicate submits, so we add a listener to prevent this.
     preventDuplicateSubmits() {
         document.addEventListener("click", (e) => {
@@ -22656,7 +24934,7 @@ class SupporterHub {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/fast-form-fill.js
+;// ./node_modules/@4site/engrid-scripts/dist/fast-form-fill.js
 /**
  * This class adds body data attributes if all mandatory inputs, on specific form blocks, are filled.
  * Related styling (to hide elements) can be found in "fast-form-fill.scss".
@@ -22667,7 +24945,7 @@ class SupporterHub {
 
 class FastFormFill {
     constructor() {
-        this.logger = new logger_EngridLogger("FastFormFill", "white", "magenta", "📌");
+        this.logger = new EngridLogger("FastFormFill", "white", "magenta", "📌");
         this.rememberMeEvents = RememberMeEvents.getInstance();
         if (engrid_ENGrid.getOption("RememberMe")) {
             this.rememberMeEvents.onLoad.subscribe((hasData) => {
@@ -22733,7 +25011,7 @@ class FastFormFill {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/set-attr.js
+;// ./node_modules/@4site/engrid-scripts/dist/set-attr.js
 /*+
   The class is used to set body attributes via click handlers.
   The format is "setattr--{attribute}--{value}".
@@ -22742,7 +25020,7 @@ class FastFormFill {
 
 class SetAttr {
     constructor() {
-        this.logger = new logger_EngridLogger("SetAttr", "black", "yellow", "📌");
+        this.logger = new EngridLogger("SetAttr", "black", "yellow", "📌");
         const enGrid = document.getElementById("engrid");
         if (enGrid) {
             enGrid.addEventListener("click", (e) => {
@@ -22766,7 +25044,7 @@ class SetAttr {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/show-if-present.js
+;// ./node_modules/@4site/engrid-scripts/dist/show-if-present.js
 /**
  * This class contains the logic for special classes that can be used to hide elements if
  * certain supporter questions are present or absent.
@@ -22788,7 +25066,7 @@ class SetAttr {
 
 class ShowIfPresent {
     constructor() {
-        this.logger = new logger_EngridLogger("ShowIfPresent", "yellow", "black", "👀");
+        this.logger = new EngridLogger("ShowIfPresent", "yellow", "black", "👀");
         this.elements = [];
         if (this.shouldRun()) {
             this.run();
@@ -22847,7 +25125,7 @@ class ShowIfPresent {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/en-validators.js
+;// ./node_modules/@4site/engrid-scripts/dist/en-validators.js
 // This component uses EN's Custom Validators on the client side to validate form fields.
 // It's currently behind a feature flag, so it's not enabled by default.
 // To enable it, add the following to your options:
@@ -22855,9 +25133,9 @@ class ShowIfPresent {
 
 class ENValidators {
     constructor() {
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this._enElements = null;
-        this.logger = new logger_EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
+        this.logger = new EngridLogger("ENValidators", "white", "darkolivegreen", "🧐");
         if (!this.loadValidators()) {
             // This is an error to flag a racing condition. If the script is loaded before the validators are loaded, it will not work.
             this.logger.error("Not Loaded");
@@ -22938,7 +25216,7 @@ class ENValidators {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/modal.js
+;// ./node_modules/@4site/engrid-scripts/dist/modal.js
 
 class Modal {
     constructor(options) {
@@ -22949,6 +25227,8 @@ class Modal {
             closeButtonLabel: "Okay!",
             customClass: "",
             showCloseX: true,
+            closeOnEsc: true,
+            onDismiss: () => { },
         };
         this.focusTrapHandler = (e) => {
             const modalElement = this.modal;
@@ -22972,6 +25252,11 @@ class Modal {
                     e.preventDefault();
                     firstFocusable.focus();
                 }
+            }
+        };
+        this.escKeyHandler = (e) => {
+            if (e.key === "Escape" && this.options.closeOnEsc) {
+                this.dismiss();
             }
         };
         this.options = Object.assign(Object.assign({}, this.defaultOptions), options);
@@ -23024,7 +25309,7 @@ class Modal {
             button.classList.add("engrid-modal__button");
             button.textContent = this.options.closeButtonLabel;
             button.addEventListener("click", () => {
-                this.close();
+                this.dismiss();
             });
             modalBody === null || modalBody === void 0 ? void 0 : modalBody.appendChild(button);
         }
@@ -23034,13 +25319,13 @@ class Modal {
         var _a, _b, _c, _d, _e;
         // Close event on top X
         (_b = (_a = this.modal) === null || _a === void 0 ? void 0 : _a.querySelector(".engrid-modal__close")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
-            this.close();
+            this.dismiss();
         });
         // Bounce scale when clicking outside of modal
         (_d = (_c = this.modal) === null || _c === void 0 ? void 0 : _c.querySelector(".engrid-modal__overlay")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", (event) => {
             if (event.target === event.currentTarget) {
                 if (this.options.onClickOutside === "close") {
-                    this.close();
+                    this.dismiss();
                 }
                 else if (this.options.onClickOutside === "bounce") {
                     const modal = document.querySelector(".engrid-modal");
@@ -23056,32 +25341,44 @@ class Modal {
         const closeEls = (_e = this.modal) === null || _e === void 0 ? void 0 : _e.querySelectorAll(".modal__close");
         closeEls === null || closeEls === void 0 ? void 0 : closeEls.forEach((el) => {
             el.addEventListener("click", () => {
-                this.close();
+                this.dismiss();
             });
         });
     }
+    /**
+     * Generic entry point for dismissing the modal.
+     * Fires the onDismiss callback before closing, so consumers can react to the modal being
+     * dismissed rather than closed via their own explicit button logic.
+     */
+    dismiss() {
+        var _a, _b;
+        (_b = (_a = this.options).onDismiss) === null || _b === void 0 ? void 0 : _b.call(_a);
+        this.close();
+    }
     open() {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         engrid_ENGrid.setBodyData("has-lightbox", "true");
         (_a = this.modal) === null || _a === void 0 ? void 0 : _a.classList.remove("modal--hidden");
         (_b = this.modal) === null || _b === void 0 ? void 0 : _b.removeAttribute("aria-hidden");
         const container = (_c = this.modal) === null || _c === void 0 ? void 0 : _c.querySelector(".engrid-modal__container");
         container === null || container === void 0 ? void 0 : container.focus({ preventScroll: true });
         (_d = this.modal) === null || _d === void 0 ? void 0 : _d.addEventListener("keydown", this.focusTrapHandler);
+        (_e = this.modal) === null || _e === void 0 ? void 0 : _e.addEventListener("keydown", this.escKeyHandler);
     }
     close() {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         engrid_ENGrid.setBodyData("has-lightbox", false);
         (_a = this.modal) === null || _a === void 0 ? void 0 : _a.classList.add("modal--hidden");
         (_b = this.modal) === null || _b === void 0 ? void 0 : _b.setAttribute("aria-hidden", "true");
         (_c = this.modal) === null || _c === void 0 ? void 0 : _c.removeEventListener("keydown", this.focusTrapHandler);
+        (_d = this.modal) === null || _d === void 0 ? void 0 : _d.removeEventListener("keydown", this.escKeyHandler);
     }
     getModalContent() {
         return "<h1>Default Modal Content</h1>";
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/postal-code-validator.js
+;// ./node_modules/@4site/engrid-scripts/dist/postal-code-validator.js
 
 
 
@@ -23093,8 +25390,8 @@ class PostalCodeValidator {
     constructor() {
         var _a, _b;
         this.postalCodeField = engrid_ENGrid.getField("supporter.postcode");
-        this._form = en_form_EnForm.getInstance();
-        this.logger = new logger_EngridLogger("Postal Code Validator", "white", "red", "📬");
+        this._form = EnForm.getInstance();
+        this.logger = new EngridLogger("Postal Code Validator", "white", "red", "📬");
         this.supportedSeparators = ["+", "-", " "];
         this.separator = this.getSeparator();
         this.regexSeparator = this.getRegexSeparator(this.separator);
@@ -23201,7 +25498,7 @@ class PostalCodeValidator {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/vgs.js
+;// ./node_modules/@4site/engrid-scripts/dist/vgs.js
 // This component allows you to customize the VGS theme options
 //
 // It is used in the following way:
@@ -23228,11 +25525,11 @@ class PostalCodeValidator {
 
 class VGS {
     constructor() {
-        this.logger = new logger_EngridLogger("VGS", "black", "pink", "💳");
+        this.logger = new EngridLogger("VGS", "black", "pink", "💳");
         this.vgsField = document.querySelector(".en__field--vgs");
         this.options = engrid_ENGrid.getOption("VGS");
         this.paymentTypeField = document.querySelector("#en__field_transaction_paymenttype");
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.field_expiration_month = null;
         this.field_expiration_year = null;
         this.handleExpUpdate = (e) => {
@@ -23459,7 +25756,7 @@ class VGS {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/country-redirect.js
+;// ./node_modules/@4site/engrid-scripts/dist/country-redirect.js
 // This component allows you to redirect the user to a different page based on their country.
 // It works by checking the country field on the page and comparing it to the list of countries in the CountryRedirect option.
 // If the country matches one of the countries in the list, the user is redirected to the specified URL only if the URL is not the same as the current page.
@@ -23488,7 +25785,7 @@ class VGS {
 
 class CountryRedirect {
     constructor() {
-        this.logger = new logger_EngridLogger("CountryRedirect", "white", "brown", "🛫");
+        this.logger = new EngridLogger("CountryRedirect", "white", "brown", "🛫");
         this._country = Country.getInstance();
         if (!this.shouldRun())
             return;
@@ -23522,7 +25819,7 @@ class CountryRedirect {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/welcome-back.js
+;// ./node_modules/@4site/engrid-scripts/dist/welcome-back.js
 /**
  * This component adds a welcome back message and a personal details summary to the page.
  * It depends on the "fast-personal-details" functionality from the FastFormFill component.
@@ -23537,7 +25834,7 @@ class CountryRedirect {
 class WelcomeBack {
     constructor() {
         var _a;
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.supporterDetails = {};
         this.options = (_a = engrid_ENGrid.getOption("WelcomeBack")) !== null && _a !== void 0 ? _a : false;
         this.rememberMeEvents = RememberMeEvents.getInstance();
@@ -23699,7 +25996,7 @@ class WelcomeBack {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/ecard-to-target-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/ecard-to-target-options.js
 const EcardToTargetOptionsDefaults = {
     targetName: "",
     targetEmail: "",
@@ -23710,7 +26007,7 @@ const EcardToTargetOptionsDefaults = {
     targets: [],
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/ecard-to-target.js
+;// ./node_modules/@4site/engrid-scripts/dist/ecard-to-target.js
 /**
  * This component adjusts an ecard form to target a specific recipient,
  * defined in a code block
@@ -23722,8 +26019,8 @@ const EcardToTargetOptionsDefaults = {
 class EcardToTarget {
     constructor() {
         this.options = EcardToTargetOptionsDefaults;
-        this.logger = new logger_EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
-        this._form = en_form_EnForm.getInstance();
+        this.logger = new EngridLogger("EcardToTarget", "DarkBlue", "Azure", "📧");
+        this._form = EnForm.getInstance();
         this.supporterNameAddedToMessage = false;
         if (!this.shouldRun())
             return;
@@ -23807,7 +26104,7 @@ class EcardToTarget {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/interfaces/embedded-ecard-options.js
+;// ./node_modules/@4site/engrid-scripts/dist/interfaces/embedded-ecard-options.js
 const EmbeddedEcardOptionsDefaults = {
     pageUrl: "",
     headerText: "Send an Ecard notification of your gift",
@@ -23817,7 +26114,7 @@ const EmbeddedEcardOptionsDefaults = {
     requireInMemCheckbox: false,
 };
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/embedded-ecard.js
+;// ./node_modules/@4site/engrid-scripts/dist/embedded-ecard.js
 /**
  * This class handles adding a checkbox to a form that, when checked, will display an embedded ecard form.
  * The embedded ecard form is hosted on a separate page and is displayed in an iframe.
@@ -23828,9 +26125,9 @@ const EmbeddedEcardOptionsDefaults = {
 
 class EmbeddedEcard {
     constructor() {
-        this.logger = new logger_EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
+        this.logger = new EngridLogger("Embedded Ecard", "#D95D39", "#0E1428", "📧");
         this.options = EmbeddedEcardOptionsDefaults;
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.isSubmitting = false;
         this.ecardFormActive = false;
         this.iframe = null;
@@ -24107,7 +26404,7 @@ class EmbeddedEcard {
                         recipientEmail.value = recipient.email;
                         addRecipientButton === null || addRecipientButton === void 0 ? void 0 : addRecipientButton.click();
                     });
-                    const form = en_form_EnForm.getInstance();
+                    const form = EnForm.getInstance();
                     form.submitForm();
                     sessionStorage.removeItem("engrid-embedded-ecard");
                     sessionStorage.removeItem("engrid-send-embedded-ecard");
@@ -24162,7 +26459,7 @@ class EmbeddedEcard {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/us-only-form.js
+;// ./node_modules/@4site/engrid-scripts/dist/us-only-form.js
 /*
  * This class disables the country field and fixes the country to "United States"
  */
@@ -24194,11 +26491,11 @@ class UsOnlyForm {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/thank-you-page-conditional-content.js
+;// ./node_modules/@4site/engrid-scripts/dist/thank-you-page-conditional-content.js
 
 class ThankYouPageConditionalContent {
     constructor() {
-        this.logger = new logger_EngridLogger("ThankYouPageConditionalContent");
+        this.logger = new EngridLogger("ThankYouPageConditionalContent");
         if (!this.shouldRun())
             return;
         this.applyShowHideRadioCheckboxesState();
@@ -24219,13 +26516,16 @@ class ThankYouPageConditionalContent {
             state.forEach((item) => {
                 this.logger.log("Processing TY page conditional content item:", item);
                 if (engrid_ENGrid.getPageID() === item.page) {
+                    const inputValue = item.value.replace(/\W/g, "");
+                    const classPrefix = CSS.escape(item.class);
+                    const selectedClass = CSS.escape(`${item.class}${inputValue}`);
                     document
-                        .querySelectorAll(`[class*="${item.class}"]`)
+                        .querySelectorAll(`[class*="${classPrefix}"]`)
                         .forEach((el) => {
                         el.classList.add("hide");
                     });
                     document
-                        .querySelectorAll(`.${item.class}${item.value}`)
+                        .querySelectorAll(`.${selectedClass}`)
                         .forEach((el) => {
                         el.classList.remove("hide");
                     });
@@ -24242,14 +26542,14 @@ class ThankYouPageConditionalContent {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/checkbox-label.js
+;// ./node_modules/@4site/engrid-scripts/dist/checkbox-label.js
 // Component to allow the user to set custom labels for the checkboxes,
 // you can customize the checkbox label on a per-page basis, which is not possible with Engaging Networks
 // The .checkbox-label element should be placed right before the checkbox form block
 
 class CheckboxLabel {
     constructor() {
-        this.logger = new logger_EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
+        this.logger = new EngridLogger("CheckboxLabel", "#00CC95", "#2C3E50", "✅");
         this.checkBoxesLabels = document.querySelectorAll(".checkbox-label");
         if (!this.shoudRun())
             return;
@@ -24274,7 +26574,11 @@ class CheckboxLabel {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/optin-ladder.js
+;// ./node_modules/@4site/engrid-scripts/dist/optin-ladder.js
+/* unused harmony import specifier */ var optin_ladder_EngridLogger;
+/* unused harmony import specifier */ var optin_ladder_EnForm;
+/* unused harmony import specifier */ var optin_ladder_DataLayer;
+/* unused harmony import specifier */ var optin_ladder_ENGrid;
 /**
  * Docs: https://engrid.4sitestudios.com/component/optin-ladder
  * This component is responsible for showing a ladder of checkboxes, one at a time, to the user.
@@ -24286,15 +26590,15 @@ class CheckboxLabel {
 
 class OptInLadder {
     constructor() {
-        this.logger = new EngridLogger("OptInLadder", "lightgreen", "darkgreen", "✔");
-        this._form = EnForm.getInstance();
-        this._dataLayer = DataLayer.getInstance();
+        this.logger = new optin_ladder_EngridLogger("OptInLadder", "lightgreen", "darkgreen", "✔");
+        this._form = optin_ladder_EnForm.getInstance();
+        this._dataLayer = optin_ladder_DataLayer.getInstance();
         if (!this.inIframe()) {
             this.runAsParent();
         }
         else {
             this.listenForParentInfo();
-            if (ENGrid.getPageNumber() === 1) {
+            if (optin_ladder_ENGrid.getPageNumber() === 1) {
                 this.runAsChildRegular();
             }
             else {
@@ -24304,11 +26608,11 @@ class OptInLadder {
     }
     runAsParent() {
         this.logger.log("Running as Parent");
-        if (ENGrid.getPageNumber() > 1 &&
-            ENGrid.getPageNumber() === ENGrid.getPageCount()) {
+        if (optin_ladder_ENGrid.getPageNumber() > 1 &&
+            optin_ladder_ENGrid.getPageNumber() === optin_ladder_ENGrid.getPageCount()) {
             // We are on the Thank You Page as a Parent
             // Check autoinject iFrame
-            const optInLadderOptions = ENGrid.getOption("OptInLadder");
+            const optInLadderOptions = optin_ladder_ENGrid.getOption("OptInLadder");
             if (!optInLadderOptions || !optInLadderOptions.iframeUrl) {
                 this.logger.log("Options not found");
                 return;
@@ -24333,7 +26637,7 @@ class OptInLadder {
             }
             // Check if the current page is part of the excludePageIDs
             if (optInLadderOptions.excludePageIDs &&
-                optInLadderOptions.excludePageIDs.includes(ENGrid.getPageID())) {
+                optInLadderOptions.excludePageIDs.includes(optin_ladder_ENGrid.getPageID())) {
                 this.logger.log("Current page is excluded");
                 return;
             }
@@ -24350,9 +26654,9 @@ class OptInLadder {
                 if (iframe.contentWindow) {
                     iframe.contentWindow.postMessage({
                         type: "engrid-optin-ladder-parent-info",
-                        pageID: ENGrid.getPageID(),
+                        pageID: optin_ladder_ENGrid.getPageID(),
                         pageName: ((_a = window === null || window === void 0 ? void 0 : window.pageJson) === null || _a === void 0 ? void 0 : _a.pageName) || "",
-                        pageType: ENGrid.getPageType(),
+                        pageType: optin_ladder_ENGrid.getPageType(),
                     }, "*");
                 }
             });
@@ -24368,7 +26672,7 @@ class OptInLadder {
                 // Save the checkbox values to sessionStorage
                 this.saveOptInsToSessionStorage("parent");
             });
-            if (ENGrid.getPageNumber() === 1) {
+            if (optin_ladder_ENGrid.getPageNumber() === 1) {
                 // Delete items from sessionStorage
                 this.clearSessionStorage();
             }
@@ -24387,7 +26691,7 @@ class OptInLadder {
             return;
         }
         // Check if the e-mail field exist and is not empty
-        const emailField = ENGrid.getField("supporter.emailAddress");
+        const emailField = optin_ladder_ENGrid.getField("supporter.emailAddress");
         if (!emailField || !emailField.value) {
             this.logger.log("Email field is empty");
             // Since this is a OptInLadder page with no e-mail address, hide the page
@@ -24572,7 +26876,7 @@ class OptInLadder {
         }
     }
     isEmbeddedThankYouPage() {
-        return ENGrid.getBodyData("embedded") === "thank-you-page-donation";
+        return optin_ladder_ENGrid.getBodyData("embedded") === "thank-you-page-donation";
     }
     getPageUrl(page, chain = false) {
         const url = new URL(window.location.href);
@@ -24589,7 +26893,7 @@ class OptInLadder {
         return this.getPageUrl(1, true);
     }
     hidePage(forceHide = false) {
-        if (ENGrid.getBodyData("opt-in-ladder-persist") === "true" && !forceHide) {
+        if (optin_ladder_ENGrid.getBodyData("opt-in-ladder-persist") === "true" && !forceHide) {
             this.logger.log("Hide activated, but opt-in ladder persist is enabled, showing the thank-you page");
             sessionStorage.setItem("engrid.optin-ladder-persist-stop", "Y");
             window.location.href = this.getPageUrl(2);
@@ -24616,7 +26920,7 @@ class OptInLadder {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/post-donation-embed.js
+;// ./node_modules/@4site/engrid-scripts/dist/post-donation-embed.js
 // This component only works on Thank You pages and the current page IS NOT embedded as an iframe.
 // It searches for a post-donation tag (engrid-post-donation)
 // and if it exists, it will replace it with an iframe of the chained `src` attribute (or the current donation page, replacing the
@@ -24628,7 +26932,7 @@ class OptInLadder {
 
 class PostDonationEmbed {
     constructor() {
-        this.logger = new logger_EngridLogger("PostDonationEmbed", "red", "white", "🖼️");
+        this.logger = new EngridLogger("PostDonationEmbed", "red", "white", "🖼️");
         if (!this.shouldRun())
             return;
         this.logger.log("Post Donation Tag found");
@@ -24683,7 +26987,7 @@ class PostDonationEmbed {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/frequency-upsell-modal.js
+;// ./node_modules/@4site/engrid-scripts/dist/frequency-upsell-modal.js
 /*
  * FrequencyUpsellModal - this is class that creates the modal for the frequency upsell.
  * This component is intentionally "dumb" and only creates the modal renders its content.
@@ -24691,11 +26995,12 @@ class PostDonationEmbed {
  */
 
 class FrequencyUpsellModal extends Modal {
-    constructor(upsellOptions) {
+    constructor(upsellOptions, onDismiss) {
         super({
             onClickOutside: "bounce",
             customClass: `engrid--frequency-upsell-modal ${upsellOptions.customClass}`,
-            showCloseX: false,
+            showCloseX: upsellOptions.showCloseX,
+            onDismiss,
         });
         this._amountWithFees = 0;
         this._upsellAmountWithFees = 0;
@@ -24747,7 +27052,8 @@ class FrequencyUpsellModal extends Modal {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/frequency-upsell.js
+;// ./node_modules/@4site/engrid-scripts/dist/frequency-upsell.js
+// ! WE ARE PHASING OUT THIS COMPONENT IN FAVOR OF UPSELL-LIGHTBOX. PLEASE USE THAT COMPONENT FOR NEW IMPLEMENTATIONS.
 /*
  * FrequencyUpsell component which creates a modal to upsell the frequency of the donation
  * This is typically used to upsell a single donation into an annual donation, but the component
@@ -24758,13 +27064,13 @@ class FrequencyUpsellModal extends Modal {
 
 class FrequencyUpsell {
     constructor() {
-        this.logger = new logger_EngridLogger("FrequencyUpsell", "lightgray", "darkblue", "🏦");
+        this.logger = new EngridLogger("FrequencyUpsell", "lightgray", "darkblue", "🏦");
         this.upsellModal = null;
         this.options = null;
         this._frequency = DonationFrequency.getInstance();
         this._amount = DonationAmount.getInstance();
         this._fee = ProcessingFees.getInstance();
-        this._form = en_form_EnForm.getInstance();
+        this._form = EnForm.getInstance();
         this.modalSeen = false;
         if (!this.shouldRun()) {
             this.logger.log("FrequencyUpsell not running");
@@ -24772,7 +27078,7 @@ class FrequencyUpsell {
         }
         this.options = this.selectOptions(window.EngridFrequencyUpsell);
         this.logger.log("FrequencyUpsell initialized", this.options);
-        this.upsellModal = new FrequencyUpsellModal(this.options);
+        this.upsellModal = new FrequencyUpsellModal(this.options, () => this.handleModalDismiss());
         this.createFrequencyField();
         this.addEventListeners();
     }
@@ -24894,6 +27200,20 @@ class FrequencyUpsell {
         });
     }
     /**
+     * Handle the modal being dismissed via the X button, Esc key, or click-outside.
+     * This always counts as a decline (onDecline fires either way).
+     */
+    handleModalDismiss() {
+        this.logger.log("Frequency upsell modal dismissed (declined)");
+        this.options.onDecline();
+        if (this.options.submitOnClose) {
+            this._form.submitForm();
+        }
+        else {
+            this._form.dispatchError();
+        }
+    }
+    /**
      * Create the frequency field for the upsell, if it does not exist on the page already
      * This is required by DonationFrequency to set the frequency
      */
@@ -24910,13 +27230,13 @@ class FrequencyUpsell {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/sticky-nsg.js
+;// ./node_modules/@4site/engrid-scripts/dist/sticky-nsg.js
 
 
 
 class StickyNSG {
     constructor() {
-        this.logger = new logger_EngridLogger("StickyNSG", "teal", "white", "📌");
+        this.logger = new EngridLogger("StickyNSG", "teal", "white", "📌");
         this.cookieName = "engrid-sticky-nsg";
         if (!this.shouldRun())
             return;
@@ -25021,7 +27341,7 @@ class StickyNSG {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/sticky-prepopulation.js
+;// ./node_modules/@4site/engrid-scripts/dist/sticky-prepopulation.js
 var sticky_prepopulation_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -25036,7 +27356,7 @@ var sticky_prepopulation_awaiter = (undefined && undefined.__awaiter) || functio
 
 class StickyPrepopulation {
     constructor() {
-        this.logger = new logger_EngridLogger("StickyPrepopulation", "teal", "white", "📌");
+        this.logger = new EngridLogger("StickyPrepopulation", "teal", "white", "📌");
         this.options = { fields: [] };
         this.cookieName = "engrid-sticky-prepop";
         if (!this.shouldRun()) {
@@ -25237,12 +27557,12 @@ class StickyPrepopulation {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/preferred-payment-method.js
+;// ./node_modules/@4site/engrid-scripts/dist/preferred-payment-method.js
 
 class PreferredPaymentMethod {
     constructor() {
         var _a;
-        this.logger = new logger_EngridLogger("PreferredPaymentMethod", "#ffffff", "#1f2933", "⭐️");
+        this.logger = new EngridLogger("PreferredPaymentMethod", "#ffffff", "#1f2933", "⭐️");
         this.availabilityTimeoutMs = 4000;
         this.cleanupHandlers = [];
         this.selectionFinalized = false;
@@ -25525,11 +27845,10 @@ class PreferredPaymentMethod {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/version.js
-const AppVersion = "0.25.6";
-
-;// CONCATENATED MODULE: ./node_modules/@4site/engrid-scripts/dist/index.js
+;// ./node_modules/@4site/engrid-scripts/dist/index.js
  // Runs first so it can change the DOM markup before any markup dependent code fires
+
+
 
 
 
@@ -25630,7 +27949,7 @@ const AppVersion = "0.25.6";
 // EXTERNAL MODULE: ./node_modules/smoothscroll-polyfill/dist/smoothscroll.js
 var smoothscroll = __webpack_require__(1196);
 var smoothscroll_default = /*#__PURE__*/__webpack_require__.n(smoothscroll);
-;// CONCATENATED MODULE: ./src/scripts/donation-lightbox-form.js
+;// ./src/scripts/donation-lightbox-form.js
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const donation_lightbox_form_tippy = (__webpack_require__(9244)/* ["default"] */ .Ay);
 if (isSafari) {
@@ -26570,7 +28889,7 @@ class DonationLightboxForm {
     this.updateSectionCount();
   }
 }
-;// CONCATENATED MODULE: ./src/scripts/main.js
+;// ./src/scripts/main.js
 const customScript = function (App, EnForm) {
   const observerConfig = {
     attributes: true,
@@ -26933,9 +29252,16 @@ const customScript = function (App, EnForm) {
   }
   scrollToSummary();
 };
-;// CONCATENATED MODULE: ./src/index.ts
+;// ./src/index.ts
  // Uses ENGrid via NPM
-// import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
+
+/* import {
+  Options,
+  App,
+  DonationAmount,
+  DonationFrequency,
+  EnForm,
+} from "../../engrid/packages/scripts"; */ // Uses ENGrid via Visual Studio Workspace
 
 
 
@@ -26962,6 +29288,16 @@ const options = {
     pageType: "EVENT",
     label: "Get Tickets"
   }],
+  RememberMe: {
+    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
+    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country", "transaction.donationAmt", "transaction.recurrfreq"],
+    fieldClearSelectorTarget: '.your-information-header',
+    fieldClearLabel: 'Welcome Back! {Not $username}?',
+    fieldClearSelectorTargetLocation: 'rightSide',
+    checked: true,
+    encryptData: true,
+    hide: true
+  },
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss
@@ -26974,7 +29310,7 @@ const options = {
   onLoad: () => {
     window.DonationLightboxForm = DonationLightboxForm;
     new DonationLightboxForm(DonationAmount, DonationFrequency, App);
-    customScript(App, en_form_EnForm);
+    customScript(App, EnForm);
   },
   onResize: () => App.log("Starter Theme Window Resized"),
   onSubmit: () => {
