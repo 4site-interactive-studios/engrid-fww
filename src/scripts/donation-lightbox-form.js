@@ -409,7 +409,15 @@ export default class DonationLightboxForm {
           e.preventDefault();
           const ccnumberBlock = document.querySelector(".en__field--ccnumber");
           const ccnumberSection = this.getSectionId(ccnumberBlock);
-          if (ccnumberSection == key) {
+          // The card fields share this section with the other payment options
+          // (accordion), so only force "card" if the donor didn't pick another
+          // option, like ACH. Otherwise we would overwrite their choice.
+          const selectedGiveBy = document.querySelector(
+            "input[name='transaction.giveBySelect']:checked"
+          );
+          const isOtherPaymentSelected =
+            !!selectedGiveBy && selectedGiveBy.value.toLowerCase() !== "card";
+          if (ccnumberSection == key && !isOtherPaymentSelected) {
             // Set payment type to credit card if we're on the credit card section
             const paymentType = document.querySelector(
               "#en__field_transaction_paymenttype"
@@ -750,8 +758,14 @@ export default class DonationLightboxForm {
         if (!routingNumber) return;
         const bankSection = this.getSectionId(routingNumber);
         if (sectionId === false || sectionId == bankSection) {
-          // All form fields from this section are mandatory if the payment type is ACH
-          const mandatoryFields = this.sections[bankSection].querySelectorAll(
+          // All the bank fields are mandatory if the payment type is ACH. When
+          // they live inside the ACH accordion, the section is shared with the
+          // card fields and the other payment options, so only validate the
+          // accordion. Otherwise, validate the whole (dedicated) section.
+          const bankFields =
+            routingNumber.closest(".ach-payment-accordion") ||
+            this.sections[bankSection];
+          const mandatoryFields = bankFields.querySelectorAll(
             "input:not([type='hidden'])"
           );
           let hasError = false;
