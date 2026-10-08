@@ -19,8 +19,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Monday, June 1, 2026 @ 16:54:07 ET
- *  By: fernando
+ *  Date: Thursday, October 8, 2026 @ 16:39:34 ET
+ *  By: pedroluan
  *  ENGrid styles: v0.25.6
  *  ENGrid scripts: v0.25.6
  *
@@ -9063,6 +9063,153 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep]:not([data-engrid-emb
   margin:0 auto;
   max-width:270px;
 }
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component{
+  padding:45px 20px 20px !important;
+  width:100vw;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count{
+  display:flex;
+  gap:14px;
+  height:5px;
+  justify-content:center;
+  left:50%;
+  max-width:284px;
+  position:absolute;
+  top:-20px;
+  transform:translateX(-50%);
+  width:100%;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count .section-count__bar{
+  background-color:#c4c4c4;
+  border-radius:999px;
+  display:block;
+  flex:0 0 44px;
+  height:5px;
+  transition:background-color .2s ease-in-out;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count .section-count__bar.is-active{
+  background-color:#525151;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--recurrfreq{
+  margin-bottom:8px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--recurrfreq .en__field__item label{
+  font-size:16px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--donationAmt label,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field__item--other input{
+  font-size:14px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form h3{
+  font-size:18px !important;
+  margin-top:4px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form input[type=checkbox]+label:before{
+  margin-right:8px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card{
+  position:relative;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card.is-expanded{
+  flex-direction:column;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card.is-expanded .card-payment-accordion{
+  margin-bottom:8px;
+  margin-top:8px;
+  max-height:500px;
+  opacity:1;
+  visibility:visible;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion{
+  display:flex;
+  flex-wrap:wrap;
+  margin-bottom:0;
+  margin-top:0;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease,opacity .2s ease,margin .35s ease,visibility 0s linear .35s;
+  visibility:hidden;
+  width:100%;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--creditCardHolderName{
+  display:flex !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccnumber{
+  width:100%;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .credit-card-flags{
+  flex:0 0 100%;
+  margin:8px 0 4px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccexpire{
+  padding-right:8px;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccvv{
+  padding-left:8px;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach{
+  position:relative;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach.is-expanded{
+  flex-direction:column;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach.is-expanded .ach-payment-accordion{
+  margin-bottom:8px;
+  margin-top:8px;
+  max-height:800px;
+  opacity:1;
+  visibility:visible;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach .ach-payment-accordion{
+  display:flex;
+  flex-wrap:wrap;
+  margin-bottom:0;
+  margin-top:0;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease,opacity .2s ease,margin .35s ease,visibility 0s linear .35s;
+  visibility:hidden;
+  width:100%;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach .ach-payment-accordion .en__field--checkbox .en__field__label--item{
+  outline:none;
+  outline-offset:0;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation{
+  justify-content:center !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper{
+  flex-direction:row;
+  justify-content:space-between !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper #en__digitalWallet{
+  flex-basis:unset !important;
+  width:260px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper #en__digitalWallet__paypalTouch__container{
+  display:flex;
+  margin-bottom:0 !important;
+  padding:0 !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit{
+  background-color:#ffe643 !important;
+  border:2px solid #000 !important;
+  border-radius:100px !important;
+  width:296px !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next:hover,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit:hover{
+  background-color:#ffd600 !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next span,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit span{
+  font-family:GraphikBlack,Arial Black,"sans-serif" !important;
+  font-size:21px !important;
+  font-weight:600 !important;
+  text-transform:uppercase !important;
+}
+body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next span,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next svg,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit span,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit svg{
+  color:#000 !important;
+}
 
 body[data-engrid-theme=fwa]{
   --engrid__page_background-color:#fff;
@@ -10222,6 +10369,152 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep] .en__field--creditCa
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep]:not([data-engrid-embedded]) #engrid{
   margin:0 auto;
   max-width:270px;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component{
+  padding:45px 20px 20px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count{
+  display:flex;
+  gap:14px;
+  height:5px;
+  justify-content:center;
+  left:50%;
+  max-width:284px;
+  position:absolute;
+  top:-20px;
+  transform:translateX(-50%);
+  width:100%;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count .section-count__bar{
+  background-color:#c4c4c4;
+  border-radius:999px;
+  display:block;
+  flex:0 0 44px;
+  height:5px;
+  transition:background-color .2s ease-in-out;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form form.en__component>.en__component .section-count .section-count__bar.is-active{
+  background-color:#525151;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--recurrfreq{
+  margin-bottom:8px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--recurrfreq .en__field__item label{
+  font-size:16px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field--donationAmt label,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .en__field__item--other input{
+  font-size:14px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form h3{
+  font-size:18px !important;
+  margin-top:4px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form input[type=checkbox]+label:before{
+  margin-right:8px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card{
+  position:relative;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card.is-expanded{
+  flex-direction:column;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card.is-expanded .card-payment-accordion{
+  margin-bottom:8px;
+  margin-top:8px;
+  max-height:500px;
+  opacity:1;
+  visibility:visible;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion{
+  display:flex;
+  flex-wrap:wrap;
+  margin-bottom:0;
+  margin-top:0;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease,opacity .2s ease,margin .35s ease,visibility 0s linear .35s;
+  visibility:hidden;
+  width:100%;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--creditCardHolderName{
+  display:flex !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccnumber{
+  width:100%;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .credit-card-flags{
+  flex:0 0 100%;
+  margin:8px 0 4px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccexpire{
+  padding-right:8px;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.card .card-payment-accordion .en__field--ccvv{
+  padding-left:8px;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach{
+  position:relative;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach.is-expanded{
+  flex-direction:column;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach.is-expanded .ach-payment-accordion{
+  margin-bottom:8px;
+  margin-top:8px;
+  max-height:800px;
+  opacity:1;
+  visibility:visible;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach .ach-payment-accordion{
+  display:flex;
+  flex-wrap:wrap;
+  margin-bottom:0;
+  margin-top:0;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease,opacity .2s ease,margin .35s ease,visibility 0s linear .35s;
+  visibility:hidden;
+  width:100%;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .give-by-select .en__field__item.ach .ach-payment-accordion .en__field--checkbox .en__field__label--item{
+  outline:none;
+  outline-offset:0;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation{
+  justify-content:center !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper{
+  flex-direction:row;
+  justify-content:space-between !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper #en__digitalWallet{
+  flex-basis:unset !important;
+  width:260px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .digital-wallets-wrapper #en__digitalWallet__paypalTouch__container{
+  display:flex;
+  margin-bottom:0 !important;
+  padding:0 !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit{
+  background-color:#ffe643 !important;
+  border:2px solid #000 !important;
+  border-radius:100px !important;
+  width:296px !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next:hover,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit:hover{
+  background-color:#ffd600 !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next span,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit span{
+  font-family:GraphikBlack,Arial Black,"sans-serif" !important;
+  font-size:21px !important;
+  font-weight:600 !important;
+  text-transform:uppercase !important;
+}
+body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next span,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__next svg,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit span,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidate-form .section-navigation__submit svg{
+  color:#000 !important;
 }
 body{
   opacity:1;
