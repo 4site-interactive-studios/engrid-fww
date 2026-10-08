@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, October 8, 2026 @ 16:28:49 ET
+ *  Date: Thursday, October 8, 2026 @ 16:39:34 ET
  *  By: pedroluan
  *  ENGrid styles: v0.25.6
  *  ENGrid scripts: v0.25.6
@@ -26209,6 +26209,21 @@ class DonationLightboxForm {
         } else {
           if (cvvBlock) {
             cvvBlock.classList.remove("has-error");
+          }
+        }
+        const cardHolderName = form.querySelector("#en__field_supporter_creditCardHolderName");
+        const cardHolderNameBlock = form.querySelector(".en__field--creditCardHolderName");
+        const cardHolderNameValid = !!cardHolderName.value;
+        if (!cardHolderNameValid) {
+          this.scrollToElement(cardHolderName);
+          this.sendMessage("error", "Please enter a valid cardholder name");
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.add("has-error");
+          }
+          return false;
+        } else {
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.remove("has-error");
           }
         }
       }

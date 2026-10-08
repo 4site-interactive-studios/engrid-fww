@@ -749,6 +749,22 @@ export default class DonationLightboxForm {
             cvvBlock.classList.remove("has-error");
           }
         }
+
+        const cardHolderName = form.querySelector("#en__field_supporter_creditCardHolderName");
+        const cardHolderNameBlock = form.querySelector(".en__field--creditCardHolderName");
+        const cardHolderNameValid = !!cardHolderName.value;
+        if (!cardHolderNameValid) {
+          this.scrollToElement(cardHolderName);
+          this.sendMessage("error", "Please enter a valid cardholder name");
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.add("has-error");
+          }
+          return false;
+        } else {
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.remove("has-error");
+          }
+        }
       }
       // Validate Bank Details
       if (paymentType && paymentType.value.toLowerCase() === "ach") {
