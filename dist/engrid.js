@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, October 1, 2026 @ 14:43:59 ET
+ *  Date: Thursday, October 8, 2026 @ 15:58:53 ET
  *  By: pedroluan
  *  ENGrid styles: v0.25.6
  *  ENGrid scripts: v0.25.6
@@ -25920,12 +25920,12 @@ class DonationLightboxForm {
         </button>
       `;
         }
-        if (key + 1 < sectionTotal) {
+        if (key < sectionTotal) {
           sectionCount.setAttribute("role", "progressbar");
           sectionCount.setAttribute("aria-valuemin", "1");
           sectionCount.setAttribute("aria-valuemax", sectionTotal);
-          sectionCount.setAttribute("aria-valuenow", key + 1);
-          sectionCount.setAttribute("aria-label", `Step ${key + 1} of ${sectionTotal}`);
+          sectionCount.setAttribute("aria-valuenow", key);
+          sectionCount.setAttribute("aria-label", `Step ${key} of ${sectionTotal}`);
           sectionCount.innerHTML = Array.from({
             length: sectionTotal
           }, (_, index) => `<span class="section-count__bar${index <= key ? " is-active" : ""}" aria-hidden="true"></span>`).join("");

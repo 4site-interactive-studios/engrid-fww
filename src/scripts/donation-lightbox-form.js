@@ -369,14 +369,14 @@ export default class DonationLightboxForm {
         </button>
       `;
         }
-        if (key + 1 < sectionTotal) {
+        if (key < sectionTotal) {
           sectionCount.setAttribute("role", "progressbar");
           sectionCount.setAttribute("aria-valuemin", "1");
           sectionCount.setAttribute("aria-valuemax", sectionTotal);
-          sectionCount.setAttribute("aria-valuenow", key + 1);
+          sectionCount.setAttribute("aria-valuenow", key);
           sectionCount.setAttribute(
             "aria-label",
-            `Step ${key + 1} of ${sectionTotal}`
+            `Step ${key} of ${sectionTotal}`
           );
           sectionCount.innerHTML = Array.from(
             { length: sectionTotal },
