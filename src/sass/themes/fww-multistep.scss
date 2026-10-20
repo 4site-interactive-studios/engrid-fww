@@ -1086,9 +1086,14 @@
     justify-content: center !important;
   }
 
+  .donation-value-reminder {
+
+  }
+
   .digital-wallets-wrapper {
     flex-direction: row;
     justify-content: space-between !important;
+    align-items: center !important;
 
     #en__digitalWallet{
       width: 260px !important;
