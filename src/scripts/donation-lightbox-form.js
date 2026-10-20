@@ -381,7 +381,7 @@ export default class DonationLightboxForm {
           sectionCount.innerHTML = Array.from(
             { length: sectionTotal },
             (_, index) =>
-              `<span class="section-count__bar${index <= key ? " is-active" : ""
+              `<span class="section-count__bar${index === key ? " is-active" : ""
               }" aria-hidden="true"></span>`
           ).join("");
         }
