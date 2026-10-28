@@ -5,7 +5,14 @@ import {
   DonationFrequency,
   EnForm,
 } from "@4site/engrid-scripts"; // Uses ENGrid via NPM
-// import { Options, App } from "../../engrid/packages/scripts"; // Uses ENGrid via Visual Studio Workspace
+
+/* import {
+  Options,
+  App,
+  DonationAmount,
+  DonationFrequency,
+  EnForm,
+} from "../../engrid/packages/scripts"; */ // Uses ENGrid via Visual Studio Workspace
 
 import "./sass/main.scss";
 import DonationLightboxForm from "./scripts/donation-lightbox-form";
@@ -35,6 +42,28 @@ const options: Options = {
       label: "Get Tickets",
     },
   ],
+  RememberMe: {
+    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
+    fieldNames: [
+      "supporter.firstName",
+      "supporter.lastName",
+      "supporter.emailAddress",
+      "supporter.phoneNumber2",
+      "supporter.address1",
+      "supporter.city",
+      "supporter.postcode",
+      "supporter.region",
+      "supporter.country",
+      "transaction.donationAmt",
+      "transaction.recurrfreq"
+    ],
+    fieldClearSelectorTarget: '.your-information-header',
+    fieldClearLabel: 'Welcome Back! {Not $username}?',
+    fieldClearSelectorTargetLocation: 'rightSide',
+    checked: true,
+    encryptData: true,
+    hide: true
+  },
   VGS: {
     "transaction.ccnumber": {
       css: vgsCss,
