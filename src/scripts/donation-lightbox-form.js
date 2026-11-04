@@ -1015,8 +1015,10 @@ export default class DonationLightboxForm {
         );
         if (paymentType) {
           paymentType.value = btn.className.substr(15);
-          // Go to the next section
-          this.scrollToNextSection();
+          // Go to the next section, only if the current one is valid
+          if (this.validateForm(this.currentSectionId)) {
+            this.scrollToNextSection();
+          }
         }
       });
     });
@@ -1162,7 +1164,12 @@ export default class DonationLightboxForm {
               ?.classList.remove("is-expanded");
             console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
             window.setTimeout(() => {
-              this.scrollToNextSection();
+              // Validate the current section (frequency + amount) before
+              // auto-advancing, otherwise donors can reach the PayPal/Venmo
+              // step with no amount (e.g. "Other" selected and empty).
+              if (this.validateForm(this.currentSectionId)) {
+                this.scrollToNextSection();
+              }
             }, 100);
           }
         });
