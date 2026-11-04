@@ -17,7 +17,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, October 28, 2026 @ 09:38:50 ET
+ *  Date: Wednesday, November 4, 2026 @ 08:25:16 ET
  *  By: pedroluan
  *  ENGrid styles: v0.28.3
  *  ENGrid scripts: v0.28.5
@@ -28762,8 +28762,10 @@ class DonationLightboxForm {
         const paymentType = document.querySelector("#en__field_transaction_paymenttype");
         if (paymentType) {
           paymentType.value = btn.className.substr(15);
-          // Go to the next section
-          this.scrollToNextSection();
+          // Go to the next section, only if the current one is valid
+          if (this.validateForm(this.currentSectionId)) {
+            this.scrollToNextSection();
+          }
         }
       });
     });
@@ -28867,7 +28869,12 @@ class DonationLightboxForm {
             document.querySelector(".en__field__item.ach")?.classList.remove("is-expanded");
             console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
             window.setTimeout(() => {
-              this.scrollToNextSection();
+              // Validate the current section (frequency + amount) before
+              // auto-advancing, otherwise donors can reach the PayPal/Venmo
+              // step with no amount (e.g. "Other" selected and empty).
+              if (this.validateForm(this.currentSectionId)) {
+                this.scrollToNextSection();
+              }
             }, 100);
           }
         });
@@ -29353,7 +29360,11 @@ const options = {
   }],
   RememberMe: {
     remoteUrl: 'https://rememberme.foodandwaterwatch.org',
-    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country", "transaction.donationAmt", "transaction.recurrfreq"],
+    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country",
+    // "transaction.donationAmt" is intentionally not remembered: ENgrid's
+    // RememberMe saves the checked radio value, so an "Other" gift is stored
+    // as the literal "other" and restored as an empty Other amount ($0).
+    "transaction.recurrfreq"],
     fieldClearSelectorTarget: '.your-information-header',
     fieldClearLabel: 'Welcome Back! {Not $username}?',
     fieldClearSelectorTargetLocation: 'rightSide',
