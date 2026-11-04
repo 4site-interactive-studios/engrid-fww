@@ -54,7 +54,9 @@ const options: Options = {
       "supporter.postcode",
       "supporter.region",
       "supporter.country",
-      "transaction.donationAmt",
+      // "transaction.donationAmt" is intentionally not remembered: ENgrid's
+      // RememberMe saves the checked radio value, so an "Other" gift is stored
+      // as the literal "other" and restored as an empty Other amount ($0).
       "transaction.recurrfreq"
     ],
     fieldClearSelectorTarget: '.your-information-header',
