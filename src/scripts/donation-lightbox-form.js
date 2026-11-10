@@ -979,6 +979,12 @@ export default class DonationLightboxForm {
       arrow.classList.remove("bounce");
     }
   }
+  // Same rule as ENgrid's LiveVariables: whole amounts without decimals,
+  // anything else with two (10.3 -> 10.30)
+  formatAmount(amount) {
+    const cents = Math.round(Number(amount) * 100);
+    return cents % 100 === 0 ? String(cents / 100) : (cents / 100).toFixed(2);
+  }
   changeSubmitButton() {
     const submit = document.querySelector(".section-navigation__submit");
     const amount = this.checkNested(
@@ -988,7 +994,10 @@ export default class DonationLightboxForm {
       "enjs",
       "getDonationTotal"
     )
-      ? "$" + window.EngagingNetworks.require._defined.enjs.getDonationTotal()
+      ? "$" +
+        this.formatAmount(
+          window.EngagingNetworks.require._defined.enjs.getDonationTotal()
+        )
       : null;
     let frequency = this.frequency.getInstance().frequency;
     let label = submit ? submit.dataset.label : "";
