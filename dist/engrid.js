@@ -17,8 +17,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, October 6, 2026 @ 16:02:50 ET
- *  By: nick
+ *  Date: Tuesday, November 10, 2026 @ 09:18:15 ET
+ *  By: pedroluan
  *  ENGrid styles: v0.28.3
  *  ENGrid scripts: v0.28.5
  *
@@ -28207,7 +28207,7 @@ class DonationLightboxForm {
         if (key == 0) {
           sectionNavigation.innerHTML = `
         <button class="section-navigation__next" data-section-id="${key}">
-          <span>Donate Today</span>
+          <span>Next</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
               <path fill="currentColor" d="M7.687 13.313c-.38.38-.995.38-1.374 0-.38-.38-.38-.996 0-1.375L10 8.25H1.1c-.608 0-1.1-.493-1.1-1.1 0-.608.492-1.1 1.1-1.1h9.2L6.313 2.062c-.38-.38-.38-.995 0-1.375s.995-.38 1.374 0L14 7l-6.313 6.313z"/>
           </svg>
@@ -28241,11 +28241,15 @@ class DonationLightboxForm {
         </button>
       `;
         }
-        if (key + 1 < sectionTotal) {
-          sectionCount.innerHTML = `
-          <span class="section-count__current">${key + 1}</span> of
-          <span class="section-count__total">${sectionTotal}</span>
-        `;
+        if (key < sectionTotal) {
+          sectionCount.setAttribute("role", "progressbar");
+          sectionCount.setAttribute("aria-valuemin", "1");
+          sectionCount.setAttribute("aria-valuemax", sectionTotal);
+          sectionCount.setAttribute("aria-valuenow", key);
+          sectionCount.setAttribute("aria-label", `Step ${key} of ${sectionTotal}`);
+          sectionCount.innerHTML = Array.from({
+            length: sectionTotal
+          }, (_, index) => `<span class="section-count__bar${index === key ? " is-active" : ""}" aria-hidden="true"></span>`).join("");
         }
       } else {
         // Single Section Pages
@@ -28264,7 +28268,12 @@ class DonationLightboxForm {
         e.preventDefault();
         const ccnumberBlock = document.querySelector(".en__field--ccnumber");
         const ccnumberSection = this.getSectionId(ccnumberBlock);
-        if (ccnumberSection == key) {
+        // The card fields share this section with the other payment options
+        // (accordion), so only force "card" if the donor didn't pick another
+        // option, like ACH. Otherwise we would overwrite their choice.
+        const selectedGiveBy = document.querySelector("input[name='transaction.giveBySelect']:checked");
+        const isOtherPaymentSelected = !!selectedGiveBy && selectedGiveBy.value.toLowerCase() !== "card";
+        if (ccnumberSection == key && !isOtherPaymentSelected) {
           // Set payment type to credit card if we're on the credit card section
           const paymentType = document.querySelector("#en__field_transaction_paymenttype");
           paymentType.value = "card";
@@ -28292,7 +28301,7 @@ class DonationLightboxForm {
             }));
             // Only shows cortain if payment is not paypal
             const paymentType = document.querySelector("#en__field_transaction_paymenttype").value;
-            if (paymentType != "paypal") {
+            if (paymentType.toLowerCase() != "paypal") {
               this.sendMessage("status", "loading");
             } else {
               // If Paypal, submit the form on a new tab
@@ -28523,6 +28532,21 @@ class DonationLightboxForm {
             cvvBlock.classList.remove("has-error");
           }
         }
+        const cardHolderName = form.querySelector("#en__field_supporter_creditCardHolderName");
+        const cardHolderNameBlock = form.querySelector(".en__field--creditCardHolderName");
+        const cardHolderNameValid = !!cardHolderName.value;
+        if (!cardHolderNameValid) {
+          this.scrollToElement(cardHolderName);
+          this.sendMessage("error", "Please enter a valid cardholder name");
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.add("has-error");
+          }
+          return false;
+        } else {
+          if (cardHolderNameBlock) {
+            cardHolderNameBlock.classList.remove("has-error");
+          }
+        }
       }
       // Validate Bank Details
       if (paymentType && paymentType.value.toLowerCase() === "ach") {
@@ -28530,8 +28554,12 @@ class DonationLightboxForm {
         if (!routingNumber) return;
         const bankSection = this.getSectionId(routingNumber);
         if (sectionId === false || sectionId == bankSection) {
-          // All form fields from this section are mandatory if the payment type is ACH
-          const mandatoryFields = this.sections[bankSection].querySelectorAll("input:not([type='hidden'])");
+          // All the bank fields are mandatory if the payment type is ACH. When
+          // they live inside the ACH accordion, the section is shared with the
+          // card fields and the other payment options, so only validate the
+          // accordion. Otherwise, validate the whole (dedicated) section.
+          const bankFields = routingNumber.closest(".ach-payment-accordion") || this.sections[bankSection];
+          const mandatoryFields = bankFields.querySelectorAll("input:not([type='hidden'])");
           let hasError = false;
           mandatoryFields.forEach(field => {
             if (hasError) {
@@ -28710,9 +28738,15 @@ class DonationLightboxForm {
       arrow.classList.remove("bounce");
     }
   }
+  // Same rule as ENgrid's LiveVariables: whole amounts without decimals,
+  // anything else with two (10.3 -> 10.30)
+  formatAmount(amount) {
+    const cents = Math.round(Number(amount) * 100);
+    return cents % 100 === 0 ? String(cents / 100) : (cents / 100).toFixed(2);
+  }
   changeSubmitButton() {
     const submit = document.querySelector(".section-navigation__submit");
-    const amount = this.checkNested(window.EngagingNetworks, "require", "_defined", "enjs", "getDonationTotal") ? "$" + window.EngagingNetworks.require._defined.enjs.getDonationTotal() : null;
+    const amount = this.checkNested(window.EngagingNetworks, "require", "_defined", "enjs", "getDonationTotal") ? "$" + this.formatAmount(window.EngagingNetworks.require._defined.enjs.getDonationTotal()) : null;
     let frequency = this.frequency.getInstance().frequency;
     let label = submit ? submit.dataset.label : "";
     frequency = frequency === "onetime" ? "" : "<small>/mo</small>";
@@ -28734,8 +28768,10 @@ class DonationLightboxForm {
         const paymentType = document.querySelector("#en__field_transaction_paymenttype");
         if (paymentType) {
           paymentType.value = btn.className.substr(15);
-          // Go to the next section
-          this.scrollToNextSection();
+          // Go to the next section, only if the current one is valid
+          if (this.validateForm(this.currentSectionId)) {
+            this.scrollToNextSection();
+          }
         }
       });
     });
@@ -28783,6 +28819,29 @@ class DonationLightboxForm {
   isVisible(element) {
     return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
   }
+  prepareCardAccordion() {
+    const cardOption = document.querySelector(".give-by-select .en__field__item.card");
+    const cardNumber = document.querySelector(".en__field--ccnumber");
+    const cardFields = cardNumber?.closest(".en__component--formblock");
+    const cardFlags = document.querySelector(".credit-card-flags");
+    if (!cardOption || !cardFields || cardFields.contains(cardOption)) return;
+    const placeholder = document.createComment("Credit card fields");
+    cardFields.parentNode.insertBefore(placeholder, cardFields);
+    if (cardFlags && !cardFields.contains(cardFlags)) {
+      cardFields.append(cardFlags);
+    }
+    cardOption.appendChild(cardFields);
+    cardFields.classList.add("card-payment-accordion");
+  }
+  prepareAchAccordion() {
+    const achOption = document.querySelector(".give-by-select .en__field__item.ach");
+    const achFields = document.querySelector(".giveBySelect-ACH")?.closest(".en__component--formblock");
+    if (!achOption || !achFields || achFields.contains(achOption)) return;
+    const placeholder = document.createComment("ACH fields");
+    achFields.parentNode.insertBefore(placeholder, achFields);
+    achOption.appendChild(achFields);
+    achFields.classList.add("ach-payment-accordion");
+  }
   addEvents() {
     const feeCover = document.querySelector("#en__field_transaction_feeCover");
     if (feeCover) {
@@ -28793,6 +28852,8 @@ class DonationLightboxForm {
     this.frequency.getInstance().onFrequencyChange.subscribe(s => this.bounceArrow(s));
     this.frequency.getInstance().onFrequencyChange.subscribe(() => this.changeSubmitButton());
     this.amount.getInstance().onAmountChange.subscribe(() => this.changeSubmitButton());
+    this.prepareCardAccordion();
+    this.prepareAchAccordion();
     // Payment Type Radio Change
     const paymentType = document.querySelectorAll("input[name='transaction.giveBySelect']");
     if (paymentType.length) {
@@ -28804,11 +28865,24 @@ class DonationLightboxForm {
             if (paymentType) {
               paymentType.value = "card";
             }
+            item.closest(".en__field__item")?.classList.add("is-expanded");
+            document.querySelector(".en__field__item.ach")?.classList.remove("is-expanded");
+          } else if (item.value === "ACH") {
+            document.querySelector(".en__field__item.card")?.classList.remove("is-expanded");
+            item.closest(".en__field__item")?.classList.add("is-expanded");
+          } else {
+            document.querySelector(".en__field__item.card")?.classList.remove("is-expanded");
+            document.querySelector(".en__field__item.ach")?.classList.remove("is-expanded");
+            console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
+            window.setTimeout(() => {
+              // Validate the current section (frequency + amount) before
+              // auto-advancing, otherwise donors can reach the PayPal/Venmo
+              // step with no amount (e.g. "Other" selected and empty).
+              if (this.validateForm(this.currentSectionId)) {
+                this.scrollToNextSection();
+              }
+            }, 100);
           }
-          console.log(`Payment type changed to: ${item.value.toLowerCase()}`);
-          window.setTimeout(() => {
-            this.scrollToNextSection();
-          }, 100);
         });
       });
     }
@@ -28846,7 +28920,7 @@ class DonationLightboxForm {
     const sectionsWithGiveBySelect = new Set();
     giveBySelectItems.forEach(item => {
       // Skip if the element is inside digital-wallets-wrapper
-      if (item.closest(".digital-wallets-wrapper")) {
+      if (item.closest(".digital-wallets-wrapper") || item.closest(".card-payment-accordion, .ach-payment-accordion")) {
         console.log(`Skipping giveBySelect- element in digital-wallets-wrapper: ${item.className}`);
         return;
       }
@@ -28870,7 +28944,7 @@ class DonationLightboxForm {
     sectionsWithGiveBySelect.forEach(sectionId => {
       const section = this.sections[sectionId];
       // Only get giveBySelect- elements that are not in digital-wallets-wrapper
-      const sectionItems = Array.from(section.querySelectorAll("[class*='giveBySelect-']")).filter(item => !item.closest(".digital-wallets-wrapper"));
+      const sectionItems = Array.from(section.querySelectorAll("[class*='giveBySelect-']")).filter(item => !item.closest(".digital-wallets-wrapper, .card-payment-accordion, .ach-payment-accordion"));
       console.log(`Section ${sectionId} has ${sectionItems.length} giveBySelect- elements (excluding digital-wallets-wrapper)`);
       let shouldShow = false;
       sectionItems.forEach(item => {
@@ -29292,7 +29366,11 @@ const options = {
   }],
   RememberMe: {
     remoteUrl: 'https://rememberme.foodandwaterwatch.org',
-    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country", "transaction.donationAmt", "transaction.recurrfreq"],
+    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country",
+    // "transaction.donationAmt" is intentionally not remembered: ENgrid's
+    // RememberMe saves the checked radio value, so an "Other" gift is stored
+    // as the literal "other" and restored as an empty Other amount ($0).
+    "transaction.recurrfreq"],
     fieldClearSelectorTarget: '.your-information-header',
     fieldClearLabel: 'Welcome Back! {Not $username}?',
     fieldClearSelectorTargetLocation: 'rightSide',
