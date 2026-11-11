@@ -17,10 +17,10 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Tuesday, October 6, 2026 @ 16:02:50 ET
- *  By: nick
- *  ENGrid styles: v0.28.3
- *  ENGrid scripts: v0.28.5
+ *  Date: Wednesday, November 11, 2026 @ 06:17:20 ET
+ *  By: pedroluan
+ *  ENGrid styles: v0.28.9
+ *  ENGrid scripts: v0.28.9
  *
  *  Created by 4Site Studios
  *  Come work with us or join our team, we would love to hear from you
@@ -10850,6 +10850,7 @@ const OptionsDefaults = {
     Debug: false,
     RememberMe: false,
     TidyContact: false,
+    TidyContactEmail: false,
     RegionLongFormat: "",
     CountryDisable: [],
     Placeholders: false,
@@ -12860,6 +12861,10 @@ class App extends engrid_ENGrid {
         // FreshAddress
         if (this.options.FreshAddress)
             new FreshAddress();
+        // TidyContact Email. Must stay below the window.enOnValidate assignment,
+        // so the TC Email bundle wraps ENgrid's hook instead of being overwritten by it.
+        if (this.options.TidyContactEmail)
+            new TidyContactEmail();
         new ShowIfAmount();
         new OtherAmount();
         new MinMaxAmount();
@@ -12916,6 +12921,7 @@ class App extends engrid_ENGrid {
         new UsOnlyForm();
         new ThankYouPageConditionalContent();
         new EmbeddedEcard();
+        new EcardPreview();
         new CheckboxLabel();
         new PostDonationEmbed();
         new FrequencyUpsell();
@@ -12937,8 +12943,8 @@ class App extends engrid_ENGrid {
             new BrandingHtml().show();
         }
         engrid_ENGrid.setBodyData("js-loading", "finished");
-        window.EngridVersion = (/* inlined export .AppVersion */"0.28.5");
-        this.logger.success(`VERSION: ${(/* inlined export .AppVersion */"0.28.5")}`);
+        window.EngridVersion = (/* inlined export .AppVersion */"0.28.9");
+        this.logger.success(`VERSION: ${(/* inlined export .AppVersion */"0.28.9")}`);
         // Window Load
         let onLoad = typeof window.onload === "function" ? window.onload : null;
         if (document.readyState !== "loading") {
@@ -14009,12 +14015,27 @@ class Ecard {
             if (closeButton) {
                 closeButton.setAttribute("role", "button");
                 closeButton.setAttribute("aria-label", "Close Preview");
-                document.addEventListener("keydown", (e) => {
+                const handleEscape = (e) => {
                     if (e.key === "Escape" &&
                         previewModal.classList.contains("preview--show")) {
                         closeButton.click();
                     }
-                });
+                };
+                document.addEventListener("keydown", handleEscape);
+                const previewIframe = previewModal.querySelector("iframe");
+                if (previewIframe) {
+                    const bindIframeEscape = () => {
+                        var _a;
+                        try {
+                            (_a = previewIframe.contentDocument) === null || _a === void 0 ? void 0 : _a.addEventListener("keydown", handleEscape);
+                        }
+                        catch (e) {
+                            // Cross-origin previews cannot expose their keyboard events.
+                        }
+                    };
+                    previewIframe.addEventListener("load", bindIframeEscape);
+                    bindIframeEscape();
+                }
             }
             const iframe = previewModal.querySelector("iframe");
             if (iframe) {
@@ -14163,6 +14184,321 @@ class Ecard {
         }
         else if (input) {
             input.setAttribute("aria-label", labelText);
+        }
+    }
+}
+
+;// ./node_modules/@4site/engrid-scripts/dist/ecard-preview.js
+/**
+ * EcardPreview delegates the Engaging Networks ecard preview modal to the
+ * parent window when an ecard page is embedded inside another ENgrid page.
+ *
+ * Embedded ecard page (child):
+ * - Detects it is embedded (data-engrid-embedded-ecard / data-engrid-embedded)
+ *   and performs a handshake with the parent to find out if it is an ENgrid
+ *   page capable of displaying the preview modal.
+ * - If the parent is capable, the preview button is kept visible and, when
+ *   clicked, the preview URL built by EN is posted to the parent instead of
+ *   opening the modal inside the iframe.
+ * - If the parent does not respond, the preview button is hidden.
+ *
+ * Host page (parent):
+ * - Listens for the handshake and the preview URL, builds a modal following
+ *   the exact structure EN uses for their preview, and wires the close
+ *   button and Escape key to close it.
+ *
+ * Both the delegated modal and EN's native modal on standalone ecard pages
+ * are widened to fit the preview content when it scrolls horizontally and
+ * the viewport is wide enough to display it all.
+ */
+
+class EcardPreview {
+    constructor() {
+        this.logger = new EngridLogger("Ecard Preview", "#4B2682", "#FFFFFF", "🖼️");
+        this.previewCapable = false;
+        this.handshakeAttempts = 0;
+        this.handshakeTimer = null;
+        this.delegatedModal = null;
+        this.requestingIframe = null;
+        if (this.isEmbeddedEcardPage()) {
+            this.setupEmbeddedEcardPage();
+        }
+        else if (engrid_ENGrid.getPageType() === "ECARD" && !this.inIframe()) {
+            // Standalone ecard page - enhance EN's native preview modal
+            this.setupNativePreviewEnhancements();
+        }
+        // The parent-side listener runs on every ENgrid page so any embedded
+        // ENgrid ecard iframe (EmbeddedEcard or a generic embed) is supported
+        this.setupParentPage();
+    }
+    isEmbeddedEcardPage() {
+        return (engrid_ENGrid.getPageType() === "ECARD" &&
+            this.inIframe() &&
+            (engrid_ENGrid.hasBodyData("embedded-ecard") || engrid_ENGrid.hasBodyData("embedded")));
+    }
+    setupEmbeddedEcardPage() {
+        const previewButton = document.querySelector(".en__ecarditems__showprev");
+        if (!previewButton)
+            return;
+        // Hide the button until the parent confirms it can display the preview
+        previewButton.style.display = "none";
+        window.addEventListener("message", (e) => {
+            var _a;
+            if (e.source !== window.parent ||
+                e.origin !== location.origin ||
+                !((_a = e.data) === null || _a === void 0 ? void 0 : _a.action))
+                return;
+            if (e.data.action === "ecard_preview_available") {
+                this.previewCapable = true;
+                if (this.handshakeTimer) {
+                    clearInterval(this.handshakeTimer);
+                    this.handshakeTimer = null;
+                }
+                previewButton.style.display = "";
+                // Keeps the native modal inside the iframe hidden when EN shows it
+                document.body.classList.add("engrid-ecard-preview-delegated");
+                this.logger.log("Parent page can display the ecard preview - delegating");
+            }
+        });
+        // Handshake with the parent, retried to cover the parent still loading
+        this.sendHandshake();
+        this.handshakeTimer = setInterval(() => this.sendHandshake(), 250);
+        // When the preview button is clicked, EN's own handler builds the preview
+        // iframe src (with the current form values) and shows the modal. We watch
+        // for that, grab the URL, hide the local modal and delegate to the parent.
+        const previewModal = document.querySelector(".en__ecarditems__preview");
+        if (!previewModal)
+            return;
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === "attributes" &&
+                    mutation.attributeName === "class" &&
+                    this.previewCapable &&
+                    previewModal.classList.contains("preview--show")) {
+                    const iframe = previewModal.querySelector("iframe");
+                    const previewUrl = iframe === null || iframe === void 0 ? void 0 : iframe.getAttribute("src");
+                    previewModal.classList.remove("preview--show");
+                    if (previewUrl) {
+                        this.logger.log("Delegating ecard preview to parent", previewUrl);
+                        window.parent.postMessage({ action: "show_ecard_preview", previewUrl }, location.origin);
+                    }
+                }
+            });
+        });
+        observer.observe(previewModal, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
+    /**
+     * Enhances EN's native preview modal on standalone (non-embedded) ecard
+     * pages: when the modal opens, widen it to fit the preview content if the
+     * viewport is wide enough.
+     */
+    setupNativePreviewEnhancements() {
+        const previewModal = document.querySelector(".en__ecarditems__preview");
+        if (!previewModal)
+            return;
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === "attributes" &&
+                    mutation.attributeName === "class" &&
+                    previewModal.classList.contains("preview--show")) {
+                    this.fitPreviewToContent(previewModal);
+                }
+            });
+        });
+        observer.observe(previewModal, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
+    sendHandshake() {
+        window.parent.postMessage({ action: "ecard_preview_handshake" }, location.origin);
+        this.handshakeAttempts++;
+        if (this.handshakeAttempts >= 8 && this.handshakeTimer) {
+            clearInterval(this.handshakeTimer);
+            this.handshakeTimer = null;
+            this.logger.log("Parent page cannot display the ecard preview - hiding the preview button");
+        }
+    }
+    setupParentPage() {
+        window.addEventListener("resize", () => {
+            document
+                .querySelectorAll(".en__ecarditems__preview.preview--show")
+                .forEach((modal) => this.fitPreviewToContent(modal));
+        });
+        window.addEventListener("message", (e) => {
+            var _a;
+            if (e.origin !== location.origin || !((_a = e.data) === null || _a === void 0 ? void 0 : _a.action))
+                return;
+            const iframe = this.getIframeBySource(e.source);
+            if (!iframe)
+                return;
+            switch (e.data.action) {
+                case "ecard_preview_handshake":
+                    this.logger.log("Received ecard preview handshake from iframe");
+                    e.source.postMessage({ action: "ecard_preview_available" }, e.origin);
+                    break;
+                case "show_ecard_preview":
+                    this.showDelegatedPreview(e.data.previewUrl, iframe);
+                    break;
+            }
+        });
+        document.addEventListener("keydown", (e) => {
+            this.handlePreviewEscape(e);
+        });
+    }
+    handlePreviewEscape(e) {
+        if (e.key === "Escape" && this.delegatedModal) {
+            this.closeDelegatedPreview();
+        }
+    }
+    showDelegatedPreview(previewUrl, iframe) {
+        var _a, _b, _c;
+        if (!previewUrl)
+            return;
+        // Only same-origin EN preview URLs are displayed in the modal
+        try {
+            if (new URL(previewUrl, location.origin).origin !== location.origin) {
+                this.logger.log("Ignoring cross-origin ecard preview URL", previewUrl);
+                return;
+            }
+        }
+        catch (e) {
+            return;
+        }
+        this.requestingIframe = iframe;
+        if (this.delegatedModal) {
+            (_a = this.delegatedModal
+                .querySelector("iframe")) === null || _a === void 0 ? void 0 : _a.setAttribute("src", previewUrl);
+            this.fitPreviewToContent(this.delegatedModal);
+            return;
+        }
+        // Follows the exact structure EN uses for their ecard preview modal so
+        // enPage.css styles apply on the parent page
+        const modal = document.createElement("div");
+        modal.classList.add("en__ecarditems__preview", "preview--show");
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+        modal.setAttribute("aria-label", "Ecard Preview Modal");
+        modal.id = "ecard-preview";
+        modal.innerHTML = `
+      <div class="en__ecarditems__prevbg"></div>
+      <div class="en__ecarditems__prevwrap">
+        <iframe frameborder="0" scrolling="yes" title="Ecard Preview Frame"></iframe>
+        <button type="button" class="en__ecarditems__prevclose" role="button" aria-label="Close Preview">✕</button>
+      </div>`;
+        const previewIframe = modal.querySelector("iframe");
+        const handleEscape = (e) => this.handlePreviewEscape(e);
+        const bindIframeEscape = () => {
+            var _a;
+            try {
+                (_a = previewIframe.contentDocument) === null || _a === void 0 ? void 0 : _a.addEventListener("keydown", handleEscape);
+            }
+            catch (e) {
+                // Cross-origin previews cannot expose their keyboard events.
+            }
+        };
+        previewIframe.addEventListener("load", bindIframeEscape);
+        previewIframe.src = previewUrl;
+        (_b = modal
+            .querySelector(".en__ecarditems__prevclose")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.closeDelegatedPreview());
+        document.body.appendChild(modal);
+        this.delegatedModal = modal;
+        bindIframeEscape();
+        // Center like EN does and widen to fit the preview content once the
+        // iframe has loaded
+        this.fitPreviewToContent(modal);
+        A11y.inertPage(true, modal);
+        (_c = modal.querySelector(".en__ecarditems__prevclose")) === null || _c === void 0 ? void 0 : _c.focus();
+        this.logger.log("Displaying delegated ecard preview", previewUrl);
+    }
+    /**
+     * Centers the preview wrap like EN does (negative margins equal to half its
+     * dimensions) and flags overflow when the viewport is smaller than the wrap.
+     */
+    centerPreviewWrap(modal) {
+        const wrap = modal.querySelector(".en__ecarditems__prevwrap");
+        if (!wrap)
+            return;
+        wrap.style.marginLeft = `-${wrap.offsetWidth / 2}px`;
+        wrap.style.marginTop = `-${wrap.offsetHeight / 2}px`;
+        modal.classList.toggle("overflow--width", wrap.offsetWidth >= window.innerWidth);
+        modal.classList.toggle("overflow--height", wrap.offsetHeight > window.innerHeight);
+    }
+    /**
+     * Widens the preview modal to fit the ecard content when the preview iframe
+     * scrolls horizontally and the viewport is wide enough to display it all.
+     * The preview URL is same-origin, so the iframe content can be measured.
+     */
+    fitPreviewToContent(modal) {
+        var _a;
+        this.centerPreviewWrap(modal);
+        const wrap = modal.querySelector(".en__ecarditems__prevwrap");
+        const iframe = modal.querySelector("iframe");
+        if (!wrap || !iframe)
+            return;
+        const widen = () => {
+            var _a, _b, _c, _d;
+            let contentWidth = 0;
+            try {
+                const iframeDoc = iframe.contentDocument;
+                if (iframeDoc) {
+                    contentWidth = Math.max((_b = (_a = iframeDoc.documentElement) === null || _a === void 0 ? void 0 : _a.scrollWidth) !== null && _b !== void 0 ? _b : 0, (_d = (_c = iframeDoc.body) === null || _c === void 0 ? void 0 : _c.scrollWidth) !== null && _d !== void 0 ? _d : 0);
+                }
+            }
+            catch (e) {
+                // Cross-origin preview - cannot measure the content
+                return;
+            }
+            if (!contentWidth)
+                return;
+            // Never exceed 90vw (matches the CSS max-width on the wrap) and leave
+            // a gutter so the modal never touches the viewport edges
+            const maxWidth = Math.min(window.innerWidth * 0.9, window.innerWidth - 32);
+            const targetWidth = Math.min(contentWidth, maxWidth);
+            if (targetWidth > wrap.offsetWidth) {
+                wrap.style.width = `${targetWidth}px`;
+                this.logger.log(`Widened ecard preview to fit content (${contentWidth}px content, ${targetWidth}px applied)`);
+            }
+            this.centerPreviewWrap(modal);
+        };
+        try {
+            if (((_a = iframe.contentDocument) === null || _a === void 0 ? void 0 : _a.readyState) === "complete") {
+                widen();
+            }
+        }
+        catch (e) { }
+        if (!iframe.dataset.engridFitBound) {
+            iframe.dataset.engridFitBound = "true";
+            iframe.addEventListener("load", widen);
+        }
+    }
+    closeDelegatedPreview() {
+        var _a, _b, _c;
+        (_a = this.delegatedModal) === null || _a === void 0 ? void 0 : _a.remove();
+        this.delegatedModal = null;
+        A11y.inertPage(false);
+        // Return focus to the preview button inside the requesting iframe.
+        // Same-origin is guaranteed by the origin checks on the messages.
+        try {
+            const iframeDoc = (_b = this.requestingIframe) === null || _b === void 0 ? void 0 : _b.contentDocument;
+            (_c = iframeDoc === null || iframeDoc === void 0 ? void 0 : iframeDoc.querySelector(".en__ecarditems__showprev")) === null || _c === void 0 ? void 0 : _c.focus();
+        }
+        catch (e) { }
+        this.requestingIframe = null;
+        this.logger.log("Closed delegated ecard preview");
+    }
+    getIframeBySource(source) {
+        return (Array.from(document.querySelectorAll("iframe")).find((iframe) => iframe.contentWindow === source) || null);
+    }
+    inIframe() {
+        try {
+            return window.self !== window.top;
+        }
+        catch (e) {
+            return true;
         }
     }
 }
@@ -14480,6 +14816,7 @@ class DataAttributes {
 class iFrame {
     constructor() {
         this._form = EnForm.getInstance();
+        this.resizeObserver = null;
         this.logger = new EngridLogger("iFrame", "brown", "gray", "📡");
         if (this.inIframe()) {
             // Add the data-engrid-embedded attribute when inside an iFrame if it wasn't already added by a script in the Page Template
@@ -14572,6 +14909,7 @@ class iFrame {
                 if (iframe) {
                     if (event.data.hasOwnProperty("frameHeight")) {
                         iframe.style.height = event.data.frameHeight + "px";
+                        this.logger.log(`iFrame Event - Resized iframe element to ${event.data.frameHeight}px`);
                         if (event.data.frameHeight > 0) {
                             iframe.classList.add("loaded");
                         }
@@ -14611,6 +14949,8 @@ class iFrame {
         // Scroll to top of iFrame
         this.logger.log("iFrame Event - window.onload");
         this.sendIframeHeight();
+        // Continuously re-send the height whenever the body size changes
+        this.observeHeightChanges();
         window.parent.postMessage({
             scroll: this.shouldScroll(),
         }, "*");
@@ -14619,15 +14959,39 @@ class iFrame {
         // matches it by Page ID to advance to the next queued iframe. Fires
         // exactly once per Thank-You-page load. See iframe-queue.ts.
         this.sendIframeQueueThankYouPing();
-        // On click fire the resize event
-        document.addEventListener("click", (e) => {
-            this.logger.log("iFrame Event - click");
-            setTimeout(() => {
-                this.sendIframeHeight();
-            }, 100);
-        });
         // Watch for errors and send the height
         engrid_ENGrid.watchForError(this.sendIframeHeight.bind(this));
+    }
+    /**
+     * Observes document.body for size changes (DOM mutations, font/image
+     * loads, CSS transitions) and re-sends the iframe height to the parent.
+     *
+     * Uses a leading + trailing throttle via debounceWithImmediate: the
+     * first change is sent immediately, and the settled height is always
+     * re-sent once changes stop for 120ms. Animated transitions therefore
+     * don't flood the parent page with one message per frame, but the
+     * parent always ends up matching the final resolved height.
+     */
+    observeHeightChanges() {
+        if (typeof ResizeObserver === "undefined") {
+            this.logger.log("ResizeObserver not supported in this browser");
+            return;
+        }
+        let lastSent = -1;
+        const throttledSend = this.debounceWithImmediate((_entries, _observer, immediate) => {
+            const height = document.body.offsetHeight;
+            // Skip redundant sends when the settled height is unchanged
+            if (height === lastSent) {
+                this.logger.log(`iFrame Event - ResizeObserver settled at unchanged height ${height}px, skipping send`);
+                return;
+            }
+            lastSent = height;
+            this.logger.log(`iFrame Event - ResizeObserver ${immediate ? "leading" : "trailing"} resize: sending height ${height}px`);
+            this.sendIframeHeight();
+        }, 120);
+        this.resizeObserver = new ResizeObserver(throttledSend);
+        this.resizeObserver.observe(document.body);
+        this.logger.log("iFrame Event - Observing body resize");
     }
     /**
      * Posts a `engrid-iframe-queue:thank-you` message to the parent window
@@ -14776,11 +15140,11 @@ class iFrame {
         return (...args) => {
             clearTimeout(timer);
             if (firstEvent) {
-                func.apply(this, args);
+                func.apply(this, [...args, true]);
                 firstEvent = false;
             }
             timer = setTimeout(() => {
-                func.apply(this, args);
+                func.apply(this, [...args, false]);
                 firstEvent = true;
             }, timeout);
         };
@@ -19691,7 +20055,14 @@ class RememberMe {
         }
     }
     setFieldValue(field, value, overwrite = false) {
-        value = decodeURIComponent(value || "");
+        // No remembered value for this field: leave it alone. Turning undefined
+        // into "" here used to select the empty "Please select" option on
+        // <select> fields, wiping values EN pre-filled (e.g. supporter.region on
+        // a chained after-action donation page) for every visitor with no
+        // RememberMe data.
+        if (!field || value === undefined || value === null)
+            return;
+        value = decodeURIComponent(value);
         if (field && value !== undefined) {
             if ("type" in field) {
                 switch (field.type) {
@@ -19783,7 +20154,12 @@ class RememberMe {
                     }
                 }
                 else if (field.tagName === "SELECT") {
-                    this.setFieldValue(field, this.fieldData[this.fieldNames[i]], true);
+                    // A select always has a value (its first option), so a remembered
+                    // value needs overwrite=true to win over the default. A remembered
+                    // empty value must not wipe a pre-filled select, though, unless we
+                    // are clearing (clearFields() calls writeFields(true)).
+                    const rememberedValue = this.fieldData[this.fieldNames[i]];
+                    this.setFieldValue(field, rememberedValue, overwrite || rememberedValue !== "");
                 }
             }
         }
@@ -22137,6 +22513,91 @@ class TidyContact {
         });
         this._form.submitPromise = ret;
         return ret;
+    }
+}
+
+;// ./node_modules/@4site/engrid-scripts/dist/tidycontact-email.js
+
+// Same selector the TC Email bundle uses to find its own tag (script-config.ts)
+const TC_EMAIL_SCRIPT = "script[src*='raisemore-email'], script[data-raisemore-email]";
+const DEFAULT_RELAY_URL = "https://email-validator.4sitestudios.com";
+const DEFAULT_VERSION = "v1";
+class TidyContactEmail {
+    constructor() {
+        this.logger = new EngridLogger("TidyContactEmail", "#FFFFFF", "#4d9068", "📧");
+        this.options = null;
+        const options = engrid_ENGrid.getOption("TidyContactEmail");
+        if (!options)
+            return;
+        this.options = options;
+        if (!this.shouldRun())
+            return;
+        this.loadScript();
+    }
+    shouldRun() {
+        var _a, _b;
+        if (!((_a = this.options) === null || _a === void 0 ? void 0 : _a.clientKey)) {
+            this.logger.danger("clientKey not set. TidyContact Email will not load.");
+            return false;
+        }
+        const searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has("bypassemailvalidation")) {
+            this.logger.log("Bypass Email Validation Enabled - not loading TidyContact Email");
+            return false;
+        }
+        const pageTypes = (_b = this.options.pageTypes) !== null && _b !== void 0 ? _b : [];
+        if (pageTypes.length > 0 &&
+            pageTypes.indexOf(engrid_ENGrid.getPageType()) === -1) {
+            this.logger.log("TidyContact Email is disabled on this page type");
+            return false;
+        }
+        if (!engrid_ENGrid.getField("supporter.emailAddress")) {
+            this.logger.log("E-mail Field Not Found");
+            return false;
+        }
+        if (engrid_ENGrid.getOption("NeverBounceAPI") ||
+            engrid_ENGrid.getOption("FreshAddress")) {
+            this.logger.danger("NeverBounce or FreshAddress is also enabled. Two email validators on one field is not supported, so TidyContact Email will not load.");
+            return false;
+        }
+        if (document.querySelector(TC_EMAIL_SCRIPT)) {
+            this.logger.log("TidyContact Email script already on the page (manual install). Not loading it again.");
+            return false;
+        }
+        return true;
+    }
+    loadScript() {
+        const options = this.options;
+        const relayUrl = (options.relayUrl || DEFAULT_RELAY_URL).replace(/\/+$/, "");
+        const script = document.createElement("script");
+        script.src =
+            options.scriptUrl ||
+                `${relayUrl}/embed/engrid/${options.version || DEFAULT_VERSION}/raisemore-email.js`;
+        script.setAttribute("data-raisemore-email", "");
+        script.setAttribute("data-relay-url", relayUrl);
+        script.setAttribute("data-client-key", options.clientKey);
+        // Only what the client set; everything else keeps TC Email's own defaults
+        const optional = [
+            ["timeout-ms", options.timeoutMs],
+            ["hard-block", options.hardBlock],
+            ["prefill-skip", options.prefillSkip],
+            ["en-recognition", options.enRecognition],
+        ];
+        optional.forEach(([name, value]) => {
+            if (value !== undefined && value !== null) {
+                script.setAttribute(`data-${name}`, String(value));
+            }
+        });
+        script.onload = () => {
+            engrid_ENGrid.setBodyData("tidycontact-email", "loaded");
+            this.logger.success(`Loaded ${script.src}`);
+        };
+        script.onerror = () => {
+            engrid_ENGrid.setBodyData("tidycontact-email", "error");
+            this.logger.danger(`Could not load ${script.src}. The form keeps working without email validation.`);
+        };
+        engrid_ENGrid.setBodyData("tidycontact-email", "loading");
+        document.body.appendChild(script);
     }
 }
 
@@ -27849,6 +28310,8 @@ class PreferredPaymentMethod {
 
 ;// ./node_modules/@4site/engrid-scripts/dist/index.js
  // Runs first so it can change the DOM markup before any markup dependent code fires
+
+
 
 
 
