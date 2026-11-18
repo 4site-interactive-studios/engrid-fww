@@ -17,8 +17,8 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Wednesday, November 11, 2026 @ 06:17:20 ET
- *  By: pedroluan
+ *  Date: Wednesday, November 18, 2026 @ 17:33:34 ET
+ *  By: nick
  *  ENGrid styles: v0.28.9
  *  ENGrid scripts: v0.28.9
  *
@@ -29754,11 +29754,11 @@ const options = {
     label: "Get Tickets"
   }],
   RememberMe: {
-    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
-    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country", "transaction.donationAmt", "transaction.recurrfreq"],
-    fieldClearSelectorTarget: '.your-information-header',
-    fieldClearLabel: 'Welcome Back! {Not $username}?',
-    fieldClearSelectorTargetLocation: 'rightSide',
+    remoteUrl: "https://rememberme.foodandwaterwatch.org",
+    fieldNames: ["supporter.firstName", "supporter.lastName", "supporter.emailAddress", "supporter.phoneNumber2", "supporter.address1", "supporter.city", "supporter.postcode", "supporter.region", "supporter.country"],
+    fieldClearSelectorTarget: ".your-information-header",
+    fieldClearLabel: "Welcome Back! {Not $username}?",
+    fieldClearSelectorTargetLocation: "rightSide",
     checked: true,
     encryptData: true,
     hide: true

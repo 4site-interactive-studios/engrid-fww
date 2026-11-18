@@ -43,7 +43,7 @@ const options: Options = {
     },
   ],
   RememberMe: {
-    remoteUrl: 'https://rememberme.foodandwaterwatch.org',
+    remoteUrl: "https://rememberme.foodandwaterwatch.org",
     fieldNames: [
       "supporter.firstName",
       "supporter.lastName",
@@ -54,15 +54,13 @@ const options: Options = {
       "supporter.postcode",
       "supporter.region",
       "supporter.country",
-      "transaction.donationAmt",
-      "transaction.recurrfreq"
     ],
-    fieldClearSelectorTarget: '.your-information-header',
-    fieldClearLabel: 'Welcome Back! {Not $username}?',
-    fieldClearSelectorTargetLocation: 'rightSide',
+    fieldClearSelectorTarget: ".your-information-header",
+    fieldClearLabel: "Welcome Back! {Not $username}?",
+    fieldClearSelectorTargetLocation: "rightSide",
     checked: true,
     encryptData: true,
-    hide: true
+    hide: true,
   },
   VGS: {
     "transaction.ccnumber": {
