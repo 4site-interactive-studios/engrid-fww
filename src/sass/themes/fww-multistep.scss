@@ -1086,30 +1086,19 @@
     justify-content: center !important;
   }
 
-  // Back button at the top of the section (addTopBackButton in
+  // Back button next to the step indicator (addTopBackButton in
   // donation-lightbox-form.js). The bottom back controls are hidden.
   .section-navigation__previous,
   .digital-wallets-wrapper .back-link {
     display: none !important;
   }
 
-  .section-heading-with-back {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 4px;
-
-    > h1,
-    > h2,
-    > h3,
-    > h4 {
-      margin-top: 0 !important;
-      margin-bottom: 0;
-    }
-  }
-
   .section-back-top {
-    flex: 0 0 auto;
+    position: absolute;
+    // Vertically centered on .section-count (top: -20px, 5px tall)
+    top: calc(-20px + 2.5px - 16px);
+    left: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1130,13 +1119,6 @@
     &:focus-visible {
       outline: 2px solid #000;
       outline-offset: 2px;
-    }
-
-    &.section-back-top--no-heading {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 1;
     }
   }
 

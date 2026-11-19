@@ -522,9 +522,9 @@ export default class DonationLightboxForm {
   isConsolidated() {
     return document.body.classList.contains("multistep-consolidated-form");
   }
-  // Consolidated layout: one back button at the top of the section, next to
-  // its heading. It replaces the bottom back button and the digital wallets
-  // back link, which are hidden by CSS.
+  // Consolidated layout: back button on the left of the step indicator
+  // (.section-count). It replaces the bottom back button and the digital
+  // wallets back link, which are hidden by CSS.
   addTopBackButton(section, key) {
     const button = document.createElement("button");
     button.type = "button";
@@ -539,16 +539,8 @@ export default class DonationLightboxForm {
       e.preventDefault();
       this.scrollToSection(key - 1, key);
     });
-    const heading = section.querySelector("h1, h2, h3, h4");
-    if (heading) {
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("section-heading-with-back");
-      heading.parentNode.insertBefore(wrapper, heading);
-      wrapper.append(button, heading);
-    } else {
-      button.classList.add("section-back-top--no-heading");
-      section.querySelector(".en__component").prepend(button);
-    }
+    // Same parent as .section-count, so both are positioned from the same box
+    section.querySelector(".en__component").prepend(button);
   }
   // Update section-count based on visible sections
   updateSectionCount() {

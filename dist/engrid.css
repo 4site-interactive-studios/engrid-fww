@@ -19,7 +19,7 @@
  *
  *  ENGRID PAGE TEMPLATE ASSETS
  *
- *  Date: Thursday, November 19, 2026 @ 07:37:55 ET
+ *  Date: Thursday, November 19, 2026 @ 08:02:43 ET
  *  By: pedroluan
  *  ENGrid styles: v0.28.9
  *  ENGrid scripts: v0.28.9
@@ -9346,16 +9346,6 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidat
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .digital-wallets-wrapper .back-link,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-navigation__previous{
   display:none !important;
 }
-body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back{
-  align-items:center;
-  display:flex;
-  gap:4px;
-  margin-top:4px;
-}
-body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h1,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h2,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h3,body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h4{
-  margin-bottom:0;
-  margin-top:0 !important;
-}
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top{
   align-items:center;
   background:#0000;
@@ -9364,12 +9354,15 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidat
   color:#000;
   cursor:pointer;
   display:flex;
-  flex:0 0 auto;
   height:32px;
   justify-content:center;
+  left:0;
   margin:0;
   padding:0;
+  position:absolute;
+  top:-33.5px;
   width:32px;
+  z-index:1;
 }
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top:hover{
   opacity:.6;
@@ -9377,12 +9370,6 @@ body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidat
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top:focus-visible{
   outline:2px solid #000;
   outline-offset:2px;
-}
-body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top.section-back-top--no-heading{
-  left:12px;
-  position:absolute;
-  top:12px;
-  z-index:1;
 }
 body[data-engrid-theme=fww][data-engrid-subtheme=multistep].multistep-consolidated-form .digital-wallets-wrapper{
   align-items:center !important;
@@ -10695,16 +10682,6 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidat
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .digital-wallets-wrapper .back-link,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-navigation__previous{
   display:none !important;
 }
-body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back{
-  align-items:center;
-  display:flex;
-  gap:4px;
-  margin-top:4px;
-}
-body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h1,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h2,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h3,body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-heading-with-back>h4{
-  margin-bottom:0;
-  margin-top:0 !important;
-}
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top{
   align-items:center;
   background:#0000;
@@ -10713,12 +10690,15 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidat
   color:#000;
   cursor:pointer;
   display:flex;
-  flex:0 0 auto;
   height:32px;
   justify-content:center;
+  left:0;
   margin:0;
   padding:0;
+  position:absolute;
+  top:-33.5px;
   width:32px;
+  z-index:1;
 }
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top:hover{
   opacity:.6;
@@ -10726,12 +10706,6 @@ body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidat
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top:focus-visible{
   outline:2px solid #000;
   outline-offset:2px;
-}
-body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .section-back-top.section-back-top--no-heading{
-  left:12px;
-  position:absolute;
-  top:12px;
-  z-index:1;
 }
 body[data-engrid-theme=fwa][data-engrid-subtheme=multistep].multistep-consolidated-form .digital-wallets-wrapper{
   flex-direction:row;
