@@ -499,6 +499,9 @@ export default class DonationLightboxForm {
         });
       section.querySelector(".en__component").append(sectionNavigation);
       section.querySelector(".en__component").append(sectionCount);
+      if (key > 0 && this.isConsolidated()) {
+        this.addTopBackButton(section, key);
+      }
     });
     const digitalWallets = document.querySelector(".digital-wallets-wrapper");
     if (digitalWallets) {
@@ -514,6 +517,37 @@ export default class DonationLightboxForm {
         this.scrollToSection(this.getSectionId(digitalWallets) - 1, 0);
       });
       digitalWallets.prepend(backLink);
+    }
+  }
+  isConsolidated() {
+    return document.body.classList.contains("multistep-consolidated-form");
+  }
+  // Consolidated layout: one back button at the top of the section, next to
+  // its heading. It replaces the bottom back button and the digital wallets
+  // back link, which are hidden by CSS.
+  addTopBackButton(section, key) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.classList.add("section-back-top");
+    button.setAttribute("aria-label", "Back");
+    button.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M7.214.786c.434-.434 1.138-.434 1.572 0 .433.434.433 1.137 0 1.571L4.57 6.572h10.172c.694 0 1.257.563 1.257 1.257s-.563 1.257-1.257 1.257H4.229l4.557 4.557c.433.434.433 1.137 0 1.571-.434.434-1.138.434-1.572 0L0 8 7.214.786z"/>
+        </svg>
+      `;
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.scrollToSection(key - 1, key);
+    });
+    const heading = section.querySelector("h1, h2, h3, h4");
+    if (heading) {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("section-heading-with-back");
+      heading.parentNode.insertBefore(wrapper, heading);
+      wrapper.append(button, heading);
+    } else {
+      button.classList.add("section-back-top--no-heading");
+      section.querySelector(".en__component").prepend(button);
     }
   }
   // Update section-count based on visible sections

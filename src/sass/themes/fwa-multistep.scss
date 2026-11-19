@@ -1085,12 +1085,67 @@
     justify-content: center !important;
   }
 
+  .section-navigation__previous,
+  .digital-wallets-wrapper .back-link {
+    display: none !important;
+  }
+
+  .section-heading-with-back {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+
+    > h1,
+    > h2,
+    > h3,
+    > h4 {
+      margin-top: 0 !important;
+      margin-bottom: 0;
+    }
+  }
+
+  .section-back-top {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+
+    &.section-back-top--no-heading {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 1;
+    }
+  }
+
   .digital-wallets-wrapper {
     flex-direction: row;
-    justify-content: space-between !important;
+    justify-content: center !important;
 
+    // Full width now that the back link moved to the top (matches the
+    // 296px submit button)
     #en__digitalWallet{
-      width: 260px !important;
+      width: 100% !important;
+      max-width: 296px !important;
       flex-basis: unset !important;
     }
 
