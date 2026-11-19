@@ -1085,6 +1085,13 @@
     justify-content: center !important;
   }
 
+  // Mobile (body.is-mobile is set from the lightbox's isMobile reply): raise
+  // the navigation so NEXT shows above the fold. 24px still leaves ~27px
+  // under the tallest step 1 state (Bank Account fields open).
+  &.is-mobile form.en__component > .en__component .section-navigation {
+    bottom: 24px;
+  }
+
   // Back button next to the step indicator (addTopBackButton in
   // donation-lightbox-form.js). The bottom back controls are hidden.
   .section-navigation__previous,
