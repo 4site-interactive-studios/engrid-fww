@@ -936,7 +936,7 @@
 
 &.multistep-consolidated-form {
   form.en__component > .en__component {
-    padding: 32px 20px 20px !important;
+    padding: 45px 20px 20px !important;
   
     .section-count {
       display: flex;
@@ -1082,6 +1082,11 @@
 
   .section-navigation {
     justify-content: center !important;
+  }
+
+  // Mobile: less space above the step indicator (desktop keeps 45px)
+  &.is-mobile form.en__component > .en__component {
+    padding-top: 32px !important;
   }
 
   // Mobile (body.is-mobile is set from the lightbox's isMobile reply): raise
