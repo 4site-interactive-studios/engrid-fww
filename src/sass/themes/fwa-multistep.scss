@@ -880,8 +880,7 @@
         padding: 35px 40px;
       }
       .radio-to-buttons_recurrfreq .en__field--recurrfreq {
-        top: 0;
-        margin: 13px auto;
+        margin: 0 auto;
       }
     }
   }
@@ -937,7 +936,7 @@
 
 &.multistep-consolidated-form {
   form.en__component > .en__component {
-    padding: 45px 20px 20px !important;
+    padding: 32px 20px 20px !important;
   
     .section-count {
       display: flex;
@@ -1086,10 +1085,10 @@
   }
 
   // Mobile (body.is-mobile is set from the lightbox's isMobile reply): raise
-  // the navigation so NEXT shows above the fold. 24px still leaves ~27px
-  // under the tallest step 1 state (Bank Account fields open).
+  // the navigation so NEXT shows above the fold. 15px leaves ~27px under the
+  // tallest step 1 state (Bank Account open + Google Pay / Apple Pay option).
   &.is-mobile form.en__component > .en__component .section-navigation {
-    bottom: 24px;
+    bottom: 15px;
   }
 
   // Back button next to the step indicator (addTopBackButton in
